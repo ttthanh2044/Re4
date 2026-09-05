@@ -114,15 +114,29 @@ return {
         TweenSpeed = 200,
         DynamicTween = {
             Enabled = true,
-            SwitchDistance = 300,
+            SwitchDistance = 200,
             FarSpeed = 200,
-            NearSpeed = 350,
+            NearSpeed = 450,
             FallbackSpeed = 200,
             NearStallWindow = 0.90,
             BacktrackTolerance = 18,
             RootBlockGapLimit = 90,
         },
         PlayerFollowerDistance = 200,
+        PlayerCorrection = {
+            Enabled = true,
+            RebaseGap = 9,
+            BehindTargetTolerance = 5,
+            Debounce = 0.18,
+        },
+        BypassTP = {
+            MinDistance = 3500,
+            MaxSpawnApproachDistance = 10000,
+            MinSpawnSeparation = 800,
+            MinDistanceGain = 650,
+            VerifyTimeout = 5.0,
+            VerifyStep = 0.08,
+        },
         TransitionAwareness = {
             Enabled = true,
             ExternalRelocationDistance = 200,
@@ -203,6 +217,14 @@ return {
             DamageEpsilon = 0.05,
             MinAttackWindows = 14,
         },
+    },
+
+    Berry = {
+        StepInterval = 0.12,
+        PromptCooldown = 0.55,
+        EmptyStableWindow = 0.85,
+        ArrivalRadius = 7,
+        Priority = 5,
     },
 
     Fruit = {

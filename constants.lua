@@ -1025,6 +1025,47 @@ do
     	["Soul Reaper"]={"Soul Reaper"}, ["Longma"]={"Longma"}, ["Cake Queen"]={"Cake Queen"},
       }
 
+    -- Curated from Cr4's Farm All Island data, but consumed by Re4's shared
+    -- FeatureRuntime/Target/Movement/Combat pipeline (no per-island worker loops).
+    RE4Constants.FarmIslands = {
+      [1] = {
+        {Name="Pirates",Position=CFrame.new(-2709.67944,24.5206585,2104.24585),Mobs={"Bandit"}},
+        {Name="Marine",Position=CFrame.new(-2709.67944,24.5206585,2104.24585),Mobs={"Trainee"}},
+        {Name="Jungle",Position=CFrame.new(-1600,36,150),Mobs={"Monkey","Gorilla"}},
+        {Name="Pirate Village",Position=CFrame.new(-1100,4,3850),Mobs={"Pirate","Brute"}},
+        {Name="Desert",Position=CFrame.new(1090,7,4370),Mobs={"Desert Bandit","Desert Officer"}},
+        {Name="Frozen Village",Position=CFrame.new(1200,28,-1500),Mobs={"Snow Bandit","Snowman"}},
+        {Name="Marine Fortress",Position=CFrame.new(-4500,20,4250),Mobs={"Chief Petty Officer"}},
+        {Name="Skylands Lower",Position=CFrame.new(-5000,700,-2500),Mobs={"Sky Bandit","Dark Master"}},
+        {Name="Prison",Position=CFrame.new(4875,6,735),Mobs={"Prisoner","Dangerous Prisoner"}},
+        {Name="Colosseum",Position=CFrame.new(-1500,60,-290),Mobs={"Toga Warrior","Gladiator"}},
+        {Name="Magma Village",Position=CFrame.new(-5200,8,8400),Mobs={"Military Soldier","Military Spy"}},
+        {Name="Underwater City",Position=CFrame.new(61160,5,1819),Mobs={"Fishman Warrior","Fishman Commando"}},
+        {Name="Skylands Upper",Position=CFrame.new(-7880,5545,-380),Mobs={"Shanda","Royal Squad","Royal Soldier"}},
+      },
+      [2] = {
+        {Name="Kingdom of Rose",Position=CFrame.new(-321,73,297),Mobs={"Raider","Mercenary","Swan Pirate","Factory Staff"}},
+        {Name="Green Zone",Position=CFrame.new(-2447,73,-3211),Mobs={"Marine Lieutenant","Marine Captain"}},
+        {Name="Graveyard Island",Position=CFrame.new(-9515,142,5536),Mobs={"Zombie","Vampire"}},
+        {Name="Snow Mountain",Position=CFrame.new(561,401,-5306),Mobs={"Snow Trooper","Winter Warrior"}},
+        {Name="Hot and Cold (Cold)",Position=CFrame.new(-6026,15,-5062),Mobs={"Lab Subordinate","Horned Warrior"}},
+        {Name="Hot and Cold (Hot)",Position=CFrame.new(-5478,15,-5240),Mobs={"Magma Ninja","Lava Pirate"}},
+        {Name="Cursed Ship",Position=CFrame.new(902,126,33071),Mobs={"Ship Deckhand","Ship Engineer","Ship Steward","Ship Officer"}},
+        {Name="Ice Castle",Position=CFrame.new(6137,294,-6747),Mobs={"Arctic Warrior","Snow Lurker"}},
+        {Name="Forgotten Island",Position=CFrame.new(-3043,238,-10191),Mobs={"Sea Soldier","Water Fighter"}},
+      },
+      [3] = {
+        {Name="Port Town",Position=CFrame.new(-290,44,5450),Mobs={"Pirate Millionaire","Pistol Billionaire"}},
+        {Name="Hydra Island",Position=CFrame.new(5228,604,345),Mobs={"Dragon Crew Warrior","Dragon Crew Archer","Female Islander","Giant Islander","Training Dummy"}},
+        {Name="Great Tree",Position=CFrame.new(2682,1682,-7190),Mobs={"Marine Commodore","Marine Rear Admiral"}},
+        {Name="Floating Turtle",Position=CFrame.new(-12000,331,-8500),Mobs={"Forest Pirate","Mythological Pirate","Jungle Pirate","Musketeer Pirate","Fishman Raider","Fishman Captain"}},
+        {Name="Haunted Castle",Position=CFrame.new(-9515,142,5536),Mobs={"Reborn Skeleton","Living Zombie","Demonic Soul","Posessed Mummy"}},
+        {Name="Sea of Treats",Position=CFrame.new(-1145,13,-14450),Mobs={"Peanut Scout","Peanut President","Ice Cream Commander","Cookie Crafter","Cake Guard","Baking Staff","Head Baker","Cocoa Warrior","Chocolate Bar Battler","Sweet Thief","Candy Rebel"}},
+        {Name="Tiki Outpost",Position=CFrame.new(-16200,90,-17300),Mobs={"Isle Outlaw","Island Boy","Sun-kissed Warrior","Isle Champion"}},
+        {Name="Submerged Island",Position=CFrame.new(-3200,-10,-10000),Mobs={"Reef Bandit","Coral Pirate","Sea Chanter","Ocean Prophet","High Disciple","Grand Devotee"}},
+      },
+    }
+
     RE4Constants.MasterySpots = {
     	Cake={
     	  Position=CFrame.new(-2130.80712890625,69.95634460449219,-12327.83984375),

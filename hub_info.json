@@ -11,13 +11,19 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Fast Travel Sky Lands is now transition-aware: Sky3Exit is treated as an exit route instead of a generic Sky portal, Sky Lower/Upper are separate movement zones, and unexpected map teleports cancel stale tween state before route recalculation."
+    "content": "Movement ownership, Bypass TP, Berry, ability ownership, Mastery skill capabilities and shared Auto Farm Island were consolidated around the existing Re4 runtime in v2.0.8. Player dynamic tween now switches at 200 studs: FarSpeed 200 -> NearSpeed 450, with the existing near-phase instability guard and fallback speed 200."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
+      "content": "Shared-runtime stability update: fixes stale player-follower ownership after movement arrival, refreshes active route context when a farm owner changes phase/target, and rebases long tweens on bounded server correction instead of replaying stale movement. Dynamic player tween uses SwitchDistance 200, FarSpeed 200 and NearSpeed 450; the existing near-phase backtrack/stall/divergence guard remains fail-safe to FallbackSpeed 200. Bypass TP is now a real opt-in transport stage with one arbitration path (Bypass -> Portal -> Tween) and fail-closed verification. Berry collection uses an event-driven BerryBush index with one movement owner. Ability ownership is fail-closed to explicit live/player-data/unlockables evidence and refreshes after purchases. Fruit/Gun Mastery share capability-driven skill selection, with Gun conservatively Z/X unless live/inventory data proves more skills. Auto Farm Island is added through the existing FeatureRuntime/target/movement/combat pipeline rather than per-island loops."
+    },
+    {
+      "version": "2.0.7",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.7",
       "content": "Movement/FastTravel update: adds data-driven SkyLower/SkyUpper movement zones and restores the semantic Sky3Exit role from the reference flow. Transition-sensitive portals are filtered by source/destination zone. During local tween, an externally induced map teleport cancels the active tween immediately, syncs the follower anchor to the actual player position, and performs a bounded route replan. A wrong-layer transition records a session-local route hazard and unsafe portal/target pair; a geometric detour is used on the recalculated route instead of portal spam or infinite retries. Target changes across movement zones preempt the old route. BringMob, combat, Fast Attack and UI remain unchanged."
     },
     {
