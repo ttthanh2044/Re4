@@ -3205,18 +3205,8 @@ local autoSections={}
 -- Large Items source sections are split visually by control name. This changes
 -- presentation only: routed controls still receive the exact same options/callbacks.
 local ShopSuppressedSourceSections={
-    ["fighting style · equip"]=true,
     ["weapon world 1"]=true,
     ["accessory seaevent"]=true,
-}
-local ShopCoreStyles={
-    ["Use Dark Step"]=true,["Use Electric"]=true,["Use Water Kung Fu"]=true,
-}
-local ShopSea2Styles={
-    ["Use Dragon Breath"]=true,["Use Superhuman"]=true,["Use Death Step"]=true,["Use Sharkman Karate"]=true,
-}
-local ShopSea3Styles={
-    ["Use Electric Claw"]=true,["Use Dragon Talon"]=true,["Use Godhuman"]=true,["Use Sanguine Art"]=true,
 }
 local ShopGunNames={
     ["Buy SlingShot"]=true,["Buy Musket"]=true,["Buy Dual Flintlock"]=true,["Buy Flintlock"]=true,["Buy Cannon"]=true,["Buy Kabucha"]=true,
@@ -3227,15 +3217,7 @@ local ShopPrimaryCrafts={
 local function curatedShopControlSection(sourceSection,source)
     local section=tostring(sourceSection or ""):lower()
     source=tostring(source or "")
-    if section=="fighting style · equip" then
-        if ShopCoreStyles[source] then return {Title="Fighting Styles · Fundamentals",Id="items.styles.fundamentals",Column="Left",Order=10} end
-        if ShopSea2Styles[source] then return {Title="Fighting Styles · Sea 2 Progression",Id="items.styles.sea2",Column="Right",Order=20} end
-        if ShopSea3Styles[source] then return {Title="Fighting Styles · Sea 3 Advanced",Id="items.styles.sea3",Column="Right",Order=30} end
-        -- Preserve future/unknown style controls instead of silently dropping or
-        -- attaching them to a stale visual section. Sea eligibility is still
-        -- enforced by canonical feature metadata before this routing step.
-        return {Title="Fighting Styles · Other",Id="items.styles.other",Column="Right",Order=40}
-    elseif section=="weapon world 1" then
+    if section=="weapon world 1" then
         if ShopGunNames[source] then return {Title="Weapons · Guns",Id="items.weapons.guns",Column="Right",Order=30} end
         return {Title="Weapons · Swords",Id="items.weapons.swords",Column="Left",Order=30}
     elseif section=="accessory seaevent" then

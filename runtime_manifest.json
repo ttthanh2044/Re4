@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.14",
+    "version": "2.0.15",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -50,11 +50,15 @@
       "dealer_exact_position_reused_between_flows": true,
       "island_anchor_bootstrap_only": true,
       "items_use_never_buys_unowned_style": true,
-      "no_new_scheduler_or_polling_loop": true
+      "no_new_scheduler_or_polling_loop": true,
+      "items_fighting_style_equip_section_visible": true,
+      "equip_controls_keep_shared_start_use": true,
+      "fighting_style_curated_suppression_removed": true,
+      "dealer_resolver_2_0_14_preserved": true
     },
     "scope_preservation": {
       "config.lua": true,
-      "ui.lua": true,
+      "ui.lua": false,
       "language/en.json": true,
       "language/vi.json": true,
       "language/th.json": true,
@@ -67,34 +71,34 @@
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_13": 213,
-        "to_2_0_14": 213
+        "from_2_0_14": 214,
+        "to_2_0_15": 214
       },
       "FireServer": {
-        "from_2_0_13": 16,
-        "to_2_0_14": 16
+        "from_2_0_14": 18,
+        "to_2_0_15": 18
       },
       "task.spawn": {
-        "from_2_0_13": 8,
-        "to_2_0_14": 8
-      },
-      "Stepped:Connect": {
-        "from_2_0_13": 2,
-        "to_2_0_14": 2
+        "from_2_0_14": 8,
+        "to_2_0_15": 8
       },
       "Heartbeat:Connect": {
-        "from_2_0_13": 2,
-        "to_2_0_14": 2
+        "from_2_0_14": 2,
+        "to_2_0_15": 2
+      },
+      "Stepped:Connect": {
+        "from_2_0_14": 2,
+        "to_2_0_15": 2
       },
       "requestEntrance": {
-        "from_2_0_13": 4,
-        "to_2_0_14": 4
+        "from_2_0_14": 4,
+        "to_2_0_15": 4
       }
     },
     "notes": [
-      "Static/container validation only. Dealer streaming/replication and server equip confirmation require in-game smoke testing.",
-      "No Electric/Sea1 hardcoded movement branch was added. The fix applies to every style using RE4StyleProgress dealer resolution.",
-      "If an exact live/template dealer is unavailable on a fresh session, the shared island anchor may still be used only to enter streaming range; interaction remains gated on exact dealer resolution."
+      "Static/container validation only. UI rendering requires in-game smoke testing.",
+      "2.0.15 changes only ui.lua presentation routing plus release metadata/changelog/manifest; main.lua is byte-identical to 2.0.14.",
+      "The visible Fighting Style · Equip section now directly contains the existing Use/Equip controls and therefore uses the same StartUse -> StartDealerAction -> MoveDealer flow."
     ]
   },
   "files": [
@@ -108,67 +112,78 @@
       "path": "config.lua",
       "sha256": "8a9194c790f184dbdee8e76754532a4c12c64b2212a36738e0031b5eabcf9bca",
       "bytes": 9003,
-      "lines": 287
+      "lines": 286
     },
     {
       "path": "constants.lua",
       "sha256": "1c70606ee7be8545d9121c2fde3c642f306d00383a37e0a8cd1263071dd5ece1",
       "bytes": 123608,
-      "lines": 1476
+      "lines": 1475
     },
     {
       "path": "hub_info.json",
-      "sha256": "b6c192209c39c51b2ad5816d4c5d37db6b59bdc090d6a80ba3ffca2c683315eb",
-      "bytes": 4110,
-      "lines": 55
+      "sha256": "c88fe8be19cecfc7c5405c200d5977fc375ec247ca55fd8399d0778ed495f104",
+      "bytes": 4183,
+      "lines": 61
     },
     {
       "path": "language/en.json",
       "sha256": "bc84b56d03d6da0e15a03d90023f667dcf9a3a93e86be58d5cf9e1b4ab15c866",
       "bytes": 52482,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "language/id.json",
       "sha256": "81d9666d1da02f13d1435c1b1e7830a0ca5b5bd3ac813aa878598f0740d7e581",
       "bytes": 52753,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "language/manifest.json",
       "sha256": "5ca0b0e5c6a0383ab725afbcce65f7c1071b1e7490371716e5ad827f735f0474",
       "bytes": 309,
-      "lines": 23
+      "lines": 22
     },
     {
       "path": "language/th.json",
       "sha256": "32adacfec5adbe05e3548bcc8de44facfcca2edab0c25dd7b07ae4765d6fe8ee",
       "bytes": 58815,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "language/vi.json",
       "sha256": "563433abb2996de658d05a2af2d5161677dac37e0f7fdea7bd8191a29cda06d3",
       "bytes": 60537,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "main.lua",
       "sha256": "29a5b3ee20a063292239baf917da8a5de16c90f07c16768132242c738281d62a",
       "bytes": 832131,
-      "lines": 16257
+      "lines": 16256
     },
     {
       "path": "metadata.lua",
-      "sha256": "166ff07f61603ec53c2888211dd096dae08fad64556fbc52b38fbe0492d5b655",
+      "sha256": "64a67c9102fd63226ca92538add7ecde493fad77172a39b22077a07c8d836af7",
       "bytes": 1267,
-      "lines": 44
+      "lines": 43
     },
     {
       "path": "ui.lua",
-      "sha256": "d04a8a2e5ce260c3e9f285a5780d18373295e32f69d3897b6ef3c301917b0a78",
-      "bytes": 240954,
-      "lines": 4382
+      "sha256": "78894ae9e7f773cdeeb368dedc4be31839f75bb1705edb9b780025e6ef9c8b8b",
+      "bytes": 239733,
+      "lines": 4363
     }
-  ]
+  ],
+  "update_2_0_15": {
+    "root_cause": "ui.lua suppressed the Fighting Style · Equip source section and rerouted its Use/Equip controls into curated Fighting Style sub-sections. Runtime equip logic remained in main.lua, but the expected Items section disappeared from presentation.",
+    "fix": {
+      "restore_visible_fighting_style_equip_section": true,
+      "remove_fighting_style_section_suppression": true,
+      "remove_fighting_style_curated_reroute": true,
+      "remove_dead_curated_style_tables": true,
+      "shared_start_use_and_dealer_resolver_preserved": true,
+      "main_runtime_changed": false
+    }
+  }
 }

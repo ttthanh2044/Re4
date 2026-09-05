@@ -11,9 +11,16 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Fighting Style resolver consistency update: Progression and Items → Fighting now share one canonical basic-style registry and one exact dealer resolver. Successful NPC/template dealer positions are cached per Sea/style, and Items Equip reuses the same target instead of degrading to a generic island anchor when the dealer is temporarily outside streaming range."
+    "content": "Items UI regression fix: restores the visible Fighting Style · Equip section. All Use/Equip controls continue to use the shared Fighting Style dealer resolver and transaction introduced in 2.0.14."
   },
   "changelog": [
+    {
+      "version": "2.0.15",
+      "date": "2026-09-05",
+      "changes": [
+        "Restore visible Items → Fighting Style · Equip section while retaining the shared Fighting Style dealer/equip resolver from 2.0.14."
+      ]
+    },
     {
       "version": "$current",
       "date": "$updated_at",
