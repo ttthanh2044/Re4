@@ -11,13 +11,19 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Core recovery after the game update: movement/tween ownership, BringMob ownership, target lifecycle and Fast Attack hit registration are synchronized into one stable flow."
+    "content": "Player movement tuning after the latest game update: baseline Tween Speed is now 200 with a single-owner two-phase approach and automatic fallback if the short-range 350 boost is unstable."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
+      "content": "Movement-only update: player Tween Speed baseline is 200. Long routes use a deterministic far phase at 200, then recreate exactly one tween for the final <=300 studs at 350. If runtime telemetry detects near-phase backtracking, stall, or root/block divergence, the near boost is suppressed for the session and the active route is reissued once at 200. FastTravel cost and resolver timeout use the same piecewise movement model. BringMob/combat are unchanged."
+    },
+    {
+      "version": "2.0.5",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.5",
       "content": "Restores a single active tween with bounded recovery, ownership-gated BringMob with deterministic cleanup, complete RegisterAttack/RegisterHit target payloads, refreshed native combat bridge discovery, and character/target lifecycle cleanup. Fast Attack remains one scheduler-managed stream at the canonical 0.01 rate; the obsolete Choose Attack Speed UI/config path is removed."
     },
     {

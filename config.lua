@@ -110,7 +110,18 @@ return {
     },
 
     Movement = {
-        TweenSpeed = 350,
+        -- Post-update player movement baseline. Keep this conservative; mob movement is separate.
+        TweenSpeed = 200,
+        DynamicTween = {
+            Enabled = true,
+            SwitchDistance = 300,
+            FarSpeed = 200,
+            NearSpeed = 350,
+            FallbackSpeed = 200,
+            NearStallWindow = 0.90,
+            BacktrackTolerance = 18,
+            RootBlockGapLimit = 90,
+        },
         Bring = {
             -- Conservative Bring envelope limits cross-floor/cross-room followers on compact vertical maps.
             -- Cadence, MaxMob and movement mechanics remain unchanged.
@@ -140,7 +151,8 @@ return {
             ArrivalRadius = 8,
         },
         FastTravel = {
-            TweenSpeed = 350,
+            -- Route-cost estimate must match the player tween baseline.
+            TweenSpeed = 200,
             EntranceOverhead = 0.55,
             MinTimeGain = 0.85,
             GlobalCooldown = 0,
