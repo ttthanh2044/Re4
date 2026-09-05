@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Restores Items → Fighting Style · Equip across in-server release updates by making RE4StyleProgress release-scoped instead of reusing a stale UseUI.Mounted state. Auto Quest Sea 2 is rebuilt as a monotonic End-to-End state machine: Military Detective → Key/Frozen Village door → Ice Admiral → return to Military Detective → Experienced Captain → TravelDressrosa."
+    "content": "Fighting Style ownership, Sea availability, dealer resolution and Buy/Equip actions now use one shared registry. Progress shows only unowned available styles; Items → Fighting shows only confirmed-owned styles and verifies direct equip before falling back to the shared dealer route."
   },
   "changelog": [
+    {
+      "version": "2.0.20",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.20",
+      "content": "Unifies Progress and Items Fighting Style state around one registry. Removes inferred ownership from upgrade relationships, separates Progress Buy/Learn from Items owned-only Equip/Relearn, verifies direct remote equip against the live equipped style before using the shared dealer fallback, and refreshes both Progress and Items immediately after ownership or equip changes."
+    },
     {
       "version": "2.0.19",
       "date": "2026-09-05",

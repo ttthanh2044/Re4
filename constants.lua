@@ -932,106 +932,128 @@ do
     	["Bisento V2"]=true,
     }
 
-    -- Basic Fighting Styles are normalized from the canonical GameData catalog so
-    -- Progression, Items/Equip and any future consumers cannot drift onto separate
-    -- NPC/location/remote definitions. Runtime behavior belongs in RE4StyleProgress.
+    -- Fighting Style registry is the single source of truth for Progress and Items.
+    -- Ownership probes, Sea availability, dealer identity/location and Buy/Equip
+    -- remote arguments all live in this registry; UI consumers do not own copies.
     local RE4BasicStyleCatalog = RE4Constants.FeatureMetadata and RE4Constants.FeatureMetadata.GameData and RE4Constants.FeatureMetadata.GameData.FightingStyleCatalog or {}
+    local function RE4DealerLocations(list)
+      local out={}
+      for sea,location in ipairs(list or {}) do out[sea]=location end
+      return out
+    end
     local function RE4BuildBasicStyleMeta(key)
       local source=RE4BasicStyleCatalog[key] or {}
-      local dealerLocations={}
-      for sea,location in ipairs(source.Locations or {}) do dealerLocations[sea]=location end
       return {
         CatalogKey=key,Style=source.Internal,Display=source.Name,Seas=source.Seas or {},
         CostBeli=source.Currency=="Beli" and source.Price or nil,CostFragments=source.Currency=="Fragments" and source.Price or nil,
-        Remote=source.Remote,NPC=source.NPC and {source.NPC} or {},DealerRequired=true,DealerLocations=dealerLocations,Requirements={},
+        Remote=source.Remote,OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
+        NPC=source.NPC and {source.NPC} or {},DealerLocations=RE4DealerLocations(source.Locations),Requirements={},
         DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
       }
     end
 
-    RE4Constants.StyleMeta = {
+    RE4Constants.FightingStyleRegistry = {
       DarkStep=RE4BuildBasicStyleMeta("DarkStep"),
       Electric=RE4BuildBasicStyleMeta("Electric"),
       WaterKungFu=RE4BuildBasicStyleMeta("WaterKungFu"),
       DragonBreath={
-    	Style="Dragon Breath",Display="Dragon Breath",Seas={2,3},CostFragments=1500,Remote="BlackbeardReward",RemoteArgs={"DragonClaw","2"},NPC={"Sabi"},
-    	Requirements={{Kind="Access",Label="Access Second Sea"}},
-    	DisplayRequirements={{Key="fighting_style.req.access_second_sea",Fallback="Access Second Sea"}},
+        CatalogKey="DragonBreath",Style="Dragon Breath",Display="Dragon Breath",Seas={2,3},CostFragments=1500,
+        Remote="BlackbeardReward",OwnershipArgs={"DragonClaw","1"},ActionArgs={"DragonClaw","2"},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Sabi"},DealerLocations={[2]="Kingdom of Rose · Café",[3]="Castle on the Sea"},
+        Requirements={{Kind="Access",Label="Access Second Sea"}},
+        DisplayRequirements={{Key="fighting_style.req.access_second_sea",Fallback="Access Second Sea"}},
       },
       Superhuman={
-    	Style="Superhuman",Display="Superhuman",Seas={2,3},CostBeli=3000000,Remote="BuySuperhuman",NPC={"Martial Arts Master"},
-    	Requirements={{Kind="Mastery",Style="DarkStep",Target=300},{Kind="Mastery",Style="Electric",Target=300},{Kind="Mastery",Style="WaterKungFu",Target=300},{Kind="Mastery",Style="DragonBreath",Target=300}},
-    	DisplayRequirements={
-    	  {Key="fighting_style.req.dark_step_300",Fallback="Dark Step Mastery >= 300"},
-    	  {Key="fighting_style.req.electric_300",Fallback="Electric Mastery >= 300"},
-    	  {Key="fighting_style.req.water_kung_fu_300",Fallback="Water Kung Fu Mastery >= 300"},
-    	  {Key="fighting_style.req.dragon_breath_300",Fallback="Dragon Breath Mastery >= 300"},
-    	},
+        CatalogKey="Superhuman",Style="Superhuman",Display="Superhuman",Seas={2,3},CostBeli=3000000,
+        Remote="BuySuperhuman",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Martial Arts Master"},DealerLocations={[2]="Snow Mountain",[3]="Castle on the Sea"},
+        Requirements={{Kind="Mastery",Style="DarkStep",Target=300},{Kind="Mastery",Style="Electric",Target=300},{Kind="Mastery",Style="WaterKungFu",Target=300},{Kind="Mastery",Style="DragonBreath",Target=300}},
+        DisplayRequirements={
+          {Key="fighting_style.req.dark_step_300",Fallback="Dark Step Mastery >= 300"},
+          {Key="fighting_style.req.electric_300",Fallback="Electric Mastery >= 300"},
+          {Key="fighting_style.req.water_kung_fu_300",Fallback="Water Kung Fu Mastery >= 300"},
+          {Key="fighting_style.req.dragon_breath_300",Fallback="Dragon Breath Mastery >= 300"},
+        },
       },
       DeathStep={
-    	Style="Death Step",Display="Death Step",Seas={2,3},CostBeli=2500000,CostFragments=5000,Remote="BuyDeathStep",NPC={"Phoeyu, the Reformed","Phoeyu"},
-    	Requirements={{Kind="Mastery",Style="DarkStep",Target=400},{Kind="Item",Name="Library Key",Label="Library Key · Awakened Ice Admiral"},{Kind="Library",Label="Ice Castle Library Door"}},
-    	DisplayRequirements={
-    	  {Key="fighting_style.req.dark_step_400",Fallback="Dark Step Mastery >= 400"},
-    	  {Key="fighting_style.req.library_key",Fallback="Library Key"},
-    	  {LabelKey="fighting_style.library_key",Label="Library Key",Key="fighting_style.req.library_key_drop",Fallback="Drop from Awakened Ice Admiral"},
-    	  {Key="fighting_style.req.library_open",Fallback="Open the Library door at Ice Castle"},
-    	},
+        CatalogKey="DeathStep",Style="Death Step",Display="Death Step",Seas={2,3},CostBeli=2500000,CostFragments=5000,
+        Remote="BuyDeathStep",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Phoeyu, the Reformed","Phoeyu"},DealerLocations={[2]="Ice Castle",[3]="Castle on the Sea"},
+        Requirements={{Kind="Mastery",Style="DarkStep",Target=400},{Kind="Item",Name="Library Key",Label="Library Key · Awakened Ice Admiral"},{Kind="Library",Label="Ice Castle Library Door"}},
+        DisplayRequirements={
+          {Key="fighting_style.req.dark_step_400",Fallback="Dark Step Mastery >= 400"},
+          {Key="fighting_style.req.library_key",Fallback="Library Key"},
+          {LabelKey="fighting_style.library_key",Label="Library Key",Key="fighting_style.req.library_key_drop",Fallback="Drop from Awakened Ice Admiral"},
+          {Key="fighting_style.req.library_open",Fallback="Open the Library door at Ice Castle"},
+        },
       },
       ElectricClaw={
-    	Style="Electric Claw",Display="Electric Claw",Seas={3},CostBeli=3000000,CostFragments=5000,Remote="BuyElectricClaw",NPC={"Previous Hero"},
-    	Requirements={{Kind="Mastery",Style="Electric",Target=400},{Kind="Quest",Label="Previous Hero → Mansion in ≤ 30s"}},
-    	DisplayRequirements={
-    	  {Key="fighting_style.req.electric_400",Fallback="Electric Mastery >= 400"},
-    	  {Key="fighting_style.req.previous_hero",Fallback="Complete Previous Hero quest"},
-    	  {LabelKey="fighting_style.quest",Label="Quest",Key="fighting_style.req.previous_hero_route",Fallback="Travel from Previous Hero to Mansion in <= 30 seconds"},
-    	},
+        CatalogKey="ElectricClaw",Style="Electric Claw",Display="Electric Claw",Seas={3},CostBeli=3000000,CostFragments=5000,
+        Remote="BuyElectricClaw",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Previous Hero"},DealerLocations={[3]="Floating Turtle"},
+        Requirements={{Kind="Mastery",Style="Electric",Target=400},{Kind="Quest",Label="Previous Hero → Mansion in ≤ 30s"}},
+        DisplayRequirements={
+          {Key="fighting_style.req.electric_400",Fallback="Electric Mastery >= 400"},
+          {Key="fighting_style.req.previous_hero",Fallback="Complete Previous Hero quest"},
+          {LabelKey="fighting_style.quest",Label="Quest",Key="fighting_style.req.previous_hero_route",Fallback="Travel from Previous Hero to Mansion in <= 30 seconds"},
+        },
       },
       Sharkman={
-    	Style="Sharkman Karate",Display="Sharkman Karate",Seas={2,3},CostBeli=2500000,CostFragments=5000,Remote="BuySharkmanKarate",NPC={"Sharkman Teacher","Daigrock, the Sharkman","Daigrock"},
-    	Requirements={{Kind="Mastery",Style="WaterKungFu",Target=400},{Kind="Item",Name="Water Key",Label="Water Key · Tide Keeper"},{Kind="Dealer",Label="Give Water Key to Sharkman Teacher"}},
-    	DisplayRequirements={
-    	  {Key="fighting_style.req.water_kung_fu_400",Fallback="Water Kung Fu Mastery >= 400"},
-    	  {Key="fighting_style.req.water_key",Fallback="Water Key"},
-    	  {LabelKey="fighting_style.water_key",Label="Water Key",Key="fighting_style.req.water_key_drop",Fallback="Drop from Tide Keeper"},
-    	  {Key="fighting_style.req.water_key_give",Fallback="Give Water Key to Sharkman Teacher"},
-    	},
+        CatalogKey="Sharkman",Style="Sharkman Karate",Display="Sharkman Karate",Seas={2,3},CostBeli=2500000,CostFragments=5000,
+        Remote="BuySharkmanKarate",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Sharkman Teacher","Daigrock, the Sharkman","Daigrock"},DealerLocations={[2]="Forgotten Island",[3]="Castle on the Sea"},
+        Requirements={{Kind="Mastery",Style="WaterKungFu",Target=400},{Kind="Item",Name="Water Key",Label="Water Key · Tide Keeper"},{Kind="Dealer",Label="Give Water Key to Sharkman Teacher"}},
+        DisplayRequirements={
+          {Key="fighting_style.req.water_kung_fu_400",Fallback="Water Kung Fu Mastery >= 400"},
+          {Key="fighting_style.req.water_key",Fallback="Water Key"},
+          {LabelKey="fighting_style.water_key",Label="Water Key",Key="fighting_style.req.water_key_drop",Fallback="Drop from Tide Keeper"},
+          {Key="fighting_style.req.water_key_give",Fallback="Give Water Key to Sharkman Teacher"},
+        },
       },
       DragonTalon={
-    	Style="Dragon Talon",Display="Dragon Talon",Seas={3},CostBeli=3000000,CostFragments=5000,Remote="BuyDragonTalon",NPC={"Uzoth"},
-    	Requirements={{Kind="Mastery",Style="DragonBreath",Target=400},{Kind="Item",Name="Fire Essence",Label="Fire Essence · Death King/Bones"},{Kind="Dealer",Label="Give Fire Essence to Uzoth"}},
-    	DisplayRequirements={
-    	  {Key="fighting_style.req.dragon_breath_400",Fallback="Dragon Breath Mastery >= 400"},
-    	  {Key="fighting_style.req.fire_essence",Fallback="Fire Essence"},
-    	  {LabelKey="fighting_style.fire_essence",Label="Fire Essence",Key="fighting_style.req.fire_essence_source",Fallback="Random reward from Death King using Bones"},
-    	  {Key="fighting_style.req.fire_essence_give",Fallback="Give Fire Essence to Uzoth"},
-    	},
+        CatalogKey="DragonTalon",Style="Dragon Talon",Display="Dragon Talon",Seas={3},CostBeli=3000000,CostFragments=5000,
+        Remote="BuyDragonTalon",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Uzoth"},DealerLocations={[3]="Hydra Island"},
+        Requirements={{Kind="Mastery",Style="DragonBreath",Target=400},{Kind="Item",Name="Fire Essence",Label="Fire Essence · Death King/Bones"},{Kind="Dealer",Label="Give Fire Essence to Uzoth"}},
+        DisplayRequirements={
+          {Key="fighting_style.req.dragon_breath_400",Fallback="Dragon Breath Mastery >= 400"},
+          {Key="fighting_style.req.fire_essence",Fallback="Fire Essence"},
+          {LabelKey="fighting_style.fire_essence",Label="Fire Essence",Key="fighting_style.req.fire_essence_source",Fallback="Random reward from Death King using Bones"},
+          {Key="fighting_style.req.fire_essence_give",Fallback="Give Fire Essence to Uzoth"},
+        },
       },
       Godhuman={
-    	Style="Godhuman",Display="Godhuman",Seas={3},CostBeli=5000000,CostFragments=5000,Remote="BuyGodhuman",NPC={"Ancient Monk"},
-    	Requirements={{Kind="Mastery",Style="Superhuman",Target=400},{Kind="Mastery",Style="DeathStep",Target=400},{Kind="Mastery",Style="ElectricClaw",Target=400},{Kind="Mastery",Style="Sharkman",Target=400},{Kind="Mastery",Style="DragonTalon",Target=400},{Kind="Material",Name="Dragon Scale",Target=10},{Kind="Material",Name="Fish Tail",Target=20},{Kind="Material",Name="Mystic Droplet",Target=10},{Kind="Material",Name="Magma Ore",Target=20}},
-    	DisplayRequirements={
-    	  {Key="fighting_style.req.superhuman_400",Fallback="Superhuman Mastery >= 400"},
-    	  {Key="fighting_style.req.death_step_400",Fallback="Death Step Mastery >= 400"},
-    	  {Key="fighting_style.req.electric_claw_400",Fallback="Electric Claw Mastery >= 400"},
-    	  {Key="fighting_style.req.sharkman_400",Fallback="Sharkman Karate Mastery >= 400"},
-    	  {Key="fighting_style.req.dragon_talon_400",Fallback="Dragon Talon Mastery >= 400"},
-    	  {Key="fighting_style.req.dragon_scales_10",Fallback="10 Dragon Scales"},
-    	  {Key="fighting_style.req.fish_tails_20",Fallback="20 Fish Tails"},
-    	  {Key="fighting_style.req.mystic_droplets_10",Fallback="10 Mystic Droplets"},
-    	  {Key="fighting_style.req.magma_ore_20",Fallback="20 Magma Ore"},
-    	},
+        CatalogKey="Godhuman",Style="Godhuman",Display="Godhuman",Seas={3},CostBeli=5000000,CostFragments=5000,
+        Remote="BuyGodhuman",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Ancient Monk"},DealerLocations={[3]="Floating Turtle"},
+        Requirements={{Kind="Mastery",Style="Superhuman",Target=400},{Kind="Mastery",Style="DeathStep",Target=400},{Kind="Mastery",Style="ElectricClaw",Target=400},{Kind="Mastery",Style="Sharkman",Target=400},{Kind="Mastery",Style="DragonTalon",Target=400},{Kind="Material",Name="Dragon Scale",Target=10},{Kind="Material",Name="Fish Tail",Target=20},{Kind="Material",Name="Mystic Droplet",Target=10},{Kind="Material",Name="Magma Ore",Target=20}},
+        DisplayRequirements={
+          {Key="fighting_style.req.superhuman_400",Fallback="Superhuman Mastery >= 400"},
+          {Key="fighting_style.req.death_step_400",Fallback="Death Step Mastery >= 400"},
+          {Key="fighting_style.req.electric_claw_400",Fallback="Electric Claw Mastery >= 400"},
+          {Key="fighting_style.req.sharkman_400",Fallback="Sharkman Karate Mastery >= 400"},
+          {Key="fighting_style.req.dragon_talon_400",Fallback="Dragon Talon Mastery >= 400"},
+          {Key="fighting_style.req.dragon_scales_10",Fallback="10 Dragon Scales"},
+          {Key="fighting_style.req.fish_tails_20",Fallback="20 Fish Tails"},
+          {Key="fighting_style.req.mystic_droplets_10",Fallback="10 Mystic Droplets"},
+          {Key="fighting_style.req.magma_ore_20",Fallback="20 Magma Ore"},
+        },
       },
       Sanguine={
-    	Style="Sanguine Art",Display="Sanguine Art",Seas={3},CostBeli=5000000,CostFragments=5000,Remote="BuySanguineArt",NPC={"Shafi"},
-    	Requirements={{Kind="Item",Name="Leviathan Heart",Label="Leviathan Heart"},{Kind="Material",Name="Dark Fragment",Target=2},{Kind="Material",Name="Demonic Wisp",Target=20},{Kind="Material",Name="Vampire Fang",Target=20}},
-    	DisplayRequirements={
-    	  {Key="fighting_style.req.leviathan_heart",Fallback="Leviathan Heart"},
-    	  {Key="fighting_style.req.dark_fragments_2",Fallback="2 Dark Fragments"},
-    	  {Key="fighting_style.req.demonic_wisps_20",Fallback="20 Demonic Wisps"},
-    	  {Key="fighting_style.req.vampire_fangs_20",Fallback="20 Vampire Fangs"},
-    	},
+        CatalogKey="Sanguine",Style="Sanguine Art",Display="Sanguine Art",Seas={3},CostBeli=5000000,CostFragments=5000,
+        Remote="BuySanguineArt",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        NPC={"Shafi"},DealerLocations={[3]="Tiki Outpost"},
+        Requirements={{Kind="Item",Name="Leviathan Heart",Label="Leviathan Heart"},{Kind="Material",Name="Dark Fragment",Target=2},{Kind="Material",Name="Demonic Wisp",Target=20},{Kind="Material",Name="Vampire Fang",Target=20}},
+        DisplayRequirements={
+          {Key="fighting_style.req.leviathan_heart",Fallback="Leviathan Heart"},
+          {Key="fighting_style.req.dark_fragments_2",Fallback="2 Dark Fragments"},
+          {Key="fighting_style.req.demonic_wisps_20",Fallback="20 Demonic Wisps"},
+          {Key="fighting_style.req.vampire_fangs_20",Fallback="20 Vampire Fangs"},
+        },
       },
     }
+    -- Compatibility alias for existing consumers; both names point to the same table.
+    RE4Constants.StyleMeta = RE4Constants.FightingStyleRegistry
 
     RE4Constants.BossAliases = {
     	["The Saw"]={"The Saw","Saw"},

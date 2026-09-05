@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.19",
+    "version": "2.0.20",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -15,11 +15,11 @@
   "runtime_architecture": {
     "movement_speed_source": "config.lua -> Movement.TweenSpeed (200)",
     "movement_entry_point": "RE4RequestMovement(destination, context) -> RE4MovementCoordinator -> RE4TravelResolver",
-    "fighting_style_data": "RE4Constants.FeatureMetadata.GameData.FightingStyleCatalog is canonical for Dark Step/Electric/Water Kung Fu; RE4Constants.StyleMeta derives runtime fields from it",
-    "fighting_style_action": "Progression Auto Get and Items Use/Equip share RE4StyleProgress.StartDealerAction -> MoveDealer -> Invoke -> ownership/equip verification",
-    "fighting_style_dealer_resolution": "live/template NPC resolver -> shared TeleportDirectory -> exact per-Sea/style cache -> island anchor only as bootstrap -> exact dealer rescan",
+    "fighting_style_data": "RE4Constants.FightingStyleRegistry is the canonical registry for all supported styles: ownership probe, Sea availability, dealer identity/location, action remote/args, acquire mode and Equip fallback policy. RE4Constants.StyleMeta is a compatibility alias to the same table.",
+    "fighting_style_action": "Progress consumes the shared registry for Not Owned -> Buy/Learn; Items consumes it for confirmed Owned -> Equip/Relearn. Items tries the registry action directly only after ownership is confirmed, verifies the live equipped style, then acquires Movement and uses the same dealer resolver as Progress only when needed.",
+    "fighting_style_dealer_resolution": "shared registry NPC/location -> live/template NPC resolver -> shared TeleportDirectory -> exact per-Sea/style cache -> island anchor only as bootstrap -> exact dealer rescan",
     "dealer_anchor_policy": "WorldTopology island anchors are never cached or treated as dealer positions",
-    "items_use_auto_buy": false,
+    "items_use_auto_buy": "false; Items rejects not_owned before any action remote or Movement acquisition",
     "bringmob": "unchanged from 2.0.13",
     "fastattack": "unchanged from 2.0.13",
     "dynamic_tween": "removed",
@@ -28,11 +28,12 @@
     "bisento_v2_confirmation": "event-driven PlayerGui upgrade-message capture + explicit inventory/live variant evidence + bounded post-kill verification",
     "bisento_v2_auto_buy_v1": false,
     "bisento_v2_auto_equip_v1": false,
-    "fighting_style_sea_source": "RE4RuntimeContext.Core.SeaNumber exported by Core and consumed by RE4StyleProgress",
-    "items_fighting_equip_visibility": "Only styles whose StyleMeta.Seas includes the authoritative current Sea are mounted; mount state itself is fresh per release/session",
+    "fighting_style_sea_source": "RE4OwnershipSea() reads RE4RuntimeContext.Core.SeaNumber as authoritative current Sea (with legacy world flags only as fallback); both ownership probes and RE4StyleProgress consume the same helper.",
+    "items_fighting_equip_visibility": "Only current-Sea styles with confirmed ownership are visible. Controls remain mounted but hidden fail-closed so a successful Progress purchase can reveal the same control during the shared ownership refresh without re-executing the hub.",
     "second_sea_access": "Level 700+ -> Military Detective -> Key -> live Frozen Village door -> Ice Admiral -> return Military Detective -> Experienced Captain -> TravelDressrosa",
     "second_sea_npc_resolution": "shared RE4TeleportDirectory exact live/template NPC target; WorldTopology island anchor is bootstrap-only while NPC is unresolved",
-    "second_sea_state_policy": "monotonic worker state; Ice Admiral Humanoid.Died/progression completion advances post-boss flow and prevents rollback to the door step"
+    "second_sea_state_policy": "monotonic worker state; Ice Admiral Humanoid.Died/progression completion advances post-boss flow and prevents rollback to the door step",
+    "dealer_required_policy": "Buy/Learn follows registry AcquireMode; Equip/Relearn is owned-only and starts movement only after direct equip is unverified/unsupported and DealerFallback is enabled."
   },
   "update_2_0_14": {
     "root_cause": [
@@ -87,7 +88,20 @@
       "second_sea_ice_admiral_died_event_owned_by_feature_token": true,
       "second_sea_old_fixed_door_cframe_removed": true,
       "second_sea_progression_data_shared": true,
-      "no_new_scheduler_or_background_task_2_0_19": true
+      "no_new_scheduler_or_background_task_2_0_19": true,
+      "fighting_style_single_registry": true,
+      "style_meta_is_registry_alias": true,
+      "style_ownership_probe_registry_driven": true,
+      "style_upgrade_inference_removed": true,
+      "items_fighting_unowned_hidden_fail_closed": true,
+      "items_use_rejects_not_owned_before_action": true,
+      "items_use_direct_equip_live_verified": true,
+      "items_use_dealer_fallback_shared_with_progress": true,
+      "items_use_movement_deferred_until_fallback": true,
+      "progress_and_items_shared_sea_source": true,
+      "progress_purchase_refreshes_items_same_session": true,
+      "buy_and_equip_modes_separated": true,
+      "no_new_scheduler_or_background_task_2_0_20": true
     },
     "scope_preservation": {
       "config.lua": true,
@@ -101,42 +115,52 @@
       "bring_core_changed": false,
       "fastattack_changed": false,
       "ui.lua": true,
-      "bisento_v2_changed": false
+      "bisento_v2_changed": false,
+      "second_sea_access_changed": false,
+      "fighting_style_scope_files_changed": [
+        "constants.lua",
+        "main.lua",
+        "ui.lua",
+        "metadata.lua",
+        "hub_info.json",
+        "runtime_manifest.json"
+      ]
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_18": 213,
-        "to_2_0_19": 213
+        "from_2_0_19": 214,
+        "to_2_0_20": 214
       },
       "FireServer": {
-        "from_2_0_18": 16,
-        "to_2_0_19": 16
+        "from_2_0_19": 18,
+        "to_2_0_20": 18
       },
       "task.spawn": {
-        "from_2_0_18": 8,
-        "to_2_0_19": 8
+        "from_2_0_19": 8,
+        "to_2_0_20": 8
       },
       "Heartbeat:Connect": {
-        "from_2_0_18": 2,
-        "to_2_0_19": 2
+        "from_2_0_19": 2,
+        "to_2_0_20": 2
       },
       "Stepped:Connect": {
-        "from_2_0_18": 2,
-        "to_2_0_19": 2
+        "from_2_0_19": 2,
+        "to_2_0_20": 2
       },
       "requestEntrance": {
-        "from_2_0_18": 4,
-        "to_2_0_19": 4
+        "from_2_0_19": 4,
+        "to_2_0_20": 4
       },
       "RE4Scheduler:Register": {
-        "from_2_0_18": 20,
-        "to_2_0_19": 20
+        "from_2_0_19": 20,
+        "to_2_0_20": 20
       }
     },
     "notes": [
-      "2.0.19 fixes a cross-release UI lifecycle bug: RE4StyleProgress no longer reuses UseUI.Mounted/UseJobs from an older build in the same server.",
-      "Auto Quest Sea 2 now models the documented post-Ice-Admiral steps instead of jumping from door/boss state directly to TravelDressrosa.",
-      "No live Roblox runtime is available in the build container; NPC streaming, remote acceptance and world teleport must still be smoke-tested in game."
+      "2.0.20 makes FightingStyleRegistry the single runtime data source for Progress and Items rather than maintaining separate ownership/action/dealer tables.",
+      "Ownership is fail-closed: no prerequisite/upgrade inference is used to make a style visible in Items; only live/inventory evidence or the style own server ownership probe can confirm it.",
+      "Direct Equip/Relearn is treated as a runtime capability attempt, not assumed from a return value. Success requires the live equipped style to change; otherwise Items falls back to the shared dealer route.",
+      "No new scheduler, Heartbeat/Stepped listener or background task was added. No live Roblox runtime is available in the build container, so remote acceptance/NPC streaming must still be smoke-tested in game."
     ]
   },
   "files": [
@@ -154,15 +178,15 @@
     },
     {
       "path": "constants.lua",
-      "sha256": "2b27ec04191c1ed7401892799b25ff8550bf1eb4121e7d742996d7f9cb56d514",
-      "bytes": 124139,
-      "lines": 1481
+      "sha256": "5a3379990cff4198f02a290829f2ac843ce98f4055da8a1190dff6b3297b9789",
+      "bytes": 126113,
+      "lines": 1503
     },
     {
       "path": "hub_info.json",
-      "sha256": "be86ad84351a68e5ba51ac49e68a43e3b3eca7a3bda2a4ef2a74b7e284c5cc4e",
-      "bytes": 6554,
-      "lines": 85
+      "sha256": "2b361d3a4747737a40425cda19c03f2976f663dcf14ec7cdf6a320bbfaf0d8a9",
+      "bytes": 6960,
+      "lines": 91
     },
     {
       "path": "language/en.json",
@@ -196,21 +220,21 @@
     },
     {
       "path": "main.lua",
-      "sha256": "3f2a78193f5c5f668c7ff95d166d2c41b54387ca5dc8924895c16e006b6697a8",
-      "bytes": 848408,
-      "lines": 16560
+      "sha256": "ab5911c46913b76f052de5ffd875d37aaee6ede033f30d7bb1d8388a584697b2",
+      "bytes": 848170,
+      "lines": 16577
     },
     {
       "path": "metadata.lua",
-      "sha256": "60b3c4478feb92d4cfaace162e7fcabcc4bd1dc1d40c7672b9a4b3442dbccbd4",
+      "sha256": "b2896410fe2ac1df142c838d235607301b3154ea1b60e89929a9ef151edf026f",
       "bytes": 1267,
       "lines": 43
     },
     {
       "path": "ui.lua",
-      "sha256": "661838d92f4555064b81a62b747952e996f85d6dbe67a6f88d9c05d1c52114a9",
-      "bytes": 239823,
-      "lines": 4364
+      "sha256": "20e393ad4fe045d19bf9866d132a9769a870479028d8e5b932c16a5845dc733d",
+      "bytes": 240194,
+      "lines": 4369
     }
   ],
   "update_2_0_15": {
@@ -288,6 +312,26 @@
       "second_sea_experienced_captain_step": true,
       "second_sea_traveldressrosa_final_step": true,
       "second_sea_monotonic_post_boss_state": true,
+      "new_scheduler_count": 0
+    }
+  },
+  "update_2_0_20": {
+    "root_cause": [
+      "Progress and Items consumed overlapping but different Fighting Style ownership/action data. RefreshStyleServer maintained its own remote list and inferred older style ownership from upgraded styles, while Items could resolve/equip through a different path than Progress.",
+      "Items mounted Sea-available styles even when ownership was not confirmed, so presentation and action gating could diverge. Equip also moved to the dealer before proving that an owned style could be relearned directly."
+    ],
+    "fix": {
+      "single_fighting_style_registry": "RE4Constants.FightingStyleRegistry",
+      "style_meta_compatibility_alias": true,
+      "ownership_probe_from_registry": true,
+      "upgrade_relationship_ownership_inference": false,
+      "progress_role": "Not Owned -> Buy/Learn -> verify ownership",
+      "items_role": "Confirmed Owned -> Equip/Relearn -> verify equipped",
+      "items_not_owned_visible": false,
+      "items_not_owned_action_allowed": false,
+      "direct_equip_policy": "owned-only; invoke registry action; require live equipped-style confirmation",
+      "dealer_fallback_policy": "acquire Movement only after direct equip is unverified; resolve the same registry dealer used by Progress",
+      "post_purchase_cross_ui_refresh": true,
       "new_scheduler_count": 0
     }
   }

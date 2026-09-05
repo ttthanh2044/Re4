@@ -2414,6 +2414,15 @@ function RE4UI:MakeWindow(options)
                     return
                 end
                 if selectable then
+                    if self._OwnershipUseOnly==true and not owned then
+                        -- Items → Fighting only exposes styles with confirmed ownership.
+                        -- The control remains mounted so a later Progress purchase can
+                        -- reveal it immediately during the shared ownership refresh.
+                        self.Disabled=true; track.Active=false; self.Value=false; self._UseJobRunning=false
+                        self:SetStatus(""); self:SetVisible(false)
+                        return
+                    end
+                    self:SetVisible(true)
                     if active then
                         self.Disabled=true; track.Active=false; self.Value=true; self._UseJobRunning=false
                         self:SetStatus("Active","good"); track.BackgroundColor3=T.Good; knob.Position=UDim2.new(1,-11,0.5,0)
@@ -2422,11 +2431,7 @@ function RE4UI:MakeWindow(options)
                         self:SetStatus("Working","running"); track.BackgroundColor3=T.Accent; knob.Position=UDim2.new(1,-11,0.5,0)
                     else
                         self.Disabled=false; track.Active=true; self.Value=false
-                        if owned then
-                            self:SetStatus("Owned","completed"); track.BackgroundColor3=T.Control; knob.Position=UDim2.new(0,11,0.5,0)
-                        else
-                            renderOwnershipStatus(self,state,false); track.BackgroundColor3=T.Control; knob.Position=UDim2.new(0,11,0.5,0)
-                        end
+                        self:SetStatus("Owned","completed"); track.BackgroundColor3=T.Control; knob.Position=UDim2.new(0,11,0.5,0)
                     end
                     return
                 end
