@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Restores Fighting Style · Equip from the canonical StyleProgress domain and rebuilds Auto Bisento V2 around the current Greybeard requirement: own Bisento V1, personally deal at least 10% of Greybeard max HP, defeat him, then verify the server upgrade notification/state."
+    "content": "Hotfixes the 2.0.16 progression bootstrap crash by replacing the undefined RE4State Bisento V2 session fields with one shared runtime state initialized before the core domain. This allows ownership refresh and the canonical Items → Fighting Style · Equip mount to complete normally while preserving the 2.0.16 Bisento V2 flow."
   },
   "changelog": [
+    {
+      "version": "2.0.17",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.17",
+      "content": "Fixes the BOOT 05 crash `attempt to index nil with BisentoV2SessionConfirmed`. Bisento V2 session confirmation/evidence now use a shared runtime state initialized before RE4InitCore, so ResolveBisentoVariant is safe during early UI ownership refresh and progression can finish mounting Fighting Style · Equip. No Movement, Combat, dealer, or Greybeard strategy behavior was otherwise changed."
+    },
     {
       "version": "2.0.16",
       "date": "2026-09-05",

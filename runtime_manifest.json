@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.16",
+    "version": "2.0.17",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -63,7 +63,11 @@
       "no_new_scheduler_or_background_task": true,
       "bisento_ambiguous_blacksmith_upgrade_not_v2_evidence": true,
       "bisento_event_watcher_token_owned": true,
-      "fighting_equip_not_shop_owned": true
+      "fighting_equip_not_shop_owned": true,
+      "bisento_runtime_state_initialized_before_core": true,
+      "bisento_no_undefined_RE4State_reference": true,
+      "resolve_bisento_safe_during_ui_ownership_refresh": true,
+      "fighting_equip_mount_still_in_progression_domain": true
     },
     "scope_preservation": {
       "config.lua": true,
@@ -79,35 +83,36 @@
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_15": 214,
-        "to_2_0_16": 214
+        "from_2_0_16": 214,
+        "to_2_0_17": 214
       },
       "FireServer": {
-        "from_2_0_15": 18,
-        "to_2_0_16": 18
+        "from_2_0_16": 18,
+        "to_2_0_17": 18
       },
       "task.spawn": {
-        "from_2_0_15": 8,
-        "to_2_0_16": 8
+        "from_2_0_16": 8,
+        "to_2_0_17": 8
       },
       "Heartbeat:Connect": {
-        "from_2_0_15": 2,
-        "to_2_0_16": 2
+        "from_2_0_16": 2,
+        "to_2_0_17": 2
       },
       "Stepped:Connect": {
-        "from_2_0_15": 2,
-        "to_2_0_16": 2
+        "from_2_0_16": 2,
+        "to_2_0_17": 2
       },
       "requestEntrance": {
-        "from_2_0_15": 4,
-        "to_2_0_16": 4
+        "from_2_0_16": 4,
+        "to_2_0_17": 4
       },
       "RE4Scheduler:Register": {
-        "from_2_0_15": 20,
-        "to_2_0_16": 20
+        "from_2_0_16": 20,
+        "to_2_0_17": 20
       }
     },
     "notes": [
+      "2.0.17 is a narrow bootstrap hotfix: it replaces the undefined RE4State Bisento V2 session fields with one outer runtime-state table shared by core ownership resolution and progression.",
       "Static/container validation only; Greybeard damage credit and Bisento upgrade are server-authoritative and require an in-game smoke test.",
       "The current public game references state the player must own Bisento and deal at least 10% damage to Greybeard; Bisento does not need to be equipped.",
       "The documented server notification is treated as authoritative session evidence because Bisento V2 keeps the Bisento name/appearance and inventory schemas may not expose an explicit V2 field."
@@ -134,9 +139,9 @@
     },
     {
       "path": "hub_info.json",
-      "sha256": "a0236fa5a5b0159cf2780b736c891842febf6b7b4f6b8f719e48276931e9727d",
-      "bytes": 4885,
-      "lines": 67
+      "sha256": "2897acc43623108410dfe233cd181332677c8fc29adf41a96bd42d2da5e7b430",
+      "bytes": 5456,
+      "lines": 73
     },
     {
       "path": "language/en.json",
@@ -170,13 +175,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "8ff0882dcdaad2ba8d0081e29ee52267beda2549b023e40b3f72e5f379280852",
-      "bytes": 840830,
-      "lines": 16405
+      "sha256": "41daeabd23100ae9b71693bbe058fa0ec4aeebc752f586d474be32f639e063f8",
+      "bytes": 840978,
+      "lines": 16406
     },
     {
       "path": "metadata.lua",
-      "sha256": "aab1278868a51e460275740afed1902be410b1216c912e8898896d0ffde43cfd",
+      "sha256": "fc8a1dfd64ea5f2abd52ab12454ba53333210f56982913b2f90629ab8a664f75",
       "bytes": 1267,
       "lines": 43
     },
@@ -216,6 +221,19 @@
       "post_kill_verification": "bounded 3.5s; at most one forced inventory probe per second",
       "ambiguous_blacksmith_upgrade_fields_used_as_v2_evidence": false,
       "explicit_variant_evidence_only": true
+    }
+  },
+  "update_2_0_17": {
+    "root_cause": "2.0.16 introduced BisentoV2SessionConfirmed/Evidence reads through RE4State, but this release architecture has no RE4State variable. ResolveBisentoVariant is called by early UI ownership refresh in the core domain, before progression initialization, causing BOOT 05 to abort with attempt to index nil.",
+    "fix": {
+      "shared_runtime_state": "RE4BisentoV2RuntimeState",
+      "initialized_before_core_domain": true,
+      "core_and_progression_share_same_state": true,
+      "undefined_RE4State_references_remaining": 0,
+      "fighting_equip_mount_logic_changed": false,
+      "movement_changed": false,
+      "combat_changed": false,
+      "bisento_strategy_changed": false
     }
   }
 }
