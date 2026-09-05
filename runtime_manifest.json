@@ -22,23 +22,26 @@
       "hub_info.json",
       "language/"
     ],
-    "movement_ownership": "RE4MovementCoordinator + RE4TravelResolver + one RE4TweenRuntime active tween; dynamic movement changes speed only by completing/cancelling one phase before creating the next",
+    "movement_ownership": "RE4MovementCoordinator + RE4TravelResolver + one RE4TweenRuntime active tween + event-driven RE4TransitionGuard; map-induced relocation cancels stale tween state before bounded route re-resolution",
     "combat_ownership": "RE4CombatTargetLock + RE4CombatPulse + one scheduler-managed RunService.Stepped FastAttack connection",
     "bring_ownership": "owner-scoped RE4BringService with network-ownership gate and deterministic restore",
     "character_lifecycle": "RE4CharacterLifecycle invalidates travel/target/bring/combat state before character rebind",
-    "main_payload_bytes": 764689,
-    "main_payload_lines": 15087
+    "main_payload_bytes": 775348,
+    "main_payload_lines": 15284
   },
   "core_recovery": {
     "reference": "Cr4Hub_base(1).lua used selectively for post-update movement/bring/hit contracts; duplicate Cr4 attack loops were intentionally not ported",
     "movement": [
-      "player tween baseline is 200 studs/s from one Movement.TweenSpeed source",
-      "dynamic route is phase-split: far segment at 200 until 300 studs remain, then one new near tween at 350",
-      "near 350 phase is runtime-guarded; backtrack, stall, or root/block divergence suppresses the boost for the session and falls back to 200",
-      "FastTravel route cost, TravelResolver timeout, and Fighting Style travel timeout use the same piecewise movement-time estimator",
-      "single active tween object; explicit cancel disconnects completion callback before cancelling the tween",
-      "target revision/preemption cancels the previous tween before recalculating the route",
-      "movement OFF/route cancel/shutdown cancel active tween and follower state"
+      "player tween baseline remains 200 studs/s; dynamic far/near phase model from 2.0.6 is unchanged",
+      "Sky Lower and Sky Upper are explicit transition-sensitive movement zones instead of both collapsing to World",
+      "the lower Sky endpoint is restored to its Sky3Exit semantic role; exit portal use requires SkyUpper source and SkyLower destination",
+      "FastTravel filters transition-sensitive portal candidates by source/destination zone before route-cost comparison",
+      "follower divergence caused by an external map teleport cancels the single active tween immediately and syncs the movement anchor to the actual player position",
+      "wrong-layer external transitions create a bounded session-local hazard and mark the responsible portal/target route unsafe",
+      "route re-resolution is event-driven and capped; learned hazards use two geometric detour waypoints rather than random delay, portal spam, or infinite retry",
+      "destination changes across movement zones preempt the old request instead of mutating a route calculated for another layer",
+      "detour segments abort on target revision so a moving destination cannot leave a stale waypoint route active",
+      "movement OFF/owner cancel/preemption/respawn continue to cancel the active tween and follower state through the existing lifecycle"
     ],
     "noclip": [
       "existing source-owned collision controller preserved",
@@ -65,7 +68,7 @@
     ]
   },
   "offline_regression": {
-    "lua_validation": "delimiter and common Luau block-balance checks passed for main.lua; no Luau compiler/runtime is installed in this environment",
+    "lua_validation": "delimiter and Luau block-balance checks passed for main.lua; no Luau VM/compiler is installed in this environment",
     "json_parse": "passed for hub_info.json and all language json files",
     "source_invariants": {
       "fast_attack_stepped_connections": 1,
@@ -79,7 +82,14 @@
       "dynamic_phase_start_definitions": 1,
       "near_boost_guard_definitions": 1,
       "movement_baseline_350_fallback_matches": 0,
-      "fighting_style_initial_div_300_matches": 0
+      "fighting_style_initial_div_300_matches": 0,
+      "transition_guard_definitions": 1,
+      "external_relocation_handler_definitions": 1,
+      "movement_zone_classifier_definitions": 1,
+      "transition_detour_planner_definitions": 1,
+      "tween_follower_heartbeat_connections": 1,
+      "sky3exit_portal_entries": 1,
+      "generic_sky2_portal_key_matches": 0
     },
     "signature_counts": {
       "InvokeServer": {
@@ -129,10 +139,19 @@
       "near_boost_fallback": "static path verified: one instability signal suppresses near boost session-wide, RE4TweenCore cancels the active near tween, and fallback uses 200",
       "dynamic_phase_handoff": "static path verified: old phase completion callback clears the old tween before synchronously creating the next phase; no overlap exists in RE4TweenRuntime",
       "destination_change": "existing TargetRevision/target-move path preserved: a material destination change reissues through RE4TweenCore, which cancels the old tween before creating the recalculated route",
-      "movement_cancel_cleanup": "static path verified: Cancel clears Tween/Target/Phase/Speed and disconnects completion callback before Tween:Cancel; follower/support cleanup remains unchanged",
-      "bring_and_combat_scope": "source regions for RE4CombatTargetLock and RE4BringService are byte-identical to 2.0.5; constants.lua/ui.lua/language files are also byte-identical"
+      "movement_cancel_cleanup": "static path preserved: Cancel clears Tween/Target/Phase/Speed, disconnects completion callback, stops follower, and clears movement demand",
+      "bring_and_combat_scope": "source regions for RE4CombatTargetLock and RE4BringService are byte-identical to 2.0.5; constants.lua/ui.lua/language files are also byte-identical",
+      "sky_zone_classification": "offline matrix passed: Lower/Middle/God Guard/Dark Master classify SkyLower; Upper/Shanda/Royal Soldier classify SkyUpper; Marine Fortress/Frozen/Colosseum remain World",
+      "sky3exit_source_gate": "offline matrix passed: Sky3Exit is rejected from World/SkyLower and accepted only from SkyUpper when target is SkyLower",
+      "sky3_entry_gate": "offline matrix passed: Sky3 is accepted for SkyUpper targets and rejected as a shortcut for World/SkyLower targets",
+      "external_map_teleport": "static lifecycle verified: follower divergence signals resolver, active tween completion callback is disconnected/cancelled by RE4TweenRuntime, block is synced to actual root, then route is recalculated",
+      "wrong_layer_transition": "static path verified: wrong-layer transition records a target-scoped hazard, marks the responsible fast-travel route unsafe, clears fast-travel evaluated/used state for alternate resolution, and caps replan count",
+      "transition_detour": "offline geometry test passed: generated two-waypoint path stays outside the learned hazard radius on all three route segments for a representative Sky route",
+      "destination_change_during_detour": "static path verified: target revision cancels the detour tween and returns control to route resolution before issuing another movement segment",
+      "destination_zone_change": "static path verified: same-owner target update across MovementZone boundaries no longer mutates the active route; it falls through to normal preemption",
+      "bring_combat_scope": "RE4CombatTargetLock, RE4BringService, and the full FastAttack bundle are byte-identical to 2.0.6; ui.lua and language files are unchanged"
     },
-    "live_verification": "not possible in this container; current Roblox server correction/anti-cheat behavior at 350 studs/s still requires in-client smoke testing. Runtime guard automatically falls back to 200 on observable near-phase instability."
+    "live_verification": "Roblox runtime is unavailable in this container. Exact cloud trigger bounds and server teleport behavior cannot be certified offline; 2.0.7 therefore uses topology semantics plus runtime-observed relocation instead of claiming a fixed trigger CFrame."
   },
   "files": [
     {
@@ -143,21 +162,21 @@
     },
     {
       "path": "config.lua",
-      "sha256": "33304a1e8a261b1a1b35410235f4669f7170857a9db36d18fd74b9eae8830142",
-      "bytes": 7288,
-      "lines": 244
+      "sha256": "3c6e8638242ea201e435c6a903f1bda24c4c350f4d37dff41afe0f541a15e572",
+      "bytes": 7608,
+      "lines": 254
     },
     {
       "path": "constants.lua",
-      "sha256": "4afe8d4846a030c3cbe3df4d655fbc9302359e2bf1f4d1afecd225c0df2f9f54",
-      "bytes": 116140,
-      "lines": 1390
+      "sha256": "6a789acc80c60b909084260a523ff2a6c4158820929673d4c8f8a1662ebe789a",
+      "bytes": 116784,
+      "lines": 1402
     },
     {
       "path": "hub_info.json",
-      "sha256": "6eed3c084afd187f77d6692300bf40c8ecda1ce951d40cd13124722f26b5ac1d",
-      "bytes": 3657,
-      "lines": 54
+      "sha256": "2d83e37cda873083427766edb0e2c00310793bda3c9bb24eed446799b2ecdca7",
+      "bytes": 4535,
+      "lines": 60
     },
     {
       "path": "language/en.json",
@@ -191,13 +210,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "ece89f0ef46952c137f774210b26b8f639fc501eacd5d549126b693d2e6a4cb2",
-      "bytes": 764689,
-      "lines": 15087
+      "sha256": "b76805e03ccb543b7d61d278b1d44673c485eacb3ba989639f8c1d8cd02afa3d",
+      "bytes": 775348,
+      "lines": 15284
     },
     {
       "path": "metadata.lua",
-      "sha256": "280b73995141b41cd2b688227f40e4014b35e9fdf921ea947ee82d687e1d9f45",
+      "sha256": "f9b5516766113973200ea6dd0fd37ceaadb8d04b2350c0945b4a6073d08200eb",
       "bytes": 1266,
       "lines": 43
     },
@@ -226,5 +245,24 @@
       "guard_effect": "cancel current near tween through the single runtime, suppress near boost for the rest of the session, and reissue the current route once at fallback speed"
     },
     "live_validation_note": "350 cannot be certified from this offline container. It is treated as a short-range candidate and automatically disabled if observable movement instability occurs. 200 remains the only assumed stable baseline."
+  },
+  "movement_update_2_0_7": {
+    "scope": "player movement/FastTravel topology only; BringMob, mob movement, combat, Fast Attack and UI are unchanged",
+    "root_cause": [
+      "2.0.6 classified all normal Sky layers as World, so route ownership had no layer identity after a map-triggered teleport",
+      "the -4607/874/-1667 entrance was stored as generic Sky2 even though the reference flow identifies the endpoint as Sky3Exit",
+      "the follower resynced block after a large root jump but did not invalidate the tween that was still interpolating toward the stale pre-transition route"
+    ],
+    "solution": [
+      "data-driven SkyLower/SkyUpper movement zones",
+      "source/destination semantics for transition portals",
+      "event-driven external relocation cancellation and bounded route re-resolution",
+      "session-local hazard learning and geometric detour for a repeated wrong-layer segment",
+      "zone-aware target preemption"
+    ],
+    "no_random_delay": true,
+    "no_infinite_retry": true,
+    "max_transition_replans_per_request": 2,
+    "runtime_note": "Exact trigger geometry is learned only when the game actually relocates the player; no single cloud coordinate is hardcoded into movement logic."
   }
 }

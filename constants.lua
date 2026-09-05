@@ -1206,10 +1206,22 @@ do
     	  {Name="Submerged Island",Target=CFrame.new(10780.639648,-2088.414062,9260.453125),Region="Submerged"},
     	},
       }
+      T.MovementZoneOrder = {"SkyUpper","SkyLower"}
+      T.MovementZones = {
+        SkyUpper = {
+          Key="SkyUpper", Sea=1, TransitionSensitive=true,
+          Detector={Center=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047),RadiusXZ=2600,MinY=3000,MaxY=8000},
+        },
+        SkyLower = {
+          Key="SkyLower", Sea=1, TransitionSensitive=true,
+          Detector={Center=Vector3.new(-4738.4626464844,800,-2167.2875976563),RadiusXZ=2800,MinY=150,MaxY=1800},
+        },
+      }
+
       T.Portals = {
     	[1] = {
-    	  {Key="Sky2",Aliases={"Skylands · Middle","Sky Island 2","Sky2","Lower Sky"},RemotePos=Vector3.new(-4607.82275,872.54248,-1667.55688)},
-    	  {Key="Sky3",Aliases={"Skylands · Upper","Sky Island 3","Sky3","Upper Sky"},RemotePos=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047)},
+    	  {Key="Sky3Exit",Aliases={"Skylands · Middle","Sky Island 2","Sky2","Lower Sky","Sky3Exit"},RemotePos=Vector3.new(-4607.82275,872.54248,-1667.55688),SourceZone="SkyUpper",DestinationZone="SkyLower",TransitionRole="Exit"},
+    	  {Key="Sky3",Aliases={"Skylands · Upper","Sky Island 3","Sky3","Upper Sky"},RemotePos=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047),DestinationZone="SkyUpper",TransitionRole="Enter"},
     	  {Key="UnderWater",Aliases={"Underwater City","Under Water Island","UnderWater","Fishman Island"},RemotePos=Vector3.new(61163.8515625,11.6796875,1819.7841796875)},
     	  {Key="UnderwaterExit",Aliases={"Underwater Exit"},RemotePos=Vector3.new(3864.8515625,6.6796875,-1926.7841796875)},
     	},

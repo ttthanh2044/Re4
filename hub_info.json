@@ -11,13 +11,19 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Player movement tuning after the latest game update: baseline Tween Speed is now 200 with a single-owner two-phase approach and automatic fallback if the short-range 350 boost is unstable."
+    "content": "Fast Travel Sky Lands is now transition-aware: Sky3Exit is treated as an exit route instead of a generic Sky portal, Sky Lower/Upper are separate movement zones, and unexpected map teleports cancel stale tween state before route recalculation."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
+      "content": "Movement/FastTravel update: adds data-driven SkyLower/SkyUpper movement zones and restores the semantic Sky3Exit role from the reference flow. Transition-sensitive portals are filtered by source/destination zone. During local tween, an externally induced map teleport cancels the active tween immediately, syncs the follower anchor to the actual player position, and performs a bounded route replan. A wrong-layer transition records a session-local route hazard and unsafe portal/target pair; a geometric detour is used on the recalculated route instead of portal spam or infinite retries. Target changes across movement zones preempt the old route. BringMob, combat, Fast Attack and UI remain unchanged."
+    },
+    {
+      "version": "2.0.6",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.6",
       "content": "Movement-only update: player Tween Speed baseline is 200. Long routes use a deterministic far phase at 200, then recreate exactly one tween for the final <=300 studs at 350. If runtime telemetry detects near-phase backtracking, stall, or root/block divergence, the near boost is suppressed for the session and the active route is reissued once at 200. FastTravel cost and resolver timeout use the same piecewise movement model. BringMob/combat are unchanged."
     },
     {

@@ -122,6 +122,16 @@ return {
             BacktrackTolerance = 18,
             RootBlockGapLimit = 90,
         },
+        PlayerFollowerDistance = 200,
+        TransitionAwareness = {
+            Enabled = true,
+            ExternalRelocationDistance = 200,
+            EventDebounce = 0.20,
+            HazardRadius = 160,
+            HazardMargin = 100,
+            MaxHazards = 12,
+            MaxReplansPerRequest = 2,
+        },
         Bring = {
             -- Conservative Bring envelope limits cross-floor/cross-room followers on compact vertical maps.
             -- Cadence, MaxMob and movement mechanics remain unchanged.
