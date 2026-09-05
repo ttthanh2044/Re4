@@ -11,56 +11,26 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Movement ownership, Bypass TP, Berry, ability ownership, Mastery skill capabilities and shared Auto Farm Island were consolidated around the existing Re4 runtime in v2.0.8. Player dynamic tween now switches at 200 studs: FarSpeed 200 -> NearSpeed 450, with the existing near-phase instability guard and fallback speed 200."
+    "content": "Movement routing was consolidated around a fixed player Tween Speed of 200. Portal Fast Travel is evaluated before Bypass TP by route cost, Bypass TP defaults ON, and noclip now follows route/transport lifecycle instead of the presence of a local tween."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
-      "content": "Shared-runtime stability update: fixes stale player-follower ownership after movement arrival, refreshes active route context when a farm owner changes phase/target, and rebases long tweens on bounded server correction instead of replaying stale movement. Dynamic player tween uses SwitchDistance 200, FarSpeed 200 and NearSpeed 450; the existing near-phase backtrack/stall/divergence guard remains fail-safe to FallbackSpeed 200. Bypass TP is now a real opt-in transport stage with one arbitration path (Bypass -> Portal -> Tween) and fail-closed verification. Berry collection uses an event-driven BerryBush index with one movement owner. Ability ownership is fail-closed to explicit live/player-data/unlockables evidence and refreshes after purchases. Fruit/Gun Mastery share capability-driven skill selection, with Gun conservatively Z/X unless live/inventory data proves more skills. Auto Farm Island is added through the existing FeatureRuntime/target/movement/combat pipeline rather than per-island loops."
+      "content": "Unified Movement Routing Engine: removes the retired variable-speed tween path and uses one fixed-speed player tween source (200). Route planning evaluates Sea/Region/Zone, direct travel cost and data-driven portal service metadata; a worthwhile Portal route has priority, otherwise Bypass TP may be used when enabled/allowed, otherwise movement falls back to direct Tween. Portal and Bypass are mutually exclusive within one route decision. Bypass TP defaults ON and UI/runtime share the same session state. Noclip is leased by active route/transport state and is re-asserted after character/root replacement; the follower writes player position only while a local tween is actually active. Portal/Bypass verification is cancellation/revision aware so stale transport results cannot resume an old destination. Sky Lower/Middle/Upper, special regions and all Sea portal candidates use shared topology metadata rather than per-feature routing branches."
+    },
+    {
+      "version": "2.0.8",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.8",
+      "content": "Shared-runtime stability update: fixed stale follower ownership after arrival, refreshed route context across farm phases, rebased bounded server correction from the actual player position, added Bypass TP transport support, event-driven Berry collection, fail-closed ability ownership, capability-driven Mastery skill selection and shared Auto Farm Island."
     },
     {
       "version": "2.0.7",
       "date": "2026-09-05",
       "title": "Re4Hub v2.0.7",
-      "content": "Movement/FastTravel update: adds data-driven SkyLower/SkyUpper movement zones and restores the semantic Sky3Exit role from the reference flow. Transition-sensitive portals are filtered by source/destination zone. During local tween, an externally induced map teleport cancels the active tween immediately, syncs the follower anchor to the actual player position, and performs a bounded route replan. A wrong-layer transition records a session-local route hazard and unsafe portal/target pair; a geometric detour is used on the recalculated route instead of portal spam or infinite retries. Target changes across movement zones preempt the old route. BringMob, combat, Fast Attack and UI remain unchanged."
-    },
-    {
-      "version": "2.0.6",
-      "date": "2026-09-05",
-      "title": "Re4Hub v2.0.6",
-      "content": "Movement-only update: player Tween Speed baseline is 200. Long routes use a deterministic far phase at 200, then recreate exactly one tween for the final <=300 studs at 350. If runtime telemetry detects near-phase backtracking, stall, or root/block divergence, the near boost is suppressed for the session and the active route is reissued once at 200. FastTravel cost and resolver timeout use the same piecewise movement model. BringMob/combat are unchanged."
-    },
-    {
-      "version": "2.0.5",
-      "date": "2026-09-05",
-      "title": "Re4Hub v2.0.5",
-      "content": "Restores a single active tween with bounded recovery, ownership-gated BringMob with deterministic cleanup, complete RegisterAttack/RegisterHit target payloads, refreshed native combat bridge discovery, and character/target lifecycle cleanup. Fast Attack remains one scheduler-managed stream at the canonical 0.01 rate; the obsolete Choose Attack Speed UI/config path is removed."
-    },
-    {
-      "version": "2.0.3",
-      "date": "2026-09-03",
-      "title": "Re4Hub v2.0.3",
-      "content": "Consolidated the runtime into one physical main.lua with initializer-function compilation boundaries, RuntimeContext cross-domain exports, early bootstrap diagnostics and capability-gated optional executor hooks."
-    },
-    {
-      "version": "2.0.2",
-      "date": "2026-09-03",
-      "title": "Re4Hub v2.0.2",
-      "content": "Fixes silent detached ScreenGui creation by removing protected-host Parent write probes, adds ordered gethui/PlayerGui/CoreGui mounting fallback, bounds native PlayerGui/Main readiness, rolls back failed bootstrap session flags, includes current Re4Hub casing in stale-shell cleanup, and isolates the UI cache to the 2.0.2 release generation. Gameplay feature logic is unchanged."
-    },
-    {
-      "version": "2.0.1",
-      "date": "2026-09-02",
-      "title": "Re4Hub v2.0.1",
-      "content": "Gun Mastery now has one owner-scoped M1 producer and uses the same normal ShootGunEvent contract as the current combat module. Fruit/Gun skills read independent live UI configuration, cast at most one ready skill per scheduler pass, and stop on Mastery OFF/switch. Fruit readiness no longer fails solely because optional inventory mastery metadata is absent when the live unlocked skill UI is available. Raid Fruit-chip purchase remains unchanged."
-    },
-    {
-      "version": "2.0.0",
-      "date": "2026-09-02",
-      "title": "Re4Hub v2.0.0",
-      "content": "Raid Fruit-chip purchase is restored to the Re4.zip LoadFruit -> RaidsNpc/Select path with its original <=490,000 Fruit filter. Fruit/Gun Mastery returns to the original weaken-then-finish flow; obsolete Gun/Fruit skill state machines are removed, while stateless unlock/cooldown gates protect Z/X/C/V/F Fruit skills and Z/X Gun skills. Sword Mastery remains unchanged. Auto Raid no longer routes mobs through normal Attack.Kill: the Raid-owned Kill Aura handles indexed Raid mobs across Islands 1-5 from one lifecycle and cleans up on Raid end/cancel."
+      "content": "Added SkyLower/SkyUpper transition awareness, bounded external-relocation replan and route-hazard handling so map-trigger teleports do not leave stale tween state."
     }
   ]
 }

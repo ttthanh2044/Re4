@@ -1118,7 +1118,7 @@ do
       T.Regions = {
     	World = {Key="World"},
     	UnderwaterCity = {
-    	  Key="UnderwaterCity", Sea=1,
+    	  Key="UnderwaterCity", BypassAllowed=false, Sea=1,
     	  TargetDetector={Center=Vector3.new(61163.8515625,11.6796875,1819.7841796875),Radius3D=6500},
     	  CurrentDetector={Center=Vector3.new(61163.8515625,11.6796875,1819.7841796875),Radius3D=7500},
     	  Entrance={Mode="Portal",Destination=Vector3.new(61163.8515625,11.6796875,1819.7841796875)},
@@ -1126,7 +1126,7 @@ do
     	  Exit={Mode="Portal",Destination=Vector3.new(3864.8515625,6.6796875,-1926.7841796875)},
     	},
     	CursedShip = {
-    	  Key="CursedShip", Sea=2,
+    	  Key="CursedShip", BypassAllowed=false, Sea=2,
     	  TargetDetector={Center=Vector3.new(923.21252441406,126.9760055542,32852.83203125),Radius3D=6500},
     	  CurrentDetector={Center=Vector3.new(923.21252441406,126.9760055542,32852.83203125),Radius3D=7500},
     	  Entrance={Mode="Portal",Destination=Vector3.new(923.21252441406,126.9760055542,32852.83203125)},
@@ -1134,7 +1134,7 @@ do
     	  Exit={Mode="FastTravel"},
     	},
     	TempleOfTime = {
-    	  Key="TempleOfTime", Sea=3,
+    	  Key="TempleOfTime", BypassAllowed=false, Sea=3,
     	  TargetDetector={Center=Vector3.new(28611.2988,14896.1572,105.400009),Radius3D=6500},
     	  CurrentDetector={Center=Vector3.new(28611.2988,14896.1572,105.400009),Radius3D=7500},
     
@@ -1178,7 +1178,7 @@ do
     	  },
     	},
     	Submerged = {
-    	  Key="Submerged", Sea=3,
+    	  Key="Submerged", BypassAllowed=false, Sea=3,
     	  TargetDetector={Center=Vector3.new(10780.639648,-2088.414062,9260.453125),RadiusXZ=3400,MaxY=-900},
     
     	  CurrentDetector={Center=Vector3.new(10780.639648,-2088.414062,9260.453125),RadiusXZ=3400,MaxY=800},
@@ -1204,12 +1204,12 @@ do
     	  {Name="Frozen Village",Target=CFrame.new(1347.8067626953,104.66806030273,-1319.7370605469)},
     	  {Name="Marine Fortress",Target=CFrame.new(-4914.8212890625,50.963626861572,4281.0278320313)},
     	  {Name="Colosseum",Target=CFrame.new(-1427.6203613281,7.2881078720093,-2792.7722167969)},
-    	  {Name="Skylands · Lower",Target=CFrame.new(-4869.1025390625,733.46051025391,-2667.0180664063)},
-    	  {Name="Skylands · Middle",Target=CFrame.new(-4607.82275,872.54248,-1667.55688),TravelMode="Portal",PortalDestination=Vector3.new(-4607.82275,872.54248,-1667.55688)},
-    	  {Name="Skylands · Upper",Target=CFrame.new(-7894.6176757813,5547.1416015625,-380.29119873047),TravelMode="Portal",PortalDestination=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047)},
+    	  {Name="Skylands · Lower",Target=CFrame.new(-4869.1025390625,733.46051025391,-2667.0180664063),BypassAllowed=false},
+    	  {Name="Skylands · Middle",Target=CFrame.new(-4607.82275,872.54248,-1667.55688),TravelMode="Portal",PortalDestination=Vector3.new(-4607.82275,872.54248,-1667.55688),BypassAllowed=false},
+    	  {Name="Skylands · Upper",Target=CFrame.new(-7894.6176757813,5547.1416015625,-380.29119873047),TravelMode="Portal",PortalDestination=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047),BypassAllowed=false},
     	  {Name="Prison",Target=CFrame.new(4875.330078125,5.6519818305969,734.85021972656)},
     	  {Name="Magma Village",Target=CFrame.new(-5247.7163085938,12.883934020996,8504.96875)},
-    	  {Name="Underwater City",Target=CFrame.new(61163.8515625,11.6796875,1819.7841796875),Region="UnderwaterCity"},
+    	  {Name="Underwater City",Target=CFrame.new(61163.8515625,11.6796875,1819.7841796875),Region="UnderwaterCity",BypassAllowed=false},
     	  {Name="Fountain City",Target=CFrame.new(5127.1284179688,59.501365661621,4105.4458007813)},
     	},
     	[2] = {
@@ -1224,14 +1224,14 @@ do
     	  {Name="Graveyard",Target=CFrame.new(-5622.033203125,492.19604492188,-781.78552246094)},
     	  {Name="Snow Mountain",Target=CFrame.new(753.14288330078,408.23559570313,-5274.6147460938)},
     	  {Name="Hot and Cold",Target=CFrame.new(-6127.654296875,15.951762199402,-5040.2861328125)},
-    	  {Name="Cursed Ship",Target=CFrame.new(923.40197753906,125.05712890625,32885.875),Region="CursedShip"},
+    	  {Name="Cursed Ship",Target=CFrame.new(923.40197753906,125.05712890625,32885.875),Region="CursedShip",BypassAllowed=false},
     	  {Name="Ice Castle",Target=CFrame.new(6148.4116210938,294.38687133789,-6741.1166992188)},
     	  {Name="Forgotten Island",Target=CFrame.new(-3032.7641601563,317.89672851563,-10075.373046875)},
     	  {Name="Usoap's Island",Target=CFrame.new(4816.8618164063,8.4599885940552,2863.8195800781)},
     	  {Name="Mini Sky Island",Target=CFrame.new(-288.74060058594,49326.31640625,-35248.59375)},
     	},
     	[3] = {
-    	  {Name="Mansion",Target=CFrame.new(-12471.169921875,374.94024658203,-7551.677734375),TravelMode="Portal",PortalDestination=Vector3.new(-12471.169921875,374.94024658203,-7551.677734375)},
+    	  {Name="Mansion",Target=CFrame.new(-12471.169921875,374.94024658203,-7551.677734375),TravelMode="Portal",PortalDestination=Vector3.new(-12471.169921875,374.94024658203,-7551.677734375),BypassAllowed=false},
     	  {Name="Port Town",Target=CFrame.new(-290.7376708984375,6.729952812194824,5343.5537109375)},
     	  {Name="Great Tree",Target=T.Regions.TempleOfTime.Entrance.Approach,RuntimeNPC="Mysterious Force",ExactTarget=true},
     	  {Name="Castle on the Sea",Target=CFrame.new(-5074.45556640625,314.5155334472656,-2991.054443359375)},
@@ -1244,42 +1244,40 @@ do
     	  {Name="Cocoa Island",Target=CFrame.new(87.94276428222656,73.55451202392578,-12319.46484375)},
     	  {Name="Candy Island",Target=CFrame.new(-1014.4241943359375,149.11068725585938,-14555.962890625)},
     	  {Name="Tiki Outpost",Target=CFrame.new(-16218.6826,9.08636189,445.618408)},
-    	  {Name="Submerged Island",Target=CFrame.new(10780.639648,-2088.414062,9260.453125),Region="Submerged"},
+    	  {Name="Submerged Island",Target=CFrame.new(10780.639648,-2088.414062,9260.453125),Region="Submerged",BypassAllowed=false},
     	},
       }
       T.MovementZoneOrder = {"SkyUpper","SkyLower"}
       T.MovementZones = {
         SkyUpper = {
-          Key="SkyUpper", Sea=1, TransitionSensitive=true,
+          Key="SkyUpper", Sea=1, TransitionSensitive=true, BypassAllowed=false,
           Detector={Center=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047),RadiusXZ=2600,MinY=3000,MaxY=8000},
         },
         SkyLower = {
-          Key="SkyLower", Sea=1, TransitionSensitive=true,
+          Key="SkyLower", Sea=1, TransitionSensitive=true, BypassAllowed=false,
           Detector={Center=Vector3.new(-4738.4626464844,800,-2167.2875976563),RadiusXZ=2800,MinY=150,MaxY=1800},
         },
       }
 
       T.Portals = {
-    	[1] = {
-    	  {Key="Sky3Exit",Aliases={"Skylands · Middle","Sky Island 2","Sky2","Lower Sky","Sky3Exit"},RemotePos=Vector3.new(-4607.82275,872.54248,-1667.55688),SourceZone="SkyUpper",DestinationZone="SkyLower",TransitionRole="Exit"},
-    	  {Key="Sky3",Aliases={"Skylands · Upper","Sky Island 3","Sky3","Upper Sky"},RemotePos=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047),DestinationZone="SkyUpper",TransitionRole="Enter"},
-    	  {Key="UnderWater",Aliases={"Underwater City","Under Water Island","UnderWater","Fishman Island"},RemotePos=Vector3.new(61163.8515625,11.6796875,1819.7841796875)},
-    	  {Key="UnderwaterExit",Aliases={"Underwater Exit"},RemotePos=Vector3.new(3864.8515625,6.6796875,-1926.7841796875)},
-    	},
-    	[2] = {
-    	  {Key="CursedShip",Aliases={"Cursed Ship"},RemotePos=Vector3.new(923.21252441406,126.9760055542,32852.83203125)},
-    
-    	  {Key="SecondSeaMainland",Aliases={"Zombie Island","Graveyard","Second Sea Mainland"},RemotePos=Vector3.new(-6508.5581054688,89.034996032715,-132.83953857422)},
-    	  {Key="SwanRoom",Aliases={"Don Swan Room","Flamingo Room","Swan Room"},RemotePos=Vector3.new(2285,15,905)},
-    	},
-    	[3] = {
-    	  {Key="Mansion",Aliases={"Mansion","Floating Turtle"},RemotePos=Vector3.new(-12471.169921875,374.94024658203,-7551.677734375)},
-    	  {Key="Castle",Aliases={"Castle on the Sea","Castle On The Sea"},RemotePos=Vector3.new(-5097.93164,316.447021,-3142.66602)},
-    	  {Key="Hydra",Aliases={"Hydra Island","Hydra"},RemotePos=Vector3.new(5643.4526367188,1013.0858154297,-340.51025390625)},
-    	  {Key="BeautifulPirate",Aliases={"Beautiful Pirate","Beautiful Pirate Domain"},RemotePos=Vector3.new(5314.5463867188,22.562219619751,-127.06755065918)},
-    	},
+        [1] = {
+          {Key="Sky3Exit",Aliases={"Skylands · Middle","Sky Island 2","Sky2","Lower Sky","SkyMiddle"},RemotePos=Vector3.new(-4607.82275,872.54248,-1667.55688),DestinationZone="SkyLower",ServiceZones={"SkyLower"},ServiceRadius=4500,TransitionRole="Middle"},
+          {Key="Sky3",Aliases={"Skylands · Upper","Sky Island 3","SkyUpper","Upper Sky"},RemotePos=Vector3.new(-7894.6176757813,5547.1416015625,-380.29119873047),DestinationZone="SkyUpper",ServiceZones={"SkyUpper"},ServiceRadius=4500,TransitionRole="Upper"},
+          {Key="UnderWater",Aliases={"Underwater City","Under Water Island","UnderWater","Fishman Island"},RemotePos=Vector3.new(61163.8515625,11.6796875,1819.7841796875),DestinationRegion="UnderwaterCity",ServiceRegions={"UnderwaterCity"},ServiceRadius=7000},
+          {Key="UnderwaterExit",Aliases={"Underwater Exit"},RemotePos=Vector3.new(3864.8515625,6.6796875,-1926.7841796875),SourceRegions={"UnderwaterCity"},DestinationRegion="World",ServiceRegions={"World"},ServiceRadius=10000},
+        },
+        [2] = {
+          {Key="CursedShip",Aliases={"Cursed Ship"},RemotePos=Vector3.new(923.21252441406,126.9760055542,32852.83203125),DestinationRegion="CursedShip",ServiceRegions={"CursedShip"},ServiceRadius=7500},
+          {Key="SecondSeaMainland",Aliases={"Zombie Island","Graveyard","Second Sea Mainland"},RemotePos=Vector3.new(-6508.5581054688,89.034996032715,-132.83953857422),DestinationRegion="World",ServiceRegions={"World"},ServiceRadius=10000},
+          {Key="SwanRoom",Aliases={"Don Swan Room","Flamingo Room","Swan Room"},RemotePos=Vector3.new(2285,15,905),DestinationRegion="World",ServiceRegions={"World"},ServiceRadius=5500},
+        },
+        [3] = {
+          {Key="Mansion",Aliases={"Mansion","Floating Turtle"},RemotePos=Vector3.new(-12471.169921875,374.94024658203,-7551.677734375),DestinationRegion="World",ServiceRegions={"World"},ServiceRadius=6500},
+          {Key="Castle",Aliases={"Castle on the Sea","Castle On The Sea"},RemotePos=Vector3.new(-5097.93164,316.447021,-3142.66602),DestinationRegion="World",ServiceRegions={"World"},ServiceRadius=6500},
+          {Key="Hydra",Aliases={"Hydra Island","Hydra"},RemotePos=Vector3.new(5643.4526367188,1013.0858154297,-340.51025390625),DestinationRegion="World",ServiceRegions={"World"},ServiceRadius=6500},
+          {Key="BeautifulPirate",Aliases={"Beautiful Pirate","Beautiful Pirate Domain"},RemotePos=Vector3.new(5314.5463867188,22.562219619751,-127.06755065918),DestinationRegion="World",ServiceRegions={"World"},ServiceRadius=5000},
+        },
       }
-    
     RE4Constants.WorldTopology = T
 
     RE4Constants.SimpleToggles = {
@@ -1313,7 +1311,7 @@ do
         ["global.Bartilo_Quest"]={Name="Auto Complete Quest Bartilo",Description="Tự Động Hoàn Thành Nhiệm Vụ Bartilo",Default=false,Binding="global",Flag="Bartilo_Quest"},
         ["global.BlackSpikey"]={Name="Auto Get Black Spikey",Description="Tự Động Lấy Black Spikey",Default=false,Binding="global",Flag="BlackSpikey"},
         ["global.BuyDrago"]={Name="Swap Draco Race",Description="Chuyển Đổi Tộc Draco",Default=false,Binding="global",Flag="BuyDrago"},
-        ["global.Bypass"]={Name="Turn On Bypass Teleport",Description="Bật Dịch Chuyển Bypass",Default=false,Binding="global",Flag="Bypass"},
+        ["global.Bypass"]={Name="Turn On Bypass Teleport",Description="Bật Dịch Chuyển Bypass",Default=true,Binding="global",Flag="Bypass"},
         ["global.CDK"]={Name="Auto Get CDK",Description="Tự Động Lấy Song Kiếm Nguyền Rủa",Default=false,Binding="global",Flag="CDK"},
         ["global.CDK_TS"]={Name="Auto Quest Tushita [CDK]",Description="Tự Động Nhiệm Vụ Tushita [CDK]",Default=false,Binding="global",Flag="CDK_TS"},
         ["global.CDK_YM"]={Name="Auto Quest Yama [CDK]",Description="Tự Động Nhiệm Vụ Yama [CDK]",Default=false,Binding="global",Flag="CDK_YM"},

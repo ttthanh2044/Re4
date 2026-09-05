@@ -112,16 +112,6 @@ return {
     Movement = {
         -- Post-update player movement baseline. Keep this conservative; mob movement is separate.
         TweenSpeed = 200,
-        DynamicTween = {
-            Enabled = true,
-            SwitchDistance = 200,
-            FarSpeed = 200,
-            NearSpeed = 450,
-            FallbackSpeed = 200,
-            NearStallWindow = 0.90,
-            BacktrackTolerance = 18,
-            RootBlockGapLimit = 90,
-        },
         PlayerFollowerDistance = 200,
         PlayerCorrection = {
             Enabled = true,
@@ -130,6 +120,7 @@ return {
             Debounce = 0.18,
         },
         BypassTP = {
+            DefaultEnabled = true,
             MinDistance = 3500,
             MaxSpawnApproachDistance = 10000,
             MinSpawnSeparation = 800,
@@ -175,8 +166,8 @@ return {
             ArrivalRadius = 8,
         },
         FastTravel = {
-            -- Route-cost estimate must match the player tween baseline.
-            TweenSpeed = 200,
+            -- Route-cost estimate uses Movement.TweenSpeed as the single speed source.
+            DefaultServiceRadius = 6500,
             EntranceOverhead = 0.55,
             MinTimeGain = 0.85,
             GlobalCooldown = 0,

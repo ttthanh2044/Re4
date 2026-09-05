@@ -1,11 +1,10 @@
 {
-  "schema": 9,
+  "schema": 1,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "concrete_version_duplicated_here": false,
-    "current_release": "derived from metadata.lua",
+    "version": "2.0.9",
     "channel": "stable",
-    "cache_identity": "BuildName/CacheBust/ConfigStamp/UIStamp are derived from metadata.lua; v2.0.8 therefore uses a fresh release cache namespace"
+    "fresh_cache_namespace": true
   },
   "entry": "main.lua",
   "hash_algorithm": "sha256",
@@ -13,139 +12,65 @@
     "runtime_manifest.json"
   ],
   "runtime_architecture": {
-    "single_runtime_file": "main.lua",
-    "external_responsibility_files": [
-      "metadata.lua",
-      "config.lua",
-      "constants.lua",
-      "ui.lua",
-      "hub_info.json",
-      "language/"
+    "movement_speed_source": "config.lua -> Movement.TweenSpeed (200)",
+    "route_order": [
+      "Portal Fast Travel when worthwhile",
+      "Bypass TP when enabled/allowed and no suitable Portal",
+      "Direct Tween fallback"
     ],
-    "movement_ownership": "RE4MovementCoordinator + RE4TravelResolver + one RE4TweenRuntime + follower that may write player position only while both resolver and tween are active",
-    "combat_ownership": "RE4CombatTargetLock + RE4CombatPulse + one scheduler-managed RunService.Stepped FastAttack connection",
-    "bring_ownership": "owner-scoped RE4BringService; core block unchanged from 2.0.7",
-    "character_lifecycle": "RE4CharacterLifecycle/FeatureRuntime release movement, target, bring, combat, callbacks and task generations on stop/respawn",
-    "main_payload_bytes": 802891,
-    "main_payload_lines": 15752
+    "transport_exclusivity": "one selected transport strategy per route decision; Portal failure falls back to Tween for that decision instead of invoking Bypass",
+    "movement_ownership": "RE4MovementCoordinator + RE4TravelResolver",
+    "noclip_lifecycle": "route/transport lease; independent of local tween; BodyClip/collision reasserted while lease remains active",
+    "follower_lifecycle": "position writes only while resolver route and local tween are both active",
+    "transport_cancellation": "Portal/Bypass verification checks active request + target revision and discards stale results",
+    "topology": "shared Sea/Region/MovementZone/Portal service metadata in constants.lua"
   },
-  "core_recovery": {
-    "reference": "Cr4Hub_base(1).lua was used selectively for Bypass TP, Berry, mastery flow and Farm All Island data; Cr4 polling/duplicate movement/combat loops were not copied",
-    "movement": [
-      "Auto Farm Level accumulated jitter root cause: movement support could keep the follower alive after arrival; the follower could continue writing root CFrame from a stale block while a feature flag remained enabled",
-      "follower now writes player CFrame only while both TravelResolver and TweenRuntime are genuinely active; support/noclip state is separate from position ownership",
-      "combat target CFrame uses stable world-position offsets instead of inheriting mob root pitch/roll",
-      "same-owner destination updates now refresh Context/Priority/ArrivalRadius as well as CFrame so quest/spawn/combat phase changes cannot retain stale movement policy",
-      "dynamic combat/mastery targets disable the configured 450 near boost and stay on the stable 200 movement profile",
-      "long-route mild server correction rebases the single movement block to actual root and reissues only the current segment; map-scale external relocation remains handled by the transition replan path",
-      "2.0.7 SkyLower/SkyUpper transition awareness and bounded hazard replan remain intact"
-    ],
-    "bypass_tp": [
-      "toggle is strict opt-in and is initialized OFF on hub session/re-execute so UI and runtime state cannot diverge",
-      "eligible only for long ordinary-World movement; special regions, transition-sensitive Sky zones, seated state and critical-item travel are excluded",
-      "candidate spawn must be meaningfully closer to the destination and sufficiently separated from the current spawn",
-      "transport arbiter is one path: Bypass TP -> Portal Fast Travel -> Tween",
-      "once bypass mutates spawn state, an unconfirmed result is fail-closed for that resolver pass so a portal cannot immediately perform a second teleport",
-      "verification is bounded; there is no random delay, portal spam or infinite retry loop"
-    ],
-    "berry": [
-      "one farm.berry FeatureRuntime owner for collect/hop modes",
-      "BerryBush CollectionService tag is indexed once and maintained by tag/child signals rather than rescanning all bushes every scheduler pass",
-      "nearest valid cached berry is selected; disappeared berries invalidate immediately",
-      "prompt cooldown and stable-empty window avoid repeated prompt/server-hop churn",
-      "movement uses the shared coordinator; Berry contains no direct _tp call"
-    ],
-    "abilities": [
-      "Buso/Geppo/Soru/Ken ownership no longer falls back to generic live-object/backpack cache",
-      "ownership proof is restricted to explicit live signals, exact player data/attributes and GetUnlockables snapshot keys",
-      "unresolved ability state is rendered fail-closed as Not Owner instead of reporting Owner from object presence",
-      "Sea 1 purchase flow forces a fresh ownership snapshot/control refresh after purchase"
-    ],
-    "mastery": [
-      "existing Re4 exclusive MasteryController, action locks, target resolver, weaken threshold, cooldown gates and GunFireService remain the lifecycle owner",
-      "Fruit/Gun finish rotations now query one RE4MasteryCapabilities source shared by UI and runtime",
-      "Gun conservative fallback is Z/X only; C/V are exposed only when live skill UI or inventory metadata proves support",
-      "Fruit supports Z/X/C/V/F only when capability evidence or conservative fruit fallback allows them; runtime rejects unsupported selections",
-      "skill UI reacts to tool and skill UI add/remove events; ON/OFF/mode switch/respawn retain existing owner cleanup"
-    ],
-    "farm_island": [
-      "Cr4 Farm All Island mob/position data was curated into RE4Constants.FarmIslands",
-      "one farm.island FeatureRuntime worker reuses RE4EnemyIndex, Attack.Kill, MovementCoordinator and existing target/Bring/combat ownership",
-      "no per-island coroutine, nested workspace scan or direct _tp loop was ported",
-      "toggle starts from OFF on re-execute to avoid stale worker/UI state"
-    ],
-    "preserved": [
-      "RE4BringService implementation block is byte-identical to 2.0.7",
-      "raw InvokeServer/FireServer/RegisterAttack/RegisterHit call counts did not increase",
-      "ui.lua and all language files are byte-identical to 2.0.7; UI behavior changes come from shared metadata/state providers in main.lua"
-    ]
+  "movement_update_2_0_9": {
+    "retired_variable_speed_path_removed": true,
+    "fixed_tween_speed": 200,
+    "bypass_default_enabled": true,
+    "portal_priority_over_bypass": true,
+    "data_driven_portal_service": true,
+    "route_cost_model": "direct fixed-speed time versus remote-entrance overhead plus portal-arrival-to-destination fixed-speed time; SourcePos approach is included when a candidate declares one",
+    "special_region_policy": "mandatory topology entry/exit is resolved before normal World routing",
+    "bypass_policy": "ordinary allowed zones only; long-distance threshold + meaningfully better spawn; disabled for special/transition-sensitive areas",
+    "sky_policy": "Sky3Exit services SkyLower/Middle destinations; Sky3 services SkyUpper; direct Tween wins when portal cost is not beneficial"
   },
   "offline_regression": {
-    "lua_validation": "string/comment-aware delimiter and Luau block-balance lexical checks passed for main.lua/config.lua/constants.lua/ui.lua/metadata.lua; no Luau VM/compiler is installed in this container",
-    "json_validation": "hub_info.json, runtime_manifest.json (pre-regeneration) and all language JSON files parse successfully",
-    "signature_counts": {
-      "InvokeServer": {
-        "baseline_2_0_7": 214,
-        "current_2_0_8": 214
-      },
-      "FireServer": {
-        "baseline_2_0_7": 18,
-        "current_2_0_8": 18
-      },
-      "RegisterAttack": {
-        "baseline_2_0_7": 4,
-        "current_2_0_8": 4
-      },
-      "RegisterHit": {
-        "baseline_2_0_7": 4,
-        "current_2_0_8": 4
-      },
-      "CharacterAddedConnect": {
-        "baseline_2_0_7": 9,
-        "current_2_0_8": 10
-      },
-      "CharacterRemovingConnect": {
-        "baseline_2_0_7": 2,
-        "current_2_0_8": 2
-      },
-      "RE4MoveToTarget": {
-        "baseline_2_0_7": 15,
-        "current_2_0_8": 15
-      },
-      "AttackKill": {
-        "baseline_2_0_7": 75,
-        "current_2_0_8": 76
-      },
-      "SchedulerRegistrationsAllLua": {
-        "baseline_2_0_7": 23,
-        "current_2_0_8": 23
-      }
+    "luau_lexical_validation": "PASS: comment/string-aware delimiter and block-balance checks for main.lua, config.lua, constants.lua, ui.lua and metadata.lua",
+    "json_validation": "PASS: hub_info.json and all language JSON parse successfully before final manifest generation",
+    "route_cost_cases": {
+      "Jungle_to_SkyLower": "PASS -> Sky3Exit; direct ~21.81s vs portal route ~5.76s",
+      "Jungle_to_SkyMiddle": "PASS -> Sky3Exit; direct ~18.01s vs portal route ~0.55s",
+      "SkyMiddle_to_SkyLower": "PASS -> direct Tween; portal would add overhead and is rejected",
+      "Sea2_HotCold_to_KingdomRose": "PASS -> SwanRoom is the lowest-cost eligible portal",
+      "Sea3_PortTown_to_FloatingTurtle": "PASS -> Mansion is the lowest-cost eligible portal",
+      "near_destination": "PASS -> direct Tween via LocalDirectDistance"
     },
-    "invariants": {
-      "tween_follower_heartbeat_connections": 1,
-      "follower_correction_handlers": 1,
-      "bypass_try_definitions": 1,
-      "berry_tag_initial_scans": 1,
-      "berry_feature_start_calls": 1,
-      "farm_island_feature_set_calls": 1,
-      "dynamic_target_contexts": 7
+    "strategy_invariants": {
+      "portal_before_bypass": true,
+      "portal_failure_does_not_cascade_to_bypass_same_decision": true,
+      "bypass_default_true_config_and_ui": true,
+      "portal_verify_cancel_revision_aware": true,
+      "bypass_verify_cancel_revision_aware": true,
+      "follower_requires_active_route_and_active_local_tween": true,
+      "noclip_reasserted_while_route_transport_lease_active": true,
+      "respawn_cancels_travel_state": true,
+      "single_tween_runtime_play_definition": 1,
+      "single_route_planner_definition": 1,
+      "single_fast_travel_try_definition": 1,
+      "single_bypass_try_definition": 1
     },
-    "regression_matrix": {
-      "auto_farm_level_long_run": "static ownership path verified: feature flag may keep noclip support active, but follower has no player-position write authority after resolver/tween arrival; active same-owner requests refresh movement context when phase/target changes",
-      "auto_farm_level_repeated_on_off": "FeatureRuntime generation stop/restart remains authoritative; movement owner/target/bring/combat cleanup is invoked by token cleanup and coordinator release",
-      "target_change_and_target_death": "target lock validity/repair and movement TargetRevision paths remain; dynamic request context follows the current combat phase and target",
-      "long_tween_server_correction": "bounded correction signal cancels only the active tween segment, rebases block to actual root and reissues from current position; map-scale relocation uses the separate external transition handler",
-      "bypass_off": "RE4BypassTravel:IsEnabled requires _G.Bypass==true; session initializes it false",
-      "bypass_on_with_portal": "normal transport resolver evaluates Bypass first; verified success returns immediately; mutated-unconfirmed state blocks portal; non-eligible/no-mutation falls through to Portal then Tween",
-      "berry_on_off_and_target_disappear": "single FeatureRuntime owner; target cache invalidates on ChildRemoved/tag removal; OFF releases movement owner through FeatureRuntime and clears current berry target",
-      "mastery_gun_fruit": "exclusive MasteryController/action locks preserved; target, threshold, aim, normal gun fire, skill cooldown and capability gates share current owner state",
-      "mastery_skill_ui": "Gun fallback shows Z/X; live/inventory capability may reveal C/V; UI and runtime call the same capability resolver",
-      "ability_purchase_refresh": "purchase invalidates inventory/ownership caches and defers UpdateControls(true); periodic safety refresh remains available for external changes",
-      "farm_island": "single FeatureRuntime worker; shared enemy index + combat/movement pipeline; no nested per-island loop",
-      "respawn": "existing character lifecycle releases travel/target/bring/combat state; mastery capability UI character listeners disconnect/rebind",
-      "sky_transition": "2.0.7 zone/transition guard is preserved; Bypass explicitly refuses transition-sensitive movement zones"
+    "scope_preservation": {
+      "BringService_block_identical_to_2_0_8": true,
+      "CombatTargetLock_block_identical_to_2_0_8": true,
+      "ui_lua_identical_to_2_0_8": true,
+      "language_files_identical_to_2_0_8": true,
+      "InvokeServer_callsite_count": "213 -> 213",
+      "FireServer_callsite_count": "16 -> 16",
+      "requestEntrance_literal_count": "4 -> 4"
     },
-    "live_verification": "Roblox runtime is unavailable in this container. Server-authoritative correction magnitude, Bypass spawn/respawn behavior, current ability snapshot schema and concrete weapon skill UI must still be smoke-tested in game; the release therefore uses fail-closed/bounded paths where runtime proof is unavailable."
+    "live_verification_note": "Roblox runtime is not available in this container; server-side portal/spawn behavior and physical geometry collision still require in-game smoke testing. All transport retries are bounded/fail-closed."
   },
   "files": [
     {
@@ -156,21 +81,21 @@
     },
     {
       "path": "config.lua",
-      "sha256": "6feda3d397335029dc3ad82bdbc4db7284c398327eacecbfff41f515b446d914",
-      "bytes": 8183,
-      "lines": 276
+      "sha256": "7bf95a1af984dacb86baed5685db885e9ec792075f5acaa9a28ab0442ad0a543",
+      "bytes": 7947,
+      "lines": 267
     },
     {
       "path": "constants.lua",
-      "sha256": "fedefbdd9cf28aab585087bc9e07c1c9763d2ff7daea9242f9474b6027ebecff",
-      "bytes": 120649,
-      "lines": 1443
+      "sha256": "96161b8f32bf0a893ee2f1e881f82d2139deab10f6690e1f9dd9e1ba0d8e0f3b",
+      "bytes": 121723,
+      "lines": 1441
     },
     {
       "path": "hub_info.json",
-      "sha256": "5b6d020883f77c8996eeb24ebbb9fecf07ed6bcce52ff50237c49ff10781ae84",
-      "bytes": 5745,
-      "lines": 66
+      "sha256": "77b83446f7dfa203531752be6230a824d586cdb489c3070a0e7879b731872ad3",
+      "bytes": 2410,
+      "lines": 36
     },
     {
       "path": "language/en.json",
@@ -204,13 +129,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "2e197ec31567a4109bad2fd09038d0d24fd8760f83c36eb14017d4962f286937",
-      "bytes": 802891,
-      "lines": 15752
+      "sha256": "ff888b12aebdaf68cf94436e5f1e71969a5fa206998cb8caae2522042cf5cceb",
+      "bytes": 809720,
+      "lines": 15802
     },
     {
       "path": "metadata.lua",
-      "sha256": "01c56d509cdf472e11840c040097bcc5b718f1cc806bb8c966b04f61b824123c",
+      "sha256": "3e1832181338681f0b692113158c97e0037cace5e574775368d643607d96eff7",
       "bytes": 1266,
       "lines": 43
     },
@@ -220,69 +145,5 @@
       "bytes": 240954,
       "lines": 4381
     }
-  ],
-  "movement_update_2_0_6": {
-    "scope": "player movement/tween only; BringMob, mob movement, combat, attack and UI are unchanged",
-    "baseline_speed": 200,
-    "dynamic": {
-      "enabled": true,
-      "switch_distance": 300,
-      "far_speed": 200,
-      "near_speed_candidate": 350,
-      "fallback_speed": 200,
-      "implementation": "two sequential tween phases; speed is never mutated on a running Tween",
-      "runtime_guard": [
-        "near_backtrack",
-        "near_stall",
-        "near_root_block_divergence"
-      ],
-      "guard_effect": "cancel current near tween through the single runtime, suppress near boost for the rest of the session, and reissue the current route once at fallback speed"
-    },
-    "live_validation_note": "350 cannot be certified from this offline container. It is treated as a short-range candidate and automatically disabled if observable movement instability occurs. 200 remains the only assumed stable baseline."
-  },
-  "movement_update_2_0_7": {
-    "scope": "player movement/FastTravel topology only; BringMob, mob movement, combat, Fast Attack and UI are unchanged",
-    "root_cause": [
-      "2.0.6 classified all normal Sky layers as World, so route ownership had no layer identity after a map-triggered teleport",
-      "the -4607/874/-1667 entrance was stored as generic Sky2 even though the reference flow identifies the endpoint as Sky3Exit",
-      "the follower resynced block after a large root jump but did not invalidate the tween that was still interpolating toward the stale pre-transition route"
-    ],
-    "solution": [
-      "data-driven SkyLower/SkyUpper movement zones",
-      "source/destination semantics for transition portals",
-      "event-driven external relocation cancellation and bounded route re-resolution",
-      "session-local hazard learning and geometric detour for a repeated wrong-layer segment",
-      "zone-aware target preemption"
-    ],
-    "no_random_delay": true,
-    "no_infinite_retry": true,
-    "max_transition_replans_per_request": 2,
-    "runtime_note": "Exact trigger geometry is learned only when the game actually relocates the player; no single cloud coordinate is hardcoded into movement logic."
-  },
-  "release_update_2_0_8": {
-    "scope": [
-      "shared player movement ownership/correction",
-      "Bypass TP transport arbitration",
-      "Berry farm",
-      "ability ownership presentation",
-      "Fruit/Gun Mastery capability flow",
-      "Auto Farm Island"
-    ],
-    "not_ported_as_separate_systems": [
-      "Cr4 Berry full-map polling loops",
-      "Cr4 independent Fruit/Gun mastery loops",
-      "Cr4 direct _tp Farm All Island loop",
-      "Cr4 sequential Bypass then requestEntrance behavior"
-    ],
-    "missing_feature_audit_note": "Farm All Island was the clearest reusable Cr4 farm gap and was added. Features that overlap existing Re4 Raid/Boss/Quest engines were not duplicated in this release.",
-    "dynamic_tween_profile": {
-      "tween_speed": 200,
-      "switch_distance": 200,
-      "far_speed": 200,
-      "near_speed": 450,
-      "fallback_speed": 200,
-      "implementation": "two sequential tween phases through the single RE4TweenRuntime; speed is never mutated on an active Tween",
-      "guard": "near-phase backtrack/stall/root-block divergence suppresses the near boost for the session and falls back to 200"
-    }
-  }
+  ]
 }
