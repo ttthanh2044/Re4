@@ -110,7 +110,7 @@ return {
     },
 
     Movement = {
-        TweenSpeed = 300,
+        TweenSpeed = 200,
         Bring = {
             -- Conservative Bring envelope limits cross-floor/cross-room followers on compact vertical maps.
             -- Cadence, MaxMob and movement mechanics remain unchanged.
@@ -140,7 +140,7 @@ return {
             ArrivalRadius = 8,
         },
         FastTravel = {
-            TweenSpeed = 300,
+            TweenSpeed = 200,
             EntranceOverhead = 0.55,
             MinTimeGain = 0.85,
             GlobalCooldown = 0,
