@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Items UI regression fix: restores the visible Fighting Style · Equip section. All Use/Equip controls continue to use the shared Fighting Style dealer resolver and transaction introduced in 2.0.14."
+    "content": "Restores Fighting Style · Equip from the canonical StyleProgress domain and rebuilds Auto Bisento V2 around the current Greybeard requirement: own Bisento V1, personally deal at least 10% of Greybeard max HP, defeat him, then verify the server upgrade notification/state."
   },
   "changelog": [
+    {
+      "version": "2.0.16",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.16",
+      "content": "Moves Items → Fighting Style · Equip into the shared RE4StyleProgress domain so its controls are mounted independently of the Shop initialization path while preserving StartUse → StartDealerAction → MoveDealer. Auto Bisento V2 now requires confirmed V1 ownership, models the documented ≥10% personal Greybeard damage requirement, does not equip/buy Bisento automatically, captures the server upgrade notification event, and uses bounded post-kill verification instead of remaining Unknown indefinitely."
+    },
     {
       "version": "2.0.15",
       "date": "2026-09-05",
@@ -22,9 +28,9 @@
       ]
     },
     {
-      "version": "$current",
-      "date": "$updated_at",
-      "title": "$display_version",
+      "version": "2.0.14",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.14",
       "content": "Unifies Dark Step, Electric and Water Kung Fu data by deriving StyleMeta from the canonical FightingStyleCatalog. Progression and Items Use/Equip both use the same StartDealerAction → MoveDealer pipeline, the shared NPC TeleportDirectory/template registry is consulted for exact dealer positions, and exact positions resolved by either flow are cached per Sea/style. Island anchors remain bootstrap-only and are never cached or reported as the dealer."
     },
     {

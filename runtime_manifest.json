@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.15",
+    "version": "2.0.16",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -22,7 +22,12 @@
     "items_use_auto_buy": false,
     "bringmob": "unchanged from 2.0.13",
     "fastattack": "unchanged from 2.0.13",
-    "dynamic_tween": "removed"
+    "dynamic_tween": "removed",
+    "items_fighting_equip_mount": "RE4StyleProgress:MountUseControls(RE4Tabs.Items); mounted in progression domain, independent of First Sea shop initialization",
+    "bisento_v2_requirements": "Own Bisento V1 + personally deal >=10% of Greybeard max HP + Greybeard defeat; Bisento equip not required",
+    "bisento_v2_confirmation": "event-driven PlayerGui upgrade-message capture + explicit inventory/live variant evidence + bounded post-kill verification",
+    "bisento_v2_auto_buy_v1": false,
+    "bisento_v2_auto_equip_v1": false
   },
   "update_2_0_14": {
     "root_cause": [
@@ -42,23 +47,26 @@
   },
   "offline_regression": {
     "invariants": {
+      "lua_lexical_delimiters_pass": true,
       "fixed_tween_speed_200": true,
       "dynamic_tween_removed": true,
-      "progression_and_items_same_start_dealer_action": true,
-      "progression_and_items_same_move_dealer": true,
-      "basic_style_data_single_canonical_source": true,
-      "dealer_exact_position_reused_between_flows": true,
-      "island_anchor_bootstrap_only": true,
-      "items_use_never_buys_unowned_style": true,
-      "no_new_scheduler_or_polling_loop": true,
-      "items_fighting_style_equip_section_visible": true,
-      "equip_controls_keep_shared_start_use": true,
-      "fighting_style_curated_suppression_removed": true,
-      "dealer_resolver_2_0_14_preserved": true
+      "single_fighting_style_equip_section": true,
+      "equip_mount_in_style_progress_domain": true,
+      "old_shop_equip_mount_removed": true,
+      "equip_uses_shared_start_use": true,
+      "bisento_v1_purchase_absent_from_auto_flow": true,
+      "bisento_v1_equip_not_required": true,
+      "bisento_damage_share_data_10_percent": true,
+      "bisento_late_encounter_does_not_fake_eligibility": true,
+      "bisento_upgrade_message_event_watcher": true,
+      "bisento_variant_unconfirmed_not_unknown_for_known_v1": true,
+      "no_new_scheduler_or_background_task": true,
+      "bisento_ambiguous_blacksmith_upgrade_not_v2_evidence": true,
+      "bisento_event_watcher_token_owned": true,
+      "fighting_equip_not_shop_owned": true
     },
     "scope_preservation": {
       "config.lua": true,
-      "ui.lua": false,
       "language/en.json": true,
       "language/vi.json": true,
       "language/th.json": true,
@@ -71,34 +79,38 @@
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_14": 214,
-        "to_2_0_15": 214
+        "from_2_0_15": 214,
+        "to_2_0_16": 214
       },
       "FireServer": {
-        "from_2_0_14": 18,
-        "to_2_0_15": 18
+        "from_2_0_15": 18,
+        "to_2_0_16": 18
       },
       "task.spawn": {
-        "from_2_0_14": 8,
-        "to_2_0_15": 8
+        "from_2_0_15": 8,
+        "to_2_0_16": 8
       },
       "Heartbeat:Connect": {
-        "from_2_0_14": 2,
-        "to_2_0_15": 2
+        "from_2_0_15": 2,
+        "to_2_0_16": 2
       },
       "Stepped:Connect": {
-        "from_2_0_14": 2,
-        "to_2_0_15": 2
+        "from_2_0_15": 2,
+        "to_2_0_16": 2
       },
       "requestEntrance": {
-        "from_2_0_14": 4,
-        "to_2_0_15": 4
+        "from_2_0_15": 4,
+        "to_2_0_16": 4
+      },
+      "RE4Scheduler:Register": {
+        "from_2_0_15": 20,
+        "to_2_0_16": 20
       }
     },
     "notes": [
-      "Static/container validation only. UI rendering requires in-game smoke testing.",
-      "2.0.15 changes only ui.lua presentation routing plus release metadata/changelog/manifest; main.lua is byte-identical to 2.0.14.",
-      "The visible Fighting Style · Equip section now directly contains the existing Use/Equip controls and therefore uses the same StartUse -> StartDealerAction -> MoveDealer flow."
+      "Static/container validation only; Greybeard damage credit and Bisento upgrade are server-authoritative and require an in-game smoke test.",
+      "The current public game references state the player must own Bisento and deal at least 10% damage to Greybeard; Bisento does not need to be equipped.",
+      "The documented server notification is treated as authoritative session evidence because Bisento V2 keeps the Bisento name/appearance and inventory schemas may not expose an explicit V2 field."
     ]
   },
   "files": [
@@ -116,15 +128,15 @@
     },
     {
       "path": "constants.lua",
-      "sha256": "1c70606ee7be8545d9121c2fde3c642f306d00383a37e0a8cd1263071dd5ece1",
-      "bytes": 123608,
+      "sha256": "565a13de85c90363294d985fdb45cd4fa22d23440d3c3f8ae144856b1c80ce85",
+      "bytes": 123810,
       "lines": 1475
     },
     {
       "path": "hub_info.json",
-      "sha256": "c88fe8be19cecfc7c5405c200d5977fc375ec247ca55fd8399d0778ed495f104",
-      "bytes": 4183,
-      "lines": 61
+      "sha256": "a0236fa5a5b0159cf2780b736c891842febf6b7b4f6b8f719e48276931e9727d",
+      "bytes": 4885,
+      "lines": 67
     },
     {
       "path": "language/en.json",
@@ -158,21 +170,21 @@
     },
     {
       "path": "main.lua",
-      "sha256": "29a5b3ee20a063292239baf917da8a5de16c90f07c16768132242c738281d62a",
-      "bytes": 832131,
-      "lines": 16256
+      "sha256": "8ff0882dcdaad2ba8d0081e29ee52267beda2549b023e40b3f72e5f379280852",
+      "bytes": 840830,
+      "lines": 16405
     },
     {
       "path": "metadata.lua",
-      "sha256": "64a67c9102fd63226ca92538add7ecde493fad77172a39b22077a07c8d836af7",
+      "sha256": "aab1278868a51e460275740afed1902be410b1216c912e8898896d0ffde43cfd",
       "bytes": 1267,
       "lines": 43
     },
     {
       "path": "ui.lua",
-      "sha256": "78894ae9e7f773cdeeb368dedc4be31839f75bb1705edb9b780025e6ef9c8b8b",
-      "bytes": 239733,
-      "lines": 4363
+      "sha256": "661838d92f4555064b81a62b747952e996f85d6dbe67a6f88d9c05d1c52114a9",
+      "bytes": 239823,
+      "lines": 4364
     }
   ],
   "update_2_0_15": {
@@ -184,6 +196,26 @@
       "remove_dead_curated_style_tables": true,
       "shared_start_use_and_dealer_resolver_preserved": true,
       "main_runtime_changed": false
+    }
+  },
+  "update_2_0_16": {
+    "root_cause": [
+      "The Fighting Style Equip controls were mounted from the First Sea Shop initialization path rather than from the RE4StyleProgress domain that owns StartUse/StartDealerAction. This made the expected Items section dependent on unrelated shop/presentation bootstrap behavior even though the equip runtime still existed.",
+      "Bisento V2 detection treated absence of explicit variant fields as Unknown and the old automation did not model Greybeard personal damage eligibility or capture the server upgrade notification, so the flow could kill Greybeard without ever reaching a confirmed V2 state."
+    ],
+    "fix": {
+      "equip_mount_owned_by_style_progress": true,
+      "single_fighting_style_equip_section": true,
+      "shared_start_use_start_dealer_action_preserved": true,
+      "bisento_minimum_damage_share": 0.1,
+      "bisento_late_encounter_guard": true,
+      "bisento_upgrade_notification_watcher": "FeatureRuntime token-owned DescendantAdded connection; cleaned on OFF/restart",
+      "bisento_variant_state_when_v1_owned": "variant_unconfirmed (not Unknown)",
+      "bisento_v1_auto_purchase": false,
+      "bisento_v1_auto_equip": false,
+      "post_kill_verification": "bounded 3.5s; at most one forced inventory probe per second",
+      "ambiguous_blacksmith_upgrade_fields_used_as_v2_evidence": false,
+      "explicit_variant_evidence_only": true
     }
   }
 }

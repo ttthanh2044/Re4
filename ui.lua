@@ -741,6 +741,7 @@ local function renderOwnershipStatus(control,state,running)
     elseif code=="can_buy" then control:SetStatus("Can buy","info")
     elseif code=="blocked" then control:SetStatus("Requirements missing","blocked")
     elseif code=="not_owned" then control:SetStatus("Not owned","warn")
+    elseif code=="variant_unconfirmed" then control:SetStatus("V2 unconfirmed","waiting")
     else control:SetStatus("Unknown","waiting") end
 end
 

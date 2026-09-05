@@ -486,13 +486,13 @@ do
     		["Thunder God"]={Id="thunder_god",Seas={1},Level=575,QuestLevel=575,Location="Upper Skylands",SpawnSeconds=600,Aliases={"Thunder God"},Drops={{Name="Pole (1st Form)",Chance=0.06}}},
     		["Cyborg"]={Id="cyborg",Seas={1},Level=675,QuestLevel=675,Location="Fountain City",SpawnSeconds=720,Aliases={"Cyborg"},Drops={{Name="Cool Shades",Chance="1-2%"}}},
     		["Ice Admiral"]={Id="ice_admiral",Seas={1},Level=700,Location="Frozen Village",Aliases={"Ice Admiral"},QuestChain="Second Sea Access"},
-    		["Greybeard"]={Id="greybeard",Seas={1},Level=750,Location="Marine Fortress",Aliases={"Greybeard"},RaidBoss=true,Upgrade="Bisento V1 -> V2"},
+    		["Greybeard"]={Id="greybeard",Seas={1},Level=750,HP=303750,Location="Marine Fortress",Aliases={"Greybeard"},RaidBoss=true,Upgrade="Bisento V1 -> V2",MinimumDamageShare=0.10},
     	},
     
     	ProgressionCatalog = {
     		PoleV1 = {Id="pole_v1",Name="Pole (1st Form)",Seas={1},Category="Sword",Boss="Thunder God",Ownership="Pole V1",FarmFeature="Auto Get Pole V1",Requirements={"Defeat Thunder God"}},
     		PoleV2 = {Id="pole_v2",Name="Pole (2nd Form)",Seas={2,3},Category="Sword",Ownership="Pole V2",FarmFeature="Auto Pole V2",Requirements={"Own Pole (1st Form)","Hold Pole (1st Form) in Rough Sea","Be struck by natural Rough Sea lightning"},Note="Current method; no Rumble awakening, mastery 180 or Fragment payment."},
-    		BisentoV2 = {Id="bisento_v2",Name="Bisento V2",Seas={1},Category="Sword",Boss="Greybeard",Ownership="Bisento V2",FarmFeature="Auto Bisento V2",Requirements={"Own Bisento","Defeat Greybeard"}},
+    		BisentoV2 = {Id="bisento_v2",Name="Bisento V2",Seas={1},Category="Sword",Boss="Greybeard",Ownership="Bisento V2",FarmFeature="Auto Bisento V2",MinimumDamageShare=0.10,Requirements={"Own Bisento V1","Deal at least 10% of Greybeard's max HP","Defeat Greybeard"},Note="Bisento only needs to be owned; it does not need to be equipped during the Greybeard fight."},
     		SharkSaw = {Id="shark_saw",Name="Shark Saw",Seas={1},Category="Sword",Boss="The Saw",Ownership="Shark Saw",FarmFeature="Auto Get Shark Saw",Requirements={"Defeat The Saw","Meet boss reward damage requirement"}},
     		Saber = {Id="saber",Name="Saber",Seas={1},Category="Sword",Boss="Saber Expert",Ownership="Saber",FarmFeature="Auto Get Saber",Requirements={"Level 200+","Complete Saber Puzzle","Defeat Saber Expert"}},
     		WardensSword = {Id="wardens_sword",Name="Wardens Sword",Seas={1},Category="Sword",Boss="Chief Warden",Ownership="Wardens Sword",FarmFeature="Auto Get Wardens Sword",Requirements={"Defeat Chief Warden"}},
