@@ -110,7 +110,7 @@ return {
     },
 
     Movement = {
-        TweenSpeed = 200,
+        TweenSpeed = 350,
         Bring = {
             -- Conservative Bring envelope limits cross-floor/cross-room followers on compact vertical maps.
             -- Cadence, MaxMob and movement mechanics remain unchanged.
@@ -140,7 +140,7 @@ return {
             ArrivalRadius = 8,
         },
         FastTravel = {
-            TweenSpeed = 200,
+            TweenSpeed = 350,
             EntranceOverhead = 0.55,
             MinTimeGain = 0.85,
             GlobalCooldown = 0,
@@ -160,13 +160,6 @@ return {
             PredictionAmount = 0.10,
             MaxRange = 1000,
         },
-        AttackSpeedModes = {
-            ["Normal Attack"] = 0.25,
-            ["Fast Attack"] = 0.15,
-            ["Super Fast Attack"] = 0.05,
-            ["Aura Attack"] = 0.10,
-        },
-        DefaultAttackSpeedMode = "Fast Attack",
         FastAttack = {
             AttackDistance = 65,
             BuddhaDistance = 999,

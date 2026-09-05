@@ -11,14 +11,14 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Runtime cleanup release: reduces main.lua compiler payload and repeated lifecycle/UI/legacy-worker boilerplate while preserving protected movement, combat, raid and mastery behavior. Executor integration remains capability-driven rather than executor-name hardcoded."
+    "content": "Core recovery after the game update: movement/tween ownership, BringMob ownership, target lifecycle and Fast Attack hit registration are synchronized into one stable flow."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
-      "content": "Reduces main.lua from 20,491 to 14,869 lines by moving static catalogs and presentation-only models to their responsible data/UI files, consolidating simple UI bindings, shutdown ownership and verified legacy polling families, and reducing repeated workspace scans through shared indexes. Critical remote-call signatures, movement callsites, combat entrypoints and Raid Chip behavior are preserved in static regression checks."
+      "content": "Restores a single active tween with bounded recovery, ownership-gated BringMob with deterministic cleanup, complete RegisterAttack/RegisterHit target payloads, refreshed native combat bridge discovery, and character/target lifecycle cleanup. Fast Attack remains one scheduler-managed stream at the canonical 0.01 rate; the obsolete Choose Attack Speed UI/config path is removed."
     },
     {
       "version": "2.0.3",

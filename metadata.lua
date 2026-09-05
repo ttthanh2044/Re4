@@ -10,10 +10,10 @@ local M = {
     Schema = 1,
     Product = "Re4Hub",
     HubName = "RE4 HUB",
-    Version = "2.0.4",
+    Version = "2.0.5",
     Revision = "",
     Channel = "stable",
-    UpdatedAt = "2026-09-03",
+    UpdatedAt = "2026-09-05",
 }
 
 local function slug(value)
