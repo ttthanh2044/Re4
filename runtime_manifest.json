@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.20",
+    "version": "2.0.21",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -28,7 +28,7 @@
     "bisento_v2_confirmation": "event-driven PlayerGui upgrade-message capture + explicit inventory/live variant evidence + bounded post-kill verification",
     "bisento_v2_auto_buy_v1": false,
     "bisento_v2_auto_equip_v1": false,
-    "fighting_style_sea_source": "RE4OwnershipSea() reads RE4RuntimeContext.Core.SeaNumber as authoritative current Sea (with legacy world flags only as fallback); both ownership probes and RE4StyleProgress consume the same helper.",
+    "fighting_style_sea_source": "RE4Ownership:Sea() is the shared current-Sea resolver. The ownership service reads RE4RuntimeContext.Core.SeaNumber as authoritative state with World1/World2/World3 only as fallback; RefreshStyleServer and RE4StyleProgress both consume the same exported ownership service instead of a cross-domain local helper.",
     "items_fighting_equip_visibility": "Only current-Sea styles with confirmed ownership are visible. Controls remain mounted but hidden fail-closed so a successful Progress purchase can reveal the same control during the shared ownership refresh without re-executing the hub.",
     "second_sea_access": "Level 700+ -> Military Detective -> Key -> live Frozen Village door -> Ice Admiral -> return Military Detective -> Experienced Captain -> TravelDressrosa",
     "second_sea_npc_resolution": "shared RE4TeleportDirectory exact live/template NPC target; WorldTopology island anchor is bootstrap-only while NPC is unresolved",
@@ -101,7 +101,12 @@
       "progress_and_items_shared_sea_source": true,
       "progress_purchase_refreshes_items_same_session": true,
       "buy_and_equip_modes_separated": true,
-      "no_new_scheduler_or_background_task_2_0_20": true
+      "no_new_scheduler_or_background_task_2_0_20": true,
+      "fighting_style_sea_resolver_owned_by_ownership_service_2_0_21": true,
+      "progression_no_cross_domain_RE4OwnershipSea_reference_2_0_21": true,
+      "ownership_probe_and_progress_share_sea_method_2_0_21": true,
+      "core_exports_ownership_service_before_progression_2_0_21": true,
+      "no_new_scheduler_or_background_task_2_0_21": true
     },
     "scope_preservation": {
       "config.lua": true,
@@ -124,7 +129,16 @@
         "metadata.lua",
         "hub_info.json",
         "runtime_manifest.json"
-      ]
+      ],
+      "fighting_style_sea_scope_files_changed_2_0_21": [
+        "main.lua",
+        "metadata.lua",
+        "hub_info.json",
+        "runtime_manifest.json"
+      ],
+      "movement_core_changed_2_0_21": false,
+      "bring_core_changed_2_0_21": false,
+      "fastattack_changed_2_0_21": false
     },
     "callsite_counts": {
       "InvokeServer": {
@@ -160,8 +174,39 @@
       "2.0.20 makes FightingStyleRegistry the single runtime data source for Progress and Items rather than maintaining separate ownership/action/dealer tables.",
       "Ownership is fail-closed: no prerequisite/upgrade inference is used to make a style visible in Items; only live/inventory evidence or the style own server ownership probe can confirm it.",
       "Direct Equip/Relearn is treated as a runtime capability attempt, not assumed from a return value. Success requires the live equipped style to change; otherwise Items falls back to the shared dealer route.",
-      "No new scheduler, Heartbeat/Stepped listener or background task was added. No live Roblox runtime is available in the build container, so remote acceptance/NPC streaming must still be smoke-tested in game."
-    ]
+      "No new scheduler, Heartbeat/Stepped listener or background task was added. No live Roblox runtime is available in the build container, so remote acceptance/NPC streaming must still be smoke-tested in game.",
+      "2.0.21 fixes the BOOT 05 Fighting Style crash at its domain-boundary root cause: Progression no longer references the core-local RE4OwnershipSea helper; current Sea is resolved through the exported RE4Ownership service."
+    ],
+    "callsite_counts_2_0_21": {
+      "InvokeServer": {
+        "from_2_0_20": 214,
+        "to_2_0_21": 214
+      },
+      "FireServer": {
+        "from_2_0_20": 18,
+        "to_2_0_21": 18
+      },
+      "task.spawn": {
+        "from_2_0_20": 8,
+        "to_2_0_21": 8
+      },
+      "Heartbeat:Connect": {
+        "from_2_0_20": 2,
+        "to_2_0_21": 2
+      },
+      "Stepped:Connect": {
+        "from_2_0_20": 2,
+        "to_2_0_21": 2
+      },
+      "requestEntrance": {
+        "from_2_0_20": 4,
+        "to_2_0_21": 4
+      },
+      "RE4Scheduler:Register": {
+        "from_2_0_20": 20,
+        "to_2_0_21": 20
+      }
+    }
   },
   "files": [
     {
@@ -184,9 +229,9 @@
     },
     {
       "path": "hub_info.json",
-      "sha256": "2b361d3a4747737a40425cda19c03f2976f663dcf14ec7cdf6a320bbfaf0d8a9",
-      "bytes": 6960,
-      "lines": 91
+      "sha256": "b06899faf0966a962501af3cfbb0281962768f106abafb5f43444ba1212d6f19",
+      "bytes": 7339,
+      "lines": 97
     },
     {
       "path": "language/en.json",
@@ -220,13 +265,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "ab5911c46913b76f052de5ffd875d37aaee6ede033f30d7bb1d8388a584697b2",
-      "bytes": 848170,
+      "sha256": "96010512fed4bd283e7b9f9a93b06bbb58716fdfab61cf746b66c80f92471f41",
+      "bytes": 848093,
       "lines": 16577
     },
     {
       "path": "metadata.lua",
-      "sha256": "b2896410fe2ac1df142c838d235607301b3154ea1b60e89929a9ef151edf026f",
+      "sha256": "b56fe192881e8b7a26e261b1c83fe425f6c1b49b0030a0aee430e31549b69d72",
       "bytes": 1267,
       "lines": 43
     },
@@ -333,6 +378,24 @@
       "dealer_fallback_policy": "acquire Movement only after direct equip is unverified; resolve the same registry dealer used by Progress",
       "post_purchase_cross_ui_refresh": true,
       "new_scheduler_count": 0
+    }
+  },
+  "update_2_0_21": {
+    "root_cause": [
+      "RE4OwnershipSea was declared local inside the Core initialization domain, but RE4InitProgression runs in a separate function scope. S.Sea referenced RE4OwnershipSea directly, so Luau resolved it as a missing global at Progress/Items mount and raised attempt to call a nil value.",
+      "The same current-Sea concept therefore crossed a runtime-domain boundary without being exported through RE4RuntimeContext.Core."
+    ],
+    "fix": {
+      "shared_sea_owner": "RE4Ownership:Sea()",
+      "authoritative_source": "RE4RuntimeContext.Core.SeaNumber",
+      "legacy_world_flags_fallback": true,
+      "ownership_probe_consumer": "RE4Ownership:RefreshStyleServer -> self:Sea()",
+      "progress_items_consumer": "RE4StyleProgress.Sea -> RE4Ownership:Sea()",
+      "cross_domain_local_helper_removed": true,
+      "new_scheduler_count": 0,
+      "movement_behavior_changed": false,
+      "dealer_behavior_changed": false,
+      "ownership_semantics_changed": false
     }
   }
 }

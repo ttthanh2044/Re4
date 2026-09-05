@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Fighting Style ownership, Sea availability, dealer resolution and Buy/Equip actions now use one shared registry. Progress shows only unowned available styles; Items → Fighting shows only confirmed-owned styles and verifies direct equip before falling back to the shared dealer route."
+    "content": "Fixes the Fighting Style Progress/Items initialization crash caused by a progression-domain call to an out-of-scope Sea helper. Sea resolution now belongs to the shared ownership service and remains sourced from Core.SeaNumber."
   },
   "changelog": [
+    {
+      "version": "2.0.21",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.21",
+      "content": "Fixes the Fighting Style initialization nil-call at Progress/Items mount. Current Sea resolution is now a method on the shared RE4Ownership service exported through RE4RuntimeContext.Core, so both ownership probing and RE4StyleProgress use the same resolver without referencing a core-local helper outside its scope."
+    },
     {
       "version": "2.0.20",
       "date": "2026-09-05",
