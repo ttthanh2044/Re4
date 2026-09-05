@@ -50,9 +50,23 @@ do
         },
 
         TransientKeyItems = {
+            -- Physical quest/progression tools that can be invalidated by a
+            -- spawn-reset style Bypass. Movement code consumes this one table
+            -- instead of scattering item-name checks across features.
             ["Library Key"] = true,
             ["Water Key"] = true,
             ["Fire Essence"] = true,
+            ["Key"] = true,
+            ["Torch"] = true,
+            ["Cup"] = true,
+            ["Relic"] = true,
+            ["Red Key"] = true,
+            ["Fruit Bowl"] = true,
+            ["Flower 1"] = true,
+            ["Flower 2"] = true,
+            ["Flower 3"] = true,
+            ["Special Microchip"] = true,
+            ["Microchip"] = true,
         },
 
         MoonAssets = {

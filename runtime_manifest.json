@@ -1,8 +1,8 @@
 {
-  "schema": 1,
+  "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.10",
+    "version": "2.0.11",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -14,76 +14,126 @@
   ],
   "runtime_architecture": {
     "movement_speed_source": "config.lua -> Movement.TweenSpeed (200)",
-    "movement_routing": "all shared _tp/token:Move consumers enter RE4TravelResolver; strategic destination changes use RouteRevision",
-    "route_order": [
-      "Portal Fast Travel when worthwhile",
-      "Bypass TP when enabled/allowed and no suitable Portal",
+    "movement_routing": "all shared _tp/token:Move consumers enter RE4MovementCoordinator/RE4TravelResolver; strategic destination changes invalidate RouteRevision",
+    "normal_route_order": [
+      "Direct Tween for local destinations",
+      "Bypass TP when enabled, destination-bound, protected-state-safe and materially beneficial",
+      "Portal Fast Travel when compatible and worthwhile",
       "Direct Tween fallback"
     ],
-    "movement_ownership": "RE4MovementCoordinator + RE4TravelResolver",
-    "noclip_lifecycle": "route/transport lease; follower writes only while local tween is active",
-    "combat_targeting": "CombatTargetLock retains the feature allowed-name set for BringMob/FastAttack grouping",
-    "berry": "single event-driven Berry index shared by ESP and Auto Collect",
-    "fishing": "single fishing.lifecycle state machine adapted from the user-provided main.lua contract"
+    "protected_route_order": [
+      "Bypass TP rejected centrally by RE4CanUseBypass",
+      "Portal Fast Travel when compatible and worthwhile",
+      "Direct Tween fallback"
+    ],
+    "movement_ownership": "RE4MovementCoordinator + RE4TravelResolver; one transport strategy selected per route decision",
+    "noclip_lifecycle": "actual route/transport demand only; legacy feature-flag movement-demand blob removed",
+    "combat_targeting": "CombatTargetLock/BringMob grouping unchanged; FastAttack registers HumanoidRootPart first and sends the full valid group without an internal two-target cap",
+    "ability_ownership": "supplied main.lua contract: CollectionService tags + current player/data/unlockables evidence; stale failed snapshots remain Unknown",
+    "berry": "2.0.10 event-driven shared Berry index preserved",
+    "fishing": "2.0.10 supplied-main.lua fishing lifecycle preserved"
   },
-  "update_2_0_10": {
+  "update_2_0_11": {
     "movement": {
-      "target_revision_separated_from_route_revision": true,
-      "strategic_destination_replans_transport": true,
-      "dynamic_combat_target_hysteresis": true,
-      "persistent_server_correction_confirm_seconds": 0.08,
-      "bypass_destination_island_matching": true,
-      "bypass_allowed_normalized_across_island_data": true
+      "central_can_use_bypass": true,
+      "protected_progression_items_source": "constants.lua CriticalItems + TransientKeyItems",
+      "bypass_priority_when_safe_and_beneficial": true,
+      "bypass_route_cost_estimate": {
+        "overhead_seconds": 0.75,
+        "min_time_gain_seconds": 0.85
+      },
+      "destination_spawn_semantic_match_before_spatial_fallback": true,
+      "legacy_feature_flag_movement_demand_removed": true,
+      "explicit_portal_flows_remain_bypass_exclusive": true
     },
     "combat": {
-      "multi_target_allowed_set_shared": true,
-      "no_internal_two_target_cap_added": true
-    },
-    "berry": {
-      "late_prompt_discovery": true,
-      "shared_esp_collect_cache": true,
-      "collection_confirmation": true
-    },
-    "fishing": {
-      "reference_source": "user-provided main.lua only",
-      "min_fishing_level_for_quest": 20,
-      "ask_contract": [
-        "FishingNPC",
-        "Angler",
-        "AskQuest"
+      "bring_core_changed": false,
+      "combat_target_lock_changed": false,
+      "fastattack_hit_part_priority": [
+        "HumanoidRootPart",
+        "Head",
+        "configured limbs",
+        "PrimaryPart"
       ],
-      "finish_contract": [
-        "FishingNPC",
-        "FinishQuest"
-      ],
-      "quest_confirmation": "PlayerGui quest text",
-      "cast_location": "runtime water/raycast discovery; no fabricated NPC/quest/location data",
-      "lifecycle": [
-        "PREPARE_ROD",
-        "PREPARE_BAIT",
-        "CAST",
-        "WAITING_BITE",
-        "REEL",
-        "COLLECT"
-      ]
+      "internal_target_cap_added": false
+    },
+    "abilities": {
+      "reference_source": "user-provided main.lua",
+      "live_collectionservice_tags": true,
+      "single_authoritative_refresh_transaction": true,
+      "stale_unlockables_not_authoritative": true,
+      "unresolved_state": "unknown",
+      "purchase_contract": {
+        "Buso": [
+          "BuyHaki",
+          "Buso"
+        ],
+        "Geppo": [
+          "BuyHaki",
+          "Geppo"
+        ],
+        "Soru": [
+          "BuyHaki",
+          "Soru"
+        ],
+        "Ken": [
+          "KenTalk",
+          "Buy"
+        ]
+      }
     }
   },
   "offline_regression": {
+    "route_cases": {
+      "near_500_studs": {
+        "expected": "Tween",
+        "direct_seconds": 2.5
+      },
+      "jungle_to_sky_lower": {
+        "expected": "Portal",
+        "direct_seconds": 21.8057,
+        "portal_seconds": 5.7618,
+        "portal_gain_seconds": 16.0438,
+        "bypass_disallowed_by_destination_metadata": true
+      },
+      "jungle_to_magma_with_matching_spawn": {
+        "expected": "Bypass",
+        "direct_seconds": 45.5613,
+        "mock_destination_spawn_seconds": 1.3276,
+        "destination_island_match_required": true
+      },
+      "protected_item_to_distant_world": {
+        "expected_order": [
+          "Bypass rejected by RE4CanUseBypass",
+          "Fast Travel evaluated",
+          "Tween fallback if no portal"
+        ],
+        "protected_item_guard": true
+      },
+      "bypass_disabled": {
+        "expected_order": [
+          "Bypass rejected",
+          "Fast Travel evaluated",
+          "Tween fallback"
+        ]
+      }
+    },
     "invariants": {
       "fixed_tween_speed_200": true,
       "dynamic_tween_removed": true,
-      "portal_before_bypass": true,
-      "route_revision_present": true,
       "bypass_default_true": true,
+      "bypass_before_portal_normal_route": true,
+      "protected_item_guard": true,
       "destination_island_bypass": true,
-      "berry_single_index": true,
-      "combat_allowed_set": true,
-      "fishing_quest_min20": true,
-      "fishing_ask_contract": true,
-      "fishing_finish_contract": true,
-      "fishing_cast_state_machine": true,
-      "fishing_no_fixed_location_contract": true,
-      "single_fastattack_stepped": true
+      "no_legacy_movement_demand": true,
+      "movement_support_actual_demand_only": true,
+      "hrp_first_fastattack": true,
+      "ability_tag_sources": true,
+      "ability_unknown_fail_closed": true,
+      "single_fastattack_stepped": true,
+      "heartbeat_connections_unchanged": true,
+      "task_spawn_unchanged": true,
+      "requestentrance_core_only": true
     },
     "scope_preservation": {
       "ui.lua": true,
@@ -95,41 +145,42 @@
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_9": 214,
-        "to_2_0_10": 214
+        "from_2_0_10": 214,
+        "to_2_0_11": 214
       },
       "FireServer": {
-        "from_2_0_9": 18,
-        "to_2_0_10": 18
+        "from_2_0_10": 18,
+        "to_2_0_11": 18
       },
       "task.spawn": {
-        "from_2_0_9": 8,
-        "to_2_0_10": 8
+        "from_2_0_10": 8,
+        "to_2_0_11": 8
       },
       "RunService.Stepped": {
-        "from_2_0_9": 1,
-        "to_2_0_10": 1
+        "from_2_0_10": 1,
+        "to_2_0_11": 1
       },
       "Heartbeat:Connect": {
-        "from_2_0_9": 2,
-        "to_2_0_10": 2
+        "from_2_0_10": 2,
+        "to_2_0_11": 2
       },
       "requestEntrance": {
-        "from_2_0_9": 4,
-        "to_2_0_10": 4
+        "from_2_0_10": 4,
+        "to_2_0_11": 4
       },
       "RE4EntranceTravel": {
-        "from_2_0_9": 11,
-        "to_2_0_10": 5
+        "from_2_0_10": 5,
+        "to_2_0_11": 5
       },
       "RE4DirectPlayerCFrame": {
-        "from_2_0_9": 21,
-        "to_2_0_10": 16
+        "from_2_0_10": 16,
+        "to_2_0_11": 16
       }
     },
     "notes": [
-      "Static/container validation only; Roblox server-authoritative portal, spawn and combat behavior still requires in-game smoke testing.",
-      "Fishing quest IDs/NPC coordinates were not invented because the supplied main.lua does not define them."
+      "Static/container validation only; Roblox server-authoritative spawn reset, requestEntrance, hit acceptance and ownership replication require in-game smoke testing.",
+      "The Jungle→Magma Bypass cost case uses a mock correctly named destination spawn because runtime PlayerSpawns are server data unavailable in the container; source invariants require same-island mapping before execution.",
+      "No new scheduler/polling worker was introduced by 2.0.11."
     ]
   },
   "files": [
@@ -137,24 +188,24 @@
       "path": ".gitignore",
       "sha256": "4dda2dc4bd20999030b4fee4531ec65f35cde6f825c1e2d7c26eb36ff7443e31",
       "bytes": 20,
-      "lines": 2
+      "lines": 1
     },
     {
       "path": "config.lua",
-      "sha256": "8c99fbb0ea4b713493238a830875ccd1ae1e6925cf5b101609192489c8bbcb83",
-      "bytes": 8786,
-      "lines": 282
+      "sha256": "8a9194c790f184dbdee8e76754532a4c12c64b2212a36738e0031b5eabcf9bca",
+      "bytes": 9003,
+      "lines": 286
     },
     {
       "path": "constants.lua",
-      "sha256": "e8bc7b8b67d2d0a132141202060016bf7a61763a2a710111c3b17b3644fa5ab3",
-      "bytes": 122359,
-      "lines": 1454
+      "sha256": "cd74a61805a99daa1151e8d14005cdbe528aad5d31404fefa629ffdc53999851",
+      "bytes": 122944,
+      "lines": 1468
     },
     {
       "path": "hub_info.json",
-      "sha256": "0ad3e6714f2871328ad27ec6f1d14b245cf3ca7b506c4af90d269dfe925561e8",
-      "bytes": 2441,
+      "sha256": "9f83f53287b1afdff711783db58de65abccbcda21e9fd8b28402b9e052973a87",
+      "bytes": 2208,
       "lines": 36
     },
     {
@@ -189,13 +240,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "04f0cae6f061833332af9f957995c6cfac1431538f8f507e744fb948a7d02a74",
-      "bytes": 818323,
-      "lines": 15969
+      "sha256": "bc77a73a2f2672bf843a1765418fcac988cd621968787579754461fd5b211650",
+      "bytes": 819407,
+      "lines": 16034
     },
     {
       "path": "metadata.lua",
-      "sha256": "76f9374ec4a6167f959dbecbff9ada7fe5ec6d68004d647f760c3764825dbb6f",
+      "sha256": "0d2d42b2a287dc372fc9a168e24ac124938a9d296013777f01471866d7991dc1",
       "bytes": 1267,
       "lines": 43
     },

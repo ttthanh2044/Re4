@@ -128,6 +128,10 @@ return {
             MaxSpawnApproachDistance = 10000,
             MinSpawnSeparation = 800,
             MinDistanceGain = 650,
+            -- Route planner cost model. Bypass is preferred only when the
+            -- destination-bound spawn materially beats a direct Tween.
+            EstimatedOverhead = 0.75,
+            MinTimeGain = 0.85,
             -- Destination-aware spawn selection: when a destination maps to an
             -- island, Bypass may only choose a spawn that maps to that same island.
             DestinationIslandRadius = 2800,

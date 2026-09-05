@@ -11,26 +11,26 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Movement routing now re-evaluates strategic destination changes across all shared consumers, Bypass TP selects destination-island spawns instead of arbitrary nearby islands, multi-target combat shares the farm target set, and Berry ESP/collection use one event-driven cache."
+    "content": "Movement routing is now centralized End-to-End: safe/beneficial Bypass TP gets first refusal, protected progression items disable Bypass automatically, Fast Travel remains the next strategy, and every shared movement consumer falls back to one Tween path. Multi-target hit registration and ability ownership are aligned with the current reference contracts."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
-      "content": "End-to-End shared-engine update: separates TargetRevision from RouteRevision so Auto Farm Level, Material, Mastery, Island, Berry and legacy _tp consumers re-enter Portal/Bypass/Tween planning when their strategic destination changes without re-routing on every moving combat target. Bypass TP remains Portal-exclusive and now selects only spawn points mapped to the actual destination island when such mapping is available. Fast Attack consumes the same allowed target set retained by CombatTargetLock/BringMob so valid grouped targets are not internally narrowed to the primary mob name. Berry discovery, ESP and Auto Collect share one tag/event index with late-prompt discovery and collection confirmation. Fishing quest behavior is synchronized only from the supplied main.lua contract (Fishing Lv.20+, Angler AskQuest, UI confirmation, FinishQuest). Tween correction now requires a persistent correction condition to avoid one-frame cancel/recreate pauses."
+      "content": "Routing cleanup release: removes the legacy feature-flag movement demand blob, centralizes CanUseBypass around protected quest/progression tools, maps Bypass spawn candidates to the destination island by semantic name before spatial fallback, and evaluates Bypass time gain before Fast Travel/Tween. Fast Attack now registers HumanoidRootPart first so the hit target part matches the part BringMob actually owns/moves; no artificial 2-target or 6-target cap is introduced. Items → Abilities & Skills now follows the supplied main.lua ownership contract: CollectionService tags and current player/data/unlockables sources are authoritative, stale unlockable snapshots remain Unknown, and purchase refresh uses one authoritative snapshot transaction."
     },
     {
-      "version": "2.0.8",
+      "version": "2.0.10",
       "date": "2026-09-05",
-      "title": "Re4Hub v2.0.8",
-      "content": "Shared-runtime stability update: fixed stale follower ownership after arrival, refreshed route context across farm phases, rebased bounded server correction from the actual player position, added Bypass TP transport support, event-driven Berry collection, fail-closed ability ownership, capability-driven Mastery skill selection and shared Auto Farm Island."
+      "title": "Re4Hub v2.0.10",
+      "content": "Shared movement consumers re-enter routing on strategic destination changes; Bypass destination-island matching, shared multi-target allowed sets, event-driven Berry ESP/collection, and the supplied main.lua Fishing lifecycle were integrated End-to-End."
     },
     {
-      "version": "2.0.7",
+      "version": "2.0.9",
       "date": "2026-09-05",
-      "title": "Re4Hub v2.0.7",
-      "content": "Added SkyLower/SkyUpper transition awareness, bounded external-relocation replan and route-hazard handling so map-trigger teleports do not leave stale tween state."
+      "title": "Re4Hub v2.0.9",
+      "content": "Removed DynamicTween and unified player movement around fixed TweenSpeed 200 with route/transport Noclip leases and a single Portal/Bypass/Tween decision layer."
     }
   ]
 }
