@@ -933,8 +933,8 @@ do
     }
 
     -- Fighting Style registry is the single source of truth for Progress and Items.
-    -- Ownership probes, Sea availability, dealer identity/location and Buy/Equip
-    -- remote arguments all live in this registry; UI consumers do not own copies.
+    -- Sea availability, optional explicitly-safe ownership probes, dealer identity/location
+    -- and Buy/Equip action arguments all live in this registry; UI consumers do not own copies.
     local RE4BasicStyleCatalog = RE4Constants.FeatureMetadata and RE4Constants.FeatureMetadata.GameData and RE4Constants.FeatureMetadata.GameData.FightingStyleCatalog or {}
     local function RE4DealerLocations(list)
       local out={}
@@ -946,7 +946,7 @@ do
       return {
         CatalogKey=key,Style=source.Internal,Display=source.Name,Seas=source.Seas or {},
         CostBeli=source.Currency=="Beli" and source.Price or nil,CostFragments=source.Currency=="Fragments" and source.Price or nil,
-        Remote=source.Remote,OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
+        Remote=source.Remote,ActionArgs={},OwnershipProbe=nil,EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
         NPC=source.NPC and {source.NPC} or {},DealerLocations=RE4DealerLocations(source.Locations),Requirements={},
         DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
       }
@@ -958,14 +958,14 @@ do
       WaterKungFu=RE4BuildBasicStyleMeta("WaterKungFu"),
       DragonBreath={
         CatalogKey="DragonBreath",Style="Dragon Breath",Display="Dragon Breath",Seas={2,3},CostFragments=1500,
-        Remote="BlackbeardReward",OwnershipArgs={"DragonClaw","1"},ActionArgs={"DragonClaw","2"},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BlackbeardReward",OwnershipProbe={Args={"DragonClaw","1"},PositiveOnly=true},ActionArgs={"DragonClaw","2"},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Sabi"},DealerLocations={[2]="Kingdom of Rose · Café",[3]="Castle on the Sea"},
         Requirements={{Kind="Access",Label="Access Second Sea"}},
         DisplayRequirements={{Key="fighting_style.req.access_second_sea",Fallback="Access Second Sea"}},
       },
       Superhuman={
         CatalogKey="Superhuman",Style="Superhuman",Display="Superhuman",Seas={2,3},CostBeli=3000000,
-        Remote="BuySuperhuman",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BuySuperhuman",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Martial Arts Master"},DealerLocations={[2]="Snow Mountain",[3]="Castle on the Sea"},
         Requirements={{Kind="Mastery",Style="DarkStep",Target=300},{Kind="Mastery",Style="Electric",Target=300},{Kind="Mastery",Style="WaterKungFu",Target=300},{Kind="Mastery",Style="DragonBreath",Target=300}},
         DisplayRequirements={
@@ -977,7 +977,7 @@ do
       },
       DeathStep={
         CatalogKey="DeathStep",Style="Death Step",Display="Death Step",Seas={2,3},CostBeli=2500000,CostFragments=5000,
-        Remote="BuyDeathStep",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BuyDeathStep",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Phoeyu, the Reformed","Phoeyu"},DealerLocations={[2]="Ice Castle",[3]="Castle on the Sea"},
         Requirements={{Kind="Mastery",Style="DarkStep",Target=400},{Kind="Item",Name="Library Key",Label="Library Key · Awakened Ice Admiral"},{Kind="Library",Label="Ice Castle Library Door"}},
         DisplayRequirements={
@@ -989,7 +989,7 @@ do
       },
       ElectricClaw={
         CatalogKey="ElectricClaw",Style="Electric Claw",Display="Electric Claw",Seas={3},CostBeli=3000000,CostFragments=5000,
-        Remote="BuyElectricClaw",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BuyElectricClaw",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Previous Hero"},DealerLocations={[3]="Floating Turtle"},
         Requirements={{Kind="Mastery",Style="Electric",Target=400},{Kind="Quest",Label="Previous Hero → Mansion in ≤ 30s"}},
         DisplayRequirements={
@@ -1000,7 +1000,7 @@ do
       },
       Sharkman={
         CatalogKey="Sharkman",Style="Sharkman Karate",Display="Sharkman Karate",Seas={2,3},CostBeli=2500000,CostFragments=5000,
-        Remote="BuySharkmanKarate",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BuySharkmanKarate",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Sharkman Teacher","Daigrock, the Sharkman","Daigrock"},DealerLocations={[2]="Forgotten Island",[3]="Castle on the Sea"},
         Requirements={{Kind="Mastery",Style="WaterKungFu",Target=400},{Kind="Item",Name="Water Key",Label="Water Key · Tide Keeper"},{Kind="Dealer",Label="Give Water Key to Sharkman Teacher"}},
         DisplayRequirements={
@@ -1012,7 +1012,7 @@ do
       },
       DragonTalon={
         CatalogKey="DragonTalon",Style="Dragon Talon",Display="Dragon Talon",Seas={3},CostBeli=3000000,CostFragments=5000,
-        Remote="BuyDragonTalon",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BuyDragonTalon",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Uzoth"},DealerLocations={[3]="Hydra Island"},
         Requirements={{Kind="Mastery",Style="DragonBreath",Target=400},{Kind="Item",Name="Fire Essence",Label="Fire Essence · Death King/Bones"},{Kind="Dealer",Label="Give Fire Essence to Uzoth"}},
         DisplayRequirements={
@@ -1024,7 +1024,7 @@ do
       },
       Godhuman={
         CatalogKey="Godhuman",Style="Godhuman",Display="Godhuman",Seas={3},CostBeli=5000000,CostFragments=5000,
-        Remote="BuyGodhuman",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BuyGodhuman",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Ancient Monk"},DealerLocations={[3]="Floating Turtle"},
         Requirements={{Kind="Mastery",Style="Superhuman",Target=400},{Kind="Mastery",Style="DeathStep",Target=400},{Kind="Mastery",Style="ElectricClaw",Target=400},{Kind="Mastery",Style="Sharkman",Target=400},{Kind="Mastery",Style="DragonTalon",Target=400},{Kind="Material",Name="Dragon Scale",Target=10},{Kind="Material",Name="Fish Tail",Target=20},{Kind="Material",Name="Mystic Droplet",Target=10},{Kind="Material",Name="Magma Ore",Target=20}},
         DisplayRequirements={
@@ -1041,7 +1041,7 @@ do
       },
       Sanguine={
         CatalogKey="Sanguine",Style="Sanguine Art",Display="Sanguine Art",Seas={3},CostBeli=5000000,CostFragments=5000,
-        Remote="BuySanguineArt",OwnershipArgs={true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
+        Remote="BuySanguineArt",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
         NPC={"Shafi"},DealerLocations={[3]="Tiki Outpost"},
         Requirements={{Kind="Item",Name="Leviathan Heart",Label="Leviathan Heart"},{Kind="Material",Name="Dark Fragment",Target=2},{Kind="Material",Name="Demonic Wisp",Target=20},{Kind="Material",Name="Vampire Fang",Target=20}},
         DisplayRequirements={
