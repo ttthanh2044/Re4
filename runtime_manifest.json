@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.23",
+    "version": "2.0.24",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -15,7 +15,7 @@
   "runtime_architecture": {
     "movement_speed_source": "config.lua -> Movement.TweenSpeed (200)",
     "movement_entry_point": "RE4RequestMovement(destination, context) -> RE4MovementCoordinator -> RE4TravelResolver",
-    "fighting_style_data": "RE4Constants.FightingStyleRegistry is the canonical registry for all supported styles: Sea availability, action remote/args, optional explicitly-safe ownership probe, dealer identity/location, requirements, acquire mode and Equip fallback policy. RE4Constants.StyleMeta remains a compatibility alias to the same table.",
+    "fighting_style_data": "RE4Constants.FeatureMetadata.FightingStyleCatalog is the canonical source for basic Dark Step/Electric/Water Kung Fu metadata. RE4Constants.FightingStyleRegistry derives those entries from the top-level catalog and owns Sea availability, action remote/args, safe ownership probe, dealer identity/location and requirements for both Progress and Items.",
     "fighting_style_action": "Progress consumes the shared registry for Not Owned -> Buy/Learn; Items consumes it for confirmed Owned -> Equip/Relearn. Items tries the registry action directly only after ownership is confirmed, verifies the live equipped style, then acquires Movement and uses the same dealer resolver as Progress only when needed.",
     "fighting_style_dealer_resolution": "shared registry NPC/location -> live/template NPC resolver -> shared TeleportDirectory -> exact per-Sea/style cache -> island anchor only as bootstrap -> exact dealer rescan",
     "dealer_anchor_policy": "WorldTopology island anchors are never cached or treated as dealer positions",
@@ -29,7 +29,7 @@
     "bisento_v2_auto_buy_v1": false,
     "bisento_v2_auto_equip_v1": false,
     "fighting_style_sea_source": "RE4Ownership:Sea() is the shared current-Sea resolver. The ownership service reads RE4RuntimeContext.Core.SeaNumber as authoritative state with World1/World2/World3 only as fallback; RefreshStyleServer and RE4StyleProgress both consume the same exported ownership service instead of a cross-domain local helper.",
-    "items_fighting_equip_visibility": "Items Fighting rows are governed only by current-Sea availability plus confirmed shared ownership. Basic owned styles can be confirmed by their registry OwnershipProbe even when unequipped and absent from passive inventory snapshots. Dealer/NPC replication is never consulted for visibility; dealer resolution occurs only after an owned style is selected for Equip and direct relearn is unverified/unsupported.",
+    "items_fighting_equip_visibility": "Items Fighting rows are mounted by current-Sea registry availability and then shown only on confirmed shared ownership. Basic registry metadata is validated before runtime; dealer/NPC replication is never consulted for visibility and is resolved only after an owned style is selected for Equip when direct relearn is unverified.",
     "second_sea_access": "Level 700+ -> Military Detective -> Key -> live Frozen Village door -> Ice Admiral -> return Military Detective -> Experienced Captain -> TravelDressrosa",
     "second_sea_npc_resolution": "shared RE4TeleportDirectory exact live/template NPC target; WorldTopology island anchor is bootstrap-only while NPC is unresolved",
     "second_sea_state_policy": "monotonic worker state; Ice Admiral Humanoid.Died/progression completion advances post-boss flow and prevents rollback to the door step",
@@ -133,7 +133,18 @@
       "inventory_mastery_level_indexed_2_0_23": true,
       "inventory_cache_schema_reset_2_0_23": true,
       "no_per_style_ui_branch_added_2_0_23": true,
-      "no_new_scheduler_or_background_task_2_0_23": true
+      "no_new_scheduler_or_background_task_2_0_23": true,
+      "basic_style_catalog_top_level_path_2_0_24": true,
+      "basic_style_builder_rejects_empty_metadata_2_0_24": true,
+      "dark_step_registry_metadata_valid_2_0_24": true,
+      "electric_registry_metadata_valid_2_0_24": true,
+      "water_kung_fu_registry_metadata_valid_2_0_24": true,
+      "basic_styles_reach_sea2_items_iteration_2_0_24": true,
+      "basic_style_ownership_probe_preserved_2_0_24": true,
+      "items_visibility_still_no_dealer_dependency_2_0_24": true,
+      "direct_before_dealer_equip_preserved_2_0_24": true,
+      "no_new_scheduler_or_background_task_2_0_24": true,
+      "offline_regression_79_of_79_pass_2_0_24": true
     },
     "scope_preservation": {
       "config.lua": true,
@@ -190,7 +201,11 @@
       "bring_core_changed_2_0_23": false,
       "fastattack_changed_2_0_23": false,
       "second_sea_access_changed_2_0_23": false,
-      "config_changed_2_0_23": false
+      "config_changed_2_0_23": false,
+      "fighting_style_metadata_scope_files_changed_2_0_24": [
+        "constants.lua",
+        "main.lua"
+      ]
     },
     "callsite_counts": {
       "InvokeServer": {
@@ -345,7 +360,7 @@
       "path": ".gitignore",
       "sha256": "4dda2dc4bd20999030b4fee4531ec65f35cde6f825c1e2d7c26eb36ff7443e31",
       "bytes": 20,
-      "lines": 3
+      "lines": 2
     },
     {
       "path": "config.lua",
@@ -355,15 +370,15 @@
     },
     {
       "path": "constants.lua",
-      "sha256": "13839afe2ac552c0356506ef2b677a743dc7914b3efa195a6b35b0eaf283d007",
-      "bytes": 126393,
-      "lines": 1503
+      "sha256": "a413c43524763777494e399e3323a1f4c25377de3946091c04e3cf8a6b759d51",
+      "bytes": 127064,
+      "lines": 1517
     },
     {
       "path": "hub_info.json",
-      "sha256": "4431fe1ac6d84abde7cce257761042e3ca88d291caeb4801039efe5c84da811f",
-      "bytes": 8892,
-      "lines": 109
+      "sha256": "ea55cc2ac84ce653cfc28ba5753d92b059776fbad4db8b109e0077653e0ade37",
+      "bytes": 9625,
+      "lines": 115
     },
     {
       "path": "language/en.json",
@@ -397,13 +412,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "bfdd201921cad85687a509b6777bb66d7a650cad61b039e73fd12f2ece5088e1",
-      "bytes": 860361,
+      "sha256": "0bdad405815c10c08409bace42c22c353df6fa70383878fc2b5d06008667fefa",
+      "bytes": 860516,
       "lines": 16825
     },
     {
       "path": "metadata.lua",
-      "sha256": "287c993b28cf334d8a30cfc57e57556f6ba8cffb0fedf21ffe5e5c1bebdf16b8",
+      "sha256": "047a0ba44c8e2a6d4616cf077a04aa6790088cbd4c84b432ad449e0e04db5c62",
       "bytes": 1267,
       "lines": 43
     },
@@ -586,6 +601,29 @@
       "new_background_task_count": 0,
       "new_listener_count": 0,
       "items_open_diagnostic": "one bounded [RE4 HUB/Fighting Items] line"
+    }
+  },
+  "update_2_0_24": {
+    "reference": "Re4.zip Fighting Style implementation",
+    "root_cause": [
+      "RE4BuildBasicStyleMeta read RE4Constants.FeatureMetadata.GameData.FightingStyleCatalog, but FightingStyleCatalog is defined directly under RE4Constants.FeatureMetadata.",
+      "Because the lookup returned {}, Dark Step/Electric/Water Kung Fu were built with nil Style/Display/Remote and Seas={}, so S.Allowed filtered them before ownership resolution and before the Items diagnostic line. This exactly matches the user log containing only advanced styles."
+    ],
+    "fix": {
+      "canonical_catalog_path": "RE4Constants.FeatureMetadata.FightingStyleCatalog",
+      "basic_metadata_invariant": "Style + Display + Remote + non-empty Seas required",
+      "shared_registry_preserved": true,
+      "ownership_probe_preserved": "{Remote=remote, Args={true}, PositiveOnly=true}",
+      "items_visibility_inputs": [
+        "current Sea availability",
+        "confirmed ownership"
+      ],
+      "dealer_required_for_visibility": false,
+      "equip_policy": "confirmed owned -> direct action -> live equipped verification -> dealer fallback",
+      "new_scheduler_count": 0,
+      "new_background_task_count": 0,
+      "new_listener_count": 0,
+      "offline_regression": "79/79 PASS"
     }
   }
 }

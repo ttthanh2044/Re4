@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Fixes Items Fighting Style ownership at the source: basic styles now use explicit registry ownership probes, while dictionary/nested mastery records remain a secondary ownership source. Dealer replication is not part of Items visibility."
+    "content": "Fixes the Items Fighting Style metadata pipeline: basic styles now derive from the actual top-level FightingStyleCatalog, so Sea availability and ownership probes receive valid Dark Step, Electric and Water Kung Fu metadata before UI filtering."
   },
   "changelog": [
+    {
+      "version": "2.0.24",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.24",
+      "content": "Fixes the actual root cause exposed by the Fighting Items diagnostic and confirmed against Re4.zip. RE4BuildBasicStyleMeta was reading FeatureMetadata.GameData.FightingStyleCatalog, but FightingStyleCatalog is stored directly under FeatureMetadata. Dark Step, Electric and Water Kung Fu therefore received nil Style/Remote and empty Seas, so Items removed them before ownership probing or logging. The builder now reads the canonical top-level catalog, validates Style/Display/Remote/Seas, preserves the shared ownership probe and direct-first Equip flow, and keeps dealer resolution deferred until Equip."
+    },
     {
       "version": "2.0.23",
       "date": "2026-09-05",

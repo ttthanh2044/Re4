@@ -935,18 +935,32 @@ do
     -- Fighting Style registry is the single source of truth for Progress and Items.
     -- Sea availability, optional explicitly-safe ownership probes, dealer identity/location
     -- and Buy/Equip action arguments all live in this registry; UI consumers do not own copies.
-    local RE4BasicStyleCatalog = RE4Constants.FeatureMetadata and RE4Constants.FeatureMetadata.GameData and RE4Constants.FeatureMetadata.GameData.FightingStyleCatalog or {}
+    local RE4FeatureMetadata = RE4Constants.FeatureMetadata or {}
+    -- FightingStyleCatalog is a top-level FeatureMetadata table (not GameData).
+    -- Keep one canonical source: both Progress and Items consume registry entries
+    -- derived from this catalog, and ownership/dealer state is resolved later.
+    local RE4BasicStyleCatalog = RE4FeatureMetadata.FightingStyleCatalog or {}
     local function RE4DealerLocations(list)
       local out={}
       for sea,location in ipairs(list or {}) do out[sea]=location end
       return out
     end
     local function RE4BuildBasicStyleMeta(key)
-      local source=RE4BasicStyleCatalog[key] or {}
+      local source=RE4BasicStyleCatalog[key]
+      if type(source)~="table" then
+        error("[RE4 HUB/Constants] FightingStyleCatalog missing entry: "..tostring(key),0)
+      end
+      local style=tostring(source.Internal or "")
+      local display=tostring(source.Name or "")
+      local remote=tostring(source.Remote or "")
+      local seas=source.Seas
+      if style=="" or display=="" or remote=="" or type(seas)~="table" or #seas==0 then
+        error("[RE4 HUB/Constants] invalid FightingStyleCatalog entry: "..tostring(key),0)
+      end
       return {
-        CatalogKey=key,Style=source.Internal,Display=source.Name,Seas=source.Seas or {},
+        CatalogKey=key,Style=style,Display=display,Seas=seas,
         CostBeli=source.Currency=="Beli" and source.Price or nil,CostFragments=source.Currency=="Fragments" and source.Price or nil,
-        Remote=source.Remote,ActionArgs={},OwnershipProbe={Remote=source.Remote,Args={true},PositiveOnly=true},EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
+        Remote=remote,ActionArgs={},OwnershipProbe={Remote=remote,Args={true},PositiveOnly=true},EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
         NPC=source.NPC and {source.NPC} or {},DealerLocations=RE4DealerLocations(source.Locations),Requirements={},
         DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
       }
