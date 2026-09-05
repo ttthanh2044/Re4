@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "hub_version": "$current",
+  "updated_at": "$updated_at",
+  "discord": {
+    "enabled": false,
+    "invite": "",
+    "label": "$community_label",
+    "status": "Official Discord"
+  },
+  "announcement": {
+    "enabled": true,
+    "title": "$display_version",
+    "content": "Runtime cleanup release: reduces main.lua compiler payload and repeated lifecycle/UI/legacy-worker boilerplate while preserving protected movement, combat, raid and mastery behavior. Executor integration remains capability-driven rather than executor-name hardcoded."
+  },
+  "changelog": [
+    {
+      "version": "$current",
+      "date": "$updated_at",
+      "title": "$display_version",
+      "content": "Reduces main.lua from 20,491 to 14,869 lines by moving static catalogs and presentation-only models to their responsible data/UI files, consolidating simple UI bindings, shutdown ownership and verified legacy polling families, and reducing repeated workspace scans through shared indexes. Critical remote-call signatures, movement callsites, combat entrypoints and Raid Chip behavior are preserved in static regression checks."
+    },
+    {
+      "version": "2.0.3",
+      "date": "2026-09-03",
+      "title": "Re4Hub v2.0.3",
+      "content": "Consolidated the runtime into one physical main.lua with initializer-function compilation boundaries, RuntimeContext cross-domain exports, early bootstrap diagnostics and capability-gated optional executor hooks."
+    },
+    {
+      "version": "2.0.2",
+      "date": "2026-09-03",
+      "title": "Re4Hub v2.0.2",
+      "content": "Fixes silent detached ScreenGui creation by removing protected-host Parent write probes, adds ordered gethui/PlayerGui/CoreGui mounting fallback, bounds native PlayerGui/Main readiness, rolls back failed bootstrap session flags, includes current Re4Hub casing in stale-shell cleanup, and isolates the UI cache to the 2.0.2 release generation. Gameplay feature logic is unchanged."
+    },
+    {
+      "version": "2.0.1",
+      "date": "2026-09-02",
+      "title": "Re4Hub v2.0.1",
+      "content": "Gun Mastery now has one owner-scoped M1 producer and uses the same normal ShootGunEvent contract as the current combat module. Fruit/Gun skills read independent live UI configuration, cast at most one ready skill per scheduler pass, and stop on Mastery OFF/switch. Fruit readiness no longer fails solely because optional inventory mastery metadata is absent when the live unlocked skill UI is available. Raid Fruit-chip purchase remains unchanged."
+    },
+    {
+      "version": "2.0.0",
+      "date": "2026-09-02",
+      "title": "Re4Hub v2.0.0",
+      "content": "Raid Fruit-chip purchase is restored to the Re4.zip LoadFruit -> RaidsNpc/Select path with its original <=490,000 Fruit filter. Fruit/Gun Mastery returns to the original weaken-then-finish flow; obsolete Gun/Fruit skill state machines are removed, while stateless unlock/cooldown gates protect Z/X/C/V/F Fruit skills and Z/X Gun skills. Sword Mastery remains unchanged. Auto Raid no longer routes mobs through normal Attack.Kill: the Raid-owned Kill Aura handles indexed Raid mobs across Islands 1-5 from one lifecycle and cleans up on Raid end/cancel."
+    }
+  ]
+}

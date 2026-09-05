@@ -1,0 +1,213 @@
+{
+  "schema": 7,
+  "release_identity": {
+    "authoritative_source": "metadata.lua",
+    "concrete_version_duplicated_here": false,
+    "current_release": "derived from metadata.lua",
+    "channel": "stable"
+  },
+  "entry": "main.lua",
+  "hash_algorithm": "sha256",
+  "files_exclude": [
+    "runtime_manifest.json"
+  ],
+  "runtime_architecture": {
+    "single_runtime_file": "main.lua",
+    "initializer_domains": [
+      "bootstrap",
+      "feature_registry",
+      "core",
+      "automation",
+      "progression",
+      "world",
+      "combat"
+    ],
+    "external_responsibility_files": [
+      "metadata.lua",
+      "config.lua",
+      "constants.lua",
+      "ui.lua",
+      "hub_info.json",
+      "language/"
+    ],
+    "cross_domain_context": "RE4RuntimeContext.Core",
+    "cross_domain_export_count": 34,
+    "old_runtime_units_removed": [
+      "core.lua",
+      "automation.lua",
+      "progression.lua",
+      "world.lua",
+      "combat.lua",
+      "features.lua"
+    ],
+    "compile_isolation": "major runtime domains compile as separate initializer function prototypes inside one physical main.lua",
+    "main_payload_bytes": 754172,
+    "main_payload_lines": 14869
+  },
+  "optimization_summary": {
+    "baseline": "re4hub-2.0.3-fixed",
+    "baseline_main_lines": 20491,
+    "main_lines": 14869,
+    "main_line_reduction": 5622,
+    "main_line_reduction_percent": 27.44,
+    "baseline_main_bytes": 908412,
+    "main_bytes": 754172,
+    "main_byte_reduction": 154240,
+    "main_byte_reduction_percent": 16.98,
+    "main_reduction_sources": [
+      "static/catalog data moved to constants.lua",
+      "presentation-only models and repeated UI binding plumbing moved to ui.lua",
+      "verified simple legacy polling families share lifecycle infrastructure",
+      "complete-trials worker dispatch consolidated",
+      "shutdown ownership centralized",
+      "repeated world scans replaced by bounded/event-driven indexes where audited"
+    ],
+    "protected_domains": [
+      "movement/tween algorithms",
+      "combat Attack.Kill/Kill2",
+      "RaidRuntime lifecycle/step",
+      "RaidChipService currency/step",
+      "mastery target behavior",
+      "remote argument/order semantics"
+    ]
+  },
+  "compatibility": {
+    "routing": "capability-driven; executor identity is diagnostic only",
+    "named_executor_behavior_branches": 0,
+    "getgenv": "safe resolver with pcall fallback to _G in runtime/config/constants/ui",
+    "http": "game:HttpGet first with request/http_request fallback",
+    "optional_hooks": "hookfunction/namecall primitives capability-gated; partial installs roll back",
+    "queue_on_teleport": "resolved from executor environment or syn fallback; optional",
+    "executor_primitives": "click/touch/proximity/hidden-property calls go through capability wrappers",
+    "live_verification": "not performed in this environment; executor/client runtime testing remains required"
+  },
+  "offline_regression": {
+    "lua_lexical_balance": "passed for main.lua/ui.lua/constants.lua/config.lua/metadata.lua",
+    "json_parse": "passed for hub_info.json and all language json files",
+    "critical_function_token_parity": {
+      "RE4BringService:Move": "exact_vs_2.0.3-fixed",
+      "RE4BringService:ReleaseOwner": "exact_vs_2.0.3-fixed",
+      "RE4RaidChipService:Step": "exact_vs_2.0.3-fixed",
+      "RE4RaidChipService:_tryCurrency": "exact_vs_2.0.3-fixed",
+      "RE4RaidRuntime:Step": "exact_vs_2.0.3-fixed",
+      "RE4RaidRuntime:LifecycleTick": "exact_vs_2.0.3-fixed",
+      "RE4RaidRuntime:_commitLifecycle": "exact_vs_2.0.3-fixed",
+      "RE4TweenCore": "exact_vs_2.0.3-fixed",
+      "RE4MoveToTarget": "exact_vs_2.0.3-fixed",
+      "Attack.Kill": "exact_vs_2.0.3-fixed",
+      "Attack.Kill2": "exact_vs_2.0.3-fixed"
+    },
+    "signature_counts": {
+      "InvokeServer": {
+        "baseline": 214,
+        "current": 214
+      },
+      "CharacterAddedConnect": {
+        "baseline": 8,
+        "current": 8
+      },
+      "CharacterRemovingConnect": {
+        "baseline": 2,
+        "current": 2
+      },
+      "RE4MoveToTarget": {
+        "baseline": 18,
+        "current": 18
+      },
+      "AttackKill": {
+        "baseline": 80,
+        "current": 80
+      },
+      "AttackKill2": {
+        "baseline": 2,
+        "current": 2
+      },
+      "SchedulerRegistrations": {
+        "baseline": 36,
+        "current_main_plus_ui": 36
+      },
+      "DestroyingConnections": {
+        "baseline": 8,
+        "current": 1
+      }
+    },
+    "shutdown": "single Destroying connection dispatches ordered shutdown handlers",
+    "language_files": "byte-for-byte unchanged from 2.0.3-fixed",
+    "old_runtime_file_references": "none in runtime/support files",
+    "version_ssot": "literal current version exists only in metadata.lua among authoritative runtime/support files"
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "4dda2dc4bd20999030b4fee4531ec65f35cde6f825c1e2d7c26eb36ff7443e31",
+      "bytes": 20,
+      "lines": 2
+    },
+    {
+      "path": "config.lua",
+      "sha256": "b2bc71514c86692043f0183e9160dc361b2c05343e11d80b1d9786903be8efb7",
+      "bytes": 7059,
+      "lines": 239
+    },
+    {
+      "path": "constants.lua",
+      "sha256": "4afe8d4846a030c3cbe3df4d655fbc9302359e2bf1f4d1afecd225c0df2f9f54",
+      "bytes": 116140,
+      "lines": 1390
+    },
+    {
+      "path": "hub_info.json",
+      "sha256": "36a586bbe58025b06a35c6502d363277c15becaccc6601e4ba4c3865ad63d96f",
+      "bytes": 3206,
+      "lines": 48
+    },
+    {
+      "path": "language/en.json",
+      "sha256": "bc84b56d03d6da0e15a03d90023f667dcf9a3a93e86be58d5cf9e1b4ab15c866",
+      "bytes": 52482,
+      "lines": 1133
+    },
+    {
+      "path": "language/id.json",
+      "sha256": "81d9666d1da02f13d1435c1b1e7830a0ca5b5bd3ac813aa878598f0740d7e581",
+      "bytes": 52753,
+      "lines": 1133
+    },
+    {
+      "path": "language/manifest.json",
+      "sha256": "5ca0b0e5c6a0383ab725afbcce65f7c1071b1e7490371716e5ad827f735f0474",
+      "bytes": 309,
+      "lines": 22
+    },
+    {
+      "path": "language/th.json",
+      "sha256": "32adacfec5adbe05e3548bcc8de44facfcca2edab0c25dd7b07ae4765d6fe8ee",
+      "bytes": 58815,
+      "lines": 1133
+    },
+    {
+      "path": "language/vi.json",
+      "sha256": "563433abb2996de658d05a2af2d5161677dac37e0f7fdea7bd8191a29cda06d3",
+      "bytes": 60537,
+      "lines": 1133
+    },
+    {
+      "path": "main.lua",
+      "sha256": "60143c6c88a3b9a16c09d7a0ddb35f82687d04cf344af102f0a9970856d791da",
+      "bytes": 754172,
+      "lines": 14869
+    },
+    {
+      "path": "metadata.lua",
+      "sha256": "b5acc450a60238e6b6b98eea7f20259bf10c60919c685a806b4135b5a0c52f36",
+      "bytes": 1266,
+      "lines": 43
+    },
+    {
+      "path": "ui.lua",
+      "sha256": "d04a8a2e5ce260c3e9f285a5780d18373295e32f69d3897b6ef3c301917b0a78",
+      "bytes": 240954,
+      "lines": 4381
+    }
+  ]
+}
