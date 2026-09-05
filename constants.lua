@@ -508,7 +508,13 @@ do
     		AirJump = {Id="air_jump",Name="Air Jump",Seas={1},Category="Ability",NPC="Ability Teacher",Ownership="Geppo"},
     		FlashStep = {Id="flash_step",Name="Flash Step",Seas={1},Category="Ability",NPC="Ability Teacher",Ownership="Soru"},
     		Instinct = {Id="instinct",Name="Instinct",Seas={1},Category="Ability",NPC="Instinct Teacher",Ownership="Ken",Requirements={"Level 300+","Saber Puzzle completed"}},
-    		SecondSeaAccess = {Id="second_sea_access",Name="Second Sea Access",Seas={1},Category="Quest",FarmFeature="Auto Quest Sea 2",Requirements={"Level 700+","Military Detective quest","Use Key at Frozen Village","Defeat Ice Admiral","Travel with Experienced Captain"}},
+    		SecondSeaAccess = {
+			Id="second_sea_access",Name="Second Sea Access",Seas={1},Category="Quest",FarmFeature="Auto Quest Sea 2",
+			NPCs={Detective="Military Detective",Captain="Experienced Captain"},
+			Locations={Detective="Prison",Door="Frozen Village",Captain="Middle Town"},
+			Remotes={Progress="DressrosaQuestProgress",Detective="Detective",Completion="Dressrosa",Travel="TravelDressrosa"},
+			Requirements={"Level 700+","Talk to Military Detective and obtain Key","Use Key at Frozen Village","Defeat Ice Admiral","Return to Military Detective","Travel with Experienced Captain"},
+		},
     	},
     
     	ItemCatalog = {

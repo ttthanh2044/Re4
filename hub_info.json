@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Fixes the Items → Fighting Style · Equip wrong_sea regression by making the progression/style domain consume the authoritative Sea number exported by Core and by rendering only Fighting Styles whose dealer metadata is valid in the current Sea. Progression Auto Get keeps its existing Sea restrictions; Items Use/Equip continues through the shared StartDealerAction → MoveDealer transaction."
+    "content": "Restores Items → Fighting Style · Equip across in-server release updates by making RE4StyleProgress release-scoped instead of reusing a stale UseUI.Mounted state. Auto Quest Sea 2 is rebuilt as a monotonic End-to-End state machine: Military Detective → Key/Frozen Village door → Ice Admiral → return to Military Detective → Experienced Captain → TravelDressrosa."
   },
   "changelog": [
+    {
+      "version": "2.0.19",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.19",
+      "content": "Fixes the missing Items Fighting Style Equip section caused by stale RE4StyleProgress.UseUI state surviving across builds in the same server. Rebuilds Auto Quest Sea 2 around shared progression data and live NPC/door resolution, adding the missing post-Ice-Admiral return to Military Detective and Experienced Captain travel steps with monotonic lifecycle state and no new scheduler/background loop."
+    },
     {
       "version": "2.0.18",
       "date": "2026-09-05",

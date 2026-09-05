@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.18",
+    "version": "2.0.19",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -23,13 +23,16 @@
     "bringmob": "unchanged from 2.0.13",
     "fastattack": "unchanged from 2.0.13",
     "dynamic_tween": "removed",
-    "items_fighting_equip_mount": "RE4StyleProgress:MountUseControls(RE4Tabs.Items); mounted in progression domain, independent of First Sea shop initialization",
+    "items_fighting_equip_mount": "RE4StyleProgress is release-scoped, then RE4StyleProgress:MountUseControls(RE4Tabs.Items) mounts controls into the current window; stale UseUI.Mounted state is not reused across builds",
     "bisento_v2_requirements": "Own Bisento V1 + personally deal >=10% of Greybeard max HP + Greybeard defeat; Bisento equip not required",
     "bisento_v2_confirmation": "event-driven PlayerGui upgrade-message capture + explicit inventory/live variant evidence + bounded post-kill verification",
     "bisento_v2_auto_buy_v1": false,
     "bisento_v2_auto_equip_v1": false,
     "fighting_style_sea_source": "RE4RuntimeContext.Core.SeaNumber exported by Core and consumed by RE4StyleProgress",
-    "items_fighting_equip_visibility": "Only styles whose StyleMeta.Seas includes the authoritative current Sea are mounted"
+    "items_fighting_equip_visibility": "Only styles whose StyleMeta.Seas includes the authoritative current Sea are mounted; mount state itself is fresh per release/session",
+    "second_sea_access": "Level 700+ -> Military Detective -> Key -> live Frozen Village door -> Ice Admiral -> return Military Detective -> Experienced Captain -> TravelDressrosa",
+    "second_sea_npc_resolution": "shared RE4TeleportDirectory exact live/template NPC target; WorldTopology island anchor is bootstrap-only while NPC is unresolved",
+    "second_sea_state_policy": "monotonic worker state; Ice Admiral Humanoid.Died/progression completion advances post-boss flow and prevents rollback to the door step"
   },
   "update_2_0_14": {
     "root_cause": [
@@ -74,7 +77,17 @@
       "style_progress_reads_core_sea": true,
       "items_equip_filters_invalid_sea_controls": true,
       "items_use_no_generic_wrong_sea_for_valid_current_sea": true,
-      "progression_and_items_shared_dealer_pipeline_preserved": true
+      "progression_and_items_shared_dealer_pipeline_preserved": true,
+      "fighting_style_service_release_scoped": true,
+      "stale_useui_mounted_reuse_removed": true,
+      "fighting_equip_mount_present": true,
+      "second_sea_state_machine_present": true,
+      "second_sea_return_detective_step_present": true,
+      "second_sea_experienced_captain_step_present": true,
+      "second_sea_ice_admiral_died_event_owned_by_feature_token": true,
+      "second_sea_old_fixed_door_cframe_removed": true,
+      "second_sea_progression_data_shared": true,
+      "no_new_scheduler_or_background_task_2_0_19": true
     },
     "scope_preservation": {
       "config.lua": true,
@@ -86,42 +99,44 @@
       ".gitignore": true,
       "movement_core_changed": false,
       "bring_core_changed": false,
-      "fastattack_changed": false
+      "fastattack_changed": false,
+      "ui.lua": true,
+      "bisento_v2_changed": false
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_17": 213,
-        "to_2_0_18": 213
+        "from_2_0_18": 213,
+        "to_2_0_19": 213
       },
       "FireServer": {
-        "from_2_0_17": 16,
-        "to_2_0_18": 16
+        "from_2_0_18": 16,
+        "to_2_0_19": 16
       },
       "task.spawn": {
-        "from_2_0_17": 8,
-        "to_2_0_18": 8
+        "from_2_0_18": 8,
+        "to_2_0_19": 8
       },
       "Heartbeat:Connect": {
-        "from_2_0_17": 2,
-        "to_2_0_18": 2
+        "from_2_0_18": 2,
+        "to_2_0_19": 2
       },
       "Stepped:Connect": {
-        "from_2_0_17": 2,
-        "to_2_0_18": 2
+        "from_2_0_18": 2,
+        "to_2_0_19": 2
       },
       "requestEntrance": {
-        "from_2_0_17": 4,
-        "to_2_0_18": 4
+        "from_2_0_18": 4,
+        "to_2_0_19": 4
       },
       "RE4Scheduler:Register": {
-        "from_2_0_17": 20,
-        "to_2_0_18": 20
+        "from_2_0_18": 20,
+        "to_2_0_19": 20
       }
     },
     "notes": [
-      "2.0.18 is a narrow Fighting Style Equip Sea-resolution hotfix. Movement, Combat, Bisento V2 strategy, dealer metadata and remote interactions are otherwise preserved from 2.0.17.",
-      "Out-of-Sea Fighting Styles are no longer mounted in Items. For a valid current-Sea style, Use/Equip continues through the same StartDealerAction -> MoveDealer -> Invoke -> equip verification transaction as Progression.",
-      "Static/container validation only; live dealer streaming and server equip confirmation require in-game smoke testing."
+      "2.0.19 fixes a cross-release UI lifecycle bug: RE4StyleProgress no longer reuses UseUI.Mounted/UseJobs from an older build in the same server.",
+      "Auto Quest Sea 2 now models the documented post-Ice-Admiral steps instead of jumping from door/boss state directly to TravelDressrosa.",
+      "No live Roblox runtime is available in the build container; NPC streaming, remote acceptance and world teleport must still be smoke-tested in game."
     ]
   },
   "files": [
@@ -135,67 +150,67 @@
       "path": "config.lua",
       "sha256": "8a9194c790f184dbdee8e76754532a4c12c64b2212a36738e0031b5eabcf9bca",
       "bytes": 9003,
-      "lines": 287
+      "lines": 286
     },
     {
       "path": "constants.lua",
-      "sha256": "565a13de85c90363294d985fdb45cd4fa22d23440d3c3f8ae144856b1c80ce85",
-      "bytes": 123810,
-      "lines": 1476
+      "sha256": "2b27ec04191c1ed7401892799b25ff8550bf1eb4121e7d742996d7f9cb56d514",
+      "bytes": 124139,
+      "lines": 1481
     },
     {
       "path": "hub_info.json",
-      "sha256": "b7c363008d0234da629e26384e4770cf84ca00f2afe336a94599788e7adbd96f",
-      "bytes": 6054,
-      "lines": 80
+      "sha256": "be86ad84351a68e5ba51ac49e68a43e3b3eca7a3bda2a4ef2a74b7e284c5cc4e",
+      "bytes": 6554,
+      "lines": 85
     },
     {
       "path": "language/en.json",
       "sha256": "bc84b56d03d6da0e15a03d90023f667dcf9a3a93e86be58d5cf9e1b4ab15c866",
       "bytes": 52482,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "language/id.json",
       "sha256": "81d9666d1da02f13d1435c1b1e7830a0ca5b5bd3ac813aa878598f0740d7e581",
       "bytes": 52753,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "language/manifest.json",
       "sha256": "5ca0b0e5c6a0383ab725afbcce65f7c1071b1e7490371716e5ad827f735f0474",
       "bytes": 309,
-      "lines": 23
+      "lines": 22
     },
     {
       "path": "language/th.json",
       "sha256": "32adacfec5adbe05e3548bcc8de44facfcca2edab0c25dd7b07ae4765d6fe8ee",
       "bytes": 58815,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "language/vi.json",
       "sha256": "563433abb2996de658d05a2af2d5161677dac37e0f7fdea7bd8191a29cda06d3",
       "bytes": 60537,
-      "lines": 1134
+      "lines": 1133
     },
     {
       "path": "main.lua",
-      "sha256": "0254f70e71a48c79e833de78688ea1b9fbc12a6097c206fa2d9ef8ce675074ed",
-      "bytes": 841588,
-      "lines": 16419
+      "sha256": "3f2a78193f5c5f668c7ff95d166d2c41b54387ca5dc8924895c16e006b6697a8",
+      "bytes": 848408,
+      "lines": 16560
     },
     {
       "path": "metadata.lua",
-      "sha256": "887e913662c2af554d3c178db7979ee313446a979349714d6627353023f2a960",
+      "sha256": "60b3c4478feb92d4cfaace162e7fcabcc4bd1dc1d40c7672b9a4b3442dbccbd4",
       "bytes": 1267,
-      "lines": 44
+      "lines": 43
     },
     {
       "path": "ui.lua",
       "sha256": "661838d92f4555064b81a62b747952e996f85d6dbe67a6f88d9c05d1c52114a9",
       "bytes": 239823,
-      "lines": 4365
+      "lines": 4364
     }
   ],
   "update_2_0_15": {
@@ -255,6 +270,25 @@
       "items_use_unowned_auto_buy": false,
       "shared_start_dealer_action_preserved": true,
       "shared_move_dealer_preserved": true
+    }
+  },
+  "update_2_0_19": {
+    "root_cause": [
+      "RE4StyleProgress used RE4StyleProgress = RE4StyleProgress or {...}; when a newer build was executed in the same server, stale UseUI.Mounted=true caused MountUseControls to return early, so Items showed no Fighting Style Equip controls.",
+      "Auto Quest Sea 2 treated Frozen Village door state as the whole progression state. After Ice Admiral it could call TravelDressrosa without returning to Military Detective or resolving Experienced Captain, and boss/map streaming could make the worker fall back to an earlier branch."
+    ],
+    "fix": {
+      "release_scoped_style_progress_service": true,
+      "items_equip_shared_start_use_preserved": true,
+      "second_sea_shared_progression_data": true,
+      "second_sea_detective_key_step": true,
+      "second_sea_live_door_resolution": true,
+      "second_sea_ice_admiral_died_event": true,
+      "second_sea_return_detective_step": true,
+      "second_sea_experienced_captain_step": true,
+      "second_sea_traveldressrosa_final_step": true,
+      "second_sea_monotonic_post_boss_state": true,
+      "new_scheduler_count": 0
     }
   }
 }
