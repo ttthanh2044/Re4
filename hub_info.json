@@ -11,14 +11,14 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Movement routing was consolidated around a fixed player Tween Speed of 200. Portal Fast Travel is evaluated before Bypass TP by route cost, Bypass TP defaults ON, and noclip now follows route/transport lifecycle instead of the presence of a local tween."
+    "content": "Movement routing now re-evaluates strategic destination changes across all shared consumers, Bypass TP selects destination-island spawns instead of arbitrary nearby islands, multi-target combat shares the farm target set, and Berry ESP/collection use one event-driven cache."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
-      "content": "Unified Movement Routing Engine: removes the retired variable-speed tween path and uses one fixed-speed player tween source (200). Route planning evaluates Sea/Region/Zone, direct travel cost and data-driven portal service metadata; a worthwhile Portal route has priority, otherwise Bypass TP may be used when enabled/allowed, otherwise movement falls back to direct Tween. Portal and Bypass are mutually exclusive within one route decision. Bypass TP defaults ON and UI/runtime share the same session state. Noclip is leased by active route/transport state and is re-asserted after character/root replacement; the follower writes player position only while a local tween is actually active. Portal/Bypass verification is cancellation/revision aware so stale transport results cannot resume an old destination. Sky Lower/Middle/Upper, special regions and all Sea portal candidates use shared topology metadata rather than per-feature routing branches."
+      "content": "End-to-End shared-engine update: separates TargetRevision from RouteRevision so Auto Farm Level, Material, Mastery, Island, Berry and legacy _tp consumers re-enter Portal/Bypass/Tween planning when their strategic destination changes without re-routing on every moving combat target. Bypass TP remains Portal-exclusive and now selects only spawn points mapped to the actual destination island when such mapping is available. Fast Attack consumes the same allowed target set retained by CombatTargetLock/BringMob so valid grouped targets are not internally narrowed to the primary mob name. Berry discovery, ESP and Auto Collect share one tag/event index with late-prompt discovery and collection confirmation. Fishing quest behavior is synchronized only from the supplied main.lua contract (Fishing Lv.20+, Angler AskQuest, UI confirmation, FinishQuest). Tween correction now requires a persistent correction condition to avoid one-frame cancel/recreate pauses."
     },
     {
       "version": "2.0.8",

@@ -1247,6 +1247,19 @@ do
     	  {Name="Submerged Island",Target=CFrame.new(10780.639648,-2088.414062,9260.453125),Region="Submerged",BypassAllowed=false},
     	},
       }
+      -- Normalize Bypass capability for every island across all Seas. The routing
+      -- engine consumes this data uniformly; consumers never special-case island names.
+      for _,islands in pairs(T.Islands) do
+        for _,island in ipairs(islands) do
+          local regionSpec=island.Region and T.Regions[tostring(island.Region)] or nil
+          if tostring(island.TravelMode or "")=="Portal" or (type(regionSpec)=="table" and regionSpec.BypassAllowed==false) then
+            island.BypassAllowed=false
+          elseif island.BypassAllowed==nil then
+            island.BypassAllowed=true
+          end
+        end
+      end
+
       T.MovementZoneOrder = {"SkyUpper","SkyLower"}
       T.MovementZones = {
         SkyUpper = {

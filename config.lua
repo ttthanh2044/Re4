@@ -118,6 +118,9 @@ return {
             RebaseGap = 9,
             BehindTargetTolerance = 5,
             Debounce = 0.18,
+            -- Ignore one-frame server corrections; only rebase when the same
+            -- behind-the-block condition persists briefly.
+            ConfirmTime = 0.08,
         },
         BypassTP = {
             DefaultEnabled = true,
@@ -125,6 +128,10 @@ return {
             MaxSpawnApproachDistance = 10000,
             MinSpawnSeparation = 800,
             MinDistanceGain = 650,
+            -- Destination-aware spawn selection: when a destination maps to an
+            -- island, Bypass may only choose a spawn that maps to that same island.
+            DestinationIslandRadius = 2800,
+            SpawnIslandRadius = 3400,
             VerifyTimeout = 5.0,
             VerifyStep = 0.08,
         },
@@ -159,6 +166,13 @@ return {
             RecoveryWindow = 0.85,
             RootProgressEpsilon = 0.8,
             BlockProgressEpsilon = 0.35,
+            -- TargetRevision refreshes a running local tween. RouteRevision is
+            -- separate and only re-enters Portal/Bypass planning for a meaningful
+            -- strategic destination change.
+            StrategicRouteReplanDistance = 45,
+            DynamicTargetRefreshDistance = 18,
+            DynamicRouteReplanDistance = 650,
+            TweenTargetEpsilon = 2,
         },
         ManualTravel = {
             Priority = 70,
@@ -213,6 +227,7 @@ return {
     Berry = {
         StepInterval = 0.12,
         PromptCooldown = 0.55,
+        CollectConfirmTimeout = 1.00,
         EmptyStableWindow = 0.85,
         ArrivalRadius = 7,
         Priority = 5,
