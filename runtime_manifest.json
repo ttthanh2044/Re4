@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.13",
+    "version": "2.0.14",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -15,61 +15,42 @@
   "runtime_architecture": {
     "movement_speed_source": "config.lua -> Movement.TweenSpeed (200)",
     "movement_entry_point": "RE4RequestMovement(destination, context) -> RE4MovementCoordinator -> RE4TravelResolver",
-    "progression_movement": "Fighting Style progression and Items use/equip both route dealer destinations through the shared Movement Router",
-    "fighting_style_data": "RE4Constants.StyleMeta is the shared source for ownership name, NPC aliases, Sea availability, dealer location, cost and buy/equip remote",
-    "saber_state_machine": "live puzzle state chooses only the first incomplete switch; missing replicated puzzle objects fail closed",
-    "saber_relic_gate": "interaction point is derived from live workspace.Map.Jungle.Final.Part geometry; no fixed gate CFrame is embedded in progression logic",
-    "bisento_v2": "requires authoritative Bisento V1 ownership; progression never purchases V1",
-    "bringmob": "unchanged from 2.0.12",
-    "fastattack": "unchanged from 2.0.12",
+    "fighting_style_data": "RE4Constants.FeatureMetadata.GameData.FightingStyleCatalog is canonical for Dark Step/Electric/Water Kung Fu; RE4Constants.StyleMeta derives runtime fields from it",
+    "fighting_style_action": "Progression Auto Get and Items Use/Equip share RE4StyleProgress.StartDealerAction -> MoveDealer -> Invoke -> ownership/equip verification",
+    "fighting_style_dealer_resolution": "live/template NPC resolver -> shared TeleportDirectory -> exact per-Sea/style cache -> island anchor only as bootstrap -> exact dealer rescan",
+    "dealer_anchor_policy": "WorldTopology island anchors are never cached or treated as dealer positions",
+    "items_use_auto_buy": false,
+    "bringmob": "unchanged from 2.0.13",
+    "fastattack": "unchanged from 2.0.13",
     "dynamic_tween": "removed"
   },
-  "update_2_0_13": {
-    "fighting_styles": {
-      "styles": [
-        "Dark Step",
-        "Electric",
-        "Water Kung Fu"
-      ],
-      "shared_style_meta": true,
-      "dealer_locations_all_seas": true,
-      "progression_transaction": "requirements -> resolve dealer/anchor -> shared movement -> dealer interaction -> ownership verification -> UI refresh",
-      "items_use_transaction": "ownership required -> resolve dealer/anchor -> shared movement -> dealer interaction -> equipped verification -> UI refresh",
-      "items_use_auto_buy": false,
-      "npc_missing_behavior": "move to shared WorldTopology island anchor, rescan live dealer, fail closed if dealer is still unavailable"
-    },
-    "saber": {
-      "switch_state": "BrickColor Camo is treated as completed; exactly one first-incomplete switch is targeted per progression step",
-      "missing_map_state": "wait/fail closed instead of assuming completion",
-      "relic_gate_fixed_cframe_removed": true,
-      "relic_gate_live_geometry": true,
-      "place_relic_progress_action": true
-    },
-    "bisento": {
-      "v1_purchase_from_auto_v2": false,
-      "missing_v1_status": "Chưa sở hữu Bisento V1.",
-      "ownership_source": "RE4OwnershipResolver:ResolveState(\"Bisento\")"
-    },
-    "cleanup": {
-      "new_scheduler_added": false,
-      "new_polling_loop_added": false,
-      "movement_core_refactored": false,
-      "bring_core_changed": false,
-      "fastattack_changed": false
+  "update_2_0_14": {
+    "root_cause": [
+      "Basic Fighting Style data existed twice (FightingStyleCatalog and literal StyleMeta fields), creating drift risk.",
+      "Exact dealer targets resolved during Progression were not retained. If the NPC/template became temporarily unresolvable during Items Equip, MoveDealer degraded to the generic island anchor and could end with dealer_not_loaded."
+    ],
+    "fix": {
+      "canonical_basic_style_catalog": true,
+      "style_meta_derived_from_catalog": true,
+      "shared_progression_items_transaction": true,
+      "teleport_directory_npc_registry_reused": true,
+      "exact_dealer_cache_key": "Sea + CatalogKey/style",
+      "anchor_cached_as_dealer": false,
+      "old_dealer_not_loaded_region_error_removed": true,
+      "items_use_purchase_permission": false
     }
   },
   "offline_regression": {
     "invariants": {
       "fixed_tween_speed_200": true,
       "dynamic_tween_removed": true,
-      "single_public_movement_entry": true,
-      "shared_basic_style_dealer_transaction": true,
+      "progression_and_items_same_start_dealer_action": true,
+      "progression_and_items_same_move_dealer": true,
+      "basic_style_data_single_canonical_source": true,
+      "dealer_exact_position_reused_between_flows": true,
+      "island_anchor_bootstrap_only": true,
       "items_use_never_buys_unowned_style": true,
-      "saber_sequential_switch_state": true,
-      "saber_old_relic_cframe_removed": true,
-      "bisento_auto_v2_no_buy_v1": true,
-      "bring_core_unchanged": true,
-      "fastattack_core_unchanged": true
+      "no_new_scheduler_or_polling_loop": true
     },
     "scope_preservation": {
       "config.lua": true,
@@ -78,46 +59,42 @@
       "language/vi.json": true,
       "language/th.json": true,
       "language/id.json": true,
-      "language/manifest.json": true
+      "language/manifest.json": true,
+      ".gitignore": true,
+      "movement_core_changed": false,
+      "bring_core_changed": false,
+      "fastattack_changed": false
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_12": 213,
-        "to_2_0_13": 213
+        "from_2_0_13": 213,
+        "to_2_0_14": 213
       },
       "FireServer": {
-        "from_2_0_12": 16,
-        "to_2_0_13": 16
+        "from_2_0_13": 16,
+        "to_2_0_14": 16
       },
       "task.spawn": {
-        "from_2_0_12": 8,
-        "to_2_0_13": 8
+        "from_2_0_13": 8,
+        "to_2_0_14": 8
       },
       "Stepped:Connect": {
-        "from_2_0_12": 2,
-        "to_2_0_13": 2
+        "from_2_0_13": 2,
+        "to_2_0_14": 2
       },
       "Heartbeat:Connect": {
-        "from_2_0_12": 2,
-        "to_2_0_13": 2
+        "from_2_0_13": 2,
+        "to_2_0_14": 2
       },
       "requestEntrance": {
-        "from_2_0_12": 4,
-        "to_2_0_13": 4
-      },
-      "RE4EntranceTravel": {
-        "from_2_0_12": 5,
-        "to_2_0_13": 5
-      },
-      "RE4DirectPlayerCFrame": {
-        "from_2_0_12": 16,
-        "to_2_0_13": 16
+        "from_2_0_13": 4,
+        "to_2_0_14": 4
       }
     },
     "notes": [
-      "Static/container validation only. Dealer replication, server purchase/equip confirmation, Saber puzzle state replication, Relic door interaction and boss progression require in-game smoke testing.",
-      "No new NPC coordinate table was introduced for the three basic styles; runtime reuses WorldTopology island anchors and resolves the exact live NPC CFrame when available.",
-      "Use/Equip and Auto Progression share the same dealer transaction but have distinct permission: Use requires ownership and cannot purchase; Auto Progression may purchase only after requirements pass."
+      "Static/container validation only. Dealer streaming/replication and server equip confirmation require in-game smoke testing.",
+      "No Electric/Sea1 hardcoded movement branch was added. The fix applies to every style using RE4StyleProgress dealer resolution.",
+      "If an exact live/template dealer is unavailable on a fresh session, the shared island anchor may still be used only to enter streaming range; interaction remains gated on exact dealer resolution."
     ]
   },
   "files": [
@@ -131,67 +108,67 @@
       "path": "config.lua",
       "sha256": "8a9194c790f184dbdee8e76754532a4c12c64b2212a36738e0031b5eabcf9bca",
       "bytes": 9003,
-      "lines": 286
+      "lines": 287
     },
     {
       "path": "constants.lua",
-      "sha256": "1640ff8ceec86210700b4d591b27f7082a55065e5be1449a304afac98fac8dd9",
-      "bytes": 123368,
-      "lines": 1468
+      "sha256": "1c70606ee7be8545d9121c2fde3c642f306d00383a37e0a8cd1263071dd5ece1",
+      "bytes": 123608,
+      "lines": 1476
     },
     {
       "path": "hub_info.json",
-      "sha256": "21a2a564ef885bf20a22b6a48413184ed767fa4e569b74d0f687bc56fd25d999",
-      "bytes": 3528,
-      "lines": 48
+      "sha256": "b6c192209c39c51b2ad5816d4c5d37db6b59bdc090d6a80ba3ffca2c683315eb",
+      "bytes": 4110,
+      "lines": 55
     },
     {
       "path": "language/en.json",
       "sha256": "bc84b56d03d6da0e15a03d90023f667dcf9a3a93e86be58d5cf9e1b4ab15c866",
       "bytes": 52482,
-      "lines": 1133
+      "lines": 1134
     },
     {
       "path": "language/id.json",
       "sha256": "81d9666d1da02f13d1435c1b1e7830a0ca5b5bd3ac813aa878598f0740d7e581",
       "bytes": 52753,
-      "lines": 1133
+      "lines": 1134
     },
     {
       "path": "language/manifest.json",
       "sha256": "5ca0b0e5c6a0383ab725afbcce65f7c1071b1e7490371716e5ad827f735f0474",
       "bytes": 309,
-      "lines": 22
+      "lines": 23
     },
     {
       "path": "language/th.json",
       "sha256": "32adacfec5adbe05e3548bcc8de44facfcca2edab0c25dd7b07ae4765d6fe8ee",
       "bytes": 58815,
-      "lines": 1133
+      "lines": 1134
     },
     {
       "path": "language/vi.json",
       "sha256": "563433abb2996de658d05a2af2d5161677dac37e0f7fdea7bd8191a29cda06d3",
       "bytes": 60537,
-      "lines": 1133
+      "lines": 1134
     },
     {
       "path": "main.lua",
-      "sha256": "349dcc21696d4e4c89f355427a1f0f8084733b053e9e10dd601032ac4cefb678",
-      "bytes": 829649,
-      "lines": 16206
+      "sha256": "29a5b3ee20a063292239baf917da8a5de16c90f07c16768132242c738281d62a",
+      "bytes": 832131,
+      "lines": 16257
     },
     {
       "path": "metadata.lua",
-      "sha256": "c9149310abe5a35492a0e338b6ccc9ba4d7098fe743a1c4f6e803dd3b3d44779",
+      "sha256": "166ff07f61603ec53c2888211dd096dae08fad64556fbc52b38fbe0492d5b655",
       "bytes": 1267,
-      "lines": 43
+      "lines": 44
     },
     {
       "path": "ui.lua",
       "sha256": "d04a8a2e5ce260c3e9f285a5780d18373295e32f69d3897b6ef3c301917b0a78",
       "bytes": 240954,
-      "lines": 4381
+      "lines": 4382
     }
   ]
 }

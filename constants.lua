@@ -926,19 +926,26 @@ do
     	["Bisento V2"]=true,
     }
 
+    -- Basic Fighting Styles are normalized from the canonical GameData catalog so
+    -- Progression, Items/Equip and any future consumers cannot drift onto separate
+    -- NPC/location/remote definitions. Runtime behavior belongs in RE4StyleProgress.
+    local RE4BasicStyleCatalog = RE4Constants.FeatureMetadata and RE4Constants.FeatureMetadata.GameData and RE4Constants.FeatureMetadata.GameData.FightingStyleCatalog or {}
+    local function RE4BuildBasicStyleMeta(key)
+      local source=RE4BasicStyleCatalog[key] or {}
+      local dealerLocations={}
+      for sea,location in ipairs(source.Locations or {}) do dealerLocations[sea]=location end
+      return {
+        CatalogKey=key,Style=source.Internal,Display=source.Name,Seas=source.Seas or {},
+        CostBeli=source.Currency=="Beli" and source.Price or nil,CostFragments=source.Currency=="Fragments" and source.Price or nil,
+        Remote=source.Remote,NPC=source.NPC and {source.NPC} or {},DealerRequired=true,DealerLocations=dealerLocations,Requirements={},
+        DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
+      }
+    end
+
     RE4Constants.StyleMeta = {
-      DarkStep={
-    	Style="Black Leg",Display="Dark Step",Seas={1,2,3},CostBeli=150000,Remote="BuyBlackLeg",NPC={"Dark Step Teacher"},DealerRequired=true,DealerLocations={[1]="Pirate Village",[2]="Hot and Cold",[3]="Castle on the Sea"},Requirements={},
-    	DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
-      },
-      Electric={
-    	Style="Electro",Display="Electric",Seas={1,2,3},CostBeli=500000,Remote="BuyElectro",NPC={"Mad Scientist"},DealerRequired=true,DealerLocations={[1]="Skylands · Lower",[2]="Hot and Cold",[3]="Castle on the Sea"},Requirements={},
-    	DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
-      },
-      WaterKungFu={
-    	Style="Fishman Karate",Display="Water Kung Fu",Seas={1,2,3},CostBeli=750000,Remote="BuyFishmanKarate",NPC={"Water Kung Fu Teacher"},DealerRequired=true,DealerLocations={[1]="Underwater City",[2]="Hot and Cold",[3]="Castle on the Sea"},Requirements={},
-    	DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
-      },
+      DarkStep=RE4BuildBasicStyleMeta("DarkStep"),
+      Electric=RE4BuildBasicStyleMeta("Electric"),
+      WaterKungFu=RE4BuildBasicStyleMeta("WaterKungFu"),
       DragonBreath={
     	Style="Dragon Breath",Display="Dragon Breath",Seas={2,3},CostFragments=1500,Remote="BlackbeardReward",RemoteArgs={"DragonClaw","2"},NPC={"Sabi"},
     	Requirements={{Kind="Access",Label="Access Second Sea"}},

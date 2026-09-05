@@ -11,13 +11,19 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Progression End-to-End update: Dark Step, Electric and Water Kung Fu now resolve their dealer by Sea, route through the shared Movement Router, interact only at the dealer, and verify ownership/equip state. Saber switches are state-driven, the Relic gate uses the live gate part instead of a fixed CFrame, and Auto Bisento V2 no longer purchases Bisento V1."
+    "content": "Fighting Style resolver consistency update: Progression and Items → Fighting now share one canonical basic-style registry and one exact dealer resolver. Successful NPC/template dealer positions are cached per Sea/style, and Items Equip reuses the same target instead of degrading to a generic island anchor when the dealer is temporarily outside streaming range."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
+      "content": "Unifies Dark Step, Electric and Water Kung Fu data by deriving StyleMeta from the canonical FightingStyleCatalog. Progression and Items Use/Equip both use the same StartDealerAction → MoveDealer pipeline, the shared NPC TeleportDirectory/template registry is consulted for exact dealer positions, and exact positions resolved by either flow are cached per Sea/style. Island anchors remain bootstrap-only and are never cached or reported as the dealer."
+    },
+    {
+      "version": "2.0.13",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.13",
       "content": "Completes basic Fighting Style progression and Items equip through one shared dealer transaction. Dealer locations are data-driven per Sea and reuse WorldTopology island anchors before resolving the live NPC CFrame. Saber now advances only one uncompleted Camo-state switch at a time, fails closed while puzzle objects are not replicated, derives the Relic interaction point from Jungle.Final.Part, and confirms the final PlaceRelic progression action. Auto Bisento V2 stops with “Chưa sở hữu Bisento V1.” when V1 ownership is authoritatively absent and never calls the Bisento purchase remote."
     },
     {
