@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Hotfixes the 2.0.16 progression bootstrap crash by replacing the undefined RE4State Bisento V2 session fields with one shared runtime state initialized before the core domain. This allows ownership refresh and the canonical Items → Fighting Style · Equip mount to complete normally while preserving the 2.0.16 Bisento V2 flow."
+    "content": "Fixes the Items → Fighting Style · Equip wrong_sea regression by making the progression/style domain consume the authoritative Sea number exported by Core and by rendering only Fighting Styles whose dealer metadata is valid in the current Sea. Progression Auto Get keeps its existing Sea restrictions; Items Use/Equip continues through the shared StartDealerAction → MoveDealer transaction."
   },
   "changelog": [
+    {
+      "version": "2.0.18",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.18",
+      "content": "Fixes Fighting Style Equip returning wrong_sea. Core now exports the authoritative current Sea into RE4RuntimeContext.Core, RE4StyleProgress consumes that value instead of relying only on cross-domain World1/World2/World3 globals, and Items mounts only styles available in the current Sea. Use/Equip still requires ownership and uses the shared dealer resolver; Auto Progression behavior is otherwise unchanged."
+    },
     {
       "version": "2.0.17",
       "date": "2026-09-05",
