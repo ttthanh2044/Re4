@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.12",
+    "version": "2.0.13",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -15,47 +15,47 @@
   "runtime_architecture": {
     "movement_speed_source": "config.lua -> Movement.TweenSpeed (200)",
     "movement_entry_point": "RE4RequestMovement(destination, context) -> RE4MovementCoordinator -> RE4TravelResolver",
-    "normal_route_order": [
-      "Direct Tween for local destinations",
-      "Bypass TP when enabled, safe and materially beneficial",
-      "Portal Fast Travel when compatible and worthwhile",
-      "Direct Tween fallback"
-    ],
-    "protected_route_order": [
-      "Bypass TP rejected centrally by RE4CanUseBypass",
-      "Portal Fast Travel when compatible and worthwhile",
-      "Direct Tween fallback"
-    ],
-    "topology_semantics": "TravelMode/PortalDestination are destination metadata; only ExplicitPortal forces PortalEntrance",
-    "combat_hold": "after combat arrival Tween/follower stop; BodyClip/Noclip remain leased only while the same CombatTargetLock owns an arrived HoldPosition request",
-    "movement_writer": "RE4TweenFollower is the sole shared player-CFrame writer during active local Tween; combat hold itself does not write CFrame",
-    "noclip_lifecycle": "route/transport demand plus bounded arrived combat hold; released on phase/target/feature lifecycle changes",
-    "bringmob": "unchanged from 2.0.11",
+    "progression_movement": "Fighting Style progression and Items use/equip both route dealer destinations through the shared Movement Router",
+    "fighting_style_data": "RE4Constants.StyleMeta is the shared source for ownership name, NPC aliases, Sea availability, dealer location, cost and buy/equip remote",
+    "saber_state_machine": "live puzzle state chooses only the first incomplete switch; missing replicated puzzle objects fail closed",
+    "saber_relic_gate": "interaction point is derived from live workspace.Map.Jungle.Final.Part geometry; no fixed gate CFrame is embedded in progression logic",
+    "bisento_v2": "requires authoritative Bisento V1 ownership; progression never purchases V1",
+    "bringmob": "unchanged from 2.0.12",
+    "fastattack": "unchanged from 2.0.12",
     "dynamic_tween": "removed"
   },
-  "update_2_0_12": {
-    "root_causes": {
-      "farm_vertical_jitter": "ARRIVED cleared resolver demand, MovementSupport removed BodyClip/Noclip, gravity pulled player down, next combat tick recreated movement back to the offset",
-      "routing_behavior_gap": "Teleport Island topology entries could force PortalEntrance before the common route evaluator while Farm/Progression supplied raw destination CFrames"
+  "update_2_0_13": {
+    "fighting_styles": {
+      "styles": [
+        "Dark Step",
+        "Electric",
+        "Water Kung Fu"
+      ],
+      "shared_style_meta": true,
+      "dealer_locations_all_seas": true,
+      "progression_transaction": "requirements -> resolve dealer/anchor -> shared movement -> dealer interaction -> ownership verification -> UI refresh",
+      "items_use_transaction": "ownership required -> resolve dealer/anchor -> shared movement -> dealer interaction -> equipped verification -> UI refresh",
+      "items_use_auto_buy": false,
+      "npc_missing_behavior": "move to shared WorldTopology island anchor, rescan live dealer, fail closed if dealer is still unavailable"
     },
-    "movement": {
-      "single_request_entry": true,
-      "teleport_island_uses_shared_entry": true,
-      "topology_forced_portal_removed": true,
-      "explicit_portal_preserved": true,
-      "strategic_route_revision_preserved": true,
-      "bypass_default_true": true,
-      "protected_item_guard_preserved": true,
+    "saber": {
+      "switch_state": "BrickColor Camo is treated as completed; exactly one first-incomplete switch is targeted per progression step",
+      "missing_map_state": "wait/fail closed instead of assuming completion",
+      "relic_gate_fixed_cframe_removed": true,
+      "relic_gate_live_geometry": true,
+      "place_relic_progress_action": true
+    },
+    "bisento": {
+      "v1_purchase_from_auto_v2": false,
+      "missing_v1_status": "Chưa sở hữu Bisento V1.",
+      "ownership_source": "RE4OwnershipResolver:ResolveState(\"Bisento\")"
+    },
+    "cleanup": {
       "new_scheduler_added": false,
-      "new_polling_loop_added": false
-    },
-    "combat_hold": {
-      "hold_position_contexts": 7,
-      "requires_active_combat_owner": true,
-      "requires_arrived_position": true,
-      "phase_change_cleanup": true,
-      "near_hold_server_correction_rebase_suppressed": true,
-      "tween_follower_retained_after_arrival": false
+      "new_polling_loop_added": false,
+      "movement_core_refactored": false,
+      "bring_core_changed": false,
+      "fastattack_changed": false
     }
   },
   "offline_regression": {
@@ -63,17 +63,16 @@
       "fixed_tween_speed_200": true,
       "dynamic_tween_removed": true,
       "single_public_movement_entry": true,
-      "teleport_island_shared_entry": true,
-      "topology_does_not_auto_force_portal": true,
-      "combat_hold_demand": true,
-      "combat_hold_phase_cleanup": true,
-      "single_shared_follower_writer": true,
-      "bypass_default_true": true,
-      "bring_core_unchanged": true
+      "shared_basic_style_dealer_transaction": true,
+      "items_use_never_buys_unowned_style": true,
+      "saber_sequential_switch_state": true,
+      "saber_old_relic_cframe_removed": true,
+      "bisento_auto_v2_no_buy_v1": true,
+      "bring_core_unchanged": true,
+      "fastattack_core_unchanged": true
     },
     "scope_preservation": {
       "config.lua": true,
-      "constants.lua": true,
       "ui.lua": true,
       "language/en.json": true,
       "language/vi.json": true,
@@ -83,42 +82,42 @@
     },
     "callsite_counts": {
       "InvokeServer": {
-        "from_2_0_11": 214,
-        "to_2_0_12": 214
+        "from_2_0_12": 213,
+        "to_2_0_13": 213
       },
       "FireServer": {
-        "from_2_0_11": 18,
-        "to_2_0_12": 18
+        "from_2_0_12": 16,
+        "to_2_0_13": 16
       },
       "task.spawn": {
-        "from_2_0_11": 8,
-        "to_2_0_12": 8
+        "from_2_0_12": 8,
+        "to_2_0_13": 8
       },
       "Stepped:Connect": {
-        "from_2_0_11": 2,
-        "to_2_0_12": 2
+        "from_2_0_12": 2,
+        "to_2_0_13": 2
       },
       "Heartbeat:Connect": {
-        "from_2_0_11": 2,
-        "to_2_0_12": 2
+        "from_2_0_12": 2,
+        "to_2_0_13": 2
       },
       "requestEntrance": {
-        "from_2_0_11": 4,
-        "to_2_0_12": 4
+        "from_2_0_12": 4,
+        "to_2_0_13": 4
       },
       "RE4EntranceTravel": {
-        "from_2_0_11": 5,
-        "to_2_0_12": 5
+        "from_2_0_12": 5,
+        "to_2_0_13": 5
       },
       "RE4DirectPlayerCFrame": {
-        "from_2_0_11": 16,
-        "to_2_0_12": 16
+        "from_2_0_12": 16,
+        "to_2_0_13": 16
       }
     },
     "notes": [
-      "Static/container validation only; Roblox server-authoritative position correction, requestEntrance and spawn-reset behavior require in-game smoke testing.",
-      "No new scheduler or polling worker was added. The fix reuses MovementCoordinator, TravelResolver, MovementSupport and CombatTargetLock lifecycle.",
-      "Direct player CFrame callsites outside the shared follower remain limited to pre-existing exact-contact/orientation mechanics; long-range _tp/TeleportToTarget continue through RE4MoveToTarget -> RE4RequestMovement."
+      "Static/container validation only. Dealer replication, server purchase/equip confirmation, Saber puzzle state replication, Relic door interaction and boss progression require in-game smoke testing.",
+      "No new NPC coordinate table was introduced for the three basic styles; runtime reuses WorldTopology island anchors and resolves the exact live NPC CFrame when available.",
+      "Use/Equip and Auto Progression share the same dealer transaction but have distinct permission: Use requires ownership and cannot purchase; Auto Progression may purchase only after requirements pass."
     ]
   },
   "files": [
@@ -136,15 +135,15 @@
     },
     {
       "path": "constants.lua",
-      "sha256": "cd74a61805a99daa1151e8d14005cdbe528aad5d31404fefa629ffdc53999851",
-      "bytes": 122944,
+      "sha256": "1640ff8ceec86210700b4d591b27f7082a55065e5be1449a304afac98fac8dd9",
+      "bytes": 123368,
       "lines": 1468
     },
     {
       "path": "hub_info.json",
-      "sha256": "36e5199b180fcc26e23e5196dea4a43d5287e270c4ebd853c0c00ee9518a2bbe",
-      "bytes": 2721,
-      "lines": 42
+      "sha256": "21a2a564ef885bf20a22b6a48413184ed767fa4e569b74d0f687bc56fd25d999",
+      "bytes": 3528,
+      "lines": 48
     },
     {
       "path": "language/en.json",
@@ -178,13 +177,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "d76f5fb01d68fc78de56dbfe42a0a44a10d62c2ed4e2339885db7e58e06b0aa3",
-      "bytes": 822311,
-      "lines": 16075
+      "sha256": "349dcc21696d4e4c89f355427a1f0f8084733b053e9e10dd601032ac4cefb678",
+      "bytes": 829649,
+      "lines": 16206
     },
     {
       "path": "metadata.lua",
-      "sha256": "2e45fb7608f632acea9ad9d20eb2c3d38351c72e43588cfc956c647b4c5699d6",
+      "sha256": "c9149310abe5a35492a0e338b6ccc9ba4d7098fe743a1c4f6e803dd3b3d44779",
       "bytes": 1267,
       "lines": 43
     },

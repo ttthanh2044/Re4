@@ -468,9 +468,9 @@ do
     	},
     
     	FightingStyleCatalog = {
-    		DarkStep={Id="dark_step",Name="Dark Step",Internal="Black Leg",FirstObtainableSea=1,Seas={1,2,3},Price=150000,Currency="Beli",NPC="Dark Step Teacher",Locations={"Pirate Village"},Remote="BuyBlackLeg"},
-    		Electric={Id="electric",Name="Electric",Internal="Electro",FirstObtainableSea=1,Seas={1,2,3},Price=500000,Currency="Beli",NPC="Mad Scientist",Locations={"Skylands"},Remote="BuyElectro"},
-    		WaterKungFu={Id="water_kung_fu",Name="Water Kung Fu",Internal="Fishman Karate",FirstObtainableSea=1,Seas={1,2,3},Price=750000,Currency="Beli",NPC="Water Kung Fu Teacher",Locations={"Underwater City"},Remote="BuyFishmanKarate"},
+    		DarkStep={Id="dark_step",Name="Dark Step",Internal="Black Leg",FirstObtainableSea=1,Seas={1,2,3},Price=150000,Currency="Beli",NPC="Dark Step Teacher",Locations={"Pirate Village","Hot and Cold","Castle on the Sea"},Remote="BuyBlackLeg"},
+    		Electric={Id="electric",Name="Electric",Internal="Electro",FirstObtainableSea=1,Seas={1,2,3},Price=500000,Currency="Beli",NPC="Mad Scientist",Locations={"Skylands · Lower","Hot and Cold","Castle on the Sea"},Remote="BuyElectro"},
+    		WaterKungFu={Id="water_kung_fu",Name="Water Kung Fu",Internal="Fishman Karate",FirstObtainableSea=1,Seas={1,2,3},Price=750000,Currency="Beli",NPC="Water Kung Fu Teacher",Locations={"Underwater City","Hot and Cold","Castle on the Sea"},Remote="BuyFishmanKarate"},
     	},
     
     	BossCatalog = {
@@ -928,15 +928,15 @@ do
 
     RE4Constants.StyleMeta = {
       DarkStep={
-    	Style="Black Leg",Display="Dark Step",Seas={1,2,3},CostBeli=150000,Remote="BuyBlackLeg",NPC={"Dark Step Teacher"},Requirements={},
+    	Style="Black Leg",Display="Dark Step",Seas={1,2,3},CostBeli=150000,Remote="BuyBlackLeg",NPC={"Dark Step Teacher"},DealerRequired=true,DealerLocations={[1]="Pirate Village",[2]="Hot and Cold",[3]="Castle on the Sea"},Requirements={},
     	DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
       },
       Electric={
-    	Style="Electro",Display="Electric",Seas={1,2,3},CostBeli=500000,Remote="BuyElectro",NPC={"Mad Scientist"},Requirements={},
+    	Style="Electro",Display="Electric",Seas={1,2,3},CostBeli=500000,Remote="BuyElectro",NPC={"Mad Scientist"},DealerRequired=true,DealerLocations={[1]="Skylands · Lower",[2]="Hot and Cold",[3]="Castle on the Sea"},Requirements={},
     	DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
       },
       WaterKungFu={
-    	Style="Fishman Karate",Display="Water Kung Fu",Seas={1,2,3},CostBeli=750000,Remote="BuyFishmanKarate",NPC={"Water Kung Fu Teacher"},Requirements={},
+    	Style="Fishman Karate",Display="Water Kung Fu",Seas={1,2,3},CostBeli=750000,Remote="BuyFishmanKarate",NPC={"Water Kung Fu Teacher"},DealerRequired=true,DealerLocations={[1]="Underwater City",[2]="Hot and Cold",[3]="Castle on the Sea"},Requirements={},
     	DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
       },
       DragonBreath={
