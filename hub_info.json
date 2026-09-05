@@ -11,13 +11,19 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Movement routing is now centralized End-to-End: safe/beneficial Bypass TP gets first refusal, protected progression items disable Bypass automatically, Fast Travel remains the next strategy, and every shared movement consumer falls back to one Tween path. Multi-target hit registration and ability ownership are aligned with the current reference contracts."
+    "content": "Movement hold/routing synchronization: Farm combat positioning keeps a bounded hold lease after arrival so Noclip/BodyClip no longer drops between combat ticks, while Teleport Island and all shared Farm/Progression movement now enter the same destination routing entry point."
   },
   "changelog": [
     {
       "version": "$current",
       "date": "$updated_at",
       "title": "$display_version",
+      "content": "Fixes the farm vertical jitter at its lifecycle root cause: ARRIVED no longer destroys movement support while an active CombatTargetLock still owns the hold position. Tween/follower stop after arrival, but BodyClip/Noclip remain leased until target/quest/phase changes. Adds RE4RequestMovement as the single shared destination entry point and routes topology/island destinations through the same Bypass/Fast Travel/Tween evaluator instead of auto-forcing TravelMode=Portal."
+    },
+    {
+      "version": "2.0.11",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.11",
       "content": "Routing cleanup release: removes the legacy feature-flag movement demand blob, centralizes CanUseBypass around protected quest/progression tools, maps Bypass spawn candidates to the destination island by semantic name before spatial fallback, and evaluates Bypass time gain before Fast Travel/Tween. Fast Attack now registers HumanoidRootPart first so the hit target part matches the part BringMob actually owns/moves; no artificial 2-target or 6-target cap is introduced. Items → Abilities & Skills now follows the supplied main.lua ownership contract: CollectionService tags and current player/data/unlockables sources are authoritative, stale unlockable snapshots remain Unknown, and purchase refresh uses one authoritative snapshot transaction."
     },
     {
