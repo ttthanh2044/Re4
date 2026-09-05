@@ -2,7 +2,7 @@
   "schema": 2,
   "release_identity": {
     "authoritative_source": "metadata.lua",
-    "version": "2.0.22",
+    "version": "2.0.23",
     "channel": "stable",
     "fresh_cache_namespace": true,
     "updated_at": "2026-09-05"
@@ -29,12 +29,12 @@
     "bisento_v2_auto_buy_v1": false,
     "bisento_v2_auto_equip_v1": false,
     "fighting_style_sea_source": "RE4Ownership:Sea() is the shared current-Sea resolver. The ownership service reads RE4RuntimeContext.Core.SeaNumber as authoritative state with World1/World2/World3 only as fallback; RefreshStyleServer and RE4StyleProgress both consume the same exported ownership service instead of a cross-domain local helper.",
-    "items_fighting_equip_visibility": "Items Fighting rows are governed only by current-Sea availability plus confirmed shared ownership. Dealer/NPC replication is not consulted for visibility. Controls stay mounted but hidden fail-closed until ownership becomes verified, so Progress purchase/learn can reveal them in-session during the shared refresh.",
+    "items_fighting_equip_visibility": "Items Fighting rows are governed only by current-Sea availability plus confirmed shared ownership. Basic owned styles can be confirmed by their registry OwnershipProbe even when unequipped and absent from passive inventory snapshots. Dealer/NPC replication is never consulted for visibility; dealer resolution occurs only after an owned style is selected for Equip and direct relearn is unverified/unsupported.",
     "second_sea_access": "Level 700+ -> Military Detective -> Key -> live Frozen Village door -> Ice Admiral -> return Military Detective -> Experienced Captain -> TravelDressrosa",
     "second_sea_npc_resolution": "shared RE4TeleportDirectory exact live/template NPC target; WorldTopology island anchor is bootstrap-only while NPC is unresolved",
     "second_sea_state_policy": "monotonic worker state; Ice Admiral Humanoid.Died/progression completion advances post-boss flow and prevents rollback to the door step",
     "dealer_required_policy": "Dealer state is resolved only when an owned style is actually requested for Equip/Relearn and direct equip is unverified/unsupported. Dealer replication never participates in Items ownership or visibility.",
-    "fighting_style_ownership": "Shared RE4Ownership evidence pipeline: live equipped/container names + existing inventory/mastery snapshot + exact replicated player/unlockable style fields + explicitly declared positive ownership probes + data-driven Mastery prerequisite proof. Positive proof is session-sticky; Unknown never erases Owned. Action remotes are not reused as ownership queries."
+    "fighting_style_ownership": "Shared RE4Ownership evidence pipeline: current live/container state + raw inventory/mastery index + replicated player/unlockable state + registry-declared read-only ownership probes + data-driven prerequisite proof. Basic Fighting Styles inherit an explicit {true} ownership probe from RE4BuildBasicStyleMeta using the catalog remote; positive result 1 is sticky ownership evidence, while ambiguous/non-positive values remain Unknown unless NegativeAuthoritative is explicitly declared."
   },
   "update_2_0_14": {
     "root_cause": [
@@ -120,7 +120,20 @@
       "progress_items_shared_ownership_refresh_2_0_22": true,
       "equip_dealer_resolution_deferred_until_action_2_0_22": true,
       "no_new_scheduler_or_background_task_2_0_22": true,
-      "offline_regression_65_of_65_pass_2_0_22": true
+      "offline_regression_65_of_65_pass_2_0_22": true,
+      "basic_style_2_0_19_probe_contract_recovered_2_0_23": true,
+      "basic_style_probe_registry_driven_2_0_23": true,
+      "basic_action_and_ownership_args_separated_2_0_23": true,
+      "dark_step_sea2_available_2_0_23": true,
+      "electric_sea2_available_2_0_23": true,
+      "water_kung_fu_sea2_available_2_0_23": true,
+      "items_visibility_no_dealer_dependency_2_0_23": true,
+      "items_owned_row_can_reappear_after_refresh_2_0_23": true,
+      "inventory_raw_dictionary_keys_preserved_2_0_23": true,
+      "inventory_mastery_level_indexed_2_0_23": true,
+      "inventory_cache_schema_reset_2_0_23": true,
+      "no_per_style_ui_branch_added_2_0_23": true,
+      "no_new_scheduler_or_background_task_2_0_23": true
     },
     "scope_preservation": {
       "config.lua": true,
@@ -164,7 +177,20 @@
       "movement_core_changed_2_0_22": false,
       "bring_core_changed_2_0_22": false,
       "fastattack_changed_2_0_22": false,
-      "second_sea_access_changed_2_0_22": false
+      "second_sea_access_changed_2_0_22": false,
+      "fighting_style_items_ownership_scope_files_changed_2_0_23": [
+        "constants.lua",
+        "main.lua",
+        "metadata.lua",
+        "hub_info.json",
+        "runtime_manifest.json"
+      ],
+      "ui_runtime_code_changed_2_0_23": false,
+      "movement_core_changed_2_0_23": false,
+      "bring_core_changed_2_0_23": false,
+      "fastattack_changed_2_0_23": false,
+      "second_sea_access_changed_2_0_23": false,
+      "config_changed_2_0_23": false
     },
     "callsite_counts": {
       "InvokeServer": {
@@ -203,7 +229,9 @@
       "No new scheduler, Heartbeat/Stepped listener or background task was added. No live Roblox runtime is available in the build container, so remote acceptance/NPC streaming must still be smoke-tested in game.",
       "2.0.21 fixes the BOOT 05 Fighting Style crash at its domain-boundary root cause: Progression no longer references the core-local RE4OwnershipSea helper; current Sea is resolved through the exported RE4Ownership service.",
       "2.0.22 fixes Items Fighting Style visibility at ownership-source level: verified positive evidence is preserved across equip switches; positive mastery/replicated data is consumed without new remotes; explicitly safe status probes are separate from action remotes; dealer replication remains irrelevant until Equip is requested.",
-      "Static 2.0.22 regression suite: 65/65 PASS. No Luau runtime/compiler is installed in the build container, so in-game remote return semantics and live replicated data still require smoke testing on Roblox."
+      "Static 2.0.22 regression suite: 65/65 PASS. No Luau runtime/compiler is installed in the build container, so in-game remote return semantics and live replicated data still require smoke testing on Roblox.",
+      "2.0.23 identifies the remaining Items regression from the project baseline itself: the three basic {true} ownership probes present in 2.0.19 were lost when the basic registry builder set OwnershipProbe=nil. They are restored through the shared builder, not through per-style UI logic.",
+      "Static 2.0.23 regression suite: 75/75 PASS, including Sea 2 availability, shared registry probe contract, Items ownership-only visibility, direct-before-dealer Equip ordering, raw inventory-key/mastery indexing simulations, scope preservation and unchanged background/callsite counts. Live Roblox remote behavior still requires smoke testing in game."
     ],
     "callsite_counts_2_0_21": {
       "InvokeServer": {
@@ -272,6 +300,44 @@
         "from_2_0_21": 20,
         "to_2_0_22": 20
       }
+    },
+    "callsite_counts_2_0_23": {
+      "InvokeServer": {
+        "from_2_0_22": 214,
+        "to_2_0_23": 214
+      },
+      "FireServer": {
+        "from_2_0_22": 18,
+        "to_2_0_23": 18
+      },
+      "SafeCommF": {
+        "from_2_0_22": 68,
+        "to_2_0_23": 68
+      },
+      "task.spawn": {
+        "from_2_0_22": 8,
+        "to_2_0_23": 8
+      },
+      "task.defer": {
+        "from_2_0_22": 24,
+        "to_2_0_23": 24
+      },
+      "Heartbeat:Connect": {
+        "from_2_0_22": 2,
+        "to_2_0_23": 2
+      },
+      "Stepped:Connect": {
+        "from_2_0_22": 2,
+        "to_2_0_23": 2
+      },
+      "requestEntrance": {
+        "from_2_0_22": 4,
+        "to_2_0_23": 4
+      },
+      "RE4Scheduler:Register": {
+        "from_2_0_22": 20,
+        "to_2_0_23": 20
+      }
     }
   },
   "files": [
@@ -279,7 +345,7 @@
       "path": ".gitignore",
       "sha256": "4dda2dc4bd20999030b4fee4531ec65f35cde6f825c1e2d7c26eb36ff7443e31",
       "bytes": 20,
-      "lines": 2
+      "lines": 3
     },
     {
       "path": "config.lua",
@@ -289,15 +355,15 @@
     },
     {
       "path": "constants.lua",
-      "sha256": "b0b25c185c2db135dad6fe40f2a022e6672988527ece932f52024fceb463d421",
-      "bytes": 126344,
+      "sha256": "13839afe2ac552c0356506ef2b677a743dc7914b3efa195a6b35b0eaf283d007",
+      "bytes": 126393,
       "lines": 1503
     },
     {
       "path": "hub_info.json",
-      "sha256": "42e5a004519f0f9ae64dee3df14c7c470682452653888eafb9bf3f14bcb1f558",
-      "bytes": 8064,
-      "lines": 103
+      "sha256": "4431fe1ac6d84abde7cce257761042e3ca88d291caeb4801039efe5c84da811f",
+      "bytes": 8892,
+      "lines": 109
     },
     {
       "path": "language/en.json",
@@ -331,13 +397,13 @@
     },
     {
       "path": "main.lua",
-      "sha256": "899e8d3d7d579677ad2076d047cd4689cfad267926f685fd64f763ceee4f9edd",
-      "bytes": 856815,
-      "lines": 16763
+      "sha256": "bfdd201921cad85687a509b6777bb66d7a650cad61b039e73fd12f2ece5088e1",
+      "bytes": 860361,
+      "lines": 16825
     },
     {
       "path": "metadata.lua",
-      "sha256": "1f85052326f67715377b01849910acc8152435e4c1a1f19d6bab2bcb15f61b37",
+      "sha256": "287c993b28cf334d8a30cfc57e57556f6ba8cffb0fedf21ffe5e5c1bebdf16b8",
       "bytes": 1267,
       "lines": 43
     },
@@ -494,6 +560,32 @@
       "post_equip_shared_refresh": true,
       "new_scheduler_count": 0,
       "new_background_task_count": 0
+    }
+  },
+  "update_2_0_23": {
+    "root_cause": [
+      "The 2.0.19 ownership service explicitly probed BuyBlackLeg(true), BuyElectro(true) and BuyFishmanKarate(true) for Sea 1-3. During the registry unification, RE4BuildBasicStyleMeta set OwnershipProbe=nil, so those three established ownership checks were silently dropped while advanced styles kept their probes.",
+      "An unequipped learned basic style therefore depended only on passive Backpack/Character/inventory/mastery/replicated evidence. If those sources did not expose historical Fighting Style ownership, Resolve returned Unknown and Items correctly hid the owned-only row.",
+      "The inventory cache also flattened dictionary-keyed server records before Reindex and did not recognize MasteryLevel-only records, weakening the passive fallback path further."
+    ],
+    "fix": {
+      "basic_ownership_probe_restored_in_shared_registry_builder": true,
+      "basic_probe_contract": "OwnershipProbe={Remote=source.Remote, Args={true}, PositiveOnly=true}",
+      "action_args_remain_separate": true,
+      "positive_result_1_sticky_owned": true,
+      "ambiguous_nonpositive_result": "Unknown unless NegativeAuthoritative is explicitly declared",
+      "dealer_required_for_items_visibility": false,
+      "items_visibility_inputs": [
+        "confirmed ownership",
+        "current Sea availability"
+      ],
+      "inventory_raw_hierarchy_preserved_for_reindex": true,
+      "mastery_level_fields_indexed": true,
+      "inventory_cache_schema_reset": 2,
+      "new_scheduler_count": 0,
+      "new_background_task_count": 0,
+      "new_listener_count": 0,
+      "items_open_diagnostic": "one bounded [RE4 HUB/Fighting Items] line"
     }
   }
 }

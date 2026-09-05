@@ -946,7 +946,7 @@ do
       return {
         CatalogKey=key,Style=source.Internal,Display=source.Name,Seas=source.Seas or {},
         CostBeli=source.Currency=="Beli" and source.Price or nil,CostFragments=source.Currency=="Fragments" and source.Price or nil,
-        Remote=source.Remote,ActionArgs={},OwnershipProbe=nil,EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
+        Remote=source.Remote,ActionArgs={},OwnershipProbe={Remote=source.Remote,Args={true},PositiveOnly=true},EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
         NPC=source.NPC and {source.NPC} or {},DealerLocations=RE4DealerLocations(source.Locations),Requirements={},
         DisplayRequirements={{Key="fighting_style.req.none",Fallback="None"}},
       }

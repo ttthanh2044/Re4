@@ -11,9 +11,15 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Fixes Fighting Style Items ownership visibility by separating action remotes from ownership probes and preserving verified ownership evidence from live style, mastery/inventory, replicated state, safe status probes and registry mastery prerequisites. Dealer replication is not part of Items visibility."
+    "content": "Fixes Items Fighting Style ownership at the source: basic styles now use explicit registry ownership probes, while dictionary/nested mastery records remain a secondary ownership source. Dealer replication is not part of Items visibility."
   },
   "changelog": [
+    {
+      "version": "2.0.23",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.23",
+      "content": "Fixes the remaining root cause behind owned basic Fighting Styles disappearing from Items. Dark Step, Electric and Water Kung Fu previously had OwnershipProbe=nil after 2.0.22, so an unequipped learned style could remain Unknown unless passive inventory/mastery data happened to expose it. The shared basic-style registry builder now declares the verified read-only {true} ownership probe separately from Buy/Equip actions; positive result 1 becomes sticky ownership evidence and non-positive/ambiguous results remain Unknown. The inventory cache is also hardened to preserve dictionary/nested mastery keys and MasteryLevel fields. Items visibility remains Ownership + Sea only; dealer resolution still occurs only on Equip. No new scheduler, poller or listener was added."
+    },
     {
       "version": "2.0.22",
       "date": "2026-09-05",
