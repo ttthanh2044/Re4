@@ -2,8 +2,8 @@
   "_meta": {
     "code": "id",
     "name": "Bahasa Indonesia",
-    "version": "2.4.0",
-    "revision": "language-2.4.0-final-20260913.1"
+    "version": "2.4.1",
+    "revision": "language-2.4.1-final-20260913.1"
   },
   "nav": {
     "home": "Beranda",
@@ -146,7 +146,7 @@
     "saber_relic_gate_open": "Relic gate opened",
     "saber_placing_relic": "Placing Relic at Saber gate",
     "bisento_v1_required": "Bisento V1 is required",
-    "bisento_v1_unconfirmed": "Bisento V1 ownership is unconfirmed",
+    "bisento_v1_unconfirmed": "Bisento V1 belum dapat dikonfirmasi",
     "bisento_damage_window_closed": "Greybeard damage window is closed",
     "bisento_greybeard_hp": "Greybeard HP · {hp}%",
     "bisento_verifying_v2": "Verifying Bisento V2",
@@ -2507,7 +2507,7 @@
       "description": "Auto Collect Berry + Hop Server"
     },
     "toggle.esp.berry": {
-      "description": "Hiển thị Berry từ cùng cache dùng bởi Auto Collect."
+      "description": "Tampilkan Berry di sekitar untuk pemantauan dan Auto Collect."
     },
     "view.farm.status": {
       "description": ""
@@ -2579,7 +2579,8 @@
       "description": "Auto Mastery Fruit"
     },
     "toggle.auto.mastery.gun": {
-      "description": "Auto Mastery Gun"
+      "title": "Mastery Senjata Otomatis",
+      "description": "Otomatis melemahkan target, membidik, lalu menyelesaikannya dengan skill Gun yang tersedia."
     },
     "toggle.auto.mastery.all.sword": {
       "description": "Auto Mastery All Sword"
@@ -2999,42 +3000,6 @@
       "title": "Auto Get Cool Shades",
       "description": "Kalahkan Cyborg sampai Cool Shades dimiliki."
     },
-    "toggle.mastery.fruit.skill.z": {
-      "title": "Skill Mastery Buah Z",
-      "description": "Izinkan Mastery Buah memakai skill Z otomatis saat siap."
-    },
-    "toggle.mastery.fruit.skill.x": {
-      "title": "Skill Mastery Buah X",
-      "description": "Izinkan Mastery Buah memakai skill X otomatis saat siap."
-    },
-    "toggle.mastery.fruit.skill.c": {
-      "title": "Skill Mastery Buah C",
-      "description": "Izinkan Mastery Buah memakai skill C otomatis saat siap."
-    },
-    "toggle.mastery.fruit.skill.v": {
-      "title": "Skill Mastery Buah V",
-      "description": "Izinkan Mastery Buah memakai skill V otomatis saat siap."
-    },
-    "toggle.mastery.fruit.skill.f": {
-      "title": "Skill Mastery Buah F",
-      "description": "Izinkan Mastery Buah memakai skill F otomatis saat siap."
-    },
-    "toggle.mastery.gun.skill.z": {
-      "title": "Skill Mastery Senjata Z",
-      "description": "Izinkan Mastery Senjata memakai skill Z otomatis saat siap."
-    },
-    "toggle.mastery.gun.skill.x": {
-      "title": "Skill Mastery Senjata X",
-      "description": "Izinkan Mastery Senjata memakai skill X otomatis saat siap."
-    },
-    "toggle.mastery.gun.skill.c": {
-      "title": "Skill Mastery Senjata C",
-      "description": "Izinkan Mastery Senjata memakai skill C otomatis saat siap."
-    },
-    "toggle.mastery.gun.skill.v": {
-      "title": "Skill Mastery Senjata V",
-      "description": "Izinkan Mastery Senjata memakai skill V otomatis saat siap."
-    },
     "option.farm.nearest.max.distance": {
       "title": "Jarak Farm Nearest",
       "description": "Batas jarak untuk memilih musuh terdekat. Target di pulau lain yang dapat dikenali dengan yakin akan diabaikan."
@@ -3065,7 +3030,7 @@
     },
     "toggle.auto.race.v2": {
       "title": "Auto Race V2",
-      "description": "Deteksi progres race saat ini dan selesaikan V2 melalui progression, Movement, dan Combat bersama."
+      "description": "Selesaikan langkah yang diperlukan untuk Race V2 sesuai ras saat ini secara otomatis dan konfirmasi hasilnya."
     },
     "toggle.auto.race.v3": {
       "title": "Auto Race V3",
@@ -3082,13 +3047,21 @@
     "button.refresh.fruit.mirage.shop": {
       "title": "Segarkan Mirage Stock",
       "description": "Segarkan langsung daftar Fruit Advanced Fruit Dealer / Mirage."
+    },
+    "option.movement.tween.speed": {
+      "title": "Kecepatan Tween",
+      "description": "Atur kecepatan Tween untuk pergerakan. Maksimum 200 studs/s."
+    },
+    "option.movement.boat.speed": {
+      "title": "Kecepatan Perahu",
+      "description": "Atur peningkatan kecepatan perahu milikmu. Maksimum 200 studs/s."
     }
   },
   "overlay": {
-    "player": "{name} | {distance}m\\nHP: {hp}%",
-    "chest": "Chest\\n{distance}m",
-    "fruit": "{name}\\n{distance}m",
-    "island": "{name}\\n{distance}m"
+    "player": "{name} • {distance} studs\\nHP {hp}%",
+    "chest": "Peti • {distance} studs",
+    "fruit": "{name} • {distance} studs",
+    "island": "{name} • {distance} studs"
   },
   "sections": {
     "farm": {

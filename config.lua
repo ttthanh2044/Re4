@@ -10,10 +10,10 @@ local Config = {
     App = {
         Product = "Re4Hub",
         HubName = "RE4 HUB",
-        Version = "2.4.0",
-        Revision = "release-2.4.0-final-20260913.1",
-        BuildName = "2.4.0-final",
-        DisplayVersion = "2.4.0 Final",
+        Version = "2.4.1",
+        Revision = "release-2.4.1-final-20260913.1",
+        BuildName = "2.4.1-final",
+        DisplayVersion = "2.4.1 Final",
         Channel = "stable",
         UpdatedAt = "2026-09-13",
     },
@@ -24,14 +24,14 @@ local Config = {
             LanguageBase = "language/", LanguageManifest = "language/manifest.json",
         },
         Artifacts = {
-            Core = "core-2.4.0-final-20260913.1",
-            Config = "config-2.4.0-final-20260913.1",
-            Data = "game-data-2.4.0-final-20260913.1",
-            UI = "ui-2.4.0-final-20260913.1",
-            HubInfo = "hub-info-2.4.0-final-20260913.1",
-            Language = "language-2.4.0-final-20260913.1",
+            Core = "core-2.4.1-final-20260913.1",
+            Config = "config-2.4.1-final-20260913.1",
+            Data = "game-data-2.4.1-final-20260913.1",
+            UI = "ui-2.4.1-final-20260913.1",
+            HubInfo = "hub-info-2.4.1-final-20260913.1",
+            Language = "language-2.4.1-final-20260913.1",
         },
-        Cache = { Prefix = "RE4Hub_2_4_0_Final_20260913_1_", Schema = 8 },
+        Cache = { Prefix = "RE4Hub_2_4_1_Final_20260913_1_", Schema = 9 },
     },
     Runtime = {
         LegacyStep = 0.10,
@@ -375,6 +375,8 @@ local Config = {
         Physics = { BodyVelocityMaxForce = {1e9,1e9,1e9} },
         WalkWater = { PlaneSize = {1000,112,1000} },
         TweenSpeed = 170,
+        TweenSpeedMin = 40,
+        TweenSpeedMax = 200,
         PlayerFollowerDistance = 200,
         PlayerCorrection = {
             Enabled = true,
@@ -428,7 +430,7 @@ local Config = {
             CorrectionFloor = 3,
             -- Shared per-mob origin leash. A mob is never deliberately moved
             -- farther than this from its first observed runtime position.
-            FollowerDistance = 200,
+            FollowerDistance = 350,
             MaxMob = 6, SimulationRadiusInterval = 1.0,
         },
         Controller = {
@@ -446,9 +448,9 @@ local Config = {
         BossTracker = { Priority = 56, ArrivalRadius = 35 },
         CombatTargetLock = {
             StaleTTL = 1.35,
-            BringInterval = 0.12,
-            RefillInterval = 0.25,
-            SweepInterval = 0.75,
+            BringInterval = 0.10,
+            RefillInterval = 0.20,
+            SweepInterval = 0.50,
         },
         TravelResolver = {
             ArrivalRadius = 10,
@@ -512,10 +514,6 @@ local Config = {
             DefaultThresholdPercent = 35, MinThresholdPercent = 10, MaxThresholdPercent = 90, ThresholdStep = 5,
             DefaultRequirement = 600, QuestPriority = 60, QuestArrivalRadius = 8, QuestBootstrapArrivalRadius = 24,
             TargetFruitHeight = 10, TargetDefaultHeight = 30, TargetBehind = 8,
-            SkillDefaults = {
-                fruit = { Z=true, X=true, C=true, V=true, F=true },
-                gun = { Z=true, X=true, C=true, V=true },
-            },
         },
         Scheduler = { ActiveMastery = 0.07 },
         SilentAim = {
@@ -605,7 +603,7 @@ local Config = {
     SeaEvent = {
         BoatCollisionInterval = 0.35, SkillRange = 500, BoatInteractionRadius = 150,
         PrehistoricActivationRadius = 150, PrehistoricVFXRadius = 150,
-        BoatBoost = { MaxSpeed = 350, Torque = 0.2, TurnSpeed = 5 },
+        BoatBoost = { MaxSpeed = 200, MinSpeed = 40, MaxAllowedSpeed = 200, Torque = 0.2, TurnSpeed = 5 },
     },
 
     Fishing = {
@@ -636,12 +634,13 @@ local Config = {
 
     Features = {
         Persistence = {
-            Schema = 1,
+            Schema = 2,
             File = "RE4Hub_User_Config.json",
             -- Stable semantic exclusions only. Runtime state is never stored here.
             ExcludePrefixes = {"toggle.fighting.style.use.","toggle.teleport.to."},
         },
         Defaults = {
+            ["settings.auto_team"] = true,
             ["toggle.anti.kick"] = true,
             ["toggle.stats.auto_melee"] = false,
             ["toggle.stats.auto_sword"] = false,
@@ -854,6 +853,10 @@ local Config = {
             ["toggle.unlock.zoom.limit"] = false,
         },
         OptionDefaults = {
+            ["option.movement.tween.speed"] = 170,
+            ["option.movement.boat.speed"] = 200,
+            ["option.auto.speed"] = 30,
+            ["option.auto.jump"] = 50,
             ["option.farm.nearest.max.distance"] = 1200,
             ["option.select.material"] = false,
             ["option.choose.boat"] = false,
@@ -1104,7 +1107,7 @@ local Config = {
         Movement = {
             -- Defaults are fallback display values only. Core does not write them to the
             -- Humanoid until the user explicitly changes the corresponding slider.
-            WalkSpeed = {Default = 30, Min = 0, Max = 300},
+            WalkSpeed = {Default = 30, Min = 0, Max = 200},
             JumpPower = {Default = 50, Min = 0, Max = 500},
         },
     },

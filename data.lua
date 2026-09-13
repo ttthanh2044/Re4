@@ -8,7 +8,7 @@ This module has no dependency on Core, UI, Config or executor state.
 
 local RE4Data = {
     Schema = 1,
-    Revision = "game-data-2.4.0-final-20260913.1",
+    Revision = "game-data-2.4.1-final-20260913.1",
 
     Teams = {
         Pirates = "Pirates",
@@ -78,11 +78,6 @@ local RE4Data = {
             FireFlower="Fire Flower", FireFlowerRequired=5, FireFlowerContainer="FireFlowers", FireFlowerMob="Forest Pirate",
             V3Boss="Terrorshark",
         },
-    },
-
-    MasterySkillControls = {
-        fruit = {"Z","X","C","V","F"},
-        gun = {"Z","X","C","V"},
     },
 
     -- Passive presentation/runtime identity metadata. Core owns behavior; these
@@ -331,6 +326,7 @@ RE4Data.FeatureMetadata = {
 		Drago = {3},
 		Prehistoric = {3},
 		Raids = {2, 3},
+		Raid = {2, 3},
 		SeaEvent = {2, 3},
 	},
 
@@ -357,6 +353,34 @@ RE4Data.FeatureMetadata = {
         ["Items/items.ectoplasm_shop"]={2}, ["Items/items.accessory_sea_event"]={3}, ["Items/items.fragments_shop"]={2}, ["Items/weapon.world.1"]={1}, ["Items/weapon.world.2"]={2}, ["Items/weapon.world.3"]={3},
     },
 
+
+    -- Stable control availability. Runtime, persistence and presentation all
+    -- consume the same metadata so Sea-specific intent cannot leak across worlds.
+    ControlSeaRules = {
+        ["toggle.auto.factory.raid"]={2},
+        ["toggle.auto.pirate.raid"]={3},
+        ["toggle.auto.farm.ectoplasm"]={2},
+
+        ["toggle.auto.race.v2"]={2},
+        ["toggle.auto.race.v3"]={2},
+        ["toggle.auto.get.ghoul.race"]={2},
+        ["toggle.auto.get.cyborg.race"]={2},
+
+        ["option.raid.type"]={2,3},
+        ["option.select.raid"]={2,3},
+        ["toggle.auto.buy.raid.chip.beli"]={2,3},
+        ["button.buy.dungeon.chips.devil.fruit"]={2,3},
+        ["toggle.auto.buy.raid.chip.fragment"]={2,3},
+        ["toggle.auto.start.raid"]={2,3},
+        ["toggle.auto.raid.safe"]={2,3},
+        ["toggle.auto.awakening"]={2,3},
+
+        ["button.buy.microchip.law"]={2},
+        ["button.start.law.raid"]={2},
+        ["toggle.auto.buy.chip.law"]={2},
+        ["toggle.auto.start.law"]={2},
+        ["toggle.auto.raid.law"]={2},
+    },
 	SectionSeaRules = {
 		Main = {
 			["farm elite hunter"] = {3},
@@ -999,7 +1023,8 @@ local function RE4BuildBasicStyleMeta(key)
     CostBeli=source.Currency=="Beli" and source.Price or nil,CostFragments=source.Currency=="Fragments" and source.Price or nil,
     Remote=remote,ActionArgs={},OwnershipProbe={Remote=remote,Args={true},PositiveOnly=true},EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
     NPC=source.NPC and {source.NPC} or {},DealerLocations=RE4DealerLocations(source.Locations),Requirements=source.Requirements or {},
-    Update30Quest=source.Update30Quest,AutoAcquireVerified=source.AutoAcquireVerified,
+    AutoAcquireVerified=source.AutoAcquireVerified,
+    Update30Quest=source.Update30Quest,
     DisplayRequirements={},
   }
 end
@@ -1946,6 +1971,18 @@ do
     local rule={Item=itemKey,Mode=mode,Seas=RE4Data.FeatureMetadata and RE4Data.FeatureMetadata.FeatureSeaRules and RE4Data.FeatureMetadata.FeatureSeaRules[featureName] or nil}
     RE4Data.ControlOwnership["toggle."..suffix]=rule
     RE4Data.ControlOwnership["button."..suffix]=rule
+  end
+  -- ShopActions use presentation-stable IDs (button.shop.*) instead of the
+  -- semantic button.<action-slug> IDs above. Bind those exact IDs to the same
+  -- one-time item rules so Shop ownership, disable state and refresh all share
+  -- the canonical inventory/ownership resolver.
+  for _,group in pairs(RE4Data.ShopActions or {}) do
+    for _,entry in ipairs(group or {}) do
+      local itemKey=RE4Data.OneTimeRules and RE4Data.OneTimeRules[entry.Action]
+      if type(entry.Id)=="string" and itemKey then
+        RE4Data.ControlOwnership[entry.Id]={Item=itemKey,Mode="one_time",Seas=entry.Seas}
+      end
+    end
   end
   for key,meta in pairs(RE4Data.FightingStyleRegistry or {}) do
     if type(meta)=="table" and tostring(meta.Style or "")~="" then

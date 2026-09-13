@@ -2,8 +2,8 @@
   "_meta": {
     "code": "vi",
     "name": "Tiếng Việt",
-    "version": "2.4.0",
-    "revision": "language-2.4.0-final-20260913.1"
+    "version": "2.4.1",
+    "revision": "language-2.4.1-final-20260913.1"
   },
   "nav": {
     "home": "Trang chủ",
@@ -146,7 +146,7 @@
     "saber_relic_gate_open": "Relic gate opened",
     "saber_placing_relic": "Placing Relic at Saber gate",
     "bisento_v1_required": "Bisento V1 is required",
-    "bisento_v1_unconfirmed": "Bisento V1 ownership is unconfirmed",
+    "bisento_v1_unconfirmed": "Chưa thể xác nhận Bisento V1",
     "bisento_damage_window_closed": "Greybeard damage window is closed",
     "bisento_greybeard_hp": "Greybeard HP · {hp}%",
     "bisento_verifying_v2": "Verifying Bisento V2",
@@ -2507,7 +2507,7 @@
       "description": "Tự Động Nhặt Berry + Chuyển Máy Chủ"
     },
     "toggle.esp.berry": {
-      "description": "Hiển thị Berry từ cùng cache dùng bởi Auto Collect."
+      "description": "Hiển thị Berry ở gần để theo dõi và Auto Collect."
     },
     "view.farm.status": {
       "description": ""
@@ -2579,7 +2579,8 @@
       "description": "Tự Động Cày Thông Thạo Trái"
     },
     "toggle.auto.mastery.gun": {
-      "description": "Tự Động Cày Thông Thạo Súng"
+      "title": "Tự động Thông thạo Súng",
+      "description": "Tự động hạ máu mục tiêu, ngắm và kết liễu bằng các kỹ năng Súng đang khả dụng."
     },
     "toggle.auto.mastery.all.sword": {
       "description": "Tự Động Cày Thông Thạo Tất Cả Kiếm"
@@ -2999,42 +3000,6 @@
       "title": "Tự động lấy Cool Shades",
       "description": "Đánh bại Cyborg cho đến khi sở hữu Cool Shades."
     },
-    "toggle.mastery.fruit.skill.z": {
-      "title": "Kỹ năng Thông thạo Trái Z",
-      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng Z khi sẵn sàng."
-    },
-    "toggle.mastery.fruit.skill.x": {
-      "title": "Kỹ năng Thông thạo Trái X",
-      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng X khi sẵn sàng."
-    },
-    "toggle.mastery.fruit.skill.c": {
-      "title": "Kỹ năng Thông thạo Trái C",
-      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng C khi sẵn sàng."
-    },
-    "toggle.mastery.fruit.skill.v": {
-      "title": "Kỹ năng Thông thạo Trái V",
-      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng V khi sẵn sàng."
-    },
-    "toggle.mastery.fruit.skill.f": {
-      "title": "Kỹ năng Thông thạo Trái F",
-      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng F khi sẵn sàng."
-    },
-    "toggle.mastery.gun.skill.z": {
-      "title": "Kỹ năng Thông thạo Súng Z",
-      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng Z khi sẵn sàng."
-    },
-    "toggle.mastery.gun.skill.x": {
-      "title": "Kỹ năng Thông thạo Súng X",
-      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng X khi sẵn sàng."
-    },
-    "toggle.mastery.gun.skill.c": {
-      "title": "Kỹ năng Thông thạo Súng C",
-      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng C khi sẵn sàng."
-    },
-    "toggle.mastery.gun.skill.v": {
-      "title": "Kỹ năng Thông thạo Súng V",
-      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng V khi sẵn sàng."
-    },
     "option.farm.nearest.max.distance": {
       "title": "Khoảng cách Farm Nearest",
       "description": "Giới hạn khoảng cách chọn quái gần nhất. Quái thuộc đảo khác đã xác định sẽ bị bỏ qua."
@@ -3065,7 +3030,7 @@
     },
     "toggle.auto.race.v2": {
       "title": "Tự động Tộc V2",
-      "description": "Tự nhận diện tiến độ hiện tại và hoàn thành Tộc V2 bằng progression, Movement và Combat dùng chung."
+      "description": "Tự động hoàn thành các bước cần thiết để nâng Tộc V2 cho tộc hiện tại và xác nhận kết quả."
     },
     "toggle.auto.race.v3": {
       "title": "Tự động Tộc V3",
@@ -3082,13 +3047,21 @@
     "button.refresh.fruit.mirage.shop": {
       "title": "Làm mới Mirage Stock",
       "description": "Làm mới trực tiếp danh sách Fruit của Advanced Fruit Dealer / Mirage."
+    },
+    "option.movement.tween.speed": {
+      "title": "Tốc độ Tween",
+      "description": "Điều chỉnh tốc độ Tween khi di chuyển. Tối đa 200 studs/s."
+    },
+    "option.movement.boat.speed": {
+      "title": "Tốc độ thuyền",
+      "description": "Điều chỉnh tốc độ tăng cường cho thuyền của bạn. Tối đa 200 studs/s."
     }
   },
   "overlay": {
-    "player": "{name} | {distance}m\\nHP: {hp}%",
-    "chest": "Rương\\n{distance}m",
-    "fruit": "{name}\\n{distance}m",
-    "island": "{name}\\n{distance}m"
+    "player": "{name} • {distance} studs\\nHP {hp}%",
+    "chest": "Rương • {distance} studs",
+    "fruit": "{name} • {distance} studs",
+    "island": "{name} • {distance} studs"
   },
   "sections": {
     "farm": {

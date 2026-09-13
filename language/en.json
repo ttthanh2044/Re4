@@ -2,8 +2,8 @@
   "_meta": {
     "code": "en",
     "name": "English",
-    "version": "2.4.0",
-    "revision": "language-2.4.0-final-20260913.1"
+    "version": "2.4.1",
+    "revision": "language-2.4.1-final-20260913.1"
   },
   "nav": {
     "home": "Home",
@@ -146,7 +146,7 @@
     "saber_relic_gate_open": "Relic gate opened",
     "saber_placing_relic": "Placing Relic at Saber gate",
     "bisento_v1_required": "Bisento V1 is required",
-    "bisento_v1_unconfirmed": "Bisento V1 ownership is unconfirmed",
+    "bisento_v1_unconfirmed": "Bisento V1 could not be confirmed yet",
     "bisento_damage_window_closed": "Greybeard damage window is closed",
     "bisento_greybeard_hp": "Greybeard HP · {hp}%",
     "bisento_verifying_v2": "Verifying Bisento V2",
@@ -2507,7 +2507,7 @@
       "description": "Auto Collect Berry + Hop Server"
     },
     "toggle.esp.berry": {
-      "description": "Hiển thị Berry từ cùng cache dùng bởi Auto Collect."
+      "description": "Show nearby Berries used by Auto Collect."
     },
     "view.farm.status": {
       "description": ""
@@ -2579,7 +2579,8 @@
       "description": "Auto Mastery Fruit"
     },
     "toggle.auto.mastery.gun": {
-      "description": "Auto Mastery Gun"
+      "title": "Auto Gun Mastery",
+      "description": "Automatically weaken targets, aim and finish them with available Gun skills."
     },
     "toggle.auto.mastery.all.sword": {
       "description": "Auto Mastery All Sword"
@@ -2999,42 +3000,6 @@
       "title": "Auto Get Cool Shades",
       "description": "Defeat Cyborg until Cool Shades is owned."
     },
-    "toggle.mastery.fruit.skill.z": {
-      "title": "Fruit Mastery Skill Z",
-      "description": "Allow Fruit Mastery to auto-cast Z when ready."
-    },
-    "toggle.mastery.fruit.skill.x": {
-      "title": "Fruit Mastery Skill X",
-      "description": "Allow Fruit Mastery to auto-cast X when ready."
-    },
-    "toggle.mastery.fruit.skill.c": {
-      "title": "Fruit Mastery Skill C",
-      "description": "Allow Fruit Mastery to auto-cast C when ready."
-    },
-    "toggle.mastery.fruit.skill.v": {
-      "title": "Fruit Mastery Skill V",
-      "description": "Allow Fruit Mastery to auto-cast V when ready."
-    },
-    "toggle.mastery.fruit.skill.f": {
-      "title": "Fruit Mastery Skill F",
-      "description": "Allow Fruit Mastery to auto-cast F when ready."
-    },
-    "toggle.mastery.gun.skill.z": {
-      "title": "Gun Mastery Skill Z",
-      "description": "Allow Gun Mastery to auto-cast Z when ready."
-    },
-    "toggle.mastery.gun.skill.x": {
-      "title": "Gun Mastery Skill X",
-      "description": "Allow Gun Mastery to auto-cast X when ready."
-    },
-    "toggle.mastery.gun.skill.c": {
-      "title": "Gun Mastery Skill C",
-      "description": "Allow Gun Mastery to auto-cast C when ready."
-    },
-    "toggle.mastery.gun.skill.v": {
-      "title": "Gun Mastery Skill V",
-      "description": "Allow Gun Mastery to auto-cast V when ready."
-    },
     "option.farm.nearest.max.distance": {
       "title": "Farm Nearest range",
       "description": "Maximum distance used to select nearby enemies. Targets on another confidently detected island are ignored."
@@ -3065,7 +3030,7 @@
     },
     "toggle.auto.race.v2": {
       "title": "Auto Race V2",
-      "description": "Detect the current race progression and complete Race V2 through the shared progression, movement and combat services."
+      "description": "Automatically complete the required Race V2 steps for your current race and confirm the result."
     },
     "toggle.auto.race.v3": {
       "title": "Auto Race V3",
@@ -3082,13 +3047,21 @@
     "button.refresh.fruit.mirage.shop": {
       "title": "Refresh Mirage Stock",
       "description": "Refresh the Advanced Fruit Dealer / Mirage Fruit list directly."
+    },
+    "option.movement.tween.speed": {
+      "title": "Tween Speed",
+      "description": "Set movement tween speed. Maximum 200 studs/s."
+    },
+    "option.movement.boat.speed": {
+      "title": "Boat Speed",
+      "description": "Set the speed boost for your owned boat. Maximum 200 studs/s."
     }
   },
   "overlay": {
-    "player": "{name} | {distance}m\\nHP: {hp}%",
-    "chest": "Chest\\n{distance}m",
-    "fruit": "{name}\\n{distance}m",
-    "island": "{name}\\n{distance}m"
+    "player": "{name} • {distance} studs\\nHP {hp}%",
+    "chest": "Chest • {distance} studs",
+    "fruit": "{name} • {distance} studs",
+    "island": "{name} • {distance} studs"
   },
   "sections": {
     "farm": {

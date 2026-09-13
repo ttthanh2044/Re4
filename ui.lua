@@ -25,7 +25,7 @@ local Config=env.RE4_CONFIG
 if type(Config)~="table" or tonumber(Config.Schema)~=2 or type(Config.App)~="table" then
     error("[RE4 HUB/UI] config.lua schema 2 is required")
 end
-local RE4_UI_ARTIFACT_REVISION = "ui-2.4.0-final-20260913.1"
+local RE4_UI_ARTIFACT_REVISION = "ui-2.4.1-final-20260913.1"
 local expectedUIRevision=tostring(Config.Source and Config.Source.Artifacts and Config.Source.Artifacts.UI or "")
 if expectedUIRevision=="" or expectedUIRevision~=RE4_UI_ARTIFACT_REVISION then
     error("[RE4 HUB/UI] artifact revision mismatch")
@@ -145,11 +145,11 @@ RE4UI.Config = {
         Good=Color3.fromRGB(92,194,126),Warn=Color3.fromRGB(227,182,82),Bad=Color3.fromRGB(219,95,100),Info=Color3.fromRGB(141,158,255),
     },
     Breakpoints={CompactRail=820,StackWideActions=780,SingleColumn=675,IconRail=560,TinyWidth=430,TinyHeight=470},
-    Window={WidthRatio=0.54,AspectRatio=1.7777778,MinWidth=640,MinHeight=360,MaxWidth=980,MaxHeight=570,Margin=12,Radius=18,HeaderHeight=52,RailWidth=176,CompactRailWidth=152,IconRailWidth=48,RailRatio=0.30,RailMin=176,RailMax=224,CompactRailMin=144,CompactRailMax=180,PageHeaderHeight=48,FloatingSize=42,MobileHeightRatio=0.78},
-    Metrics={PagePad=13,ColumnGap=14,SectionGap=11,SectionRadius=12,SectionHeader=40,SectionBodyPad=8,RowDesktop=60,RowCompact=56,RowMobile=68,RowMobileStacked=104,SwitchW=42,SwitchH=24,ControlHeight=36,PopupRadius=12,ColumnBalanceTolerance=82},
-    Typography={Header=14,PageTitle=19,PageSubtitle=11,Nav=12,Section=13,RowTitle=13,RowDesc=11,Meta=10,Status=10,Control=12,MobileRowTitle=13,MobileRowDesc=11},
+    Window={WidthRatio=0.58,AspectRatio=1.72,MinWidth=660,MinHeight=380,MaxWidth=1040,MaxHeight=620,Margin=12,Radius=18,HeaderHeight=56,RailWidth=184,CompactRailWidth=154,IconRailWidth=50,RailRatio=0.30,RailMin=184,RailMax=234,CompactRailMin=146,CompactRailMax=184,PageHeaderHeight=52,FloatingSize=44,MobileHeightRatio=0.82},
+    Metrics={PagePad=15,ColumnGap=14,SectionGap=12,SectionRadius=12,SectionHeader=42,SectionBodyPad=9,RowDesktop=64,RowCompact=60,RowMobile=72,RowMobileStacked=108,SwitchW=44,SwitchH=24,ControlHeight=38,PopupRadius=12,ColumnBalanceTolerance=82},
+    Typography={Header=15,PageTitle=20,PageSubtitle=11,Nav=13,Section=13,RowTitle=14,RowDesc=11,Meta=10,Status=11,Control=12,MobileRowTitle=14,MobileRowDesc=11},
     Motion={Fast=0.09,Normal=0.14,Slow=0.18},
-    Overlay={ESP={Size=UDim2.new(1,200,1,30),Offset=Vector3.new(0,1,0),TextStrokeTransparency=0.5,Presets={Island={Font=Enum.Font.BuilderSansMedium},Fruit={Font=Enum.Font.BuilderSansMedium},Berry={Font=Enum.Font.BuilderSansMedium},Chest={Font=Enum.Font.Code},PlayerAlly={Font=Enum.Font.BuilderSansMedium},PlayerEnemy={Font=Enum.Font.BuilderSansMedium}}}},
+    Overlay={ESP={Size=UDim2.fromOffset(230,44),Offset=Vector3.new(0,1.4,0),TextStrokeTransparency=0.62,Presets={Island={Font=Enum.Font.BuilderSansMedium},Fruit={Font=Enum.Font.BuilderSansMedium},Berry={Font=Enum.Font.BuilderSansMedium},Chest={Font=Enum.Font.BuilderSansMedium},PlayerAlly={Font=Enum.Font.BuilderSansMedium},PlayerEnemy={Font=Enum.Font.BuilderSansMedium}}}},
 }
 
 local C = RE4UI.Config
@@ -1242,6 +1242,18 @@ function RE4UI:MakeWindow(options)
             if f.Control and f.Control.Section then sections[f.Control.Section]=true end
         end
         for section in pairs(sections) do section:_refreshVisibility() end
+        local firstVisible=nil
+        for _,tab in ipairs(self.Tabs) do
+            local available=tab:VisibleControlCount()>0
+            if tab.NavButton then tab.NavButton.Visible=available; tab.NavButton.Active=available end
+            if available and not firstVisible then firstVisible=tab end
+        end
+        if self.ActiveTab and self.ActiveTab:VisibleControlCount()==0 and firstVisible and firstVisible~=self.ActiveTab and not self._visibilitySwitching then
+            self._visibilitySwitching=true
+            self:ShowTab(firstVisible)
+            self._visibilitySwitching=false
+            return true
+        end
         if self.ActiveTab then
             local page=self.ActiveTab.Page; local oldCanvas=page and page.CanvasPosition or nil
             self.ActiveTab:_relayoutSections(false)
@@ -1263,7 +1275,7 @@ function RE4UI:MakeWindow(options)
     function window:Toggle() return self:_setVisible(not main.Visible) end; function window:IsVisible() return main.Visible end
     function window:ShowTab(tab)
         if type(tab)=="string" then tab=self.TabsByKey[tab] or self.TabsByKey[canonicalTabKey(tab)] end
-        if not tab then return false end
+        if not tab or (tab.NavButton and tab.NavButton.Visible==false) then return false end
         local previous=self.ActiveTab
         for _,other in ipairs(self.Tabs) do
             local active=other==tab
@@ -1459,8 +1471,8 @@ function RE4UI:MakeWindow(options)
             track.MouseButton1Click:Connect(function() c:RefreshOwnership(); if not c.Disabled then c:SetValue(not c.Value,true) end end); Ownership():Register(c,c.Name); c:RefreshOwnership(); c:_render(); c:_applyResponsive(); if not c.Disabled and opts.InvokeInitialCallback~=false then window:_defer(function() c:SetValue(c.Value,true) end) end; return c
         end
         function tab:AddButton(opts)
-            opts=opts or {}; local c=rowBase(opts,"Button"); local key=opts.ActionTextKey; if not key then local id=tostring(opts.Id or c.Name):lower(); if id:find("teleport",1,true) or id:find("tween",1,true) then key="action.go" elseif id:find("buy",1,true) then key="action.buy" elseif id:find("craft",1,true) then key="action.craft" elseif id:find("start",1,true) then key="action.start" elseif id:find("copy",1,true) then key="action.copy" else key="action.run" end end; local button=New("TextButton",{Size=UDim2.fromOffset(86,M.ControlHeight),BackgroundColor3=T.AccentSoft,BackgroundTransparency=0.22,BorderSizePixel=0,Text=tr(key,opts.ActionText or "Run"),Font=Enum.Font.BuilderSansBold,TextColor3=T.Text,TextSize=TX.Control,AutoButtonColor=false,ZIndex=20},c.Row); Corner(button,8); Stroke(button,0.60,T.AccentStrong); setHover(button,T.AccentSoft,T.AccentStrong); c.Action=button; c.Button=button; c.ActionWidth=96; c.Callback=opts.Callback; function c:_positionAction(h) button.AnchorPoint=Vector2.new(1,0.5); button.Position=UDim2.new(1,-10,0.5,0) end
-            function c:RefreshOwnership() if not self._OwnershipItem then self.Disabled=false; button.Active=true; button.Visible=true; self:SetVisible(true); return end; local provider=Ownership(); local state=ownershipState(provider,self._OwnershipItem); local owned=state.Owned==true; local selectable=self._OwnershipSelectable==true; local useOnly=self._OwnershipUseOnly==true; local active=selectable and type(provider.IsEquipped)=="function" and provider:IsEquipped(self._OwnershipItem) or false; if selectable then if useOnly and not owned then self.Disabled=true; button.Active=false; button.Visible=false; self:SetVisible(false); return end; self:SetVisible(true); button.Visible=true; if active then self.Disabled=true; button.Active=false; button.Text=tr("status.active"); button.BackgroundColor3=T.Good; self:SetStatus(tr("status.active"),"good") else self.Disabled=false; button.Active=true; button.Text=tr("action.use"); button.BackgroundColor3=T.AccentSoft; self:SetStatus(tr("status.owned"),"completed") end; return end; self:SetVisible(true); local blocked=state.Code=="blocked"; self.Disabled=owned or blocked; button.Active=not self.Disabled; button.Visible=not owned; renderOwnershipStatus(self,state,false) end
+            opts=opts or {}; local c=rowBase(opts,"Button"); local key=opts.ActionTextKey; if not key then local id=tostring(opts.Id or c.Name):lower(); if id:find("teleport",1,true) or id:find("tween",1,true) then key="action.go" elseif id:find("buy",1,true) then key="action.buy" elseif id:find("craft",1,true) then key="action.craft" elseif id:find("start",1,true) then key="action.start" elseif id:find("copy",1,true) then key="action.copy" else key="action.run" end end; c.ActionTextKey=key; c.DefaultActionText=tostring(opts.ActionText or "Run"); local actionLabel=tr(key,c.DefaultActionText); local button=New("TextButton",{Size=UDim2.fromOffset(86,M.ControlHeight),BackgroundColor3=T.AccentSoft,BackgroundTransparency=0.22,BorderSizePixel=0,Text=actionLabel,Font=Enum.Font.BuilderSansBold,TextColor3=T.Text,TextSize=TX.Control,AutoButtonColor=false,ZIndex=20},c.Row); Corner(button,8); Stroke(button,0.60,T.AccentStrong); setHover(button,T.AccentSoft,T.AccentStrong); c.Action=button; c.Button=button; c.ActionWidth=96; c.Callback=opts.Callback; function c:_positionAction(h) button.AnchorPoint=Vector2.new(1,0.5); button.Position=UDim2.new(1,-10,0.5,0) end
+            function c:RefreshOwnership() if not self._OwnershipItem then self.Disabled=false; button.Active=true; button.Visible=true; self:SetVisible(true); button.Text=tr(self.ActionTextKey or "action.run",self.DefaultActionText or "Run"); return end; local provider=Ownership(); local state=ownershipState(provider,self._OwnershipItem); local owned=state.Owned==true; local selectable=self._OwnershipSelectable==true; local useOnly=self._OwnershipUseOnly==true; local active=selectable and type(provider.IsEquipped)=="function" and provider:IsEquipped(self._OwnershipItem) or false; if selectable then if useOnly and not owned then self.Disabled=true; button.Active=false; button.Visible=false; self:SetVisible(false); return end; self:SetVisible(true); button.Visible=true; if active then self.Disabled=true; button.Active=false; button.Text=tr("status.active"); button.BackgroundColor3=T.Good; self:SetStatus(tr("status.active"),"good") else self.Disabled=false; button.Active=true; button.Text=tr("action.use"); button.BackgroundColor3=T.AccentSoft; self:SetStatus(tr("status.owned"),"completed") end; return end; self:SetVisible(true); local blocked=state.Code=="blocked"; self.Disabled=owned or blocked; button.Active=not self.Disabled; button.Visible=true; if owned then button.Text=tr("status.owned"); button.BackgroundColor3=T.Good else button.Text=tr(self.ActionTextKey or "action.run",self.DefaultActionText or "Run"); button.BackgroundColor3=T.AccentSoft end; renderOwnershipStatus(self,state,false) end
             button.MouseButton1Click:Connect(function() c:RefreshOwnership(); if c.Disabled then return end; c:SetStatus(tr("status.working"),"running"); local ok,result=SafeCall(c.Id or c.Name,c.Callback); local success=ok and result~=false; c:SetStatus(tr(success and "status.done" or "status.error"),success and "good" or "bad"); if success and c._OwnershipItem then local provider=Ownership(); if type(provider.UpdateControls)=="function" then window:_delay(Config.UI.Timing.OwnershipRefreshDelay,function() pcall(function() provider:UpdateControls(true) end) end) end end; window:_delay(Config.UI.Timing.OwnershipStatusClearDelay,function() if c.Row.Parent then c:RefreshOwnership(); if not c._OwnershipItem then c:SetStatus("") end end end) end); Ownership():Register(c,c.Name); c:RefreshOwnership(); c:_applyResponsive(); return c
         end
         function tab:AddDropdown(opts)
@@ -1528,8 +1540,8 @@ function RE4UI:Notify(options) if self.LastWindow then return self.LastWindow:No
 function RE4UI.CreateESPBillboard(adornee,guiName,presetName)
     if not adornee then return nil,nil end
     local cfg=C.Overlay.ESP; local preset=cfg.Presets[presetName] or cfg.Presets.Island
-    local gui=New("BillboardGui",{Name=guiName or "RE4Esp",Size=cfg.Size,ExtentsOffset=cfg.Offset,Adornee=adornee,AlwaysOnTop=true},adornee)
-    local text=New("TextLabel",{Name="TextLabel",Size=UDim2.fromScale(1,1),BackgroundTransparency=1,TextStrokeTransparency=cfg.TextStrokeTransparency,Font=preset.Font,TextWrapped=true,TextColor3=preset.Color,TextSize=TX.RowDesc},gui)
+    local gui=New("BillboardGui",{Name=guiName or "RE4Esp",Size=cfg.Size,ExtentsOffset=cfg.Offset,Adornee=adornee,AlwaysOnTop=true,LightInfluence=0},adornee)
+    local text=New("TextLabel",{Name="TextLabel",Size=UDim2.fromScale(1,1),BackgroundTransparency=1,TextStrokeTransparency=cfg.TextStrokeTransparency,TextStrokeColor3=Color3.fromRGB(0,0,0),Font=preset.Font,TextWrapped=true,TextColor3=preset.Color,TextSize=TX.RowDesc+1,TextYAlignment=Enum.TextYAlignment.Center},gui)
     return gui,text
 end
 -- ============================================================================
@@ -1592,6 +1604,17 @@ function RE4UI:_applyCoreState(control,state)
     end
     if control.SetVisible and currentVisible~=desiredVisible then pcall(control.SetVisible,control,desiredVisible) end
     RE4ApplyDisabled(control,state)
+    if state.Kind=="Button" and control.Button then
+        local status=state.Status
+        local owned=type(status)=="table" and status.Key=="status.owned"
+        if owned then
+            control.Button.Text=self:T("status.owned",nil,"Owned")
+            control.Button.BackgroundColor3=C.Theme.Good
+        else
+            control.Button.Text=self:T(control.ActionTextKey or "action.run",nil,control.DefaultActionText or "Run")
+            control.Button.BackgroundColor3=C.Theme.AccentSoft
+        end
+    end
     if state.Options and control.SetOptions then pcall(control.SetOptions,control,state.Options) end
     if state.Items and control.SetItems then pcall(control.SetItems,control,state.Items) end
     if state.Value~=nil and control.SetValue and state.Kind~="Button" then pcall(control.SetValue,control,state.Value,false) end

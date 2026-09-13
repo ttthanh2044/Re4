@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "artifact_revision": "hub-info-2.4.0-final-20260913.1",
-  "hub_version": "2.4.0",
+  "artifact_revision": "hub-info-2.4.1-final-20260913.1",
+  "hub_version": "2.4.1",
   "updated_at": "2026-09-13",
   "discord": {
     "enabled": false,
@@ -12,9 +12,25 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Re4Hub 2.4.0 Final đã được rà soát và đồng bộ lại toàn bộ nền tảng. Phiên bản này tập trung vào độ ổn định khi mở lại hub, tính nhất quán của dữ liệu, cache sạch, trạng thái giao diện dễ hiểu hơn và các luồng tiến trình an toàn hơn."
+    "content": "Re4Hub 2.4.1 Final tập trung sửa Farm, Bring Mob, Mastery, tiến trình theo Sea và dữ liệu hiển thị. Các mục đã sở hữu được trình bày gọn hơn, tốc độ di chuyển có thể tùy chỉnh và giao diện được cân chỉnh để dễ theo dõi hơn."
   },
   "changelog": [
+    {
+      "version": "2.4.1",
+      "date": "$updated_at",
+      "title": "Re4Hub 2.4.1 Final",
+      "changes": [
+        "Auto Farm Level chuyển mục tiêu và cụm quái linh hoạt hơn; Bring Mob dùng cùng phạm vi chiến đấu để tránh giữ người chơi ở một điểm đã hết mục tiêu.",
+        "Cải thiện Fast Attack và xử lý nhiều mục tiêu để cụm quái được nhận diện đầy đủ hơn khi chiến đấu.",
+        "Khôi phục Auto Gun Mastery, sửa điều kiện dùng kỹ năng Fruit/Gun và tự nhận biết kỹ năng sẵn sàng mà không cần các nút Z/X/C/V riêng.",
+        "Cho phép tùy chỉnh tốc độ Tween và tốc độ thuyền, giới hạn tối đa 200 studs/s; tốc độ đi bộ cũng được giới hạn ở 200.",
+        "Tiến trình Fighting Style tự ẩn sau khi đã sở hữu; Electric và Water Kung Fu được khôi phục ở Sea 1, còn mục Equip tiếp tục nằm trong Items.",
+        "Shop nhận biết vật phẩm đã sở hữu, khóa thao tác mua lại và hiển thị trạng thái Đã sở hữu rõ ràng.",
+        "Các tính năng Factory, Pirate Raid, Ectoplasm, Race V2/V3, Ghoul, Cyborg và Raid được giới hạn đúng Sea; tab trống tự ẩn.",
+        "Cải thiện dữ liệu Materials, Bones, Ectoplasm và Cake mobs; cập nhật bước Desert của Saber để không phụ thuộc một đường dẫn map cố định.",
+        "Cải thiện ESP, khoảng cách hiển thị theo studs và cân chỉnh kích thước, khoảng cách, trạng thái của giao diện trên desktop/mobile."
+      ]
+    },
     {
       "version": "2.4.0",
       "date": "$updated_at",

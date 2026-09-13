@@ -2,8 +2,8 @@
   "_meta": {
     "code": "th",
     "name": "ไทย",
-    "version": "2.4.0",
-    "revision": "language-2.4.0-final-20260913.1"
+    "version": "2.4.1",
+    "revision": "language-2.4.1-final-20260913.1"
   },
   "nav": {
     "home": "หน้าหลัก",
@@ -146,7 +146,7 @@
     "saber_relic_gate_open": "Relic gate opened",
     "saber_placing_relic": "Placing Relic at Saber gate",
     "bisento_v1_required": "Bisento V1 is required",
-    "bisento_v1_unconfirmed": "Bisento V1 ownership is unconfirmed",
+    "bisento_v1_unconfirmed": "ยังไม่สามารถยืนยัน Bisento V1 ได้",
     "bisento_damage_window_closed": "Greybeard damage window is closed",
     "bisento_greybeard_hp": "Greybeard HP · {hp}%",
     "bisento_verifying_v2": "Verifying Bisento V2",
@@ -2507,7 +2507,7 @@
       "description": "Auto Collect Berry + Hop Server"
     },
     "toggle.esp.berry": {
-      "description": "Hiển thị Berry từ cùng cache dùng bởi Auto Collect."
+      "description": "แสดง Berry ใกล้เคียงสำหรับการติดตามและ Auto Collect"
     },
     "view.farm.status": {
       "description": ""
@@ -2579,7 +2579,8 @@
       "description": "Auto Mastery Fruit"
     },
     "toggle.auto.mastery.gun": {
-      "description": "Auto Mastery Gun"
+      "title": "มาสเตอรี่ปืนอัตโนมัติ",
+      "description": "ลดพลังชีวิต เล็งเป้าหมาย และปิดงานด้วยสกิลปืนที่พร้อมใช้งานโดยอัตโนมัติ"
     },
     "toggle.auto.mastery.all.sword": {
       "description": "Auto Mastery All Sword"
@@ -2999,42 +3000,6 @@
       "title": "Auto Get Cool Shades",
       "description": "กำจัด Cyborg จนกว่าจะได้รับ Cool Shades"
     },
-    "toggle.mastery.fruit.skill.z": {
-      "title": "สกิลมาสเตอรี่ผลไม้ Z",
-      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล Z อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.fruit.skill.x": {
-      "title": "สกิลมาสเตอรี่ผลไม้ X",
-      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล X อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.fruit.skill.c": {
-      "title": "สกิลมาสเตอรี่ผลไม้ C",
-      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล C อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.fruit.skill.v": {
-      "title": "สกิลมาสเตอรี่ผลไม้ V",
-      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล V อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.fruit.skill.f": {
-      "title": "สกิลมาสเตอรี่ผลไม้ F",
-      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล F อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.gun.skill.z": {
-      "title": "สกิลมาสเตอรี่ปืน Z",
-      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล Z อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.gun.skill.x": {
-      "title": "สกิลมาสเตอรี่ปืน X",
-      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล X อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.gun.skill.c": {
-      "title": "สกิลมาสเตอรี่ปืน C",
-      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล C อัตโนมัติเมื่อพร้อม"
-    },
-    "toggle.mastery.gun.skill.v": {
-      "title": "สกิลมาสเตอรี่ปืน V",
-      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล V อัตโนมัติเมื่อพร้อม"
-    },
     "option.farm.nearest.max.distance": {
       "title": "ระยะ Farm Nearest",
       "description": "ระยะสูงสุดสำหรับเลือกศัตรูใกล้เคียง และจะไม่เลือกเป้าหมายบนเกาะอื่นเมื่อระบุเกาะได้แน่นอน"
@@ -3065,7 +3030,7 @@
     },
     "toggle.auto.race.v2": {
       "title": "Auto Race V2",
-      "description": "ตรวจสอบความคืบหน้าเผ่าปัจจุบันและทำ V2 ผ่านระบบ progression, Movement และ Combat กลาง"
+      "description": "ดำเนินขั้นตอนที่จำเป็นสำหรับ Race V2 ของเผ่าปัจจุบันโดยอัตโนมัติและยืนยันผลลัพธ์"
     },
     "toggle.auto.race.v3": {
       "title": "Auto Race V3",
@@ -3082,13 +3047,21 @@
     "button.refresh.fruit.mirage.shop": {
       "title": "รีเฟรช Mirage Stock",
       "description": "รีเฟรชรายการ Fruit ของ Advanced Fruit Dealer / Mirage โดยตรง"
+    },
+    "option.movement.tween.speed": {
+      "title": "ความเร็ว Tween",
+      "description": "ปรับความเร็ว Tween ในการเคลื่อนที่ สูงสุด 200 studs/s"
+    },
+    "option.movement.boat.speed": {
+      "title": "ความเร็วเรือ",
+      "description": "ปรับความเร็วเสริมของเรือที่คุณเป็นเจ้าของ สูงสุด 200 studs/s"
     }
   },
   "overlay": {
-    "player": "{name} | {distance}m\\nHP: {hp}%",
-    "chest": "Chest\\n{distance}m",
-    "fruit": "{name}\\n{distance}m",
-    "island": "{name}\\n{distance}m"
+    "player": "{name} • {distance} studs\\nHP {hp}%",
+    "chest": "หีบ • {distance} studs",
+    "fruit": "{name} • {distance} studs",
+    "island": "{name} • {distance} studs"
   },
   "sections": {
     "farm": {
