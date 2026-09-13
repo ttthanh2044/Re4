@@ -1,0 +1,3518 @@
+{
+  "_meta": {
+    "code": "th",
+    "name": "ไทย",
+    "version": "2.3.15",
+    "revision": "language-2.3.15-final-20260912.1"
+  },
+  "nav": {
+    "home": "หน้าหลัก",
+    "farm": "ฟาร์ม",
+    "progression": "ความคืบหน้า",
+    "progress": "คืบหน้า",
+    "world": "โลก",
+    "raid": "เรด",
+    "sea": "ทะเล",
+    "race": "เผ่า",
+    "items": "ไอเทม",
+    "teleport": "เทเลพอร์ต",
+    "combat": "ต่อสู้",
+    "settings": "ตั้งค่า",
+    "raids": "เรด",
+    "shop": "ร้านค้า",
+    "events": "อีเวนต์",
+    "travel": "เดินทาง",
+    "system": "ระบบ",
+    "main": "หน้าหลัก"
+  },
+  "group": {
+    "overview": "ภาพรวม",
+    "automation": "อัตโนมัติ",
+    "progression": "ความคืบหน้า",
+    "world": "โลก",
+    "tools": "เครื่องมือ",
+    "system": "ระบบ"
+  },
+  "ui": {
+    "search": "ค้นหา",
+    "search_hint": "ค้นหาฟีเจอร์...",
+    "more": "เพิ่มเติม",
+    "connected": "เชื่อมต่อแล้ว",
+    "ready": "พร้อม",
+    "select": "เลือก",
+    "general": "ทั่วไป",
+    "information": "ข้อมูล",
+    "external_link": "ลิงก์ภายนอก",
+    "external_disabled": "ลิงก์ภายนอกถูกปิดใช้งานในบิลด์นี้",
+    "no_results": "ไม่พบฟีเจอร์ที่ตรงกัน",
+    "language": "ภาษา",
+    "loading": "กำลังโหลด",
+    "unavailable": "ไม่พร้อมใช้งาน",
+    "none": "ไม่มี",
+    "players": "ผู้เล่น {count} คน",
+    "morning": "เช้า",
+    "evening": "เย็น",
+    "unknown": "ไม่ทราบ",
+    "language_load_error": "ไม่สามารถโหลดไฟล์ภาษาที่เลือกได้ ระบบกำลังใช้ภาษาสำรอง",
+    "yes": "ใช่",
+    "no": "ไม่",
+    "next_night": "คืนถัดไป",
+    "full_moon": "พระจันทร์เต็มดวง",
+    "last_night": "คืนสุดท้าย",
+    "subtitle": "Blox Fruits · Pro",
+    "online": "ออนไลน์",
+    "overview": "ภาพรวม",
+    "ping": "Ping {value}",
+    "fps": "FPS {value}",
+    "game_sea": "Blox Fruits / {sea}",
+    "version": "v{value}",
+    "pin": "ปักหมุด",
+    "pinned": "ปักแล้ว",
+    "type_hint": "พิมพ์...",
+    "feature": "ฟีเจอร์",
+    "tab": "แท็บ",
+    "section": "ส่วน",
+    "global": "ทั้งหมด",
+    "sea_short": "Sea {value}",
+    "level_short": "Lv.{value}"
+  },
+  "action": {
+    "run": "รัน",
+    "go": "ไป",
+    "buy": "ซื้อ",
+    "start": "เริ่ม",
+    "copy": "คัดลอก",
+    "search": "ค้นหา",
+    "use": "ใช้",
+    "apply": "ใช้",
+    "refresh": "รีเฟรช",
+    "craft": "คราฟต์",
+    "reset": "รีเซ็ต",
+    "turn_off": "ปิด"
+  },
+  "status": {
+    "running": "กำลังทำงาน",
+    "owned": "มีแล้ว",
+    "not_owned": "ยังไม่มี",
+    "working": "กำลังดำเนินการ",
+    "done": "เสร็จแล้ว",
+    "error": "ข้อผิดพลาด",
+    "waiting": "กำลังรอ",
+    "available": "พร้อมใช้",
+    "blocked": "ถูกล็อก",
+    "active": "กำลังใช้",
+    "unknown": "ไม่ทราบ",
+    "can_buy": "ซื้อได้",
+    "requirements_missing": "เงื่อนไขยังไม่ครบ",
+    "spawned": "เกิดแล้ว",
+    "not_spawned": "ยังไม่เกิด",
+    "spawning": "กำลังเกิด",
+    "defeated": "ถูกกำจัดแล้ว",
+    "off": "ปิด",
+    "not_active": "Not active",
+    "stopped": "หยุดแล้ว",
+    "runtime_error_stopped": "Runtime error · stopped",
+    "running_dependencies": "Running · {dependencies}",
+    "faction_ready": "Faction ready · {team}",
+    "faction_switching": "Switching faction · {team}",
+    "faction_waiting": "Waiting for faction · {reason}",
+    "pvp_waiting": "Waiting for PvP · {reason}",
+    "pvp_enabling": "Enabling PvP",
+    "pvp_ready": "PvP ready",
+    "pvp_wait_target": "Waiting for PvP target",
+    "pvp_target_disabled": "Target PvP is disabled",
+    "pvp_target_protected": "Target is protected",
+    "pvp_target_undamageable": "Target cannot be damaged",
+    "pvp_local_wait": "Waiting for local PvP",
+    "pvp_local_availability": "Waiting for PvP availability",
+    "pvp_target_respawning": "Waiting for target respawn",
+    "pvp_local_combat_wait": "Waiting for local combat state",
+    "attacking_target": "Attacking {target} · {distance}m",
+    "farming_target": "กำลังฟาร์ม {target}",
+    "moving_target": "กำลังไปที่ {target}",
+    "waiting_target": "กำลังรอ {target}",
+    "need_pole_v1": "Pole V1 is required",
+    "pole_v2_wait_lightning": "Waiting for lightning condition",
+    "saber_requires_level": "Requires Level {level}",
+    "saber_wait_puzzle": "Waiting for Saber puzzle",
+    "saber_switches": "Saber switches · {current}/{total}",
+    "saber_switch_confirmed": "Switch {index} confirmed",
+    "saber_switches_done": "All Saber switches completed",
+    "saber_wait_switch": "Waiting for next Saber switch",
+    "saber_wait_desert": "Waiting for Desert step",
+    "saber_wait_mob_leader": "Waiting for Mob Leader",
+    "saber_wait_relic": "Waiting for Relic",
+    "saber_wait_expert": "Waiting for Saber Expert",
+    "saber_relic_gate_open": "Relic gate opened",
+    "saber_placing_relic": "Placing Relic at Saber gate",
+    "bisento_v1_required": "Bisento V1 is required",
+    "bisento_v1_unconfirmed": "Bisento V1 ownership is unconfirmed",
+    "bisento_damage_window_closed": "Greybeard damage window is closed",
+    "bisento_greybeard_hp": "Greybeard HP · {hp}%",
+    "bisento_verifying_v2": "Verifying Bisento V2",
+    "bisento_v2_unconfirmed": "Bisento V2 is unconfirmed",
+    "bisento_wait_greybeard": "Waiting for Greybeard",
+    "style_equipping": "Equipping {style}",
+    "style_obtained_equipping": "Obtained {style} · equipping",
+    "style_moving_teacher": "Moving to {style} teacher",
+    "style_direct_unavailable_moving": "Direct action unavailable · moving to {style} teacher",
+    "waiting_reason": "กำลังรอ · {reason}",
+    "need_beli": "Need {amount} Beli",
+    "waiting_beli": "Waiting for Beli state",
+    "combat_remotes_missing": "Combat remotes are unavailable",
+    "location_present": "{name} is present",
+    "location_absent": "{name} is not present",
+    "leviathan_spy": "Leviathan Spy · {value}/5",
+    "leviathan_spy_done": "Leviathan Spy complete · {value}/5",
+    "race_v4_tier": "V4 Tier · {value}",
+    "hop_requested": "ส่งคำขอย้ายเซิร์ฟเวอร์แล้ว",
+    "hop_failed": "ย้ายเซิร์ฟเวอร์ล้มเหลว · {reason}",
+    "gacha_checking": "Checking Gacha state",
+    "gacha_randomizing": "Randomizing fruit",
+    "gacha_received_closing": "Received {fruit} · closing result",
+    "gacha_cooldown": "Cooldown · {time}",
+    "gacha_cooldown_close_failed": "Cooldown · {time} · close failed: {reason}",
+    "gacha_unconfirmed": "Gacha result unconfirmed · {reason}",
+    "gacha_retry": "Retry in {time}",
+    "gacha_insufficient_beli": "Not enough Beli",
+    "gacha_requires_level": "Requires Level {level}",
+    "gacha_unavailable": "Gacha unavailable",
+    "fishing_crafting_bait": "Crafting {bait} · current {count}",
+    "fishing_loading_bait": "Loading {bait} · {count}",
+    "fishing_move_water": "Moving to fishing water",
+    "waiting_character": "Waiting for character",
+    "fishing_prepare_rod": "Preparing fishing rod",
+    "fishing_equip_rod": "Equipping fishing rod",
+    "fishing_prepare_bait": "Preparing bait",
+    "fishing_rod_unequipped": "Fishing rod is not equipped",
+    "fishing_ready": "Ready to fish",
+    "fishing_biting": "Fish biting",
+    "fishing_wait_bite": "Waiting for bite",
+    "fishing_bait_needed": "Bait required",
+    "fishing_cast_retry": "Cast retry · {reason}",
+    "fishing_reeling": "Reeling",
+    "fishing_cast_ended": "Cast ended",
+    "fishing_wait_bite_state": "Waiting for bite · {state}",
+    "fishing_catch_completed": "Catch completed",
+    "fishing_reel_ended": "Reel ended",
+    "fishing_next_cast": "Preparing next cast",
+    "fishing_reset": "Fishing runtime reset",
+    "fishing_runtime_error": "Fishing error · {reason}",
+    "fishing_stopped": "Fishing stopped",
+    "fishing_preparing_selected_bait": "Preparing {bait} · {count}",
+    "second_sea_requires_level": "Requires Level {level}",
+    "second_sea_return_detective": "Returning to Detective",
+    "second_sea_move_captain": "Moving to Experienced Captain",
+    "second_sea_travel": "Travelling to Second Sea",
+    "second_sea_get_key": "Getting Library Key",
+    "second_sea_open_door": "Opening Ice Admiral door",
+    "second_sea_defeat_admiral": "Defeating Ice Admiral",
+    "second_sea_confirm_admiral": "Confirming Ice Admiral completion",
+    "second_sea_move_admiral": "Moving to Ice Admiral",
+    "second_sea_wait_admiral": "Waiting for Ice Admiral",
+    "raid_chip_paused_mode": "On · paused for current Raid Mode",
+    "raid_chip_ready": "On · chip ready",
+    "raid_chip_level_required": "Requires Level {level}+",
+    "raid_chip_buying_beli": "Buying chip with {amount} Beli",
+    "raid_chip_beli_ready": "Beli chip confirmed",
+    "raid_chip_insufficient_beli": "Not enough Beli · need {amount}",
+    "raid_chip_wait_beli_state": "Waiting for Beli state",
+    "raid_chip_beli_cooldown": "Beli purchase cooldown",
+    "raid_chip_wait_beli": "Waiting for Beli purchase conditions",
+    "raid_chip_buying_fragments": "Buying chip with {amount} Fragments",
+    "raid_chip_fragment_ready": "Fragment chip confirmed",
+    "raid_chip_insufficient_fragments": "Not enough Fragments · need {amount}",
+    "raid_chip_wait_fragment_state": "Waiting for Fragment state",
+    "raid_chip_wait_fragments": "Waiting for Fragment purchase conditions",
+    "raid_mode_basic": "Basic Raid",
+    "raid_mode_advanced": "Advanced Raid",
+    "law_running": "On · Law Raid running",
+    "law_completed": "On · Law Raid completed",
+    "law_invalid_death": "On · run invalid after death · waiting for Order to end",
+    "law_wait_normal_raid": "On · paused while normal Raid owns the flow",
+    "law_buy_pending": "On · confirming Law Microchip",
+    "law_start_pending": "On · start requested once · waiting for Order",
+    "law_blocked": "Blocked · {reason}",
+    "law_completion_unconfirmed": "Blocked · Law completion unconfirmed",
+    "law_chip_ready": "On · Law Microchip ready",
+    "law_waiting": "On · waiting for Law Raid conditions",
+    "cdk": {
+      "waiting": "Waiting for CDK progression",
+      "yama_1": "Yama trial · step 1",
+      "yama_2": "Yama trial · step 2",
+      "yama_3": "Yama trial · step 3",
+      "tushita_1": "Tushita trial · step 1",
+      "tushita_2": "Tushita trial · step 2",
+      "done": "Cursed Dual Katana ready"
+    },
+    "soul_guitar": {
+      "quest1": "Soul Guitar quest · step 1",
+      "quest2": "Soul Guitar quest · step 2",
+      "quest3": "Soul Guitar quest · step 3",
+      "quest4": "Soul Guitar quest · step 4",
+      "collect": "Soul Guitar requirements complete",
+      "none": "Waiting for Soul Guitar progression"
+    },
+    "raid": {
+      "waiting": "Waiting for Raid",
+      "active_auto_off": "Raid active · Auto Raid off",
+      "island": "Raid island {island}/5",
+      "state": "Raid · {state}",
+      "finalizing": "Raid finalizing",
+      "blocked": "Raid blocked · {reason}"
+    },
+    "moon": {
+      "next_night": "Moon phase {phase}/8 · next night",
+      "full": "Full Moon · phase {phase}/8",
+      "last_night": "Moon phase {phase}/8 · last night",
+      "phase": "Moon phase {phase}/8"
+    },
+    "v2_unconfirmed": "ยังไม่ยืนยัน V2",
+    "on": "เปิด",
+    "starting": "กำลังเริ่ม",
+    "stopping": "กำลังหยุด",
+    "configured": "กำหนดค่าแล้ว",
+    "third_sea_requires_level": "ต้องมีเลเวล {level}",
+    "third_sea_check_bartilo": "กำลังตรวจสอบความคืบหน้า Bartilo",
+    "third_sea_bartilo": "กำลังทำเควสต์ Bartilo",
+    "third_sea_trevor": "กำลังปลดล็อก Don Swan ผ่าน Trevor",
+    "third_sea_wait_fruit": "กำลังรอผลไม้ที่มีมูลค่าอย่างน้อย 1,000,000 Beli",
+    "third_sea_don_swan": "กำลังจัดการ Don Swan",
+    "third_sea_indra": "กำลังดำเนินความคืบหน้า King Red Head / rip_indra",
+    "third_sea_travel": "กำลังเดินทางไป Third Sea",
+    "third_sea_complete": "อยู่ใน Third Sea แล้ว",
+    "fruit_tween": "กำลังไปหา {fruit} · {distance} studs",
+    "fruit_waiting": "กำลังรอ Fruit เกิด",
+    "fruit_collect_precedence": "การเก็บ Fruit ทันทีกำลังทำงาน; Tween ไปหา Fruit กำลังรอ",
+    "race_progress_owned": "Progression เผ่ากำลังถูกใช้งานโดย {owner}",
+    "race_contract_unavailable": "สัญญาการทำงาน Race progression ไม่พร้อมใช้งาน · {reason}",
+    "race_travel_sea2": "กำลังเดินทางไป Sea 2 เพื่อทำ progression เผ่า",
+    "race_state_unavailable": "ไม่สามารถอ่านสถานะ progression เผ่าจากเซิร์ฟเวอร์",
+    "race_state_unexpected": "สถานะ progression เผ่าไม่คาดคิด: {state}",
+    "race_need_level": "ต้องมีเลเวล {level}",
+    "race_v2_starting": "กำลังเริ่มเควสต์ Race V2 กับ Alchemist",
+    "race_v2_collect_flower": "กำลังเก็บ {flower}",
+    "race_v2_wait_flower": "กำลังรอ {flower} ใน runtime",
+    "race_v2_farm_flower3": "กำลังกำจัด NPC เพื่อหา Flower 3",
+    "race_v2_wait_flower3_mob": "กำลังรอเป้าหมาย NPC เพื่อหา Flower 3",
+    "race_v2_turnin": "กำลังส่ง Race V2 ให้ Alchemist",
+    "race_v2_complete": "ยืนยัน Race V2 สำเร็จ",
+    "race_v3_requires_v2": "Race V3 ต้องมี V2; กำลังทำ V2 ก่อน",
+    "race_v3_starting": "กำลังเริ่มเควสต์ V3 สำหรับ {race}",
+    "race_v3_human_boss": "กำลังกำจัด {boss} สำหรับ Human V3",
+    "race_v3_rabbit_chests": "กำลังเก็บหีบสำหรับ Rabbit V3",
+    "race_v3_shark_search": "กำลังค้นหา Sea Beast ธรรมชาติสำหรับ Shark V3",
+    "race_v3_shark_combat": "กำลังต่อสู้ Sea Beast สำหรับ Shark V3",
+    "race_v3_wait_player": "กำลังรอผู้เล่นเผ่า {race} ที่ใช้ได้",
+    "race_v3_cyborg_need_fruit": "ต้องมี Fruit แบบ physical สำหรับ Cyborg V3",
+    "race_v3_cyborg_load_fruit": "กำลังโหลด {fruit} จาก inventory สำหรับ Cyborg V3",
+    "race_v3_cyborg_present_fruit": "กำลังมอบ {fruit} สำหรับ Cyborg V3",
+    "race_v3_turnin": "กำลังยืนยัน Race V3 สำหรับ {race}",
+    "race_v3_unsupported_race": "Auto Race V3 ยังไม่รองรับเผ่า runtime {race}",
+    "race_v3_complete": "ยืนยัน Race V3 สำเร็จ",
+    "race_ghoul_ectoplasm": "กำลังฟาร์ม Ectoplasm · {current}/{required}",
+    "race_ghoul_torch": "กำลังกำจัด Cursed Captain เพื่อ Hellfire Torch",
+    "race_ghoul_equip_torch": "กำลังสวม Hellfire Torch เพื่อส่งให้ Experimic",
+    "race_ghoul_purchase": "กำลังทำรายการ Ghoul กับ Experimic",
+    "race_ghoul_complete": "ยืนยันเผ่า Ghoul แล้ว",
+    "race_cyborg_fist": "กำลังล่า Sea Beast ตามธรรมชาติเพื่อหา Fist of Darkness",
+    "race_cyborg_insert_fist": "กำลังใส่ Fist of Darkness ใน Secret Laboratory",
+    "race_cyborg_core_brain": "กำลังทำ Order / Law Raid จนได้ Core Brain",
+    "race_cyborg_insert_core": "กำลังใส่ Core Brain ใน Secret Laboratory",
+    "race_cyborg_fragments": "ต้องใช้ {required} Fragments · ปัจจุบัน {current}",
+    "race_cyborg_purchase": "กำลังซื้อเผ่า Cyborg",
+    "race_cyborg_lab_unavailable": "ไม่พบ control runtime ของ Secret Laboratory",
+    "race_cyborg_complete": "ยืนยันเผ่า Cyborg แล้ว",
+    "fruit_mirage_stock_ready": "รีเฟรช Mirage Stock จาก runtime แล้ว",
+    "fruit_mirage_stock_unavailable": "Mirage Stock ไม่พร้อมใช้งานจาก runtime · {reason}",
+    "fruit_shop_stock_ready": "อัปเดตสต็อก Fruit Shop จาก runtime แล้ว",
+    "fruit_shop_stock_unavailable": "ไม่สามารถอ่านสต็อก Fruit Shop จาก runtime ได้ · {reason}",
+    "race_cyborg_fist_seabeast": "กำลังล่า Sea Beast เพื่อหา Fist of Darkness",
+    "level_secret_progress_required": "เควสต์ปกติเพิ่มเลเวลได้ถึง {regular} เท่านั้น ทำ Island Secrets เพื่อเพิ่มจากเลเวล {level} ไปจนถึง {cap}",
+    "level_cap_reached": "ถึงเลเวลสูงสุดแล้ว: {level}/{cap}",
+    "race_cyborg_verify_fist": "กำลังตรวจสอบเงื่อนไข Fist ของ Secret Laboratory จากสถานะเซิร์ฟเวอร์จริง",
+    "arrived_target": "ถึง {target} แล้ว",
+    "pvp_requires_bounty": "เป้าหมาย PvP ต้องมี Bounty อย่างน้อย {required}",
+    "pvp_requires_honor": "เป้าหมาย PvP ต้องมี Honor อย่างน้อย {required}",
+    "race_need_beli": "ต้องใช้ {required} Beli · ปัจจุบัน {current}",
+    "race_trevor_unavailable": "ไม่สามารถอ่านสถานะ runtime ของ Trevor ได้",
+    "race_v2_bartilo": "กำลังทำเงื่อนไข Bartilo · {current}/{required}",
+    "race_v3_don_swan": "กำลังกำจัด Don Swan สำหรับเงื่อนไข Race V3",
+    "race_v3_prerequisite_don_swan": "กำลังทำเงื่อนไข Trevor / Don Swan สำหรับ Race V3",
+    "race_v3_trevor_load_fruit": "กำลังโหลด {fruit} ให้ Trevor",
+    "race_v3_trevor_need_fruit": "Trevor ต้องการ Fruit แบบ physical มูลค่าอย่างน้อย 1,000,000 Beli",
+    "race_v3_unlock_trevor": "กำลังปลดล็อกทางเข้า Don Swan ผ่าน Trevor",
+    "race_v3_wait_don_swan": "กำลังรอ Don Swan พร้อมใช้งาน",
+    "race_ghoul_save_torch": "กำลังส่ง Hellfire Torch ให้ Experimic เพื่อบันทึกเงื่อนไข Ghoul",
+    "race_v3_wait_server": "กำลังรอเซิร์ฟเวอร์ยืนยันว่าเป้าหมาย Human V3 เสร็จแล้ว",
+    "race_wait_server": "กำลังรอเซิร์ฟเวอร์ยืนยันการดำเนินการความคืบหน้าก่อนหน้า",
+    "race_travel_sea3": "กำลังเดินทางไป Sea 3 สำหรับความคืบหน้า Draco",
+    "race_draco_fire_flower": "กำลังเก็บ Fire Flower สำหรับ Draco V2 · {current}/{required}",
+    "race_draco_v2_begin": "กำลังเริ่ม Draco V2 กับ Dragon Wizard",
+    "race_draco_v2_turnin": "กำลังส่ง Draco V2 ให้ Dragon Wizard",
+    "race_draco_v3_begin": "กำลังเริ่ม Draco V3 กับ Dragon Wizard",
+    "race_draco_v3_terror_shark": "กำลังล่า Terrorshark สำหรับ Draco V3",
+    "race_draco_v3_turnin": "กำลังส่ง Draco V3 ให้ Dragon Wizard"
+  },
+  "settings": {
+    "interface": "อินเทอร์เฟซ",
+    "language_title": "ภาษา",
+    "language_desc": "เปลี่ยนภาษาทันทีโดยไม่ต้องโหลด Hub ใหม่",
+    "scale_title": "ขนาด UI",
+    "scale_desc": "ปรับขนาดอินเทอร์เฟซโดยคงเลย์เอาต์แบบปรับตัว",
+    "density_title": "โหมดกะทัดรัด",
+    "density_desc": "ลดระยะห่างบนหน้าจอใหญ่โดยคงพื้นที่สัมผัส",
+    "motion_title": "ลดแอนิเมชัน",
+    "motion_desc": "ลดระยะเวลาแอนิเมชันเพื่อการตอบสนองที่เร็วขึ้น",
+    "search_title": "ค้นหาใน Hub",
+    "search_desc": "ค้นหาฟีเจอร์ที่พร้อมใช้งานอย่างรวดเร็ว",
+    "team_section": "เริ่มต้นและทีม",
+    "auto_team_title": "เลือกทีมอัตโนมัติ",
+    "auto_team_desc": "เลือกทีมที่ตั้งไว้โดยอัตโนมัติเมื่อเข้าเกม ก่อนเริ่มระบบอัตโนมัติอื่น",
+    "preferred_team_title": "ทีมที่ต้องการ",
+    "preferred_team_desc": "เลือกฝ่ายที่ Auto Select Team จะใช้เมื่อเข้าเกมครั้งถัดไป",
+    "apply_team_title": "ใช้ทีมตอนนี้",
+    "apply_team_desc": "ลองเลือกทีมทันทีด้วยรีโมตของเกมก่อน แล้วจึงใช้ fallback ของ executor",
+    "team_status_title": "สถานะทีม",
+    "team_status_desc": "แสดงทีมที่เกมกำหนดให้ผู้เล่นในขณะนี้",
+    "team_status_value": "ทีมปัจจุบัน: {team}",
+    "runtime_safety_section": "ความปลอดภัย Runtime",
+    "refresh_progress_title": "รีเฟรชข้อมูลความคืบหน้า",
+    "refresh_progress_desc": "รีเฟรช inventory การเป็นเจ้าของ และ snapshot ความคืบหน้า Fighting Style แบบบังคับ",
+    "runtime_safety_status_title": "สถานะความปลอดภัย Runtime",
+    "runtime_safety_status_desc": "แสดงสถานะล็อกการทำงานและการป้องกันไอเทมสำคัญ",
+    "team_status_pirates": "ทีมปัจจุบัน: Pirates",
+    "team_status_marines": "ทีมปัจจุบัน: Marines",
+    "team_status_not_selected": "ทีมปัจจุบัน: ยังไม่ได้เลือก",
+    "icon_atlas_title": "ระบบไอคอนที่ใช้งานอยู่",
+    "icon_atlas_desc": "แหล่งไอคอนแบบแยกที่กำลังใช้บน UI พร้อม fallback อัตโนมัติและสถานะการเรนเดอร์จริงขณะรัน.",
+    "icon_legacy_title": "การวินิจฉัยแอตลาสเก่า",
+    "icon_legacy_desc": "ตรวจสอบ asset atlas 126253815695177 แยกต่างหาก เพื่อแยกปัญหา fetch ของ atlas เก่าออกจากไอคอนที่กำลังเรนเดอร์จริง.",
+    "reset_title": "คืนค่าเริ่มต้น",
+    "reset_desc": "ปิดฟีเจอร์ที่ทำงานอยู่และคืนค่าการตั้งค่า Re4Hub เป็นค่าเริ่มต้น",
+    "reset_done": "คืนค่าการตั้งค่าเริ่มต้นแล้ว",
+    "reset_failed": "ไม่สามารถคืนค่าการตั้งค่าได้: {reason}"
+  },
+  "runtime": {
+    "ready": "Ready",
+    "running_raid": "Running · Raid",
+    "running_target": "Running · {target}",
+    "nearest": "Running · Nearest Enemy",
+    "dough_king": "Running · Dough King",
+    "cake_prince": "Running · Cake Prince",
+    "fast_attack": "Combat · Fast Attack ready"
+  },
+  "sea": {
+    "first": "ทะเล 1",
+    "second": "ทะเล 2",
+    "third": "ทะเล 3",
+    "unknown": "ไม่ทราบทะเล"
+  },
+  "dynamic": {
+    "status": "Status: {value}",
+    "elite": "Status: {status} | Killed: {count}",
+    "bones": "You have {count} Bones",
+    "elite_progress": "Elite Progress: {count}",
+    "killed": "Killed: {count}",
+    "bones_count": "Bones: {count}",
+    "quest_number": "Quest: {value}",
+    "moon": "Moon: {value}",
+    "boolean_found": "{name}: {value}",
+    "tier_v4": "V4 Tier: {value}",
+    "spy": "Leviathan Spy: {value}",
+    "time_hms": "{hour}h {minute}m {second}s",
+    "datetime": "{datetime} - {timezone} [{code}]",
+    "boss_select": "เลือกบอส",
+    "boss_alive": "{name} · เกิดแล้ว · HP {hp}",
+    "boss_waiting": "{name} · ยังไม่เกิด",
+    "boss_unavailable": "{name} · ยังไม่เกิด",
+    "boss_defeated": "{name} · ถูกกำจัดแล้ว"
+  },
+  "legacy": {
+    "Quest": "Quest",
+    "Fighting Style Progression": "Fighting Style Progression",
+    "Fighting Style · Use / Equip": "Fighting Style · Equip",
+    "Auto Get Dark Step": "Auto Get Dark Step",
+    "Auto Get Electric": "Auto Get Electric",
+    "Auto Get Water Kung Fu": "Auto Get Water Kung Fu",
+    "Auto Get Dragon Breath": "Auto Get Dragon Breath",
+    "Use Dark Step": "Use Dark Step",
+    "Use Electric": "Use Electric",
+    "Use Water Kung Fu": "Use Water Kung Fu",
+    "Use Dragon Breath": "Use Dragon Breath",
+    "Use Superhuman": "Use Superhuman",
+    "Use Death Step": "Use Death Step",
+    "Use Sharkman Karate": "Use Sharkman Karate",
+    "Use Electric Claw": "Use Electric Claw",
+    "Use Dragon Talon": "Use Dragon Talon",
+    "Use Godhuman": "Use Godhuman",
+    "Use Sanguine Art": "Use Sanguine Art",
+    "Already Done!!": "เสร็จแล้ว!!",
+    "CDK done!!": "CDK เสร็จแล้ว!!",
+    "Collect!!": "เก็บรวบรวม!!",
+    "Frozen Dimension": "Frozen Dimension",
+    "Kitsune Island": "Kitsune Island",
+    "Mirage Island": "Mirage Island",
+    "No Quest!!": "ไม่มีเควสต์!!",
+    "Prehistoric Island": "Prehistoric Island",
+    "Quest1": "เควสต์ 1",
+    "Quest2": "เควสต์ 2",
+    "Quest3": "เควสต์ 3",
+    "Quest4": "เควสต์ 4",
+    "Tushita quest 1": "เควสต์ Tushita 1",
+    "Tushita quest 2": "เควสต์ Tushita 2",
+    "Yama quest 1": "เควสต์ Yama 1",
+    "Yama quest 2": "เควสต์ Yama 2",
+    "Yama quest 3": "เควสต์ Yama 3",
+    "Auto Farm Tyrant of the Skies": "Auto Farm Tyrant of the Skies",
+    "Auto Hop [Every 30 Minutes]": "Auto Hop [ทุก 30 นาที]",
+    "Teleport To Ancient One": "Teleport To Ancient One",
+    "Auto Start Event": "Auto Start Event",
+    "Auto Upgrade Fish V3": "Auto Upgrade Fish V3",
+    "Auto Draco V2": "Auto Draco V2",
+    "Auto Farm Dough King": "Auto Farm Dough King",
+    "Auto Random Bone": "Auto Random Bone",
+    "Auto Get Yama": "Auto Get Yama",
+    "Tween To Draco Trial V4": "Tween To Draco Trial V4",
+    "Aura_fix_esp": "Aura_fix_esp",
+    "Tự Động Lấy Haki 7 Màu": "Auto Haki Rainbow",
+    "Tự Động Lấy Thượng Nhân Quyền": "Auto Get Superhuman",
+    "Mua Song Kiếm Katana": "Buy Duel Katana",
+    "Tự Động Gạt Cần": "Auto Pull Lever",
+    "Auto Farm Ectoplasm": "Auto Farm Ectoplasm",
+    "Anti Kick": "Anti Kick",
+    "Auto Dragon Hunter": "Auto Dragon Hunter",
+    "Tự Động Nâng Trái": "Auto Blox Fruit",
+    "Dịch Chuyển [Job ID]": "Teleport [Job ID]",
+    "Auto Dojo Trainer": "Auto Dojo Trainer",
+    "Auto Turn On V3": "Auto Turn On V3",
+    "Auto Get Midnight Blade": "Auto Get Midnight Blade",
+    "Open Title Select": "Open Title Select",
+    "Tự Động Tìm Đảo Bí Ẩn": "Auto Find Mirage Island",
+    "Frozen  Dimension": "Frozen  Dimension",
+    "Mở Lựa Chọn Danh Hiệu": "Open Title Select",
+    "Farm Material": "Farm nguyên liệu",
+    "Elite Spam": "Elite Spam",
+    "Buy Fishman Karate": "Buy Fishman Karate",
+    "Auto Farm Elite": "Auto Farm Elite",
+    "Bay Đến Trial Nâng Cấp Draco": "Tween To Upgrade Draco Trial",
+    "Auto Attack Pirate Ship": "Auto Attack Pirate Ship",
+    "Buy Pipe": "Buy Pipe",
+    "Tự Động Nhìn Trăng": "Auto Look At Moon",
+    "Turn On RTX Mode": "Turn On RTX Mode",
+    "Auto Collect Fruit": "Auto Collect Fruit",
+    "Tự Động Đánh Thành Viên Đội Đánh Cá": "Auto Attack Fish Crew Member",
+    "Mua Spy": "Buy Spy",
+    "Copy Job ID": "Copy Job ID",
+    "Tự Động Bay Đến Trái": "Auto Tween To Fruit",
+    "Configure - God": "Cấu hình nâng cao",
+    "Farm": "Farm",
+    "Talk With Kitsune Statue": "Talk With Kitsune Statue",
+    " Prehistoric Island Status": " Prehistoric Island Status",
+    "Tự Động Giết Cá Mập Tận Thế": "Auto Kill Terror Shark",
+    "Tự Động Đánh Boss": "Auto Farm Boss",
+    "Buy Cannon": "Buy Cannon",
+    "Tự Động Nâng Tộc Cá V3": "Auto Upgrade Fish V3",
+    "Buy Flintlock": "Buy Flintlock",
+    "Tự Động Nâng Tộc Thiên Thần V3": "Auto Upgrade Angel V3",
+    "Auto Farm Elite + Hop Server": "Auto Farm Elite + Hop Server",
+    "Cake Prince:": "Cake Prince:",
+    "Bay Đến NPC Bán Kiếm Legendary": "Tween To Legendary Sword Seller NPC",
+    "Select Time": "Select Time",
+    "Tự Động Lấy Kiếm Saw": "Auto Get Saw Sword",
+    "Dịch Chuyển Đến Race Doors": "Auto Teleport To Race Doors",
+    "Noclip": "Noclip",
+    "Accessory": "Phụ kiện",
+    "Auto Gun": "Auto Gun",
+    "Mua Tử Cước": "Buy Death Step",
+    "Dungeon Event / Raiding": "Dungeon / Raid",
+    "Tự Động Mở Khoá Dungeon Phượng Hoàng": "Auto Unlock Phoenix Dungeon",
+    "Open Awakening Expert": "Open Awakening Expert",
+    "Auto Sail [Sit Down And Turn On]": "Auto Sail [Sit Down And Turn On]",
+    "Tắt Chat": "Disable Chat",
+    "Tự Động Đánh Bột Đế Vương": "Auto Farm Dough King",
+    "Sea Event / Setting Sail": "Sea Event / Ra khơi",
+    "Tự Động Lấy Pole V2": "Auto Pole V2",
+    "Auto Draco V3": "Auto Draco V3",
+    "Tự Động Đánh Nhà Máy": "Auto Factory Raid",
+    "Auto Unlock Phoenix Dungeon": "Auto Unlock Phoenix Dungeon",
+    "Đang chạy": "Running",
+    "Buy Cutlass": "Buy Cutlass",
+    "Tự Động Nhiệm Vụ Tushita [CDK]": "Auto Quest Tushita [CDK]",
+    "Tự Động Lấy Kiếm Rengoku": "Auto Get Rengoku Sword",
+    "Tự Động Mua Kiếm Lagendary": "Auto Buy Legendary Sword",
+    "Tự Động Bật Haki": "Auto Turn On Haki",
+    "Tự Động Đánh Râu Đen": "Auto Farm Darkbeard",
+    "Mua Màu Haki": "Buy Color Haki",
+    "Mystic Island / Full Moon": "Mirage / Trăng tròn",
+    "Tự Động Lấy Đại Đao V2": "Auto Bisento V2",
+    "Turn On Walk On Water": "Turn On Walk On Water",
+    "Upgrade Dragon Talon V3": "Upgrade Dragon Talon V3",
+    "Auto Craft Volcanic Magnet": "Auto Craft Volcanic Magnet",
+    "Choose Boat": "Choose Boat",
+    "Tự Động Đánh Rip Indra": "Auto Farm Rip Indra",
+    "Items Law / Order Sword": "Law / Order Sword",
+    "Tự Động Lưu Trữ Trái": "Auto Store Fruit",
+    "Chống Kick": "Anti Kick",
+    "Đã gửi lệnh": "Done",
+    "Tushita And Yama": "Tushita và Yama",
+    "Tự Động Cày Thông Thạo Tất Cả Kiếm": "Auto Mastery All Sword",
+    "Auto Start Raid": "Auto Start Raid",
+    "Mua Nhảy Liên Tục": "ซื้อ Air Jump",
+    "Buy Musket": "Buy Musket",
+    "Mua Ná Kabucha": "Buy Kabucha",
+    "Tự Động Nhặt Azure Ember": "Auto Collect Azure Ember",
+    "Farming Bone": "Farm Xương",
+    "Tự Động Lấy Kiếm Dài": "Auto Get Long Sword",
+    "Auto Travel": "Auto Travel",
+    "Select Haki States": "Select Haki States",
+    "Mua Mặt Nạ Ma Cà Rồng": "Buy Ghoul Mask",
+    "Mua Thượng Nhân Quyền": "Buy Superhuman",
+    "Auto Pray Gravestone": "Auto Pray Gravestone",
+    "Hop Server Lowest Ping": "Hop Server · Best Available",
+    "Tự Động Lấy Mũ Usoap": "Auto Get Usoap's Hat",
+    "Tự Động Cày Điểm Né Haki Quan Sát": "Auto Farm Haki Observation",
+    "Auto Choose Dungeon Chip": "Auto Choose Dungeon Chip",
+    "Get Quest Haki Rainbow": "Get Quest Haki Rainbow",
+    "Nói Chuyện Với Tượng Cáo": "Talk With Kitsune Statue",
+    "Auto Farm Bone": "Auto Farm Bone",
+    "Level": "Level",
+    "Tự Động Lấy Haki Quan Sát V2": "Auto Haki Observation V2",
+    "Server Navigation": "Điều hướng máy chủ",
+    "Weapon": "Vũ khí",
+    "Auto Get Tushita": "Auto Get Tushita",
+    "Auto Summon Boss": "Auto Summon Boss",
+    "Auto Kill Player After Trial": "Auto Kill Player After Trial",
+    "Buy Boat": "Buy Boat",
+    "Auto Mastery Fruit": "Auto Mastery Fruit",
+    "Mua Kiếm Katana": "Buy Katana",
+    "Tự Động Lấy Tử Cước": "Auto Get DeathStep",
+    "Auto Get Swan Coat": "Auto Get Swan Coat",
+    " Number Cursed Dual Katana Quest ": " Number Cursed Dual Katana Quest ",
+    "Dịch Chuyển Đến Đền Thời Gian": "Teleport To Temple of Time",
+    "Rip_Indra": "Rip_Indra",
+    "Auto Tween To Fruit": "Auto Tween To Fruit",
+    "Travel - Worlds": "Di chuyển giữa Sea",
+    "Tự Động Cày Cấp Độ": "Auto Farm Level",
+    "Tự Động Tìm Đảo Cáo": "Auto Find Kitsune Island",
+    "Auto Store Fruit": "Auto Store Fruit",
+    "Tự Động Làm Nhiệm Vụ Sea 2": "Auto Quest Sea 2",
+    "Tự Động Nhặt Berry": "Auto Collect Berry",
+    "Tự Động Lấy Lai Accessory": "Auto Get Lei Accessory",
+    "Chuyển Đổi Tộc Draco": "Swap Draco Race",
+    "Auto Farm Haki Observation": "Auto Farm Haki Observation",
+    "Auto Collect Bones": "Auto Collect Bones",
+    "Auto Attack Leviathan": "Auto Attack Leviathan",
+    "Auto Get Twin Hooks": "Auto Get Twin Hooks",
+    "Rejoin Server": "Rejoin Server",
+    "Tự Động Đặt Lại Khi Hoàn Thành": "Auto Reset When Complete",
+    "Tự Động Lái [Ngồi Vào Chỗ Rồi Bật]": "Auto Sail [Sit Down And Turn On]",
+    "Mua Tộc Quỷ": "Buy Ghoul Race",
+    "Aim chiêu vào người chơi": "Silent Aim",
+    "Disable Chat": "Disable Chat",
+    "Chế Tạo Volcanic Magnet": "Craft Volcanic Magnet",
+    "Tự Động Lấy Dragon Trident": "Auto Get Dragon Trident",
+    "Elite Hunter": "Elite Hunter",
+    "Auto Fishing": "Auto Fishing",
+    "Auto Farm Boss": "Auto Farm Boss",
+    "Auto Pull Lever": "Auto Pull Lever",
+    "Craft Volcanic Magnet": "Craft Volcanic Magnet",
+    "Dịch Chuyển Đến Sea 3": "Teleport To Sea 3",
+    "Auto Get Black Spikey": "Auto Get Black Spikey",
+    "Tham Gia Máy Chủ Ít Người": "Hop Server · Lowest Players",
+    "Tự Động Chuyển Máy Chủ [Mỗi 30 Phút]": "Auto Hop [Evevry 30 Minutes]",
+    "Auto Kill Shark": "Auto Kill Shark",
+    "Buy Buso": "Buy Buso",
+    "Pole / Lightning God": "Pole / Lightning God",
+    "Tự Động Giải Mã 3 Màu Haki": "Auto Three Color Haki",
+    "Auto Get Florentino Sword": "Auto Get Florentino Sword",
+    "Buy Spy": "Buy Spy",
+    "Tự Động Lấy Yama": "Auto Get Yama",
+    "Mua Lôi Trảo": "Buy ElectricClaw",
+    "Auto Get Sharkman Karate": "Auto Get Sharkman Karate",
+    "Bật Thời Gian": "Turn On Time",
+    "Mua Gậy Linh Hồn": "Buy Soul Cane",
+    "Set Pirate Team": "Set Pirate Team",
+    "Buso / Aura Colours": "Màu Haki / Aura",
+    "Get Quest Soul Guitar": "Get Quest Soul Guitar",
+    "Mưa Trái Ác Quảy Cập Nhật Cấp 2450": "Devil Fruit Rain Update 2450",
+    "Auto Get Pole V1": "Auto Get Pole V1",
+    "Thay Đổi Tính Minh Bạch Có Thể Thấy": "Change Transparency Can See",
+    "Tự Động Đánh Elite + Chuyển Máy Chủ": "Auto Farm Elite + Hop Server",
+    "Trống": "Empty",
+    "Fishing": "Câu cá",
+    "Tự Động Nhặt Rương Bí Ẩn": "Auto Collect Mirage Chest",
+    "Devil Fruit Rain Update 2450": "Devil Fruit Rain Update 2450",
+    "Buy ElectricClaw": "Buy ElectricClaw",
+    "Auto Unlock DonSwan": "Auto Unlock DonSwan",
+    "Buy Katana": "Buy Katana",
+    "Buy Geppo": "ซื้อ Air Jump",
+    "Sáng Màn Hình": "Sáng Màn Hình",
+    "Fragments": "Fragments",
+    "Teleport [Job ID]": "Teleport [Job ID]",
+    "Buy Triple Katana": "Buy Triple Katana",
+    "Craft Dino Hood": "Craft Dino Hood",
+    "Auto Drive To Hydra Island": "Auto Drive To Hydra Island",
+    "highlight": "highlight",
+    "Tự Động Thả Trái": "Auto Drop Fruit",
+    "Auto Dark Blade V3": "Auto Dark Blade V3",
+    "Teleport To Temple of Time": "Teleport To Temple of Time",
+    "Auto Find Kitsune Island": "Auto Find Kitsune Island",
+    "Auto Swords": "Auto Swords",
+    "Buy Soru": "Buy Soru",
+    " FullMoon Status ": " FullMoon Status ",
+    "Tự Động Lấy Lôi Trảo": "Auto Get ElectricClaw",
+    "Start Order/Law raid in Second Sea": "Start Order/Law raid in Second Sea",
+    "Tự Động Bật V4": "Auto Turn On V4",
+    "Tự Động Lấy Skull Guitar": "Auto Get Skull Guitar",
+    "Auto Kill Terror Shark": "Auto Kill Terror Shark",
+    "Tự Động Nhiệm Vụ Yama [CDK]": "Auto Quest Yama [CDK]",
+    "Drago Trial": "Dragon Trial",
+    "Tự Động Lấy Karate Cá Mập": "Auto Get Sharkman Karate",
+    "Tự Động Lấy Kính Swan": "Auto Get Swan Glasses",
+    "Choose Sea Level": "Choose Sea Level",
+    "Teleport To Player": "Teleport To Player",
+    "Choose Weapon": "Choose Weapon",
+    "Auto Farm Nearest": "Auto Farm Nearest",
+    "Auto Quest Sea 2": "Auto Quest Sea 2",
+    "Tự Động Triệu Hồi Hoàng Tử Bột": "Auto Summon Cake Prince",
+    "Giết Hào Quang": "Kill Aura",
+    "Craft DragonHeart": "Craft DragonHeart",
+    "Mua Đại Đao": "Buy Bisento",
+    "Mua Karate Người Cá": "Buy Fishman Karate",
+    "Swap Draco Race": "Swap Draco Race",
+    "Tự Động Lấy Kiếm Buddy": "Auto Get Buddy Sword",
+    "Reroll Race": "Reroll Race",
+    "Hop Server": "Hop Server",
+    "Start Law Raid": "Start Law Raid",
+    "Auto Trade Azure Ember": "Auto Trade Azure Ember",
+    "Buy Swordsman Hat": "Buy Swordsman Hat",
+    "Auto Haki Observation V2": "Auto Haki Observation V2",
+    "Buy Bisento": "Buy Bisento",
+    "Vào Lại Máy Chủ": "Rejoin Server",
+    "Status Server": "Trạng thái máy chủ",
+    "Auto Get Usoap's Hat": "Auto Get Usoap's Hat",
+    "Remove Lava": "Remove Lava",
+    "Auto Bisento V2": "Auto Bisento V2",
+    "Buy Ghoul Race": "Buy Ghoul Race",
+    "Teleport To Sea 2": "Teleport To Sea 2",
+    "Tự Động Đánh Sea Beast": "Auto Attack Sea Beast",
+    "Bay Đến Nơi Trial Draco V4": "Tween To Draco Trial V4",
+    "Auto Summon Cake Prince": "Auto Summon Cake Prince",
+    "Teleport - Player": "Dịch chuyển người chơi",
+    "Player Overview": "Player Overview",
+    "Tự Động Cày Nguyên Liệu": "Auto Farm Materials",
+    "Buy Raid Chips [Beli]": "Buy Raid Chips [Beli]",
+    "Tự Động Nhặt Bánh Răng": "Auto Collect Gear",
+    "Graphics / Haki Stats": "Đồ họa / Haki",
+    "Tự Động Bật V3": "Auto Turn On V3",
+    "Tự Động Đánh Tàu Hải Tặc": "Auto Attack Pirate Ship",
+    "Turn On Bypass Teleport": "Turn On Bypass Teleport",
+    "Auto Get Marine Coat": "Auto Get Marine Coat",
+    "Panic Mode": "Panic Mode",
+    "Weapon World 1": "Vũ khí Sea 1",
+    "Instinct / Observation": "Haki Quan Sát",
+    "Mua Dịch Chuyển Tức Thời": "Buy Soru",
+    "Mua Súng Kíp": "Buy Flintlock",
+    "Bật Dịch Chuyển Bypass": "Turn On Bypass Teleport",
+    "Buy Electro": "Buy Electro",
+    "Buy Black Leg": "Buy Black Leg",
+    "Fragments shop": "Cửa hàng Fragment",
+    "Farm Boss": "Farm Boss",
+    "Chế Tạo DragonStorm": "Craft DragonStorm",
+    "Tự Động Nâng Phòng Thủ": "Auto Defense",
+    "Upgrade Races V3": "Nâng Race V3",
+    "Auto Find Prehistoric Island": "Auto Find Prehistoric Island",
+    "East Blue Misc": "Vật phẩm Sea 1",
+    "Bật Chế Độ RTX": "Turn On RTX Mode",
+    "Tự Động Nâng Tộc Thỏ V3": "Auto Upgrade Mink V3",
+    "Đã tắt": "Off",
+    "Tự Động Lấy Kiếm Florentino": "Auto Get Florentino Sword",
+    "Auto Draco V1": "Auto Draco V1",
+    "Fighting - Style": "Fighting Style",
+    "Turn On Time": "Turn On Time",
+    "Stats Upgrade": "Nâng chỉ số",
+    "Tự Động Lấy Serpent Bow": "Auto Get Serpent Bow",
+    "ChangeBusoStage": "ChangeBusoStage",
+    "Dịch Chuyển Đến Người Chơi": "Teleport To Player",
+    "Mua Chuỳ Sắt": "Buy Iron Mace",
+    "Bật CPU Thấp": "Turn On Low CPU",
+    "Full Moon": "Full Moon",
+    "Progress": "Tiến trình",
+    "Buy Cyborg Race": "Buy Cyborg Race",
+    "Buy Microchip Law": "Buy Microchip Law",
+    "Tự Động Nhặt Berry + Chuyển Máy Chủ": "Auto Collect Berry + Hop Server",
+    "Đổi Tộc": "Reroll Race",
+    "Silent Aim": "Silent Aim",
+    "Nói Chuyện Với Tảng Đá": "Talk With Stone",
+    "Buy Sharkman Karate": "Buy Sharkman Karate",
+    "Tự Động Lấy Áo Choàng Swan": "Auto Get Swan Coat",
+    "Mở Khoá Giới Hạn Thu Phóng": "Mở Khoá Giới Hạn Thu Phóng",
+    "Auto Quest Yama [CDK]": "Auto Quest Yama [CDK]",
+    "Fast Attack": "Fast Attack",
+    "Auto Train V4": "Auto Train V4",
+    "Xoá Hiệu Ứng Chết Và Hồi Sinh": "Remove Death And Respamed",
+    "Tự Động Giết Các Người Chơi Khác Sau Trial": "Auto Kill Player After Trial",
+    "Mua Hắc Cước": "Buy Black Leg",
+    "UI Scale": "UI Scale",
+    "Auto Get Buddy Sword": "Auto Get Buddy Sword",
+    "Auto Get GodHuman": "Auto Get GodHuman",
+    "Tự Động Cày Ngoại Chất": "Auto Farm Ectoplasm",
+    "Tự Động Đánh Training Dummy": "Auto Farm Training Dummy",
+    "Buy DragonBreath": "Buy DragonBreath",
+    "Tự Động Hoàn Thành Trial": "Auto Complete Trial Race",
+    "Auto Collect Azure Ember": "Auto Collect Azure Ember",
+    "Tự Động Lấy Tushita": "Auto Get Tushita",
+    "Tự Động Cày Thông Thạo Trái": "Auto Mastery Fruit",
+    "Auto Attack Fish Boat": "Auto Attack Fish Boat",
+    "Auto Get Skull Guitar": "Auto Get Skull Guitar",
+    "Tự Động Nhặt Trái": "Auto Collect Fruit",
+    "Auto Quest Fishing": "Auto Quest Fishing",
+    "Hoàn Lại Chỉ Số": "Refund Stats",
+    " Spy Status": " Spy Status",
+    "Farm Elite Hunter": "Farm Elite Hunter",
+    "Auto Sell Fish": "Auto Sell Fish",
+    "Mua Karate Cá Mập": "Buy Sharkman Karate",
+    "Craft Terror Jaw": "Craft Terror Jaw",
+    "Tự Động Lấy Tộc Draco V1": "Auto Draco V1",
+    "Dashboard": "Tổng quan",
+    "Tự Động Cày Xương": "Auto Farm Bone",
+    "Chế Độ Hoảng Loạn": "Panic Mode",
+    "Auto Get Superhuman": "Auto Get Superhuman",
+    "Select Travelling": "Select Travelling",
+    "Cavender + Twin Hooks + Bigmom": "Cavender + Twin Hooks + Big Mom",
+    "Tự Động Nâng Tộc Người V3": "Auto Upgrade Human V3",
+    "Tham Gia Máy Chủ Ping Thấp": "Hop Server · Best Available",
+    "Tự Động Lấy Kiếm Warden": "Auto Get Warden Sword",
+    "Tự Động Lấy Black Spikey": "Auto Get Black Spikey",
+    "Auto Turn On Haki": "Auto Turn On Haki",
+    "Buy Dungeon Chips [Devil Fruit]": "Buy Dungeon Chips [Devil Fruit]",
+    "Cursed Dual Katana": "Song Kiếm Nguyền Rủa",
+    "Mua Chip Dungeon [Bằng Trái Ác Quỷ]": "Buy Dungeon Chips [Devil Fruit]",
+    "Xoá Sương Mù": "Remove Sky Fog",
+    "Turn On Fast Mode": "Turn On Fast Mode",
+    "Time Zone": "Time Zone",
+    "Chế Tạo Khiêng Leviathan": "Craft Leviathan Shield",
+    "Đang thực thi": "Working",
+    "Esp Chest": "Esp Chest",
+    "Turn On Increase Boat": "Turn On Increase Boat",
+    "Buy GodHuman": "Buy GodHuman",
+    "Auto Spam Skill Z": "Auto Spam Skill Z",
+    "Select Chip": "Select Chip",
+    "Tự Động Lấy Kiếm Law": "Auto Get Law Sword",
+    "Auto Collect Berry": "Auto Collect Berry",
+    "Mua Haki Quan Sát": "Buy Ken",
+    "Trials Quest V4": "Trial Race V4",
+    "Status: ": "Status: ",
+    "Tự Động Mua Mồi": "Auto Buy Bait",
+    "Tự Động Spam Chiêu Z": "Auto Spam Skill Z",
+    "Auto Blox Fruit": "Auto Blox Fruit",
+    "Auto Find Mirage Island": "Auto Find Mirage Island",
+    "Mua Hoả Long Quyền": "Buy DragonTalon",
+    "Chế Tạo Vương Miện Leviathan": "Craft Leviathan Crown",
+    "Đổi Vật Phẩm Azure": "Trade Item Azure",
+    "Auto Farm Chest": "Auto Farm Chest",
+    "Mua Đại Bác": "Buy Cannon",
+    "Kitsune Island : False": "Kitsune Island: Not found",
+    "Dough King": "Dough King",
+    "Chế Tạo Dino Hood": "Craft Dino Hood",
+    "Tự Động Đánh Elite": "Auto Farm Elite",
+    "Mở Chuyên Gia Thức Tỉnh": "Open Awakening Expert",
+    "Tự Động Đánh Quái Ở Gần": "Auto Farm Nearest",
+    "Tự Động Đánh Soul Reaper": "Auto Soul Reaper",
+    "Auto Reset When Complete": "Auto Reset When Complete",
+    "Tự Động Hoàn Thành Nhiệm Vụ Citizen": "Auto Complete Quest Citizen",
+    "Tự Động Train V4": "Auto Train V4",
+    "Reduced Motion": "Reduced Motion",
+    "Home": "Trang chủ",
+    "Trade Item Azure": "Trade Item Azure",
+    "Race": "Chủng tộc",
+    "Auto Complete Trial Race": "Auto Complete Trial Race",
+    "Tự Động Bán Cá": "Auto Sell Fish",
+    "Chế Tạo Cuộn Huyền Thoại": "Craft LegendaryScroll",
+    "Tự Động Dịch Chuyển Đến Barista Cousin": "Auto Teleport Barista Cousin",
+    "Auto Farm Rip Indra": "Auto Farm Rip Indra",
+    "Đánh Nhanh": "Fast Attack",
+    "Tự Động Nâng Súng": "Auto Gun",
+    "Choose Player": "Choose Player",
+    "Auto Get Key Rengoku": "Auto Get Key Rengoku",
+    "Auto Quest Tushita [CDK]": "Auto Quest Tushita [CDK]",
+    "Chế Tạo Hàm Terror": "Craft Terror Jaw",
+    "Chế Tạo Cuộn Thần Thoại": "Craft MythicalScroll",
+    "Auto Farm Level": "Auto Farm Level",
+    "Tự Động Lấy Song Kiếm Nguyền Rủa": "Auto Get CDK",
+    "Tự Động Train Draco V4": "Auto Train Draco V4",
+    "Refund Stats": "Refund Stats",
+    "True Triple Katana Sword": "True Triple Katana",
+    "Tự Động Dịch Chuyển Đến Frozen Dimension": "Auto Teleport Frozen Dimension",
+    "Auto Farm Materials Skull Guitar": "Auto Farm Materials Skull Guitar",
+    "Auto Upgrade Human V3": "Auto Upgrade Human V3",
+    "Auto Hop [Evevry 30 Minutes]": "Auto Hop [Evevry 30 Minutes]",
+    "Auto Teleport To Race Doors": "Auto Teleport To Race Doors",
+    "Auto Haki Rainbow": "Auto Haki Rainbow",
+    "Buy Tomoe Ring": "Buy Tomoe Ring",
+    "Tự Động Làm Nhiệm Vụ Sea 3": "Auto Quest Sea 3",
+    "Quest Numbers :": "Quest Numbers :",
+    "Vào Đội Hải Quân": "Set Marine Team",
+    "Tự Động Đổi Xương": "Auto Random Bone",
+    "Tự Động Đánh Thành Viên Ohi Hành Đoàn Bị Ám": "Auto Attack Haunted Crew Member",
+    "Auto Collect Mirage Chest": "Auto Collect Mirage Chest",
+    "Mua Lưỡi Dao Hai Đầu": "Buy Dual-Headed Blade",
+    "Interface": "Interface",
+    "Tự Động Đánh Leviathan": "Auto Attack Leviathan",
+    "Auto Mastery Gun": "Auto Mastery Gun",
+    "Information": "Thông tin",
+    "Input Job ID": "Input Job ID",
+    "Auto Defense": "Auto Defense",
+    "Auto Get Rengoku Sword": "Auto Get Rengoku Sword",
+    "Tự Động Nhặt Rương": "Auto Farm Chest",
+    "Mua Thần Diệt Quyền": "Buy GodHuman",
+    "Đổi Tất Cả Mã": "Redeem All Codes",
+    "Tự Động Nhận Nhiệm Vụ Câu Cá": "Auto Quest Fishing",
+    " Bone:": " Bone:",
+    "Tự Động Triệu Hồi Boss": "Auto Summon Boss",
+    "Craft Leviathan Crown": "Craft Leviathan Crown",
+    "Entity Sea Event": "Mục tiêu Sea Event",
+    "Tự Động Thắp Đèn Trial Draco V4": "Auto Relic Draco Trial V4",
+    "Đã sở hữu": "Owned",
+    "Time": "Time",
+    "Mua Haki Tay": "Buy Buso",
+    "Tự Động Bay Đến Đại Lý Bán Trái": "Auto Tween To Advanced Fruit Dealer",
+    "Tự Động Lấy Chìa Khoá Rengoku": "Auto Get Key Rengoku",
+    "Auto Upgrade Angel V3": "Auto Upgrade Angel V3",
+    "Unlocked Dungeon": "Mở khóa Dungeon",
+    "Auto Soul Reaper": "Auto Soul Reaper",
+    "Nhận Nhiệm Vụ Haki 7 Màu": "Get Quest Haki Rainbow",
+    "Remove Sky Fog": "Remove Sky Fog",
+    "Mua Tomoe Ring": "Buy Tomoe Ring",
+    "Tự Động Thử Vận May Bia Mộ": "Auto Try Luck Gravestone",
+    "Dịch Chuyển Đến Ancient Clock": "Teleport To Ancient Clock",
+    "Tự Động Kích Hoạt": "Auto Shrine Actived",
+    "Mua Đao Hải Tặc": "Buy Cutlass",
+    "Đi Xuyên Tường": "Noclip",
+    "Skull Guitars / Misc": "Soul Guitar / Khác",
+    "Mirage Island : False": "Mirage Island: Not found",
+    "Rip Indra": "Rip Indra",
+    "Tự Động Nhặt Xương": "Auto Collect Bones",
+    "Sẵn sàng": "Ready",
+    "Raid Progress": "Raid Progress",
+    "Mua Microchip Law": "Buy Microchip Law",
+    "Craft LegendaryScroll": "Craft LegendaryScroll",
+    "Progression": "Tiến trình",
+    "Auto Speed": "Auto Speed",
+    "Auto Attack Haunted Crew Member": "Auto Attack Haunted Crew Member",
+    "Settings / Configure": "Thiết lập / Cấu hình",
+    "Auto Attack Sea Beast": "Auto Attack Sea Beast",
+    "Bật Chế Độ Nhanh": "Turn On Fast Mode",
+    "Auto Look At Moon": "Auto Look At Moon",
+    "Raiding Menu": "Điều khiển Raid",
+    "Tự Động Cày Nguyên Liệu Lấy Skull Guitar": "Auto Farm Materials Skull Guitar",
+    "Tự Động Nâng Kiếm": "Auto Swords",
+    "Buy Superhuman": "Buy Superhuman",
+    "Xoá Hiệu Ứng Chém Và Kiếm Để Có Khả Năng Hiển Thị Tốt Hơn": "Remove Hit",
+    "Dark Dragger + Valkyrie": "Dark Dagger + Valkyrie",
+    "Auto Shrine Actived": "Auto Shrine Actived",
+    "Items": "Vật phẩm",
+    "Tự Động Câu Cá": "Auto Fishing",
+    "Tự Động Raid [An Toàn]": "Auto Raid [Safe]",
+    "Auto Train Draco v4": "Auto Train Draco V4",
+    "Tự Động Du Lịch Đến": "Auto Travel",
+    "Volcanic Magnet": "Volcanic Magnet",
+    "Auto Farm Materials": "Auto Farm Materials",
+    "Turn On Ice Walk": "Turn On Ice Walk",
+    "...": "...",
+    "Mirage Island : True": "Mirage Island: Found",
+    "Auto Get Saw Sword": "Auto Get Saw Sword",
+    "Tự Động Tìm Đảo Núi Lửa": "Auto Find Prehistoric Island",
+    "Change Transparency Can See": "Change Transparency Can See",
+    "Tự Động Cầu Nguyện Bia Mộ": "Auto Pray Gravestone",
+    "Xoá Dung Nham": "Remove Lava",
+    "FullBright": "FullBright",
+    "Mua Tộc Người Máy": "Buy Cyborg Race",
+    "Mua Huyết Quỷ Thuật": "Buy SanguineArt",
+    "Tự Động Thức Tỉnh": "Auto Awakening",
+    "Tự Động Đánh Tàu Bắt Cá": "Auto Attack Fish Boat",
+    "Tự Động Giết Cá Piranha": "Auto Kill Piranha",
+    "Auto Use Skill Z Buddha": "Auto Use Skill Z Buddha",
+    "Nâng Cấp Dragon Talon V3": "Upgrade Dragon Talon V3",
+    "Turn On Low CPU": "Turn On Low CPU",
+    "Legendary Sword": "Legendary Sword",
+    "Auto Get Swan Glasses": "Auto Get Swan Glasses",
+    "Rengoku Sword": "Kiếm Rengoku",
+    "Esp Fruit": "Esp Fruit",
+    "Auto Factory Raid": "Auto Factory Raid",
+    "Tự Động Dragon Hunter": "Auto Dragon Hunter",
+    "Tự Động Bật Spin Position": "Auto Turn On Spin Position",
+    "Esp Player": "Esp Player",
+    "Combat": "Chiến đấu",
+    "Tự Động Lấy Móc Đôi": "Auto Get Twin Hooks",
+    "Teleport": "Dịch chuyển",
+    "Set Marine Team": "Set Marine Team",
+    "Stop Item": "Stop Item",
+    "Buy Dual-Headed Blade": "Buy Dual-Headed Blade",
+    "Craft Leviathan Shield": "Craft Leviathan Shield",
+    "Redeem All Codes": "Redeem All Codes",
+    "Select Material": "Select Material",
+    "Auto Tween To Advanced Fruit Dealer": "Auto Tween To Advanced Fruit Dealer",
+    "Beli": "Beli",
+    "Dojo Quest & Drago Race": "Dojo Quest & Dragon Race",
+    "Auto Attack Fish Crew Member": "Auto Attack Fish Crew Member",
+    "Mua Thuyền": "Buy Boat",
+    "Collect Chest": "Nhặt rương",
+    "Craft MythicalScroll": "Craft MythicalScroll",
+    "Chuyển Máy Chủ": "Hop Server",
+    "Farming Mastery": "Farm thông thạo",
+    "Tự Động Nâng Cận Chiến": "Auto Melee",
+    "Reduce desktop row height while keeping touch layout unchanged.": "Reduce desktop row height while keeping touch layout unchanged.",
+    "Mua Chip Raid [Bằng Tiền Beli]": "Buy Raid Chips [Beli]",
+    "Talk With Stone": "Talk With Stone",
+    "Mua Hơi Thở Của Rồng": "Buy DragonBreath",
+    "Auto Farm Cake Prince": "Auto Farm Cake Prince",
+    "Auto Collect Berry + Hop Server": "Auto Collect Berry + Hop Server",
+    "Callback lỗi": "Callback error",
+    "Fighting Melee Styles": "Fighting Styles",
+    "Chế Tạo DragonHeart": "Craft DragonHeart",
+    "Fruit": "Trái",
+    "Tự Động Giết Cá Mập": "Auto Kill Shark",
+    "Buy Soul Cane": "Buy Soul Cane",
+    "Compact Density": "Compact Density",
+    "Auto Get Saber Sword": "Auto Get Saber Sword",
+    "Auto Mastery Dragon Storm": "Auto Mastery Dragon Storm",
+    "Buy Death Step": "Buy Death Step",
+    "Tự Động Lấy Đai": "Auto Dojo Trainer",
+    "Mua Điện": "Buy Electro",
+    "Tự Động Chế Tạo True Triple Katana": "Auto Craft True Triple Katana",
+    "Auto Melee": "Auto Melee",
+    "Auto Complete Quest": "Auto Complete Quest",
+    "Combat Core": "Chiến đấu cốt lõi",
+    "Auto Teleport Frozen Dimension": "Auto Teleport Frozen Dimension",
+    "Accessory SeaEvent": "Accessory · Sea Event",
+    "Bay Đến Đảo Bí Ẩn": "Tween To Mirage Island",
+    "Tự Động Lấy Hoả Long Quyền": "Auto Get DragonTalon",
+    "Auto Random Fruit": "Auto Random Fruit",
+    "Buy Iron Mace": "Buy Iron Mace",
+    "Auto Three Color Haki": "Auto Three Color Haki",
+    "Disable Leader Board": "Disable Leader Board",
+    "Tự Động Cày Hoàng Tử Bột": "Auto Farm Cake Prince",
+    "Tự Động Đổi Azure Ember": "Auto Trade Azure Ember",
+    "Tyrant Of The Skies": "Tyrant Of The Skies",
+    "Auto Mastery All Sword": "Auto Mastery All Sword",
+    "Dịch Chuyển Đến Ancient One": "Teleport To Ancient One",
+    "Auto Unlock Dough Dungeon": "Auto Unlock Dough Dungeon",
+    "Dịch Chuyển Đến Sea 2": "Teleport To Sea 2",
+    "Auto Craft True Triple Katana": "Auto Craft True Triple Katana",
+    "Dừng Khi Có Vật Phẩm": "Stop Item",
+    "Shop Options": "Cửa hàng",
+    "Server - Function": "Máy chủ",
+    "Tự Động Bắt Đầu Sự Kiện": "Auto Start Event",
+    "Buy Duel Katana": "Buy Duel Katana",
+    "Tự Động Lấy Dark Blade V3": "Auto Dark Blade V3",
+    "Tự Động Lấy Thần Diệt Quyền": "Auto Get GodHuman",
+    "Choose Bait": "Choose Bait",
+    "Mua Súng Hoả Mai": "Buy Musket",
+    "Auto Awakening": "Auto Awakening",
+    "Auto Complete Quest Citizen": "Auto Complete Quest Citizen",
+    "Tự Động Hoàn Thành Nhiệm Vụ": "Auto Complete Quest",
+    "Tự Động Lấy Người Máy": "Auto Get Cybrog",
+    "Kitsune Island / Event": "Đảo Kitsune / Sự kiện",
+    "Farming": "Farm chính",
+    "Mua Ná Cao Su": "Buy SlingShot",
+    "Auto Pole V2": "Auto Pole V2",
+    "Player Gui / Others": "Người chơi / Khác",
+    "Auto Get DeathStep": "Auto Get DeathStep",
+    "Sea": "Sea",
+    "Buy Black Cape": "Buy Black Cape",
+    "Tắt Thông Báo": "Disable Notify",
+    "Bật Đi Trên Nước": "Turn On Walk On Water",
+    "Teleport To Sea 1": "Teleport To Sea 1",
+    "Tự Động Chuyển Máy Bột Đế Vương": "Auto Hop Dough King",
+    "Teleport To Sea 3": "Teleport To Sea 3",
+    "Auto Buy Legendary Sword": "Auto Buy Legendary Sword",
+    "Search Hub": "Search Hub",
+    "Fruits Options": "Tùy chọn trái",
+    "Kill Aura": "Kill Aura",
+    "Fast Attack Buddha": "Fast Attack Buddha",
+    "Settings": "Cài đặt",
+    "Remove Hit": "Remove Hit",
+    "Tự Động Đánh Hải Tặc Đột Kích": "Auto Pirate Raid",
+    "Tier V4": "Tier V4",
+    "Tự Động Lái Đến Đảo Phụ Nữ": "Auto Drive To Hydra Island",
+    "Bật Đi Trên Băng": "Turn On Ice Walk",
+    "Mua Black Cape": "Buy Black Cape",
+    "Auto Farm Darkbeard": "Auto Farm Darkbeard",
+    "Tự Động Chọn Chip Dungeon": "Auto Choose Dungeon Chip",
+    " Mirage Island Status ": " Mirage Island Status ",
+    "Sao Chép Job ID Máy Chủ": "Copy Job ID",
+    "Auto Raid [Safe]": "Auto Raid [Safe]",
+    "Auto Buy Bait": "Auto Buy Bait",
+    "Auto Get Law Sword": "Auto Get Law Sword",
+    "Buy SanguineArt": "Buy SanguineArt",
+    "Tự Động Mở Khoá Dungeon Bột": "Auto Unlock Dough Dungeon",
+    "Choose Location Farm": "Choose Location Farm",
+    "Auto Pirate Raid": "Auto Pirate Raid",
+    "Auto Relic Draco Trial V4": "Auto Relic Draco Trial V4",
+    "Auto Get Long Sword": "Auto Get Long Sword",
+    "Tween To Mirage Island": "Tween To Mirage Island",
+    "Auto Collect Gear": "Auto Collect Gear",
+    "Bring Mob": "Bring Mob",
+    "Stats Value": "Stats Value",
+    "Tự Động Dùng Chiêu Z Buddha Để Farm": "Auto Use Skill Z Buddha",
+    "Scale the complete RE4 interface without changing gameplay.": "Scale the complete RE4 interface without changing gameplay.",
+    "Auto Get ElectricClaw": "Auto Get ElectricClaw",
+    "Chưa sở hữu": "Not owned",
+    "Search": "Search",
+    "Gom Quái": "Gom Quái",
+    "Buy Dual Flintlock": "Buy Dual Flintlock",
+    "BodyClip": "BodyClip",
+    "Hop Server Lowest Player": "Hop Server · Lowest Players",
+    "Tween To Upgrade Draco Trial": "Tween To Upgrade Draco Trial",
+    "Auto Turn On Spin Position": "Auto Turn On Spin Position",
+    "Bone": "Bone",
+    "Auto Drop Fruit": "Auto Drop Fruit",
+    "General": "Chung",
+    "Buy Color Haki": "Buy Color Haki",
+    "Tween To Legendary Sword Seller NPC": "Tween To Legendary Sword Seller NPC",
+    "Tắt Khung Chat": "Disable Leader Board",
+    "Tự Động Lấy Tộc Draco V2": "Auto Draco V2",
+    "Auto Get Warden Sword": "Auto Get Warden Sword",
+    "Teleport To Ancient Clock": "Teleport To Ancient Clock",
+    "Use shorter transitions for a faster, calmer interface.": "Use shorter transitions for a faster, calmer interface.",
+    "Unlock Zoom Limit": "Unlock Zoom Limit",
+    "Buy Ken": "Buy Ken",
+    "Auto Farm Training Dummy": "Auto Farm Training Dummy",
+    "Buy DragonTalon": "Buy DragonTalon",
+    "Auto Get Serpent Bow": "Auto Get Serpent Bow",
+    "Auto Hop Dough King": "Auto Hop Dough King",
+    "Esp Island": "Esp Island",
+    "Auto Get Dragon Trident": "Auto Get Dragon Trident",
+    "Buy Ghoul Mask": "Buy Ghoul Mask",
+    "Bật Tăng Tốc Thuyền": "Turn On Increase Boat",
+    "Auto Turn On V4": "Auto Turn On V4",
+    "Craft DragonStorm": "Craft DragonStorm",
+    "Tự Động Nhặt Trứng Rồng": "Auto Collect Dragon Egg",
+    "Elites Process": "Elites Process",
+    "Auto Complete Quest Bartilo": "Auto Complete Quest Bartilo",
+    "Tự Động Lấy Kiếm Saber": "Auto Get Saber Sword",
+    "Auto Try Luck Gravestone": "Auto Try Luck Gravestone",
+    "Auto Teleport Barista Cousin": "Auto Teleport Barista Cousin",
+    " Kitsune Island Status": " Kitsune Island Status",
+    "Tự Động Lấy Pole V1": "Auto Get Pole V1",
+    "Auto Jump": "Auto Jump",
+    "Tự Động Lấy Midnight Blade": "Auto Get Midnight Blade",
+    "Prehistoric Island : False": "Prehistoric Island: Not found",
+    "Find any feature without navigating through every section.": "Find any feature without navigating through every section.",
+    "Mua Súng Kíp Đôi": "Buy Dual Flintlock",
+    "Remove Death And Respamed": "Remove Death And Respamed",
+    "Tự Động Hoàn Thành Nhiệm Vụ Bartilo": "Auto Complete Quest Bartilo",
+    "Tự Động Quay Trái": "Auto Random Fruit",
+    "Player": "Người chơi",
+    "Tự Động Mở Khoá DonSwan": "Auto Unlock DonSwan",
+    "Farming Cake": "Farm Cake",
+    "Auto Kill Piranha": "Auto Kill Piranha",
+    "Buy SlingShot": "Buy SlingShot",
+    "Auto Get Cybrog": "Auto Get Cybrog",
+    "Dịch Chuyển Đến Sea 1": "Teleport To Sea 1",
+    "Tự Động Bắt Đầu Raid": "Auto Start Raid",
+    "Auto Quest Sea 3": "Auto Quest Sea 3",
+    "Auto Upgrade Mink V3": "Auto Upgrade Mink V3",
+    " Frozen Dimension status": " Frozen Dimension status",
+    "Tự Động Chế Tạo Volcanic Magnet": "Auto Craft Volcanic Magnet",
+    "Auto Get CDK": "Auto Get CDK",
+    "Tự Động Lấy Áo Choàng Hải Quân": "Auto Get Marine Coat",
+    "Vào Đội Hải Tặc": "Set Pirate Team",
+    "Choose Attack Speed": "Choose Attack Speed",
+    "Tự Động Cày Thông Thạo Súng": "Auto Mastery Gun",
+    "Tự Động Cày Thông Thạo Dragon Storm": "Auto Mastery Dragon Storm",
+    "Select Boss": "Select Boss",
+    "Mua Tam Kiếm Katana": "Buy Triple Katana",
+    "Tự Động Lấy Tộc Draco V": "Auto Draco V3",
+    "Redeem Codes": "Redeem Codes",
+    "Tự Động Lấy Huyết Quỷ Thuật": "Auto Get SanguineArt",
+    "Mua Mũ Swordsman": "Buy Swordsman Hat",
+    "Prehistoric Island : True": "Prehistoric Island: Found",
+    "Collect Berry": "Nhặt Berry",
+    "Kitsune Island : True": "Kitsune Island: Found",
+    "Travel - Island": "Dịch chuyển đảo",
+    "Auto Get SanguineArt": "Auto Get SanguineArt",
+    "Auto Get DragonTalon": "Auto Get DragonTalon",
+    "Buy Kabucha": "Buy Kabucha",
+    "Boss Spam": "Boss Spam",
+    "Auto Get Lei Accessory": "Auto Get Lei Accessory",
+    "Auto Collect Dragon Egg": "Auto Collect Dragon Egg",
+    "Mua Ống Nước": "Buy Pipe",
+    "Disable Notify": "Disable Notify",
+    "Dimension Killed": "Dimension Killed",
+    "Change the interface language without reloading the Hub.": "Change the interface language without reloading the Hub.",
+    "Choose how mastery selects targets.": "Choose how mastery selects targets.",
+    "Complete all requirements and obtain ": "Complete all requirements and obtain ",
+    "Dark Fragment": "Dark Fragment",
+    "Demonic Wisp": "Demonic Wisp",
+    "Dragon Scale": "Dragon Scale",
+    "Find any visible feature quickly.": "Find any visible feature quickly.",
+    "Fire Essence": "Fire Essence",
+    "Fish Tail": "Fish Tail",
+    "Frozen Dimension status": "Frozen Dimension status",
+    "Language": "Language",
+    "Leviathan Heart": "Leviathan Heart",
+    "Library Key": "Library Key",
+    "Magma Ore": "Magma Ore",
+    "Mastery Finisher HP": "Mastery Finisher HP",
+    "Mystic Droplet": "Mystic Droplet",
+    "Reduce spacing on larger screens while preserving touch targets.": "Reduce spacing on larger screens while preserving touch targets.",
+    "Scale the interface while preserving adaptive layout.": "Scale the interface while preserving adaptive layout.",
+    "Server Status": "Server Status",
+    "Shorten transitions for a faster interface.": "Shorten transitions for a faster interface.",
+    "Spy Status": "Spy Status",
+    "System Overview": "System Overview",
+    "Travel to ": "Travel to ",
+    "Use mastery skills when enemy HP falls below this percentage.": "Use mastery skills when enemy HP falls below this percentage.",
+    "Vampire Fang": "Vampire Fang",
+    "Water Key": "Water Key",
+    "Buy Bizarre Revolver": "Buy Bizarre Revolver",
+    "Craft Shark Tooth Necklace": "Craft Shark Tooth Necklace",
+    "Craft Beast Hunter Boat": "Craft Beast Hunter Boat",
+    "Hop Server · Lowest Players": "Hop Server · Lowest Players",
+    "Hop Server · Best Available": "Hop Server · Best Available",
+    "Fighting Style · Equip": "Fighting Style · Equip",
+    "Mua Súng Trường Kỳ Quái": "ซื้อ Bizarre Revolver",
+    "Chế Tạo Răng Cá Mập": "Craft Shark Tooth Necklace",
+    "Chế Tạo Thuyền Leviathan": "Craft Beast Hunter Boat",
+    "Teleport - NPC": "เทเลพอร์ต - NPC",
+    "Select NPC": "เลือก NPC",
+    "NPCs currently loaded in this Sea": "NPC ที่โหลดอยู่ใน Sea นี้",
+    "Teleport To NPC": "เทเลพอร์ตไปยัง NPC",
+    "Teleport to the selected live NPC using Unified Travel Resolver": "เทเลพอร์ตไปยัง NPC ที่เลือกผ่าน Unified Travel Resolver",
+    "Farm Status": "สถานะ Farm",
+    "Cake Mobs": "Cake Mobs",
+    "Defeated": "ถูกกำจัดแล้ว",
+    "Selected Boss": "Boss ที่เลือก",
+    "Elite Progress": "ความคืบหน้า Elite",
+    "Selected NPC is no longer available in this map state.": "NPC ที่เลือกไม่พร้อมใช้งานในสถานะแผนที่ปัจจุบัน",
+    "Geppo": "Air Jump",
+    "Air Jump": "Air Jump",
+    "AirJump": "Air Jump",
+    "Skyjump": "Air Jump",
+    "Sky Jump": "Air Jump",
+    "Buy Air Jump": "ซื้อ Air Jump",
+    "Mua Air Jump": "ซื้อ Air Jump",
+    "Auto Get Shark Saw": "Auto Get Shark Saw",
+    "Auto Get Saber": "Auto Get Saber",
+    "Auto Get Cool Shades": "Auto Get Cool Shades",
+    "Auto Get Marine Cap": "Auto Get Marine Cap",
+    "Auto Get Wardens Sword": "Auto Get Wardens Sword",
+    "Auto Get Coat": "Auto Get Coat",
+    "Auto Get Magma Blaster": "Auto Get Magma Blaster",
+    "Auto Get Trident": "Auto Get Trident",
+    "Auto Get Bazooka": "Auto Get Bazooka",
+    "Buy Refined Slingshot": "Buy Refined Slingshot",
+    "First Sea Obtainables": "First Sea Obtainables",
+    "Tự Động Lấy Tộc Draco V3": "Auto Draco V3",
+    "Auto Train Draco V4": "Auto Train Draco V4"
+  },
+  "home": {
+    "system_overview": "ข้อมูลระบบ",
+    "fps": "FPS",
+    "ping": "Ping",
+    "memory": "หน่วยความจำ",
+    "cpu": "CPU",
+    "date": "วันที่",
+    "time": "เวลา",
+    "place": "Place",
+    "job_id": "Job ID",
+    "uptime": "เวลาทำงาน",
+    "players": "ผู้เล่น",
+    "updates_title": "ข้อมูล HUB",
+    "discord": "Discord",
+    "discord_value": "ชุมชน RE4 HUB",
+    "discord_invite": "คำเชิญ Discord",
+    "discord_unconfigured": "ยังไม่ได้กำหนดค่าในซอร์สรุ่นนี้",
+    "version": "เวอร์ชัน",
+    "changelog": "ประวัติอัปเดต",
+    "changelog_512": "จัดเลย์เอาต์ Items · Farm Status แหล่งเดียว · ล้าง runtime leak",
+    "notice": "ประกาศ",
+    "tween_notice": "คงแกน Tween ที่เสถียรเดิม",
+    "community_title": "ชุมชนและเวอร์ชัน",
+    "latest_updates": "อัปเดตล่าสุด",
+    "announcement": "ประกาศ",
+    "copy_discord": "คัดลอก Discord",
+    "copy_discord_desc": "คัดลอกลิงก์เชิญ Discord ทางการที่โหลดจาก GitHub Raw",
+    "discord_copied": "คัดลอกลิงก์ Discord แล้ว",
+    "link_unconfigured": "ยังไม่ได้ตั้งค่าลิงก์",
+    "clipboard_unavailable": "Executor นี้ไม่รองรับคลิปบอร์ด",
+    "current_version": "เวอร์ชันปัจจุบัน",
+    "player_overview": "ภาพรวมผู้เล่น",
+    "player": "ผู้เล่น",
+    "level": "เลเวล",
+    "sea": "ทะเล",
+    "race": "เผ่า",
+    "beli": "Beli",
+    "fragments": "Fragments",
+    "fruit": "Fruit",
+    "weapon": "อาวุธ",
+    "active_features": "ฟีเจอร์ที่กำลังทำงาน",
+    "current_activity": "กิจกรรมปัจจุบัน",
+    "active_count": "ฟีเจอร์ที่เปิดอยู่",
+    "activity": "กิจกรรม",
+    "activity_running": "มีฟีเจอร์กำลังทำงาน",
+    "activity_idle": "ไม่มีฟีเจอร์ที่กำลังทำงาน"
+  },
+  "server_status": {
+    "title": "สถานะเซิร์ฟเวอร์",
+    "sea": "ทะเล",
+    "moon": "ดวงจันทร์",
+    "greybeard": "Greybeard",
+    "saw": "The Saw",
+    "factory": "Factory Core",
+    "cursed_captain": "Cursed Captain",
+    "darkbeard": "Darkbeard",
+    "elite": "Elite Hunter",
+    "elite_killed": "Elite ที่กำจัด",
+    "rip_indra": "rip_indra",
+    "dough_king": "Dough King",
+    "mirage": "Mirage Island",
+    "kitsune": "Kitsune Island",
+    "prehistoric": "Prehistoric Island",
+    "frozen": "Frozen Dimension",
+    "present": "กำลังปรากฏ",
+    "absent": "ไม่ปรากฏ",
+    "active": "ทำงาน",
+    "inactive": "ไม่ทำงาน",
+    "unknown": "ไม่ทราบ"
+  },
+  "notify": {
+    "loaded": "โหลด HUB สำเร็จ",
+    "feature_enabled": "เปิด {feature} แล้ว",
+    "feature_disabled": "ปิด {feature} แล้ว",
+    "job_required": "กรุณาใส่ Job ID ก่อนเทเลพอร์ต",
+    "job_invalid": "Job ID ไม่ถูกต้อง",
+    "teleport_failed": "เทเลพอร์ตล้มเหลว: {reason}",
+    "teleport_started": "กำลังเทเลพอร์ตไปยังเซิร์ฟเวอร์ที่เลือก...",
+    "item_not_owned": "ยังไม่มีไอเทมที่ต้องใช้",
+    "feature_sea": "ฟีเจอร์นี้ใช้ไม่ได้ใน Sea ปัจจุบัน",
+    "target_not_found": "ไม่พบเป้าหมาย",
+    "quest_unavailable": "เควสต์ไม่พร้อมใช้งาน",
+    "redeem_start": "กำลังใช้โค้ดที่มี...",
+    "redeem_done": "ใช้โค้ดเสร็จแล้ว",
+    "leviathan_complete": "ได้รับ Leviathan Heart แล้ว",
+    "sea_beast_soon": "Sea Beast อาจปรากฏเร็ว ๆ นี้",
+    "raid_button_missing": "ปุ่มเรียก Raid ยังไม่พร้อมในแผนที่ปัจจุบัน",
+    "team_selected": "เลือก {team} สำเร็จผ่าน {method}",
+    "team_select_failed": "ไม่สามารถเลือกทีมได้: {reason}",
+    "action_failed": "การทำงานล้มเหลว · {reason}",
+    "npc_unavailable": "NPC unavailable · {reason}",
+    "purchase_failed": "Purchase failed · {reason}",
+    "server_hop_failed": "Server hop failed · {reason}",
+    "style_action_failed": "Unable to {action} {style} · {reason}",
+    "style_equip_failed": "Unable to equip {style} · {reason}",
+    "raid_chip_beli_ready": "Auto Buy Beli confirmed Special Microchip.",
+    "raid_chip_fragment_ready": "Auto Buy Fragment confirmed Advanced Raid Microchip.",
+    "raid_chip_insufficient_fragments": "Advanced Raid requires {amount} Fragments; no transaction was sent.",
+    "raid_chip_waiting": "Auto Buy Chip is waiting · {reason}",
+    "raid_chip_blocked": "Auto Buy Chip is safety-blocked · {reason}",
+    "raid_mode_changed": "Raid Mode: {mode} · Auto Buy payment: {payment}.",
+    "fruit_action_success": "ดำเนินการ Fruit สำเร็จ: {fruit}",
+    "fruit_action_failure": "ยังยืนยันการดำเนินการ Fruit ไม่ได้: {reason}",
+    "fruit_mirage_refresh_failed": "ไม่สามารถรีเฟรช Mirage Stock: {reason}",
+    "raid_chip_state": "สถานะชิป Raid: {state}"
+  },
+  "mastery": {
+    "location_title": "ตำแหน่ง Mastery",
+    "location_desc": "เลือก Quest ฟาร์มตามเลเวลโดยไม่รับ Quest หรือพื้นที่ Mastery ตาม Sea ปัจจุบัน",
+    "quest": "Quest",
+    "cake": "Cake",
+    "bone": "Bone",
+    "threshold_title": "เกณฑ์ปิดงาน Mastery",
+    "threshold_desc": "ใช้สกิล Mastery เมื่อ HP ศัตรูลดต่ำกว่าเปอร์เซ็นต์นี้",
+    "no_quest": "ตามเลเวล (ไม่รับ Quest)"
+  },
+  "common": {
+    "unavailable": "ไม่พร้อมใช้งาน",
+    "not_available": "N/A"
+  },
+  "fighting_style": {
+    "sea": "ทะเล",
+    "cost": "ค่าใช้จ่าย",
+    "ownership": "การครอบครอง",
+    "requirement": "เงื่อนไข",
+    "current_mastery": "มาสเตอรี่ปัจจุบัน",
+    "status": "สถานะ",
+    "library_key": "Library Key",
+    "quest": "เควสต์",
+    "water_key": "Water Key",
+    "fire_essence": "Fire Essence",
+    "free": "ไม่มี",
+    "req": {
+      "none": "ไม่มี",
+      "access_second_sea": "เข้าถึง Sea 2",
+      "dark_step_300": "Dark Step Mastery >= 300",
+      "electric_300": "Electric Mastery >= 300",
+      "water_kung_fu_300": "Water Kung Fu Mastery >= 300",
+      "dragon_breath_300": "Dragon Breath Mastery >= 300",
+      "dark_step_400": "Dark Step Mastery >= 400",
+      "library_key": "Library Key",
+      "library_key_drop": "ดรอปจาก Awakened Ice Admiral",
+      "library_open": "เปิดประตู Library ที่ Ice Castle",
+      "electric_400": "Electric Mastery >= 400",
+      "previous_hero": "ทำเควสต์ Previous Hero ให้เสร็จ",
+      "previous_hero_route": "เดินทางจาก Previous Hero ไป Mansion ภายใน <= 30 วินาที",
+      "water_kung_fu_400": "Water Kung Fu Mastery >= 400",
+      "water_key": "Water Key",
+      "water_key_drop": "ดรอปจาก Tide Keeper",
+      "water_key_give": "นำ Water Key ให้ Sharkman Teacher",
+      "dragon_breath_400": "Dragon Breath Mastery >= 400",
+      "fire_essence": "Fire Essence",
+      "fire_essence_source": "สุ่มได้รับจาก Death King โดยใช้ Bones",
+      "fire_essence_give": "นำ Fire Essence ให้ Uzoth",
+      "superhuman_400": "Superhuman Mastery >= 400",
+      "death_step_400": "Death Step Mastery >= 400",
+      "electric_claw_400": "Electric Claw Mastery >= 400",
+      "sharkman_400": "Sharkman Karate Mastery >= 400",
+      "dragon_talon_400": "Dragon Talon Mastery >= 400",
+      "dragon_scales_10": "10 Dragon Scales",
+      "fish_tails_20": "20 Fish Tails",
+      "mystic_droplets_10": "10 Mystic Droplets",
+      "magma_ore_20": "20 Magma Ore",
+      "leviathan_heart": "Leviathan Heart",
+      "dark_fragments_2": "2 Dark Fragments",
+      "demonic_wisps_20": "20 Demonic Wisps",
+      "vampire_fangs_20": "20 Vampire Fangs"
+    },
+    "auto_get_desc": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว.",
+    "use_desc": "สวม Fighting Style ที่เป็นเจ้าของแล้ว",
+    "cost_beli_fragments": "{beli} Beli + {fragments} Fragments",
+    "cost_beli": "{amount} Beli",
+    "cost_fragments": "{amount} Fragments",
+    "material_progress": "{current}/{target}",
+    "material_progress_unknown": "?/{target}",
+    "mastery_progress": "Mastery {current}/{target}",
+    "mastery_progress_unknown": "Mastery ?/{target}",
+    "required": "Required"
+  },
+  "team": {
+    "pirates": "โจรสลัด",
+    "marines": "นาวิกโยธิน",
+    "not_selected": "ยังไม่ได้เลือก"
+  },
+  "progress_core": {
+    "title": "แกนความคืบหน้า",
+    "inventory": "คลัง",
+    "styles_owned": "สไตล์ที่มี",
+    "styles_ready": "พร้อมรับ",
+    "materials": "วัตถุดิบที่ติดตาม",
+    "action_locks": "ล็อกการทำงาน",
+    "critical_item": "ไอเทมสำคัญ",
+    "inventory_synced": "ซิงก์แล้ว · {count} รายการ",
+    "unavailable": "ไม่พร้อมใช้งาน",
+    "none": "ไม่มี"
+  },
+  "runtime_safety": {
+    "protected": "กำลังป้องกัน · {item}",
+    "coordinating": "กำลังประสาน · {count} ล็อก",
+    "ready": "พร้อม"
+  },
+  "progress_tracker": {
+    "section_progress": "ภาพรวมความคืบหน้า",
+    "account": "ความคืบหน้าบัญชี",
+    "major": "ความคืบหน้าหลัก",
+    "section_inventory": "คลังและคอลเลกชัน",
+    "inventory_summary": "สรุปคลัง",
+    "sword_collection": "คอลเลกชันดาบ",
+    "gun_collection": "คอลเลกชันปืน",
+    "accessory_collection": "คอลเลกชันเครื่องประดับ",
+    "level": "Level",
+    "sea": "ทะเล",
+    "race": "เผ่า",
+    "inventory": "คลัง",
+    "total_items": "รายการที่ซิงก์",
+    "swords": "ดาบ",
+    "guns": "ปืน",
+    "accessories": "เครื่องประดับ",
+    "owned_mastery": "มีแล้ว · M{mastery}"
+  },
+  "items_summary": {
+    "sword": "ดาบ",
+    "gun": "ปืน",
+    "owned": "ไอเทมที่มีแล้ว",
+    "not_owned": "ไอเทมที่ยังไม่มี",
+    "data": "คลังไอเทม",
+    "waiting": "กำลังรอข้อมูลอาวุธ",
+    "items": "ไอเทม"
+  },
+  "page": {
+    "home": "ภาพรวม เซิร์ฟเวอร์ และข้อมูลเวอร์ชัน",
+    "farm": "ฟาร์มอัตโนมัติและเป้าหมาย",
+    "progress": "ความคืบหน้า เควสต์ และเผ่า",
+    "items": "อุปกรณ์ สไตล์ต่อสู้ และสถานะการครอบครอง",
+    "world": "เนื้อหาทะเล อีเวนต์ และการสำรวจ",
+    "raid": "ตั้งค่า Raid และระบบอัตโนมัติ",
+    "teleport": "โลก NPC ผู้เล่น และเซิร์ฟเวอร์",
+    "combat": "โจมตี เป้าหมาย และตัวช่วยต่อสู้",
+    "settings": "อินเทอร์เฟซ ยูทิลิตี และ runtime",
+    "more": "การต่อสู้ การเดินทาง อินเทอร์เฟซ และเครื่องมือ",
+    "raids": "ตั้งค่าเรด เรดปกติ และ Law",
+    "progress_new": "ไอเทม เควสต์ Haki และความคืบหน้า",
+    "race": "Race V3, V4, Trial และ Draco",
+    "items_new": "ผลไม้ สไตล์ที่ใช้ และการครอบครอง",
+    "shop": "สกิล อาวุธ เครื่องประดับ และคราฟต์",
+    "events": "ตกปลา อีเวนต์โลก Mirage และทะเล",
+    "travel": "โลก เกาะ การเคลื่อนที่ และเซิร์ฟเวอร์",
+    "system": "อินเทอร์เฟซ ภาพ ความปลอดภัย และเซสชัน",
+    "main": "ภาพรวม ทะเลปัจจุบัน และข้อมูลเซสชันที่จำเป็น"
+  },
+  "controls": {
+    "button.auto.buy.legendary.sword": {
+      "title": "Auto Buy Legendary Sword",
+      "description": "Auto Buy Legendary Sword"
+    },
+    "button.auto.craft.true.triple.katana": {
+      "title": "Auto Craft True Triple Katana",
+      "description": "Auto Craft True Triple Katana"
+    },
+    "button.buy.boat": {
+      "title": "Buy Boat",
+      "description": "Buy Boat"
+    },
+    "button.buy.color.haki": {
+      "title": "Buy Color Haki",
+      "description": "Buy Color Haki"
+    },
+    "button.buy.cyborg.race": {
+      "title": "เริ่ม Auto Cyborg",
+      "description": "เริ่ม workflow Cyborg กลางแทนการส่ง remote ซื้อครั้งเดียว"
+    },
+    "button.buy.dungeon.chips.devil.fruit": {
+      "title": "Buy Dungeon Chips [Devil Fruit]",
+      "description": "Buy Dungeon Chips [Devil Fruit]"
+    },
+    "button.buy.ghoul.race": {
+      "title": "เริ่ม Auto Ghoul",
+      "description": "เริ่ม workflow Ghoul กลางแทนการส่ง remote ซื้อครั้งเดียว"
+    },
+    "button.buy.kabucha": {
+      "title": "Buy Kabucha",
+      "description": "Buy Kabucha"
+    },
+    "button.buy.spy": {
+      "title": "Buy Spy",
+      "description": "Buy Spy"
+    },
+    "button.changebusostage": {
+      "title": "ChangeBusoStage",
+      "description": ""
+    },
+    "button.copy.job.id": {
+      "title": "Copy Job ID",
+      "description": "Copy Job ID"
+    },
+    "button.craft.volcanic.magnet": {
+      "title": "Craft Volcanic Magnet",
+      "description": "Craft Volcanic Magnet"
+    },
+    "button.devil.fruit.rain.update.2450": {
+      "title": "Devil Fruit Rain Update 2450",
+      "description": "Devil Fruit Rain Update 2450"
+    },
+    "button.open.awakening.expert": {
+      "title": "Open Awakening Expert",
+      "description": "Open Awakening Expert"
+    },
+    "button.open.title.select": {
+      "title": "Open Title Select",
+      "description": "Open Title Select"
+    },
+    "button.refund.stats": {
+      "title": "Refund Stats",
+      "description": "Refund Stats"
+    },
+    "button.rejoin.server": {
+      "title": "Rejoin Server",
+      "description": "Rejoin Server"
+    },
+    "button.remove.sky.fog": {
+      "title": "Remove Sky Fog",
+      "description": "Remove Sky Fog"
+    },
+    "button.reroll.race": {
+      "title": "Reroll Race",
+      "description": "Reroll Race"
+    },
+    "button.set.marine.team": {
+      "title": "Set Marine Team",
+      "description": "Set Marine Team"
+    },
+    "button.set.pirate.team": {
+      "title": "Set Pirate Team",
+      "description": "Set Pirate Team"
+    },
+    "button.talk.with.kitsune.statue": {
+      "title": "Talk With Kitsune Statue",
+      "description": "Talk With Kitsune Statue"
+    },
+    "button.talk.with.stone": {
+      "title": "Talk With Stone",
+      "description": "Race V4 Progress"
+    },
+    "button.teleport.job.id": {
+      "title": "Teleport [Job ID]",
+      "description": "Teleport [Job ID]"
+    },
+    "button.teleport.to.ancient.clock": {
+      "title": "Teleport To Ancient Clock",
+      "description": "Travel to Ancient Clock"
+    },
+    "button.teleport.to.ancient.one": {
+      "title": "Teleport To Ancient One",
+      "description": "Travel to Ancient One"
+    },
+    "button.teleport.to.sea.1": {
+      "title": "Teleport To Sea 1",
+      "description": "Teleport To Sea 1"
+    },
+    "button.teleport.to.sea.2": {
+      "title": "Teleport To Sea 2",
+      "description": "Teleport To Sea 2"
+    },
+    "button.teleport.to.sea.3": {
+      "title": "Teleport To Sea 3",
+      "description": "Teleport To Sea 3"
+    },
+    "button.teleport.to.temple.of.time": {
+      "title": "Teleport To Temple of Time",
+      "description": "Enter through Mysterious Force at Great Tree"
+    },
+    "button.trade.item.azure": {
+      "title": "Trade Item Azure",
+      "description": "Trade Item Azure"
+    },
+    "button.turn.on.fast.mode": {
+      "title": "Turn On Fast Mode",
+      "description": "Turn On Fast Mode"
+    },
+    "button.turn.on.increase.boat": {
+      "title": "Turn On Increase Boat",
+      "description": "Turn On Increase Boat"
+    },
+    "button.turn.on.low.cpu": {
+      "title": "Turn On Low CPU",
+      "description": "Turn On Low CPU"
+    },
+    "toggle.anti.kick": {
+      "title": "Anti Kick",
+      "description": "Anti Kick"
+    },
+    "toggle.auto.get.law.sword": {
+      "title": "Auto Get Law Sword",
+      "description": "Auto Get Law Sword"
+    },
+    "toggle.auto.get.pole.v1": {
+      "title": "Auto Get Pole V1",
+      "description": "Auto Get Pole V1"
+    },
+    "toggle.auto.look.at.moon": {
+      "title": "Auto Look At Moon",
+      "description": "Auto Look At Moon"
+    },
+    "toggle.auto.pole.v2": {
+      "title": "Auto Pole V2",
+      "description": "Equip Pole V1 and wait for the current Rough Sea lightning upgrade condition."
+    },
+    "toggle.auto.quest.sea.2": {
+      "title": "Auto Quest Sea 2",
+      "description": "Auto Quest Sea 2"
+    },
+    "toggle.auto.start.raid": {
+      "title": "Auto Start Raid",
+      "description": "Auto Start Raid"
+    },
+    "toggle.auto.teleport.barista.cousin": {
+      "title": "Auto Teleport Barista Cousin",
+      "description": "Auto Teleport Barista Cousin"
+    },
+    "toggle.auto.turn.on.haki": {
+      "title": "Auto Turn On Haki",
+      "description": "Auto Turn On Haki"
+    },
+    "toggle.auto.turn.on.spin.position": {
+      "title": "Auto Turn On Spin Position",
+      "description": "Auto Turn On Spin Position"
+    },
+    "toggle.auto.use.skill.z.buddha": {
+      "title": "Auto Use Skill Z Buddha",
+      "description": "Auto Use Skill Z Buddha"
+    },
+    "toggle.disable.chat": {
+      "title": "Disable Chat",
+      "description": "Disable Chat"
+    },
+    "toggle.disable.leader.board": {
+      "title": "Disable Leader Board",
+      "description": "Disable Leader Board"
+    },
+    "toggle.disable.notify": {
+      "title": "Disable Notify",
+      "description": "Disable Notify"
+    },
+    "toggle.fast.attack": {
+      "title": "Fast Attack",
+      "description": "Fast Attack"
+    },
+    "toggle.fullbright": {
+      "title": "FullBright",
+      "description": "Sáng Màn Hình"
+    },
+    "toggle.noclip": {
+      "title": "Noclip",
+      "description": "Noclip"
+    },
+    "toggle.remove.hit": {
+      "title": "Remove Hit",
+      "description": "Remove Hit"
+    },
+    "toggle.remove.lava": {
+      "title": "Remove Lava",
+      "description": "Remove Lava"
+    },
+    "toggle.silent.aim": {
+      "title": "Silent Aim",
+      "description": "Silent Aim"
+    },
+    "toggle.stop.item": {
+      "title": "Stop Item",
+      "description": "Stop Item"
+    },
+    "toggle.turn.on.walk.on.water": {
+      "title": "Turn On Walk On Water",
+      "description": "Turn On Walk On Water"
+    },
+    "toggle.auto.train.v4": {
+      "title": "Auto Train V4",
+      "description": "Auto Train V4"
+    },
+    "toggle.auto.tween.to.advanced.fruit.dealer": {
+      "title": "Auto Tween To Advanced Fruit Dealer",
+      "description": "Auto Tween To Advanced Fruit Dealer"
+    },
+    "toggle.auto.get.buddy.sword": {
+      "title": "Auto Get Buddy Sword",
+      "description": "Auto Get Buddy Sword"
+    },
+    "toggle.auto.get.midnight.blade": {
+      "title": "Auto Get Midnight Blade",
+      "description": "Auto Get Midnight Blade"
+    },
+    "toggle.auto.draco.v2": {
+      "title": "Auto Draco V2",
+      "description": "Auto Draco V2"
+    },
+    "toggle.auto.hop.every.30.minutes": {
+      "title": "Auto Hop [ทุก 30 นาที]",
+      "description": "Auto Hop [Evevry 30 Minutes]"
+    },
+    "toggle.auto.haki.observation.v2": {
+      "title": "Auto Haki Observation V2",
+      "description": "Auto Haki Observation V2"
+    },
+    "toggle.auto.get.lei.accessory": {
+      "title": "Auto Get Lei Accessory",
+      "description": "Auto Get Lei Accessory"
+    },
+    "toggle.auto.farm.materials.skull.guitar": {
+      "title": "Auto Farm Materials Skull Guitar",
+      "description": "Auto Farm Materials Skull Guitar"
+    },
+    "toggle.auto.farm.rip.indra": {
+      "title": "Auto Farm Rip Indra",
+      "description": "Auto Farm Rip Indra"
+    },
+    "toggle.auto.get.serpent.bow": {
+      "title": "Auto Get Serpent Bow",
+      "description": "Auto Get Serpent Bow"
+    },
+    "toggle.auto.get.dragon.trident": {
+      "title": "Auto Get Dragon Trident",
+      "description": "Auto Get Dragon Trident"
+    },
+    "toggle.auto.three.color.haki": {
+      "title": "Auto Three Color Haki",
+      "description": "Auto Three Color Haki"
+    },
+    "toggle.auto.quest.sea.3": {
+      "title": "Auto Quest Sea 3",
+      "description": "Auto Quest Sea 3"
+    },
+    "toggle.auto.get.florentino.sword": {
+      "title": "Auto Get Florentino Sword",
+      "description": "Auto Get Florentino Sword"
+    },
+    "toggle.auto.farm.darkbeard": {
+      "title": "Auto Farm Darkbeard",
+      "description": "Auto Farm Darkbeard"
+    },
+    "toggle.auto.unlock.donswan": {
+      "title": "Auto Unlock DonSwan",
+      "description": "Auto Unlock DonSwan"
+    },
+    "toggle.auto.haki.rainbow": {
+      "title": "Auto Haki Rainbow",
+      "description": "Auto Haki Rainbow"
+    },
+    "toggle.auto.get.skull.guitar": {
+      "title": "Auto Get Skull Guitar",
+      "description": "Auto Get Skull Guitar"
+    },
+    "toggle.auto.get.swan.glasses": {
+      "title": "Auto Get Swan Glasses",
+      "description": "Auto Get Swan Glasses"
+    },
+    "toggle.auto.get.tushita": {
+      "title": "Auto Get Tushita",
+      "description": "Auto Get Tushita"
+    },
+    "toggle.auto.get.yama": {
+      "title": "Auto Get Yama",
+      "description": "Auto Get Yama"
+    },
+    "toggle.auto.find.kitsune.island": {
+      "title": "Auto Find Kitsune Island",
+      "description": "Auto Find Kitsune Island"
+    },
+    "toggle.auto.complete.quest.bartilo": {
+      "title": "Auto Complete Quest Bartilo",
+      "description": "Auto Complete Quest Bartilo"
+    },
+    "toggle.auto.get.black.spikey": {
+      "title": "Auto Get Black Spikey",
+      "description": "Auto Get Black Spikey"
+    },
+    "toggle.swap.draco.race": {
+      "title": "Swap Draco Race",
+      "description": "Swap Draco Race"
+    },
+    "toggle.turn.on.bypass.teleport": {
+      "title": "Bypass TP",
+      "description": "Turn On Bypass Teleport"
+    },
+    "toggle.turn.on.fast.travel": {
+      "title": "Fast Travel",
+      "description": "ใช้เส้นทางพอร์ทัล/การเดินทางด่วนเมื่อเหมาะสม"
+    },
+    "toggle.auto.get.cdk": {
+      "title": "Auto Get CDK",
+      "description": "Auto Get CDK"
+    },
+    "toggle.auto.quest.tushita.cdk": {
+      "title": "Auto Quest Tushita [CDK]",
+      "description": "Auto Quest Tushita [CDK]"
+    },
+    "toggle.auto.quest.yama.cdk": {
+      "title": "Auto Quest Yama [CDK]",
+      "description": "Auto Quest Yama [CDK]"
+    },
+    "toggle.auto.complete.quest.citizen": {
+      "title": "Auto Complete Quest Citizen",
+      "description": "Auto Complete Quest Citizen"
+    },
+    "toggle.auto.collect.azure.ember": {
+      "title": "Auto Collect Azure Ember",
+      "description": "Auto Collect Azure Ember"
+    },
+    "toggle.auto.complete.trial.race": {
+      "title": "Auto Complete Trial Race",
+      "description": "Auto Complete Trial Race"
+    },
+    "toggle.auto.craft.volcanic.magnet": {
+      "title": "Auto Craft Volcanic Magnet",
+      "description": "Auto Craft Volcanic Magnet"
+    },
+    "toggle.upgrade.dragon.talon.v3": {
+      "title": "Upgrade Dragon Talon V3",
+      "description": "Upgrade Dragon Talon V3"
+    },
+    "toggle.auto.dark.blade.v3": {
+      "title": "Auto Dark Blade V3",
+      "description": "Auto Dark Blade V3"
+    },
+    "toggle.auto.kill.player.after.trial": {
+      "title": "Auto Kill Player After Trial",
+      "description": "Auto Kill Player After Trial"
+    },
+    "toggle.auto.dojo.trainer": {
+      "title": "Auto Dojo Trainer",
+      "description": "Auto Dojo Trainer"
+    },
+    "toggle.auto.draco.v1": {
+      "title": "Auto Draco V1",
+      "description": "Auto Draco V1"
+    },
+    "toggle.auto.draco.v3": {
+      "title": "Auto Draco V3",
+      "description": "Auto Draco V3"
+    },
+    "toggle.auto.farm.training.dummy": {
+      "title": "Auto Farm Training Dummy",
+      "description": "Auto Farm Training Dummy"
+    },
+    "toggle.auto.dragon.hunter": {
+      "title": "Auto Dragon Hunter",
+      "description": "Auto Dragon Hunter"
+    },
+    "toggle.auto.collect.mirage.chest": {
+      "title": "Auto Collect Mirage Chest",
+      "description": "Auto Collect Mirage Chest"
+    },
+    "toggle.auto.find.mirage.island": {
+      "title": "Auto Find Mirage Island",
+      "description": "Auto Find Mirage Island"
+    },
+    "toggle.auto.teleport.frozen.dimension": {
+      "title": "Auto Teleport Frozen Dimension",
+      "description": "Auto Teleport Frozen Dimension"
+    },
+    "toggle.get.quest.haki.rainbow": {
+      "title": "Get Quest Haki Rainbow",
+      "description": "Get Quest Haki Rainbow"
+    },
+    "toggle.tween.to.mirage.island": {
+      "title": "Tween To Mirage Island",
+      "description": "Tween To Mirage Island"
+    },
+    "toggle.auto.get.rengoku.sword": {
+      "title": "Auto Get Rengoku Sword",
+      "description": "Auto Get Rengoku Sword"
+    },
+    "toggle.auto.get.key.rengoku": {
+      "title": "Auto Get Key Rengoku",
+      "description": "Auto Get Key Rengoku"
+    },
+    "toggle.auto.attack.leviathan": {
+      "title": "Auto Attack Leviathan",
+      "description": "Auto Attack Leviathan"
+    },
+    "toggle.auto.get.long.sword": {
+      "title": "Auto Get Long Sword",
+      "description": "Auto Get Long Sword"
+    },
+    "toggle.auto.pull.lever": {
+      "title": "Auto Pull Lever",
+      "description": "Auto Pull Lever"
+    },
+    "toggle.auto.collect.bones": {
+      "title": "Auto Collect Bones",
+      "description": "Auto Collect Bones"
+    },
+    "toggle.auto.turn.on.v3": {
+      "title": "Auto Turn On V3",
+      "description": "Auto Turn On V3"
+    },
+    "toggle.auto.turn.on.v4": {
+      "title": "Auto Turn On V4",
+      "description": "Auto Turn On V4"
+    },
+    "toggle.auto.relic.draco.trial.v4": {
+      "title": "Auto Relic Draco Trial V4",
+      "description": "Auto Relic Draco Trial V4"
+    },
+    "toggle.auto.reset.when.complete": {
+      "title": "Auto Reset When Complete",
+      "description": "Auto Reset When Complete"
+    },
+    "toggle.panic.mode": {
+      "title": "Panic Mode",
+      "description": "Panic Mode"
+    },
+    "toggle.auto.drive.to.hydra.island": {
+      "title": "Auto Drive To Hydra Island",
+      "description": "Auto Drive To Hydra Island"
+    },
+    "toggle.auto.teleport.to.race.doors": {
+      "title": "Auto Teleport To Race Doors",
+      "description": "Auto Teleport To Race Doors"
+    },
+    "toggle.auto.collect.gear": {
+      "title": "Auto Collect Gear",
+      "description": "Auto Collect Gear"
+    },
+    "toggle.tween.to.draco.trial.v4": {
+      "title": "Tween To Draco Trial V4",
+      "description": "Tween To Draco Trial V4"
+    },
+    "toggle.tween.to.legendary.sword.seller.npc": {
+      "title": "Tween To Legendary Sword Seller NPC",
+      "description": "Tween To Legendary Sword Seller NPC"
+    },
+    "toggle.auto.trade.azure.ember": {
+      "title": "Auto Trade Azure Ember",
+      "description": "Auto Trade Azure Ember"
+    },
+    "toggle.auto.train.draco.v4": {
+      "title": "Auto Train Draco V4",
+      "description": "Auto Train Draco V4"
+    },
+    "toggle.auto.get.twin.hooks": {
+      "title": "Auto Get Twin Hooks",
+      "description": "Auto Get Twin Hooks"
+    },
+    "toggle.tween.to.upgrade.draco.trial": {
+      "title": "Tween To Upgrade Draco Trial",
+      "description": "Tween To Upgrade Draco Trial"
+    },
+    "toggle.turn.on.ice.walk": {
+      "title": "Turn On Ice Walk",
+      "description": "Turn On Ice Walk"
+    },
+    "toggle.change.transparency.can.see": {
+      "title": "Change Transparency Can See",
+      "description": "Change Transparency Can See"
+    },
+    "toggle.turn.on.time": {
+      "title": "Turn On Time",
+      "description": "Turn On Time"
+    },
+    "toggle.auto.farm.haki.observation": {
+      "title": "Auto Farm Haki Observation",
+      "description": "Auto Farm Haki Observation"
+    },
+    "toggle.auto.shrine.actived": {
+      "title": "Auto Shrine Actived",
+      "description": "Auto Shrine Actived"
+    },
+    "toggle.auto.awakening": {
+      "title": "Auto Awakening",
+      "description": "Auto Awakening"
+    },
+    "toggle.auto.attack.fish.boat": {
+      "title": "Auto Attack Fish Boat",
+      "description": "Auto Attack Fish Boat"
+    },
+    "toggle.auto.attack.haunted.crew.member": {
+      "title": "Auto Attack Haunted Crew Member",
+      "description": "Auto Attack Haunted Crew Member"
+    },
+    "toggle.kill.aura": {
+      "title": "Kill Aura",
+      "description": "Kill Aura"
+    },
+    "toggle.auto.attack.fish.crew.member": {
+      "title": "Auto Attack Fish Crew Member",
+      "description": "Auto Attack Fish Crew Member"
+    },
+    "toggle.auto.attack.pirate.ship": {
+      "title": "Auto Attack Pirate Ship",
+      "description": "Auto Attack Pirate Ship"
+    },
+    "toggle.auto.kill.piranha": {
+      "title": "Auto Kill Piranha",
+      "description": "Auto Kill Piranha"
+    },
+    "toggle.auto.collect.dragon.egg": {
+      "title": "Auto Collect Dragon Egg",
+      "description": "Auto Collect Dragon Egg"
+    },
+    "toggle.auto.find.prehistoric.island": {
+      "title": "Auto Find Prehistoric Island",
+      "description": "Auto Find Prehistoric Island"
+    },
+    "toggle.auto.start.event": {
+      "title": "Auto Start Event",
+      "description": "Auto Start Event"
+    },
+    "toggle.auto.raid.safe": {
+      "title": "Auto Raid [Safe]",
+      "description": "Auto Raid [Safe]"
+    },
+    "toggle.auto.sail.sit.down.and.turn.on": {
+      "title": "Auto Sail [Sit Down And Turn On]",
+      "description": "Auto Sail [Sit Down And Turn On]"
+    },
+    "toggle.auto.attack.sea.beast": {
+      "title": "Auto Attack Sea Beast",
+      "description": "Auto Attack Sea Beast"
+    },
+    "toggle.auto.kill.shark": {
+      "title": "Auto Kill Shark",
+      "description": "Auto Kill Shark"
+    },
+    "toggle.auto.kill.terror.shark": {
+      "title": "Auto Kill Terror Shark",
+      "description": "Auto Kill Terror Shark"
+    },
+    "toggle.esp.player": {
+      "title": "ESP Player",
+      "description": ""
+    },
+    "toggle.esp.chest": {
+      "title": "ESP Chest",
+      "description": ""
+    },
+    "toggle.esp.fruit": {
+      "title": "ESP Fruit",
+      "description": ""
+    },
+    "toggle.esp.island": {
+      "title": "ESP Island",
+      "description": ""
+    },
+    "option": {
+      "choose": {
+        "weapon": {
+          "title": "Choose Weapon"
+        },
+        "location": {
+          "farm": {
+            "title": "Choose Location Farm"
+          }
+        },
+        "rod": {
+          "title": "Choose Rod"
+        },
+        "bait": {
+          "title": "Choose Bait"
+        },
+        "boat": {
+          "title": "Choose Boat"
+        },
+        "sea": {
+          "level": {
+            "title": "Choose Sea Level"
+          }
+        },
+        "player": {
+          "title": "Choose Player"
+        }
+      },
+      "select": {
+        "farm": {
+          "island": {
+            "title": "Select Farm Island"
+          }
+        },
+        "material": {
+          "title": "Select Material"
+        },
+        "boss": {
+          "title": "Select Boss"
+        },
+        "raid": {
+          "title": "Select Raid"
+        },
+        "island": {
+          "title": "Select Island"
+        },
+        "npc": {
+          "title": "เลือก NPC"
+        },
+        "haki": {
+          "states": {
+            "title": "Select Haki States"
+          }
+        },
+        "time": {
+          "title": "Select Time"
+        }
+      },
+      "mastery": {
+        "finisher": {
+          "hp": {
+            "title": "Mastery Finisher HP"
+          }
+        }
+      },
+      "auto": {
+        "speed": {
+          "title": "Auto Speed"
+        },
+        "jump": {
+          "title": "Auto Jump"
+        }
+      },
+      "stats": {
+        "value": {
+          "title": "Stats Value"
+        }
+      },
+      "raid": {
+        "type": {
+          "title": "Raid Type"
+        }
+      },
+      "input": {
+        "job": {
+          "id": {
+            "title": "Input Job ID"
+          }
+        }
+      }
+    },
+    "toggle": {
+      "fast": {
+        "attack": {
+          "buddha": {
+            "title": "Fast Attack Buddha"
+          }
+        }
+      },
+      "auto": {
+        "farm": {
+          "level": {
+            "title": "Auto Farm Level"
+          },
+          "nearest": {
+            "title": "Auto Farm Nearest"
+          },
+          "island": {
+            "title": "Auto Farm Island"
+          },
+          "ectoplasm": {
+            "title": "Auto Farm Ectoplasm"
+          },
+          "chest": {
+            "title": "Auto Farm Chest"
+          },
+          "elite": {
+            "title": "Auto Farm Elite",
+            "hop": {
+              "server": {
+                "title": "Auto Farm Elite + Hop Server"
+              }
+            }
+          },
+          "cake": {
+            "prince": {
+              "title": "Auto Farm Cake Prince"
+            }
+          },
+          "dough": {
+            "king": {
+              "title": "Auto Farm Dough King"
+            }
+          },
+          "bone": {
+            "title": "Auto Farm Bone"
+          },
+          "tyrant": {
+            "of": {
+              "the": {
+                "skies": {
+                  "title": "Auto Farm Tyrant of the Skies"
+                }
+              }
+            }
+          },
+          "materials": {
+            "title": "Auto Farm Materials"
+          },
+          "boss": {
+            "title": "Auto Farm Boss"
+          }
+        },
+        "factory": {
+          "raid": {
+            "title": "Auto Factory Raid"
+          }
+        },
+        "pirate": {
+          "raid": {
+            "title": "Auto Pirate Raid"
+          }
+        },
+        "collect": {
+          "berry": {
+            "title": "Auto Collect Berry",
+            "hop": {
+              "server": {
+                "title": "Auto Collect Berry + Hop Server"
+              }
+            }
+          },
+          "fruit": {
+            "title": "Auto Collect Fruit"
+          }
+        },
+        "summon": {
+          "cake": {
+            "prince": {
+              "title": "Auto Summon Cake Prince"
+            }
+          },
+          "boss": {
+            "title": "Auto Summon Boss"
+          }
+        },
+        "hop": {
+          "dough": {
+            "king": {
+              "title": "Auto Hop Dough King"
+            }
+          }
+        },
+        "unlock": {
+          "dough": {
+            "dungeon": {
+              "title": "Auto Unlock Dough Dungeon"
+            }
+          },
+          "phoenix": {
+            "dungeon": {
+              "title": "Auto Unlock Phoenix Dungeon"
+            }
+          }
+        },
+        "soul": {
+          "reaper": {
+            "title": "Auto Soul Reaper"
+          }
+        },
+        "random": {
+          "bone": {
+            "title": "Auto Random Bone"
+          },
+          "fruit": {
+            "title": "Auto Random Fruit"
+          }
+        },
+        "try": {
+          "luck": {
+            "gravestone": {
+              "title": "Auto Try Luck Gravestone"
+            }
+          }
+        },
+        "pray": {
+          "gravestone": {
+            "title": "Auto Pray Gravestone"
+          }
+        },
+        "mastery": {
+          "fruit": {
+            "title": "Auto Mastery Fruit"
+          },
+          "gun": {
+            "title": "Auto Mastery Gun"
+          },
+          "all": {
+            "sword": {
+              "title": "Auto Mastery All Sword"
+            }
+          },
+          "dragon": {
+            "storm": {
+              "title": "Auto Mastery Dragon Storm"
+            }
+          }
+        },
+        "buy": {
+          "bait": {
+            "title": "Auto Buy Bait"
+          },
+          "raid": {
+            "chip": {
+              "beli": {
+                "title": "Auto Buy Raid Chip [Beli]"
+              },
+              "fragment": {
+                "title": "Auto Buy Raid Chip [Fragment]"
+              }
+            }
+          },
+          "chip": {
+            "law": {
+              "title": "Auto Buy Chip Law"
+            }
+          }
+        },
+        "fishing": {
+          "title": "Auto Fishing"
+        },
+        "quest": {
+          "fishing": {
+            "title": "Auto Quest Fishing"
+          }
+        },
+        "complete": {
+          "quest": {
+            "title": "Auto Complete Quest"
+          }
+        },
+        "sell": {
+          "fish": {
+            "title": "Auto Sell Fish"
+          }
+        },
+        "spam": {
+          "skill": {
+            "z": {
+              "title": "Auto Spam Skill Z"
+            }
+          }
+        },
+        "get": {
+          "saber": {
+            "title": "Auto Get Saber"
+          },
+          "usoap": {
+            "s": {
+              "hat": {
+                "title": "Auto Get Usoap's Hat"
+              }
+            }
+          },
+          "marine": {
+            "cap": {
+              "title": "Auto Get Marine Cap"
+            }
+          }
+        },
+        "bisento": {
+          "v2": {
+            "title": "Auto Bisento V2"
+          }
+        },
+        "drop": {
+          "fruit": {
+            "title": "Auto Drop Fruit"
+          }
+        },
+        "store": {
+          "fruit": {
+            "title": "Auto Store Fruit"
+          }
+        },
+        "start": {
+          "law": {
+            "title": "Auto Start Law"
+          }
+        },
+        "raid": {
+          "law": {
+            "title": "Auto Raid Law"
+          }
+        },
+        "travel": {
+          "title": "Auto Travel"
+        }
+      },
+      "esp": {
+        "berry": {
+          "title": "ESP Berry"
+        }
+      },
+      "bring": {
+        "mob": {
+          "title": "Bring Mob"
+        }
+      },
+      "teleport": {
+        "to": {
+          "player": {
+            "title": "Teleport To Player"
+          },
+          "npc": {
+            "title": "เทเลพอร์ตไปยัง NPC"
+          }
+        }
+      },
+      "turn": {
+        "on": {
+          "rtx": {
+            "mode": {
+              "title": "Turn On RTX Mode"
+            }
+          }
+        }
+      },
+      "unlock": {
+        "zoom": {
+          "limit": {
+            "title": "Unlock Zoom Limit"
+          }
+        }
+      }
+    },
+    "view": {
+      "farm": {
+        "status": {
+          "title": "สถานะ Farm"
+        }
+      }
+    },
+    "button": {
+      "buy": {
+        "microchip": {
+          "law": {
+            "title": "Buy Microchip Law"
+          }
+        }
+      },
+      "start": {
+        "law": {
+          "raid": {
+            "title": "Start Law Raid"
+          }
+        }
+      },
+      "hop": {
+        "server": {
+          "title": "Hop Server",
+          "lowest": {
+            "players": {
+              "title": "Hop Server · Lowest Players"
+            }
+          },
+          "best": {
+            "available": {
+              "title": "Hop Server · Best Available"
+            }
+          }
+        }
+      },
+      "redeem": {
+        "all": {
+          "codes": {
+            "title": "Redeem All Codes"
+          }
+        }
+      }
+    },
+    "option.choose.weapon": {
+      "description": "",
+      "title": "อาวุธ"
+    },
+    "toggle.fast.attack.buddha": {
+      "description": ""
+    },
+    "toggle.auto.farm.level": {
+      "description": "Auto Farm Level"
+    },
+    "toggle.auto.farm.nearest": {
+      "description": "Auto Farm Nearest"
+    },
+    "option.select.farm.island": {
+      "description": "Choose an island mob group."
+    },
+    "toggle.auto.farm.island": {
+      "description": "Farm mobs belonging to the selected island using the shared Re4 engine."
+    },
+    "toggle.auto.factory.raid": {
+      "description": "Auto Factory Raid"
+    },
+    "toggle.auto.pirate.raid": {
+      "description": "Auto Pirate Raid"
+    },
+    "toggle.auto.farm.ectoplasm": {
+      "description": "Auto Farm Ectoplasm"
+    },
+    "toggle.auto.farm.chest": {
+      "description": "Auto Farm Chest"
+    },
+    "toggle.auto.collect.berry": {
+      "description": "Auto Collect Berry"
+    },
+    "toggle.auto.collect.berry.hop.server": {
+      "description": "Auto Collect Berry + Hop Server"
+    },
+    "toggle.esp.berry": {
+      "description": "Hiển thị Berry từ cùng cache dùng bởi Auto Collect."
+    },
+    "view.farm.status": {
+      "description": ""
+    },
+    "toggle.auto.farm.elite": {
+      "description": "Auto Farm Elite"
+    },
+    "toggle.auto.farm.elite.hop.server": {
+      "description": "Auto Farm Elite + Hop Server"
+    },
+    "toggle.auto.farm.cake.prince": {
+      "description": "Auto Farm Cake Prince"
+    },
+    "toggle.auto.summon.cake.prince": {
+      "description": "Auto Summon Cake Prince"
+    },
+    "toggle.auto.farm.dough.king": {
+      "description": "Auto Farm Dough King"
+    },
+    "toggle.auto.hop.dough.king": {
+      "description": "Auto Hop Dough King"
+    },
+    "toggle.auto.unlock.dough.dungeon": {
+      "description": "Auto Unlock Dough Dungeon"
+    },
+    "toggle.auto.unlock.phoenix.dungeon": {
+      "description": "Auto Unlock Phoenix Dungeon"
+    },
+    "toggle.auto.farm.bone": {
+      "description": "Auto Farm Bone"
+    },
+    "toggle.auto.soul.reaper": {
+      "description": "Auto Soul Reaper"
+    },
+    "toggle.auto.random.bone": {
+      "description": "Auto Random Bone"
+    },
+    "toggle.auto.try.luck.gravestone": {
+      "description": "Auto Try Luck Gravestone"
+    },
+    "toggle.auto.pray.gravestone": {
+      "description": "Auto Pray Gravestone"
+    },
+    "toggle.auto.farm.tyrant.of.the.skies": {
+      "description": "Auto Farm Boss"
+    },
+    "toggle.auto.summon.boss": {
+      "description": "Auto Summon Boss"
+    },
+    "option.select.material": {
+      "description": ""
+    },
+    "toggle.auto.farm.materials": {
+      "description": "Auto Farm Materials"
+    },
+    "option.select.boss": {
+      "description": ""
+    },
+    "toggle.auto.farm.boss": {
+      "description": "Auto Farm Boss"
+    },
+    "option.choose.location.farm": {
+      "description": "Choose how mastery selects targets."
+    },
+    "option.mastery.finisher.hp": {
+      "description": "Use mastery skills when enemy HP falls below this percentage."
+    },
+    "toggle.auto.mastery.fruit": {
+      "description": "Auto Mastery Fruit"
+    },
+    "toggle.auto.mastery.gun": {
+      "description": "Auto Mastery Gun"
+    },
+    "toggle.auto.mastery.all.sword": {
+      "description": "Auto Mastery All Sword"
+    },
+    "toggle.auto.mastery.dragon.storm": {
+      "description": "Auto Mastery Dragon Storm"
+    },
+    "toggle.bring.mob": {
+      "description": "Gom Quái",
+      "title": "รวมมอนสเตอร์"
+    },
+    "option.auto.speed": {
+      "description": "",
+      "title": "ความเร็วเดิน"
+    },
+    "option.auto.jump": {
+      "description": ""
+    },
+    "option.stats.value": {
+      "description": ""
+    },
+    "option.choose.rod": {
+      "description": "Fishing rod used by Auto Fishing."
+    },
+    "option.choose.bait": {
+      "description": ""
+    },
+    "toggle.auto.buy.bait": {
+      "description": "Tự động kiểm tra stock → craft đúng batch cần thiết → equip mồi đã chọn."
+    },
+    "toggle.auto.fishing": {
+      "description": "End-to-End: rod → equip → bait → cast → bite/reel → quest lifecycle."
+    },
+    "toggle.auto.quest.fishing": {
+      "description": "Nhận Angler quest khi Fishing Lv.20+ và cooldown cho phép."
+    },
+    "toggle.auto.complete.quest": {
+      "description": "Turn-in Fishing Quest khi trạng thái cho phép."
+    },
+    "toggle.auto.sell.fish": {
+      "description": "Tự động bán cá theo cùng fishing lifecycle."
+    },
+    "toggle.auto.spam.skill.z": {
+      "description": "Dùng Fishing Rod skill Z; Auto Fishing cũng tự dùng khi quest yêu cầu."
+    },
+    "toggle.auto.get.saber": {
+      "description": "Complete the First Sea Saber Puzzle and defeat Saber Expert."
+    },
+    "toggle.auto.get.usoap.s.hat": {
+      "description": "Pirates only: requires 250,000+ Bounty and 3 game-eligible near-level PvP defeats."
+    },
+    "toggle.auto.get.marine.cap": {
+      "description": "Marines only: requires 250,000+ Honor and an eligible Pirate defeat."
+    },
+    "toggle.auto.bisento.v2": {
+      "description": "Requires Bisento V1. Deal at least 10% of Greybeard's max HP before he is defeated; Bisento does not need to be equipped."
+    },
+    "option.choose.boat": {
+      "description": ""
+    },
+    "option.choose.sea.level": {
+      "description": ""
+    },
+    "toggle.auto.random.fruit": {
+      "description": "Auto Random Fruit"
+    },
+    "toggle.auto.drop.fruit": {
+      "description": "Auto Drop Fruit"
+    },
+    "toggle.auto.store.fruit": {
+      "description": "Auto Store Fruit"
+    },
+    "toggle.auto.collect.fruit": {
+      "description": "Kéo Fruit đang rơi về player để game tự pickup; không chiếm Movement/Tween."
+    },
+    "option.raid.type": {
+      "description": "Basic dùng Beli hoặc nút Fruit nguyên bản; Advanced dùng Fragment"
+    },
+    "option.select.raid": {
+      "description": "Raid được dùng cho mua chip và Auto Raid"
+    },
+    "toggle.auto.buy.raid.chip.beli": {
+      "description": "Basic Raid · 100,000 Beli"
+    },
+    "toggle.auto.buy.raid.chip.fragment": {
+      "description": "Advanced Raid · 1,000 Fragments"
+    },
+    "button.buy.microchip.law": {
+      "description": "Mua Microchip Law một lần"
+    },
+    "button.start.law.raid": {
+      "description": "Start Order/Law raid một lần"
+    },
+    "toggle.auto.buy.chip.law": {
+      "description": "Một controller Law duy nhất · mua và xác nhận Microchip"
+    },
+    "toggle.auto.start.law": {
+      "description": "Start một lần cho mỗi Microchip · chờ Order xác nhận"
+    },
+    "toggle.auto.raid.law": {
+      "description": "Buy → Start → Order combat → completion · death-safe"
+    },
+    "option.select.island": {
+      "description": ""
+    },
+    "toggle.auto.travel": {
+      "description": "Travel to the selected island"
+    },
+    "option.choose.player": {
+      "description": ""
+    },
+    "toggle.teleport.to.player": {
+      "description": "Teleport To Player"
+    },
+    "option.select.npc": {
+      "description": "Full NPC directory for the current Sea (template registry + live resolver)"
+    },
+    "toggle.teleport.to.npc": {
+      "description": "Move to the selected NPC; toggle OFF stops only this travel owner."
+    },
+    "button.hop.server": {
+      "description": "Join another available server"
+    },
+    "button.hop.server.lowest.players": {
+      "description": "Join the lowest-population available server"
+    },
+    "button.hop.server.best.available": {
+      "description": "Uses reliable public server data; remote server ping is not exposed before joining"
+    },
+    "option.input.job.id": {
+      "description": ""
+    },
+    "button.redeem.all.codes": {
+      "description": "Redeem All Codes"
+    },
+    "option.select.haki.states": {
+      "description": ""
+    },
+    "toggle.turn.on.rtx.mode": {
+      "description": "Turn On RTX Mode"
+    },
+    "toggle.unlock.zoom.limit": {
+      "description": "Mở Khoá Giới Hạn Thu Phóng"
+    },
+    "option.select.time": {
+      "description": ""
+    },
+    "toggle.fighting.style.auto.darkstep": {
+      "title": "Auto Dark Step",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.darkstep": {
+      "title": "Dark Step",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.electric": {
+      "title": "Auto Electric",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.electric": {
+      "title": "Electric",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.waterkungfu": {
+      "title": "Auto Water Kung Fu",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.waterkungfu": {
+      "title": "Water Kung Fu",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.dragonbreath": {
+      "title": "Auto Dragon Breath",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.dragonbreath": {
+      "title": "Dragon Breath",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.superhuman": {
+      "title": "Auto Superhuman",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.superhuman": {
+      "title": "Superhuman",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.deathstep": {
+      "title": "Auto Death Step",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.deathstep": {
+      "title": "Death Step",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.electricclaw": {
+      "title": "Auto Electric Claw",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.electricclaw": {
+      "title": "Electric Claw",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.sharkman": {
+      "title": "Auto Sharkman Karate",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.sharkman": {
+      "title": "Sharkman Karate",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.dragontalon": {
+      "title": "Auto Dragon Talon",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.dragontalon": {
+      "title": "Dragon Talon",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.godhuman": {
+      "title": "Auto Godhuman",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.godhuman": {
+      "title": "Godhuman",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.fighting.style.auto.sanguine": {
+      "title": "Auto Sanguine Art",
+      "description": "พยายามรับ Fighting Style อัตโนมัติเมื่อเงื่อนไขที่ตรวจสอบได้และเงิน/ทรัพยากรพร้อมแล้ว."
+    },
+    "toggle.fighting.style.use.sanguine": {
+      "title": "Sanguine Art",
+      "description": "สวม Fighting Style ที่เป็นเจ้าของแล้ว"
+    },
+    "toggle.stats.auto_melee": {
+      "title": "อัป Melee อัตโนมัติ",
+      "description": "เพิ่มค่าสถานะ Melee อัตโนมัติ"
+    },
+    "toggle.stats.auto_sword": {
+      "title": "อัป Sword อัตโนมัติ",
+      "description": "เพิ่มค่าสถานะ Sword อัตโนมัติ"
+    },
+    "toggle.stats.auto_gun": {
+      "title": "อัป Gun อัตโนมัติ",
+      "description": "เพิ่มค่าสถานะ Gun อัตโนมัติ"
+    },
+    "toggle.stats.auto_blox_fruit": {
+      "title": "อัป Blox Fruit อัตโนมัติ",
+      "description": "เพิ่มค่าสถานะ Blox Fruit อัตโนมัติ"
+    },
+    "toggle.stats.auto_defense": {
+      "title": "อัป Defense อัตโนมัติ",
+      "description": "เพิ่มค่าสถานะ Defense อัตโนมัติ"
+    },
+    "button.shop.buy.buso": {
+      "title": "Buy Buso",
+      "description": "Buy Buso"
+    },
+    "button.shop.buy.geppo": {
+      "title": "ซื้อ Air Jump",
+      "description": "ซื้อ Air Jump"
+    },
+    "button.shop.buy.soru": {
+      "title": "Buy Soru",
+      "description": "Buy Soru"
+    },
+    "button.shop.buy.ken": {
+      "title": "Buy Ken",
+      "description": "Buy Ken"
+    },
+    "button.shop.buy.tomoe.ring": {
+      "title": "Buy Tomoe Ring",
+      "description": "Buy Tomoe Ring"
+    },
+    "button.shop.buy.black.cape": {
+      "title": "Buy Black Cape",
+      "description": "Buy Black Cape"
+    },
+    "button.shop.buy.swordsman.hat": {
+      "title": "Buy Swordsman Hat",
+      "description": "Buy Swordsman Hat"
+    },
+    "button.shop.buy.bizarre.revolver": {
+      "title": "Buy Bizarre Revolver",
+      "description": "ซื้อ Bizarre Revolver"
+    },
+    "button.shop.buy.ghoul.mask": {
+      "title": "Buy Ghoul Mask",
+      "description": "Buy Ghoul Mask"
+    },
+    "button.shop.craft.dragonheart": {
+      "title": "Craft DragonHeart",
+      "description": "Craft DragonHeart"
+    },
+    "button.shop.craft.dragonstorm": {
+      "title": "Craft DragonStorm",
+      "description": "Craft DragonStorm"
+    },
+    "button.shop.craft.dino.hood": {
+      "title": "Craft Dino Hood",
+      "description": "Craft Dino Hood"
+    },
+    "button.shop.craft.shark.tooth.necklace": {
+      "title": "Craft Shark Tooth Necklace",
+      "description": "Craft Shark Tooth Necklace"
+    },
+    "button.shop.craft.terror.jaw": {
+      "title": "Craft Terror Jaw",
+      "description": "Craft Terror Jaw"
+    },
+    "button.shop.craft.leviathan.crown": {
+      "title": "Craft Leviathan Crown",
+      "description": "Craft Leviathan Crown"
+    },
+    "button.shop.craft.leviathan.shield": {
+      "title": "Craft Leviathan Shield",
+      "description": "Craft Leviathan Shield"
+    },
+    "button.shop.craft.beast.hunter.boat": {
+      "title": "Craft Beast Hunter Boat",
+      "description": "Craft Beast Hunter Boat"
+    },
+    "button.shop.craft.legendary.scroll": {
+      "title": "Craft LegendaryScroll",
+      "description": "Craft LegendaryScroll"
+    },
+    "button.shop.craft.mythical.scroll": {
+      "title": "Craft MythicalScroll",
+      "description": "Craft MythicalScroll"
+    },
+    "button.shop.buy.cutlass": {
+      "title": "Buy Cutlass",
+      "description": "Buy Cutlass"
+    },
+    "button.shop.buy.katana": {
+      "title": "Buy Katana",
+      "description": "Buy Katana"
+    },
+    "button.shop.buy.iron.mace": {
+      "title": "Buy Iron Mace",
+      "description": "Buy Iron Mace"
+    },
+    "button.shop.buy.duel.katana": {
+      "title": "Buy Duel Katana",
+      "description": "Buy Duel Katana"
+    },
+    "button.shop.buy.triple.katana": {
+      "title": "Buy Triple Katana",
+      "description": "Buy Triple Katana"
+    },
+    "button.shop.buy.pipe": {
+      "title": "Buy Pipe",
+      "description": "Buy Pipe"
+    },
+    "button.shop.buy.dual.headed.blade": {
+      "title": "Buy Dual-Headed Blade",
+      "description": "Buy Dual-Headed Blade"
+    },
+    "button.shop.buy.bisento": {
+      "title": "Buy Bisento",
+      "description": "Buy Bisento"
+    },
+    "button.shop.buy.soul.cane": {
+      "title": "Buy Soul Cane",
+      "description": "Buy Soul Cane"
+    },
+    "button.shop.buy.slingshot": {
+      "title": "Buy SlingShot",
+      "description": "Buy SlingShot"
+    },
+    "button.shop.buy.musket": {
+      "title": "Buy Musket",
+      "description": "Buy Musket"
+    },
+    "button.shop.buy.refined.slingshot": {
+      "title": "Buy Refined Slingshot",
+      "description": "Buy Refined Slingshot"
+    },
+    "button.shop.buy.dual.flintlock": {
+      "title": "Buy Dual Flintlock",
+      "description": "Buy Dual Flintlock"
+    },
+    "button.shop.buy.flintlock": {
+      "title": "Buy Flintlock",
+      "description": "Buy Flintlock"
+    },
+    "button.shop.buy.cannon": {
+      "title": "Buy Cannon",
+      "description": "Buy Cannon"
+    },
+    "toggle.auto.get.shark.saw": {
+      "title": "Auto Get Shark Saw",
+      "description": "กำจัด The Saw จนกว่าจะได้รับ Shark Saw"
+    },
+    "toggle.auto.get.wardens.sword": {
+      "title": "Auto Get Wardens Sword",
+      "description": "กำจัด Warden จนกว่าจะได้รับ Wardens Sword"
+    },
+    "toggle.auto.get.coat": {
+      "title": "Auto Get Coat",
+      "description": "กำจัด Vice Admiral จนกว่าจะได้รับ Coat"
+    },
+    "toggle.auto.get.magma.blaster": {
+      "title": "Auto Get Magma Blaster",
+      "description": "กำจัด Magma General จนกว่าจะได้รับ Magma Blaster"
+    },
+    "toggle.auto.get.trident": {
+      "title": "Auto Get Trident",
+      "description": "กำจัด Fishman Lord ทั้งสองช่วงจนกว่าจะได้รับ Trident"
+    },
+    "toggle.auto.get.bazooka": {
+      "title": "Auto Get Bazooka",
+      "description": "กำจัด Sky Warlord จนกว่าจะได้รับ Bazooka"
+    },
+    "toggle.auto.get.cool.shades": {
+      "title": "Auto Get Cool Shades",
+      "description": "กำจัด Cyborg จนกว่าจะได้รับ Cool Shades"
+    },
+    "toggle.mastery.fruit.skill.z": {
+      "title": "สกิลมาสเตอรี่ผลไม้ Z",
+      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล Z อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.fruit.skill.x": {
+      "title": "สกิลมาสเตอรี่ผลไม้ X",
+      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล X อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.fruit.skill.c": {
+      "title": "สกิลมาสเตอรี่ผลไม้ C",
+      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล C อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.fruit.skill.v": {
+      "title": "สกิลมาสเตอรี่ผลไม้ V",
+      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล V อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.fruit.skill.f": {
+      "title": "สกิลมาสเตอรี่ผลไม้ F",
+      "description": "อนุญาตให้มาสเตอรี่ผลไม้ใช้สกิล F อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.gun.skill.z": {
+      "title": "สกิลมาสเตอรี่ปืน Z",
+      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล Z อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.gun.skill.x": {
+      "title": "สกิลมาสเตอรี่ปืน X",
+      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล X อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.gun.skill.c": {
+      "title": "สกิลมาสเตอรี่ปืน C",
+      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล C อัตโนมัติเมื่อพร้อม"
+    },
+    "toggle.mastery.gun.skill.v": {
+      "title": "สกิลมาสเตอรี่ปืน V",
+      "description": "อนุญาตให้มาสเตอรี่ปืนใช้สกิล V อัตโนมัติเมื่อพร้อม"
+    },
+    "option.farm.nearest.max.distance": {
+      "title": "ระยะ Farm Nearest",
+      "description": "ระยะสูงสุดสำหรับเลือกศัตรูใกล้เคียง และจะไม่เลือกเป้าหมายบนเกาะอื่นเมื่อระบุเกาะได้แน่นอน"
+    },
+    "toggle.auto.tween.to.fruit": {
+      "title": "Tween ไปหา Fruit",
+      "description": "เคลื่อนที่ไปหา Fruit ที่เกิดในโลกผ่าน Movement กลาง โดยเป้าหมาย Fruit ชั่วคราวจะไม่ใช้ Bypass TP ที่ต้อง respawn"
+    },
+    "option.select.fruit.shop": {
+      "title": "เลือก Fruit ใน Shop",
+      "description": "รายชื่อ Fruit จากแคตตาล็อก runtime ของเซิร์ฟเวอร์ปัจจุบัน"
+    },
+    "option.select.permanent.fruit": {
+      "title": "เลือก Fruit ถาวร",
+      "description": "เลือก Fruit สำหรับคำสั่งสลับ Fruit ถาวร"
+    },
+    "button.refresh.fruit.shop": {
+      "title": "รีเฟรช Fruit Shop",
+      "description": "รีเฟรชแคตตาล็อก สถานะขาย และ inventory จาก runtime"
+    },
+    "button.buy.selected.fruit": {
+      "title": "ซื้อ Fruit ที่เลือก",
+      "description": "ซื้อเฉพาะเมื่อแคตตาล็อก runtime ยืนยันว่ากำลังขาย"
+    },
+    "button.switch.permanent.fruit": {
+      "title": "สลับ Fruit ถาวร",
+      "description": "ขอสลับไป Fruit ถาวรที่เลือกและยืนยันผลจาก runtime"
+    },
+    "toggle.auto.race.v2": {
+      "title": "Auto Race V2",
+      "description": "ตรวจสอบความคืบหน้าเผ่าปัจจุบันและทำ V2 ผ่านระบบ progression, Movement และ Combat กลาง"
+    },
+    "toggle.auto.race.v3": {
+      "title": "Auto Race V3",
+      "description": "ตรวจสอบเผ่าและสถานะเซิร์ฟเวอร์ ทำ V2 ที่ขาดก่อน แล้วทำภารกิจ V3 ที่ถูกต้องและยืนยันผล"
+    },
+    "toggle.auto.get.ghoul.race": {
+      "title": "Auto รับเผ่า Ghoul",
+      "description": "ทำ Ghoul แบบ end-to-end: Ectoplasm, Hellfire Torch, Experimic และยืนยันเผ่าจากเซิร์ฟเวอร์"
+    },
+    "toggle.auto.get.cyborg.race": {
+      "title": "Auto รับเผ่า Cyborg",
+      "description": "ทำ Cyborg แบบ end-to-end ผ่าน Secret Laboratory, Fist of Darkness, Order/Core Brain และยืนยันจากเซิร์ฟเวอร์"
+    },
+    "button.refresh.fruit.mirage.shop": {
+      "title": "รีเฟรช Mirage Stock",
+      "description": "รีเฟรชสต็อก Advanced Fruit Dealer / Mirage โดยตรงจาก runtime ของเซิร์ฟเวอร์ปัจจุบัน"
+    }
+  },
+  "overlay": {
+    "player": "{name} | {distance}m\\nHP: {hp}%",
+    "chest": "Chest\\n{distance}m",
+    "fruit": "{name}\\n{distance}m",
+    "island": "{name}\\n{distance}m"
+  },
+  "sections": {
+    "farm": {
+      "status": {
+        "title": "สถานะ Farm"
+      }
+    },
+    "progress": {
+      "first_sea_obtainables": {
+        "title": "First Sea Obtainables"
+      }
+    },
+    "items": {
+      "fighting_style": {
+        "title": "Fighting Style · Equip"
+      },
+      "accessory_sea1": {
+        "title": "Accessory Sea 1"
+      },
+      "ectoplasm_shop": {
+        "title": "Ectoplasm Shop"
+      },
+      "accessory_sea_event": {
+        "title": "Accessory · Sea Event"
+      },
+      "fragments_shop": {
+        "title": "Cửa hàng Fragment"
+      }
+    },
+    "farming": {
+      "title": "Farm chính"
+    },
+    "farm.island": {
+      "title": "Farm Island"
+    },
+    "collect.chest": {
+      "title": "Nhặt rương"
+    },
+    "collect.berry": {
+      "title": "Nhặt Berry"
+    },
+    "farm.elite.hunter": {
+      "title": "Farm Elite Hunter"
+    },
+    "farming.cake": {
+      "title": "Farm Cake"
+    },
+    "unlocked.dungeon": {
+      "title": "Mở khóa Dungeon"
+    },
+    "farming.bone": {
+      "title": "Farm Xương"
+    },
+    "tyrant.of.the.skies": {
+      "title": "Tyrant Of The Skies"
+    },
+    "farm.material": {
+      "title": "Farm nguyên liệu"
+    },
+    "farm.boss": {
+      "title": "Farm Boss"
+    },
+    "farming.mastery": {
+      "title": "Farm thông thạo"
+    },
+    "settings.configure": {
+      "title": "Thiết lập / Cấu hình"
+    },
+    "stats.upgrade": {
+      "title": "Nâng chỉ số"
+    },
+    "fishing": {
+      "title": "Câu cá"
+    },
+    "tushita.and.yama": {
+      "title": "Tushita và Yama"
+    },
+    "cursed.dual.katana": {
+      "title": "Song Kiếm Nguyền Rủa"
+    },
+    "true.triple.katana.sword": {
+      "title": "True Triple Katana"
+    },
+    "pole.thunder.god": {
+      "title": "Pole / Lightning God"
+    },
+    "items.law.order.sword": {
+      "title": "Law / Order Sword"
+    },
+    "rengoku.sword": {
+      "title": "Kiếm Rengoku"
+    },
+    "cavender.twin.hooks.bigmom": {
+      "title": "Cavender + Twin Hooks + Big Mom"
+    },
+    "buso.aura.colours": {
+      "title": "Màu Haki / Aura"
+    },
+    "instinct.observation": {
+      "title": "Haki Quan Sát"
+    },
+    "dark.dragger.valkyrie": {
+      "title": "Dark Dagger + Valkyrie"
+    },
+    "mystic.island.full.moon": {
+      "title": "Mirage / Trăng tròn"
+    },
+    "skull.guitars.misc": {
+      "title": "Soul Guitar / Khác"
+    },
+    "upgrade.races.v3": {
+      "title": "Nâng Race V3"
+    },
+    "trials.quest.v4": {
+      "title": "Trial Race V4"
+    },
+    "dojo.quest.drago.race": {
+      "title": "Dojo Quest & Dragon Race"
+    },
+    "drago.trial": {
+      "title": "Dragon Trial"
+    },
+    "volcanic.magnet": {
+      "title": "Volcanic Magnet"
+    },
+    "prehistoric.island": {
+      "title": "Prehistoric Island"
+    },
+    "sea.event.setting.sail": {
+      "title": "Sea Event / Ra khơi"
+    },
+    "entity.sea.event": {
+      "title": "Mục tiêu Sea Event"
+    },
+    "kitsune.island.event": {
+      "title": "Đảo Kitsune / Sự kiện"
+    },
+    "fruits.options": {
+      "title": "Tùy chọn trái"
+    },
+    "dungeon.event.raiding": {
+      "title": "Dungeon / Raid"
+    },
+    "raiding.menu": {
+      "title": "Điều khiển Raid"
+    },
+    "law.raid": {
+      "title": "Law Raid"
+    },
+    "travel.worlds": {
+      "title": "Di chuyển giữa Sea"
+    },
+    "travel.island": {
+      "title": "Dịch chuyển đảo"
+    },
+    "teleport.player": {
+      "title": "Dịch chuyển người chơi"
+    },
+    "teleport.npc": {
+      "title": "เทเลพอร์ต - NPC"
+    },
+    "shop.options": {
+      "title": "Cửa hàng"
+    },
+    "weapon.world.1": {
+      "title": "Vũ khí Sea 1"
+    },
+    "server.function": {
+      "title": "Máy chủ"
+    },
+    "player.gui.others": {
+      "title": "Người chơi / Khác"
+    },
+    "graphics.haki.stats": {
+      "title": "Đồ họa / Haki"
+    },
+    "configure.god": {
+      "title": "Cấu hình nâng cao"
+    },
+    "fighting_style": {
+      "title": "Fighting Style"
+    },
+    "items.weapons_guns": {
+      "title": "อาวุธ · ปืน"
+    },
+    "items.weapons_swords": {
+      "title": "อาวุธ · ดาบ"
+    },
+    "items.crafting_sea": {
+      "title": "คราฟต์ทะเล"
+    },
+    "items.crafting_rare": {
+      "title": "คราฟต์หายาก"
+    },
+    "combat.attack_targeting": {
+      "title": "โจมตีและเป้าหมาย"
+    },
+    "combat.assist": {
+      "title": "ช่วยต่อสู้"
+    },
+    "travel.automation": {
+      "title": "การเดินทางอัตโนมัติ"
+    }
+  },
+  "status_view": {
+    "cdk_title": "Cursed Dual Katana",
+    "soul_guitar_title": "Soul Guitar",
+    "race_v4_title": "Race V4",
+    "prehistoric_title": "Prehistoric Island",
+    "leviathan_spy_title": "Leviathan Spy",
+    "frozen_dimension_title": "Frozen Dimension",
+    "kitsune_title": "Kitsune Island",
+    "raid_progress_title": "Raid Progress",
+    "mirage_title": "Mirage Island",
+    "moon_title": "Moon Phase"
+  },
+  "item_type": {
+    "sword": "ดาบ",
+    "gun": "ปืน",
+    "accessory": "เครื่องประดับ"
+  },
+  "farm_state": {
+    "active_farm": "Active Farm",
+    "selected_boss": "Selected Boss",
+    "boss_state": "Boss State",
+    "selected_material": "Selected Material",
+    "mastery": "Mastery",
+    "factory": "Factory",
+    "cake_mobs": "Cake Mobs",
+    "cake_prince": "Cake Prince",
+    "dough_king": "Dough King",
+    "elite": "Elite",
+    "elite_progress": "Elite Progress",
+    "tyrant": "Tyrant",
+    "boss_spawned": "Spawned",
+    "boss_spawned_hp": "Spawned · {hp}% HP",
+    "boss_not_spawned": "Not spawned",
+    "ectoplasm": "เอ็กโทพลาสซึม",
+    "bones": "กระดูก"
+  },
+  "raid_chip_reason": {
+    "raid_active": "Waiting for current Raid to end",
+    "raid_lifecycle_active": "Waiting for Raid cleanup",
+    "raid_start_pending": "Chip used · waiting for Raid start",
+    "finalizing_native": "Waiting for server reward/return finalization",
+    "level_required": "Level 1100+ required",
+    "insufficient_beli": "Not enough 100,000 Beli",
+    "beli_state_unavailable": "Beli state unavailable",
+    "insufficient_fragments": "Not enough 1,000 Fragments",
+    "fragment_state_unavailable": "Fragment state unavailable",
+    "beli_transport_ambiguous": "Beli transaction unconfirmed",
+    "fragment_transport_ambiguous": "Fragment transaction unconfirmed",
+    "purchase_pending_confirmation": "Transaction sent · waiting for chip confirmation",
+    "purchase_effect_observed_waiting_chip": "Balance changed · waiting for chip confirmation",
+    "raid_not_selected": "Raid not selected",
+    "raid_kind_unknown": "Raid type could not be verified",
+    "mode_mismatch": "Raid Mode does not match selected Raid",
+    "mode_changed": "Raid Mode changed",
+    "policy_changed": "Purchase policy changed during transaction",
+    "cancelled": "Cancelled",
+    "unknown": "Unknown Raid Chip state"
+  },
+  "purchase": {
+    "busy": "กำลังประมวลผลการซื้อ Sea 1 รายการอื่นอยู่",
+    "already_owned": "มีอยู่แล้ว",
+    "beli_unavailable": "ไม่สามารถอ่านสถานะ Beli ได้",
+    "need_beli": "ต้องใช้ {amount} Beli",
+    "requires_level": "ต้องมี Level {level}+.",
+    "requires_stat": "{item} ต้องมีแต้ม {stat} อย่างน้อย {amount}.",
+    "requires_item": "{item} ต้องมี {required}.",
+    "requires_abilities": "{item} ต้องมี Aura, Air Jump และ Flash Step.",
+    "runtime_failed": "ซื้อไม่สำเร็จ: {reason}"
+  },
+  "section_layout": {
+    "player_overview": "ภาพรวมผู้เล่น",
+    "auto_farm": "ฟาร์มอัตโนมัติ",
+    "collection": "การเก็บรวบรวม",
+    "special_farm": "ฟาร์มพิเศษ",
+    "boss_elite": "บอสและอีลิท",
+    "mastery": "มาสเตอรี่",
+    "abilities_skills": "ความสามารถและสกิล",
+    "accessories": "เครื่องประดับ",
+    "fragments_race": "แฟรกเมนต์และเผ่า",
+    "ownership_status": "สถานะการครอบครอง",
+    "quick_setup": "ตั้งค่าด่วน",
+    "current_target": "เป้าหมายปัจจุบัน"
+  },
+  "option_labels": {
+    "weapon": {
+      "melee": "ระยะประชิด",
+      "sword": "ดาบ",
+      "blox_fruit": "Blox Fruit",
+      "gun": "ปืน"
+    },
+    "fishing_rod": {
+      "basic": "คันเบ็ด",
+      "gold": "คันเบ็ดทอง",
+      "shark": "คันเบ็ดฉลาม",
+      "shell": "คันเบ็ดเปลือกหอย",
+      "treasure": "คันเบ็ดสมบัติ"
+    },
+    "raid_mode": {
+      "basic": "พื้นฐาน",
+      "advanced": "ขั้นสูง"
+    },
+    "time": {
+      "morning": "เช้า",
+      "evening": "เย็น"
+    },
+    "boat": {
+      "guardian": "Guardian",
+      "pirategrandbrigade": "PirateGrandBrigade",
+      "marinegrandbrigade": "MarineGrandBrigade",
+      "piratebrigade": "PirateBrigade",
+      "marinebrigade": "MarineBrigade",
+      "piratesloop": "PirateSloop",
+      "marinesloop": "MarineSloop",
+      "beast_hunter": "Beast Hunter"
+    },
+    "sea_zone": {
+      "lv_1": "ระดับ 1",
+      "lv_2": "ระดับ 2",
+      "lv_3": "ระดับ 3",
+      "lv_4": "ระดับ 4",
+      "lv_5": "ระดับ 5",
+      "lv_6": "ระดับ 6",
+      "lv_infinite": "ระดับอนันต์"
+    },
+    "haki_state": {
+      "state_0": "สถานะ 0",
+      "state_1": "สถานะ 1",
+      "state_2": "สถานะ 2",
+      "state_3": "สถานะ 3",
+      "state_4": "สถานะ 4",
+      "state_5": "สถานะ 5"
+    }
+  },
+  "server": {
+    "job_id_placeholder": "กรอก Job ID…"
+  },
+  "presentation": {
+    "sections": {
+      "farm_level": "ฟาร์มเลเวล",
+      "farm_island": "ฟาร์มตามเกาะ",
+      "farm_collection": "เก็บของ",
+      "farm_materials": "วัตถุดิบ",
+      "farm_boss": "บอสและ Elite",
+      "farm_special": "ฟาร์มพิเศษ",
+      "farm_mastery": "Mastery",
+      "farm_target": "เป้าหมายปัจจุบัน",
+      "combat_weapon": "ตั้งค่าอาวุธ",
+      "combat_attack": "โจมตี",
+      "combat_targeting": "เป้าหมายและตำแหน่ง",
+      "combat_abilities": "สกิลและ Haki",
+      "raids_setup": "ตั้งค่าเรด",
+      "raids_normal": "เรดปกติ",
+      "raids_unlocks": "ปลดล็อกเรด",
+      "raids_law": "Law Raid",
+      "progress_first_sea": "ความคืบหน้า Sea 1",
+      "progress_swords": "ความคืบหน้าดาบ",
+      "progress_styles": "ความคืบหน้าสไตล์ต่อสู้",
+      "progress_haki": "Haki และ Observation",
+      "progress_stats": "ค่าสเตตัส",
+      "race_v3": "Progression เผ่า",
+      "race_v4": "Race V4 และ Trial",
+      "race_draco": "Draco และ Dojo",
+      "items_fruits": "จัดการผลไม้",
+      "items_styles": "สไตล์ต่อสู้",
+      "items_ownership": "สถานะการครอบครอง",
+      "shop_abilities": "สกิล",
+      "shop_weapons": "อาวุธ",
+      "shop_accessories": "เครื่องประดับและคราฟต์",
+      "shop_fragments": "Fragment และ Race Shop",
+      "events_fishing": "ตกปลา",
+      "events_world": "อีเวนต์โลก",
+      "events_entities": "ศัตรูทะเล",
+      "events_mirage": "Mirage และดวงจันทร์",
+      "events_sailing": "ตั้งค่าเรือ",
+      "events_kitsune": "Kitsune Event",
+      "events_prehistoric": "Prehistoric Event",
+      "travel_worlds": "เดินทางระหว่าง Sea",
+      "travel_islands": "เดินทางเกาะ",
+      "travel_npc": "เดินทาง NPC",
+      "travel_movement": "Movement และ Routing",
+      "travel_player": "เดินทางผู้เล่น",
+      "travel_servers": "เซิร์ฟเวอร์",
+      "system_overview": "ภาพรวม",
+      "system_interface": "อินเทอร์เฟซ",
+      "system_visuals": "ภาพและประสิทธิภาพ",
+      "system_esp": "ESP",
+      "system_session": "สถานะเซสชัน",
+      "system_team": "ทีม",
+      "system_runtime": "ตั้งค่า runtime",
+      "system_safety": "ความปลอดภัย runtime",
+      "system_game_ui": "อินเทอร์เฟซเกม",
+      "system_utilities": "ยูทิลิตี",
+      "system_release": "ชุมชนและรีลีส",
+      "main_overview": "ภาพรวม",
+      "main_server": "เซสชันปัจจุบัน",
+      "main_updates": "อัปเดต",
+      "main_active": "ฟีเจอร์ที่กำลังทำงาน",
+      "items_fruit_shop": "Fruit Shop"
+    }
+  },
+  "fruit": {
+    "shop": {
+      "stock": "Fruit ที่กำลังขาย",
+      "none": "runtime ยังไม่ยืนยันว่ามี Fruit ใดกำลังขาย",
+      "on_sale": "กำลังขาย",
+      "unavailable": "ไม่สามารถอ่านสต็อก Fruit Shop จาก runtime ได้"
+    },
+    "inventory": {
+      "title": "Fruit ในคลัง",
+      "empty": "runtime ยังไม่ยืนยัน Fruit ในคลัง"
+    },
+    "mirage": {
+      "stock": "สต็อก Mirage / Advanced Fruit Dealer",
+      "none": "runtime ไม่รายงาน Fruit ใน Mirage Stock",
+      "on_sale": "กำลังขาย",
+      "unavailable": "Mirage Stock ไม่พร้อมใช้งานจาก runtime"
+    }
+  }
+}

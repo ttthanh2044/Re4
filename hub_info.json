@@ -1,0 +1,925 @@
+{
+  "schema": 1,
+  "hub_version": "$current",
+  "updated_at": "$updated_at",
+  "discord": {
+    "enabled": false,
+    "invite": "",
+    "label": "$community_label",
+    "status": "Official Discord"
+  },
+  "announcement": {
+    "enabled": true,
+    "title": "$display_version",
+    "content": "Re4Hub 2.3.15 Final expands verified Update 30 coverage with unified Race V2/V3 progression, End-to-End Ghoul/Cyborg acquisition, Draco V2/V3 progression integration, live Mirage/Advanced Fruit Dealer stock, and stricter shared lifecycle/Movement ownership."
+  },
+  "changelog": [
+    {
+      "version": "2.3.15",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.15 Final",
+      "changes": [
+        "Adds a single owner-aware RaceProgressionService for standard Race V2/V3. Server Alchemist/Wenlocktoad state is authoritative, partial progress resumes safely, and Human/Rabbit/Shark/Angel/Ghoul/Cyborg V3 tasks reuse shared BossTracker, ChestFarm, Sea Event, PvP, Movement and cleanup services.",
+        "Adds End-to-End Ghoul acquisition using verified Ectoplasm/Hellfire Torch/Experimic BuyCheck+Change contracts, with live material/tool/race confirmation and no synthetic completion state.",
+        "Adds End-to-End Cyborg acquisition around live CyborgTrainer Check/Buy, Secret Laboratory world state, Fist of Darkness, Order/Core Brain and shared Law/normal-Raid leases. Rare-item insertion advances only from observable tool/world/server evidence.",
+        "Moves Draco V2/V3 into the same progression ownership model using the existing Dragon Wizard runtime contract, Fire Flower runtime objects and Terror Shark dependency leases; retired legacy Draco V2/V3 workers can no longer compete with the new state machine.",
+        "Adds independent Mirage/Advanced Fruit Dealer stock from the verified GetFruits(true) runtime query. Normal and Mirage stock have separate cache/error state and UI refresh paths; Mirage never silently falls back to the normal dealer list.",
+        "Retires four duplicated race-specific V3 toggle paths in favor of Auto Race V2/Auto Race V3 and migrates persisted V3 intent once. Shop Ghoul/Cyborg actions now start the progression controls instead of sending legacy one-shot remotes.",
+        "Keeps all legacy movement call sites behind the shared MovementCoordinator/TravelResolver wrapper; no direct HumanoidRootPart CFrame movement path is introduced. New Race/Mirage flows use token:Move and shared Bypass/Fast Travel/Noclip lifecycle.",
+        "Bumps the runtime cache namespace/schema for a clean 2.3.15 session and preserves unverified Update 30 mechanics as non-automation data only rather than exposing placeholder or guessed workers."
+      ]
+    },
+    {
+      "version": "2.3.14",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.14 Final",
+      "changes": [
+        "Adds passive RuntimeGameCapabilities keyed by the live PlaceId/build, with BuildInfo/PlaceVersion, level-cap and module/runtime capability discovery. Runtime quest cache now invalidates when the live build key changes.",
+        "Updates the current static Sea 3 level-cap fallback to 2800 and aligns Update 30 quest compatibility: GuideModule Data.NPCs quest-to-NPC mapping with legacy NPCList support, Ruthless Prisoner/ImpelQuest fallback, DragonCrewQuest fallback, and Wysper as a Sky Warlord runtime alias.",
+        "Hardens Bypass TP by preserving the existing runtime PlayerSpawns + post-respawn cluster/region verification, while recording SetLastSpawnPoint acknowledgement/replication evidence and refusing an explicit server false before destructive respawn.",
+        "Hardens Fast Travel without changing portal coordinates: requestEntrance return/error evidence and observed relocation/gain are recorded per live build; an explicit false is rejected while actual arrival remains authoritative.",
+        "Adds persistent first-seen enemy origins and an origin leash to the shared BringService using the existing configured follower envelope. Illegal cross-area pulls are released/restored and exposed through audit metrics instead of creating a separate Magnet loop.",
+        "Extends runtime.audit with game capabilities, runtime quest provider state, per-build transport evidence and Bring leash rejection metrics. Electric Update 30 and Magnet event automation remain intentionally unguessed where no reliable public runtime contract was found."
+      ]
+    },
+    {
+      "version": "2.3.13",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.13 Final",
+      "changes": [
+        "Fixes repeated CoreAPI/control capability errors caused by synchronous Core subscriptions applying Roblox Instance state from scheduler/game threads that do not carry the executor presentation capability.",
+        "Introduces one UI-owned presentation dispatcher. Core control subscribers now enqueue only pure-Lua control ids; the dispatcher coalesces bursts and reads the latest Core state before mutating UI Instances.",
+        "Routes overlay and notification delivery through the same presentation boundary so future Core-originated UI events cannot directly touch presentation Instances from restricted threads.",
+        "Removes the unprotected control.Row.Visible read in _applyCoreState and adds dispatcher shutdown/cancellation cleanup. No Movement, Bypass TP, Fast Travel, Combat, Raid, progression, remote mapping or gameplay data behavior was changed."
+      ]
+    },
+    {
+      "version": "2.3.12",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.12 Final",
+      "changes": [
+        "Fixes BOOT/world failure at FruitService:InventoryItems where GetInventoryFruitsSnapshot was local to Core, exported correctly, but never injected into RE4InitWorld before the initial Fruit Shop UI refresh.",
+        "Promotes RE4CurrentInventoryFruitEntries to an explicit Core runtime contract instead of relying on an accidental cross-domain global; World now imports both Fruit inventory providers through RE4RuntimeContext.Core.",
+        "Adds an explicit world-domain contract assertion so future Core/World wiring regressions report the missing Fruit inventory provider directly rather than failing later with attempt to call a nil value.",
+        "No Movement, Bypass TP, Fast Travel, Combat, progression, Raid, Fruit transaction behavior, data coordinates or remote mappings were changed by this hotfix."
+      ]
+    },
+    {
+      "version": "2.3.11",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.11 Final",
+      "changes": [
+        "Adds Tween to Fruit through FeatureRuntime and the shared MovementCoordinator/TravelResolver. Spawned Fruit is treated as an ephemeral respawn-unsafe target, so Fast Travel remains eligible while respawn-based Bypass TP is safety-gated instead of duplicated or hardcoded.",
+        "Adds a runtime Fruit Shop view sourced from GetFruits, including current on-sale state, dynamic selectors, selected Fruit purchase via PurchaseRawFruit, permanent Fruit switch via SwitchFruit, and runtime confirmation before success is reported.",
+        "Extends InventoryCache with ItemReplicationService/Economy.ItemId as a validated secondary provider while preserving getInventory/getInventoryWeapons as higher-priority evidence.",
+        "Adds a runtime ReplicatedStorage.Quests provider with GuideModule NPC positions and safe static fallback; boss/special count-1 missions remain excluded rather than guessed.",
+        "Preserves Update 30 Electric prerequisite metadata in the fighting-style registry and fail-closes the generic purchase path when Lightning Bolt prerequisite evidence is missing instead of pretending the old dealer flow is complete.",
+        "Completes targeted Dragonstorm Overheat gun firing through the existing validator/RemoteService path.",
+        "Reduces Kitsune shrine/Azure Ember remote polling from 100 ms to 1.5 s while preserving existing feature semantics; no destructive FPS optimizer or foreign movement/combat worker was imported."
+      ]
+    },
+    {
+      "version": "2.3.10",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.10 Final",
+      "changes": [
+        "Fixes the shared Movement state leak where WorldFastResolvedRevision was written but never enforced and Fast Travel attempted/failed candidates survived a major origin change, causing later route evaluations in the same runtime flow to skip Bypass TP/Fast Travel until a feature restart.",
+        "Scopes Bypass and Fast Travel attempt/failure state to StrategicOriginRevision and re-arms the shared evaluator after every verified strategic relocation, external relocation and intermediate gateway relocation while preserving the request transport-hop safety limit.",
+        "Removes the native-destination exclusive routing branch and the local-distance early route bypass; every ordinary World Movement Request now evaluates safe Bypass, compatible Fast Travel and direct Tween through one shared route-cost decision without feature or island hardcodes.",
+        "Fast Travel route cost now prefers EstimatedArrival/ArrivalPosition geometry and uses ProtocolPosition only as a fallback, restoring correct separation between requestEntrance protocol tokens and actual arrival geometry for Skylands and the rest of the portal registry.",
+        "Bypass TP now changes only the server LastSpawnPoint before one intentional respawn, removes the pre-respawn SetSpawnPoint recommit, local PivotTo spoof and Character.LastSpawnPoint script mutation, then treats the verified live Character/root spawn cluster as authoritative before continuing the route.",
+        "Adds explicit Respawn versus FastTravel route-node classification so portal endpoints cannot be consumed as Bypass candidates by route type, and gateway approaches use the same post-transport re-evaluation chain as final World movement.",
+        "Movement request context changes that affect respawn/Fast Travel safety now invalidate the route revision, including DisableBypass, RespawnUnsafe, PreserveProgression, AllowRespawnTransport and DisableFastTravel.",
+        "No feature-specific Auto Farm/Skylands routing patch, new polling worker, retry loop, scheduler or Movement listener was added; existing coordinator, MovementSupport/Noclip owner lifecycle and cancellation cleanup remain intact."
+      ]
+    },
+    {
+      "version": "2.3.9",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.9 Final",
+      "changes": [
+        "Fixes chained Bypass TP routing where a first hop could land at an intermediate checkpoint such as Café and then commit to a full Tween toward Forgotten Island until the feature was toggled OFF/ON.",
+        "Runtime PlayerSpawns that are beneficial for the final destination but currently outside the guarded Bypass candidate range are retained as deferred candidates instead of being discarded.",
+        "The existing final Tween loop now yields back to the canonical RoutePlanner when a deferred spawn enters the valid Bypass range; no new polling worker, scheduler or retry loop is introduced.",
+        "Strategic re-evaluation preserves portal failure history and transport hop accounting while clearing only the origin-dependent Bypass decision state, allowing multiple Bypass hops in one FeatureRuntime session.",
+        "Deferred candidate state is cleared before each eligibility evaluation so protected-item changes or disabling Bypass cannot leave a stale recheck armed."
+      ]
+    },
+    {
+      "version": "2.3.8",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.8 Final",
+      "changes": [
+        "Bypass TP suppression and destructive-failure quarantine are now keyed to the live Character generation, runtime spawn cluster and origin bucket. A respawn, portal relocation or material movement automatically re-evaluates Bypass without requiring the feature to be toggled OFF/ON.",
+        "Runtime PlayerSpawns geometry is authoritative when the live Character is inside a spawn cluster; stale Data.LastSpawnPoint metadata is used only as a roaming fallback and can no longer pin routing to an old checkpoint.",
+        "Recoverable Bypass respawn mismatches suppress only the exact unchanged origin state. Multi-hop routing can re-enter Bypass after the live origin changes instead of remaining fallback-only for the whole feature session.",
+        "Auto Quest Sea 3 is migrated from ManagedLegacy to FeatureRuntime and follows server progression state through Bartilo, Trevor fruit unlock, Don Swan, ZQuestProgress/rip_indra and TravelZou.",
+        "Bartilo progression is centralized in one shared service for Auto Quest Sea 3 and the standalone Bartilo toggle, preventing duplicate movement/combat ownership when both intents are enabled.",
+        "Removes the broken Auto Sea 3 F_ CommF prefix, dead global Check loop, exact CFrame equality gates and blocking repeat loops; movement/combat now use canonical token ownership and shared boss/combat authorities.",
+        "Third Sea fruit handling uses the existing FruitService inventory/gacha authority and releases its store block on completion/OFF cleanup; no new background scheduler, listener, task.delay or polling worker is introduced."
+      ]
+    },
+    {
+      "version": "2.3.7",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.7 Final",
+      "changes": [
+        "Adds a canonical Fast Travel user toggle/state beside Bypass TP; changes invalidate the active Movement route so the new policy applies immediately without restarting a feature.",
+        "Native portal destinations are declared as topology capabilities rather than feature-specific branches. Mansion, Castle on the Sea, Tiki Outpost, Cursed Ship, Café, Sky/Underwater and other declared portal destinations cannot be pre-empted by Bypass.",
+        "When Fast Travel is ON, a far native portal destination uses its native portal then continues by short Tween if required; if Fast Travel is OFF, that native destination falls back to Tween and still does not use Bypass.",
+        "Ordinary destinations use Bypass first when enabled and safe, then beneficial Fast Travel, then Tween. Protected quest/key/tool state blocks destructive Bypass and falls through to Fast Travel when enabled.",
+        "Submerged exit invalidates the entire final strategic route state after resurfacing, forcing the original destination through the canonical Bypass/Fast Travel/Tween evaluator from the live World position.",
+        "Fast Travel remains a low-level mandatory transport capability for region protocols that have no safe Tween/Bypass substitute; the user toggle controls optional strategic Fast Travel selection.",
+        "No feature-specific movement worker, polling loop, listener, scheduler or retry/delay workaround was added."
+      ]
+    },
+    {
+      "version": "2.3.6",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.6 Final",
+      "changes": [
+        "Special-region gateway transport now resolves the gateway itself as the intermediate destination instead of inheriting the final Submerged/Temple semantic region.",
+        "Submerged entry uses the canonical Bypass-first route to Tiki/Submarine Worker, then verified requestEntrance fallback where beneficial, before local Tween.",
+        "Adds the observed Update 30+ Tiki requestEntrance capability at the Submarine Worker gateway; no feature-specific transport branch is introduced.",
+        "Recoverable Bypass/portal failures at special gateways re-enter the canonical route evaluator instead of terminating the feature request.",
+        "Submerged resurface crosses the region detector ceiling when required, then the next World request evaluates Bypass/Fast Travel again from the live position.",
+        "A stale Submerged LastSpawnPoint no longer blocks Bypass after the live character has returned to World.",
+        "Mansion no longer hard-disables Bypass; Mansion and Castle on the Sea now share the same Bypass-first/Fast-Travel-fallback policy."
+      ]
+    },
+    {
+      "version": "2.3.5",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.5 Final",
+      "changes": [
+        "Fixes the CoreAPI/Home dashboard nil-call caused by referencing the UI-local RE4PrettyId helper from main.lua.",
+        "Bypass post-respawn success is verified by the selected runtime spawn cluster/region; the pre-commit route-gain predicate is no longer incorrectly re-applied after respawn.",
+        "A healthy but unexpected post-respawn location is treated as a known recoverable state and falls through to Fast Travel/Tween for the same request instead of terminally blocking the route.",
+        "Bypass checkpoint resolution now prefers replicated LastSpawnPoint but falls back to current-team runtime PlayerSpawns geometry when replicated checkpoint state is absent/stale.",
+        "Adds the verified Sea 2 Café requestEntrance capability and aligns Sky topology metadata with Bypass-first routing.",
+        "Adds bounded event-driven Travel decision/result logs with no polling worker so runtime eligibility and portal failures are directly observable without log spam."
+      ]
+    },
+    {
+      "version": "2.3.4",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.4 Final",
+      "changes": [
+        "Movement now evaluates safe Bypass before optional Fast Travel on every strategic route revision; semantic destination changes invalidate stale transport plans.",
+        "MovementSupport/Noclip lease lifetime follows the feature owner instead of tween completion or wait/idle phase names.",
+        "Normal Raid lifecycle can bridge the verified Auto Start chip-consumption handoff and keeps WasInRaid authoritative until RaidSession acquisition.",
+        "FastAttack consumes the CombatPulse owner canonical Bring group and validates range against the HumanoidRootPart owned by Bring while preserving one RegisterHit multi-target packet.",
+        "Chest farming uses shared geometry-aware touch arrival and abandons stale/no-progress targets instead of waiting indefinitely.",
+        "Main exposes canonical active-feature rows whose Turn Off action calls Core:SetFeatureEnabled; active tab survives same-runtime presentation refresh.",
+        "Release identity/cache namespace is centralized under config.lua App/Source and synchronized into generated artifacts.",
+        "Ken V2 progression now keeps its movement loop alive while intent is ON, uses canonical inventory lookup, and uses distance-based arrival instead of exact CFrame equality.",
+        "Observation Farm, Dragon Hunter, Soul Guitar and CDK Yama now each use one managed lifecycle owner; duplicate movement/combat workers and redundant enemy scans were removed.",
+        "Soul Guitar reuses one puzzle-progress query per cycle and shares its fixed Living Zombie anchor through CombatTargetLock/BringMob so FastAttack and Bring operate on the same canonical target set."
+      ]
+    },
+    {
+      "version": "2.3.3",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.3 Final",
+      "changes": [
+        "Unifies strategic World routing so verified FastTravel candidates compete by total route cost before guarded Bypass, with Tween as the final fallback.",
+        "Fixes stale Bypass decisions by keying each attempt to transport policy, origin, checkpoint and destination, and invalidates an active route as soon as the Bypass setting changes.",
+        "Consolidates four Mastery scheduler jobs into one active-mode dispatcher, pauses Farm Level through the existing level coordinator while Mastery owns combat/movement, and removes Mastery duplicate live-target cache authority.",
+        "Consolidates normal and Raid melee hit transport, uses real damage hit parts for RegisterHit payloads, caches the combat bridge source, and records group/eligible/sent target counts for runtime audit without increasing remote spam.",
+        "Keeps existing verified portal protocol data and adds no speculative Update 30 requestEntrance coordinates or island-specific transport hardcodes."
+      ]
+    },
+    {
+      "version": "2.3.2",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.2 Final",
+      "changes": [
+        "Adds Main as the first/default presentation tab and stabilizes section assignment so feature/ownership refreshes no longer rebalance columns or switch user context.",
+        "Adds a durable Core-owned user intent/config store with deterministic startup reconciliation and a Settings reset-to-defaults action; runtime-only state is never persisted.",
+        "Centralizes Sea availability in data/Core descriptors, fixes FeatureSeaRules ownership propagation, adds current Update 30 sea metadata, and keeps UI filtering data-driven.",
+        "Adds configurable Farm Nearest maximum distance with same-island eligibility, strengthens immediate OFF lifecycle cleanup, and reduces Fighting Style progression rows to cost plus a short blocked state when needed."
+      ]
+    },
+    {
+      "version": "2.3.1",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.1 Final",
+      "changes": [
+        "Refined the 2.3.0 UI with larger text, taller controls, wider spacing, and more readable status/value hierarchy while preserving the compact overall footprint.",
+        "Rebalanced the shell toward a 3:7 sidebar/content feel, removed icon diagnostics and other user-invisible technical details from the UI, and kept only the active primary icon presentation.",
+        "Applied a lighter red/white tactical cyber pass with measured transparency, cleaner borders, greener positive states, and responsive control sizing for PC and mobile."
+      ]
+    },
+    {
+      "version": "2.3.0",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.3.0 Final",
+      "changes": [
+        "Resolves all 37 blocking TypeError entries from the supplied analyzer report, including nil request-provider indexing, optional-number arithmetic, FeatureRuntime CombatPhase state, Core PresentationTab state, BossTracker Humanoid/Root shape, debug.info overload dispatch, and Raid Basic/Advanced mode comparison.",
+        "Introduces RE4RequireNumber as the single fail-fast numeric configuration boundary so missing/invalid runtime config no longer flows as number? into math/timing APIs or fails later with ambiguous arithmetic errors.",
+        "Fixes correctness-significant analyzer warnings instead of suppressing them: Watchdog LastError, Movement handoff suppression, Home/Farm optional ValueKey state, remote failure returns, Noclip false assignment, Gacha failure reason, clipboard multi-return handling, and a duplicate material-farm condition.",
+        "Keeps the 2.2.10 red/white compact near-16:9 UI and icon architecture unchanged, bumps release/data/UI/language identities to 2.3.0, and uses a fresh cache namespace."
+      ]
+    },
+    {
+      "version": "2.2.10",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.10 Final",
+      "changes": [
+        "Completes icon validation End-to-End: active individual icon sources now reconcile ContentProvider fetch/callback status with ImageLabel IsLoaded/ContentImageSize render evidence before deciding ready/fallback/failed.",
+        "Moves the legacy atlas probe to a one-shot post-mount diagnostic after the active icon source reaches a terminal state, and logs providerFetch, preloadCallback, preloadOk, contentSize, renderPath, activeSource and activeState separately.",
+        "Fixes semantic status colors so waiting/pending remains amber while blocked/failed/error is red; success/ready remains green and neutral states stay gray.",
+        "Synchronizes all four language metadata revisions, release/data/UI/language identities and the fresh 2.2.10 cache namespace.",
+        "Keeps the compact near-16:9 footprint while retaining the larger 2.2.9 typography/control spacing, subtle transparency, red/white tactical palette and centralized borders/strokes."
+      ]
+    },
+    {
+      "version": "2.2.9",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.9 Final",
+      "changes": [
+        "Separates active icon-source health from legacy atlas diagnostics so fetch failure on 126253815695177 no longer appears as a false-negative for the icons currently rendering.",
+        "Adds a dedicated legacy diagnostic status, post-mount probe details (fetch, IsLoaded/ContentImageSize signal, active source, render path), and lifecycle-safe listener updates.",
+        "Improves compact readability with larger typography, taller controls, better spacing, subtle transparency, and a red/white tactical presentation pass while keeping the near-16:9 footprint and gameplay runtime unchanged."
+      ]
+    },
+    {
+      "version": "2.2.8",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.8 Final",
+      "changes": [
+        "Fixes the 2.2.7 presentation attach crash caused by a case-sensitive local-variable mismatch: Attach created Window but registered the icon-status cleanup callback against nil window.",
+        "Adds Window:_registerCleanup() as the single cleanup-registration path for presentation-owned callbacks and routes the IconService listener through it, preserving cleanup on destroy, re-execute and restart.",
+        "Retains the legacy atlas as diagnostics-only: runtime confirmed asset 126253815695177 is AssetType Image but ContentProvider fetch still fails; UI rendering continues on the successfully preloaded centralized individual-icon source.",
+        "Keeps the 2.2.7 compact near-16:9 shell, responsive two-column layout and gameplay Core unchanged while synchronizing release, data, UI, language and cache identities to 2.2.8."
+      ]
+    },
+    {
+      "version": "2.2.7",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.7 Final",
+      "changes": [
+        "Rebuilds the shell proportions around a near-16:9 desktop workspace with bounded viewport sizing for 1920×1080, 1600×900 and 1366×768-class displays instead of independently stretching width and height.",
+        "Refines the navigation rail, page hierarchy, section grouping, typography, spacing, radius tokens, flat control rows and two-column balancing so dense feature pages remain compact without shrinking interactive controls below usable sizes.",
+        "Removes atlas 126253815695177 from the rendering path after runtime ContentProvider reported AssetFetchStatus.Failure; the legacy asset remains diagnostics-only with MarketplaceService asset-type/product metadata and fetch-state logging.",
+        "Uses a centralized semantic individual-icon library with a separately sourced fallback set, runtime preload/fetch validation, automatic source switching and live UI status instead of per-control hardcoded image rects.",
+        "Preserves the public Core/UI binding contract, InvokeInitialCallback=false startup behavior and gameplay workers; no Farm, Combat, Raid, Movement, Remote or Scheduler behavior is intentionally changed."
+      ]
+    },
+    {
+      "version": "2.2.6",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.6 Final",
+      "changes": [
+        "Fixes the 2.2.5 bootstrap failure where Config.Source.Artifacts.Data expected game-data-2.2.5-final-20260908.1 while data.lua still declared game-data-2.2.4-final-20260908.4.",
+        "Synchronizes the 2.2.6 config, data, UI, language and cache identities and validates the exact Data.Schema/Data.Revision contract before Core startup continues.",
+        "Makes FeatureMetadata.Revision derive from the canonical data artifact revision and makes Release.UIStamp derive from Source.Artifacts.UI, removing two duplicated release-stamp authorities.",
+        "Improves bootstrap mismatch diagnostics to print expected and actual data schema/revision plus the resolved artifact URL, so stale or partially deployed source files can be distinguished from runtime failures.",
+        "Preserves the 2.2.5 full UI rebuild and gameplay runtime behavior; no Farm, Combat, Raid, Movement, Remote, Scheduler or feature worker logic is changed."
+      ]
+    },
+    {
+      "version": "2.2.5",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.5 Final",
+      "changes": [
+        "Rebuilds the UI presentation shell from scratch around ten semantic domains: Farm, Combat, Raids, Progress, Race, Items, Shop, Events, Travel and System.",
+        "Replaces the previous six-tab routing stack with one PresentationSchema that owns domain/group/control routing, section identity, ordering and two-column placement.",
+        "Introduces compact left-rail navigation, responsive two-column pages with single-column fallback, new navy/slate/soft-blue design tokens, BuilderSans typography and fully rebuilt controls.",
+        "Keeps the existing production Logo/Header branding while moving the floating GUI toggle to the lower-left and keeping it independent from shell visibility.",
+        "Adds centralized atlas metadata validation and bounded ContentProvider preload/fetch-status diagnostics for asset 126253815695177; components no longer own ImageRect metadata.",
+        "Removes the UI RenderStepped telemetry/drag loop and uses event-driven input, viewport and state updates instead.",
+        "Preserves Core descriptor binding with InvokeInitialCallback=false, persisted option intent, runtime-to-UI state synchronization, ownership refresh behavior and transactional presentation attach.",
+        "Adds a multi-tab presentation activity bridge so legacy status providers continue refreshing when one old runtime domain is split across new UI domains.",
+        "Bumps all release/config/data/UI/language/cache metadata to 2.2.5 and ships a clean synchronized package."
+      ]
+    },
+    {
+      "version": "2.2.4",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.4 Final",
+      "changes": [
+        "Redesigns the shell around six canonical destinations: Farm, Raid, Items, Progress, World and More; legacy Home/Teleport/Combat/Settings references resolve to those destinations without changing gameplay callbacks.",
+        "Replaces scattered UI icon assets with one centralized ImageRect atlas using Roblox image asset 126253815695177; only the existing production Logo/Header branding assets remain outside the atlas.",
+        "Adds consistent atlas icons to desktop/mobile navigation, search, window actions and section headers, with active/inactive recoloring from the shared theme instead of duplicate image assets.",
+        "Adds a Farm Quick Setup visual section for the existing canonical Weapon, Bring Mob, Bypass TP and Walk Speed controls; no duplicate control state or gameplay callback is introduced.",
+        "Refreshes responsive sizing, header search presentation, card borders/spacing and deterministic section routing while preserving callback/runtime ownership.",
+        "Coalesces navigation/language refresh work, defers the language manifest until after first paint, self-heals a corrupt disk-cached ui.lua with one bounded refetch, fixes Favorites persistence for in-place table updates, and cancels pending presentation tasks during teardown.",
+        "Removes the verified-unreferenced legacy UI routing/metadata adapter and stale presentation-only helpers after whole-release consumer tracing; no gameplay registry, callback, movement, combat, remote, scheduler or feature runtime code is removed.",
+        "Ships a fresh 2.2.4 release/config/data/UI/language cache namespace and final synchronized source package."
+      ]
+    },
+    {
+      "version": "2.2.3",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.3 Final",
+      "changes": [
+        "Fixes Home dashboard Data fallback lookup: each candidate name is now resolved one-at-a-time, preventing a second fallback string from being passed to FindFirstChild as the recursive boolean argument.",
+        "Hardens Moon phase telemetry by resolving the expected Sky name from Data per Sea, falling back to any Sky instance, and reporting a waiting state when Sky telemetry is unavailable instead of throwing repeated scheduler errors.",
+        "Keeps player movement passive on Hub startup: WalkSpeed/JumpPower are not written or enforced until an explicit user slider action; active overrides remain session-owned and cleanly rebind/restore across respawn and shutdown.",
+        "Ships fresh 2.2.3 config, data, UI, language and cache revisions after rerunning startup, lifecycle, Remote/API, localization and runtime regression gates."
+      ]
+    },
+    {
+      "version": "2.2.2",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.2 Final",
+      "changes": [
+        "Fixes UI startup navigation by using the stable GroupKey when legacy Group metadata is absent, preventing nil table-index failures while creating tabs.",
+        "Makes presentation attach transactional: the presentation module owns partial and completed Windows before Attach begins, and attach failure immediately invalidates localization generations, destroys partial UI, and detaches Core presentation state.",
+        "Adds generation-aware cancellation to language manifest/language loads so delayed or in-flight localization work cannot commit or fetch through a Core HTTP service after shutdown/re-execute.",
+        "Preserves native WalkSpeed and JumpPower on Hub startup. Movement property listeners are created only after an explicit user slider change, then rebind across respawn and restore the captured game-owned baseline on shutdown.",
+        "Retains the 2.2.1 bootstrap fixes for shutdown traceback lexical ownership and explicit cross-domain RE4DeferSession imports, with fresh 2.2.2 source, UI, data, language, and cache revisions."
+      ]
+    },
+    {
+      "version": "2.2.1",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.1 Final",
+      "changes": [
+        "Fixes ShutdownRegistry error handling by defining the traceback handler before any shutdown callback can execute, including early bootstrap failure paths.",
+        "Exports/imports Core-local runtime services and helpers explicitly through RE4RuntimeContext.Core so Automation, Progression, World, and Combat no longer depend on executor-specific shared-global behavior.",
+        "Fixes Mastery capability refresh and Combat CharacterAdded deferred work by using the explicit session-aware RE4DeferSession import; progression deferred-control and movement helper consumers are wired the same way.",
+        "Stops applying or enforcing WalkSpeed/JumpPower during Hub bootstrap. Native game movement remains authoritative until the user explicitly changes a movement slider.",
+        "Makes custom movement overrides session-owned: respawn rebinds an active explicit override, while shutdown/re-execute disconnects property listeners and restores the captured Humanoid baseline.",
+        "Moves the remaining Fighting Style dealer tween timeout bounds/extra into Config and ships with a fresh 2.2.1 artifact/cache namespace."
+      ]
+    },
+    {
+      "version": "2.2.0",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.2.0 Final",
+      "changes": [
+        "Finalizes the modular release boundary: main.lua owns runtime/core logic, ui.lua owns presentation, data.lua owns passive game registries, config.lua owns runtime tuning/release identity, and language files own user-facing localization.",
+        "Adds deterministic Core startup reconciliation after registry finalization: options/config consumers reconcile first, startup services start in declared order, persisted toggle intent reconciles next, presentation attaches only afterward, and Scheduler resumes only during final activation.",
+        "Separates configured intent from actual runtime state, binds controls to managed runtime owners, keeps startup rollback from erasing persisted intent, and prevents UI rebuild from starting or restarting feature workers.",
+        "Strengthens lifecycle and re-execute cleanup with generation/session guards for deferred work, idempotent FeatureRuntime/Scheduler/Movement/Travel shutdown, reverse-dependency shutdown priorities, cooperative worker cancellation, and duplicate owner/control registration fail-fast guards.",
+        "Centralizes fixed game positions and registries in data.lua, configurable thresholds/delays/movement profiles in config.lua, Remote access behind RemoteService, and presentation strings through the localization registry with exact language schema parity.",
+        "Removes superseded legacy release artifacts after consumer tracing; the release package uses a fresh 2.2.0 artifact/cache namespace so no prior revision cache is reused."
+      ]
+    },
+    {
+      "version": "2.1.18",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.18",
+      "changes": [
+        "Normal Raid lifecycle is now authoritative only for RaidTimer plus native Island 1-5 markers/an acquired normal session, preventing Law sessions from contaminating normal WasInRaid/Finalizing/KillAura/Hover state.",
+        "Law and normal Auto Start now reconcile each summon against the exact chip Tool instance: an unchanged chip proves the summon was not consumed and clears only transient start state for a fresh request; consumed-without-session remains fail-closed.",
+        "Raid Kill Aura no longer clears Raid mobs through client-only Humanoid.Health/BreakJoints. Raid-scoped hits reuse the existing RegisterAttack/RegisterHit combat contract without Combat Movement, preserving server kill credit required by native reward/completion.",
+        "Basic Raid default is now Ice from shared Runtime.Raid config; an already-valid user selection remains preserved, and Advanced/Law selection is unchanged.",
+        "Auto Get Law Sword/Koko is now a consumer of the existing Law controller: it requests Buy/Start/Combat until Law Sword ownership is confirmed, then disables only its own orchestration and cleans its transient state without overriding independently enabled Law toggles.",
+        "Final cleanup audit binds normal Raid authority to nearby native Island markers before session acquisition, gates Raid hover/Kill Aura on the live raid.auto_clear worker, clears successful normal start transactions on confirmed session entry, and reconciles Law/normal start timeouts against the exact requested chip instance."
+      ]
+    },
+    {
+      "version": "2.1.17",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.17",
+      "changes": [
+        "Verified Raid hover root cause: altitude support was derived from token:Move HoldPosition requests, while Raid combat-phase transitions are allowed to release those holds. Raid now contributes one lifecycle hover lease to the existing MovementSupport/BodyClip path while the native Raid is active; no second CFrame writer or hover task is added.",
+        "Finalization releases every positional Raid Movement/CFrame owner but keeps the existing anti-fall BodyClip and Raid Kill Aura only while InRaid() remains true. Once the native Raid state ends, hover/Kill Aura release, leaving reward/return teleport unobstructed.",
+        "Verified native-finalize ownership race: raid.auto_clear previously released all session ownership every 80 ms after the Raid timer disappeared while raid.lifecycle reacquired the finalize guard every 100 ms. The worker now preserves that non-positional guard until reward/native-return evidence or lifecycle timeout, preventing other Hub features from reclaiming the player during the native completion window.",
+        "Verified Law policy bug: AutoRaid was treated as implicit permission for both chip purchase and Raid start. Auto Buy now exclusively owns new Microchip purchases, Auto Start exclusively owns summon requests, and Auto Raid owns combat/completion only; turning a stage OFF clears its pending transient request state.",
+        "Law completion now records direct per-run Order.Humanoid.Died evidence with one scoped connection, while retaining BossTracker Defeated/LastOutcome as secondary evidence. The watcher is disconnected on completion, death, policy shutdown, model replacement and worker cleanup, so confirmed completion resets transient state and immediately re-enters the next eligible Law cycle without OFF/ON recovery."
+      ]
+    },
+    {
+      "version": "2.1.16",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.16",
+      "changes": [
+        "Verified root cause: KillAuraFull.raid remained leased through Raid, but RE4RaidKillAuraTryEnemy only observed mobs while RE4RaidRuntime:Step delegated actual damage to Attack.Kill; Attack.Kill always routes RE4MoveToTarget, so the player was pulled toward individual Raid mobs.",
+        "Raid Kill Aura now restores the known Raid-specific execution contract: newly indexed Raid mobs are observed, SimulationRadius is requested, then the live Raid mob is processed directly by the Kill Aura path. No new task, listener, scheduler or duplicate attack loop is added.",
+        "While Raid mobs are alive, RE4RaidRuntime keeps the player on the existing current-island hold and does not call Attack.Kill for per-mob combat Movement. CombatTargetLock/current target are cleared for this Kill-Aura-only phase.",
+        "Raid start/stop, island detection/transition, destination, reward/native completion, return/setpoint, Noclip, Movement core, FastAttack, Farm and all unrelated feature logic remain unchanged."
+      ]
+    },
+    {
+      "version": "2.1.15",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.15",
+      "changes": [
+        "Verified failure point: progress.bisento_v2 enters RE4BindBisentoUpgradeWatcher and fails at the initial RE4BisentoUpgradeMessageSeen() call before the watcher connection is registered.",
+        "Bisento upgrade-message parsing and PlayerGui scanning are now methods of the shared RE4OwnershipResolver used by both ResolveBisentoVariant and the progression watcher, removing the distant file-local helper dependency that resolved nil in the runtime callback.",
+        "The watcher remains token-owned through ConnectNamed, uses one DescendantAdded connection plus the existing single deferred property-settle check, and retains bounded post-kill verification. No scheduler, polling loop, arbitrary delay or feature-specific movement/combat change was added.",
+        "Greybeard target acquisition, >=10% encounter eligibility, Attack.Kill, Bisento V1 prerequisite behavior, Random Fruit, Tween 170, Noclip and all unrelated feature flows remain unchanged."
+      ]
+    },
+    {
+      "version": "2.1.14",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.14",
+      "changes": [
+        "Verified regression: 2.1.13 replaced the previously working Activated path with VirtualInputManager-only mouse input; runtime feedback confirms that input path does not activate SpinnerWindow CloseButton on the current client/executor.",
+        "Close X now resolves the exact enabled connection wrapper registered on CloseButton.Activated by ReactRoblox SingleEventManager and invokes that wrapper exactly once. It does not call SingleEventManager._listeners.Activated directly.",
+        "The wrapper path preserves ReactRoblox Enabled/Suspended event lifecycle. If connection introspection is unavailable, the known-working Activated signal is used only as a one-shot capability fallback; repeated firesignal behavior from 2.1.3 is not restored.",
+        "The 2.1.13 atomic Gacha presentation unblock, single inventory reconciliation, close-session guard, stale GUI reference cleanup, Purchase/Store flow, Tween 170, Noclip and FastAttack remain unchanged."
+      ]
+    },
+    {
+      "version": "2.1.13",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.13",
+      "changes": [
+        "Verified: 2.1.12 closes SpinnerWindow by resolving ReactRoblox SingleEventManager internals and calling _listeners.Activated directly. This bypasses the registered Roblox event wrapper and the real InputObject/clickCount event path.",
+        "Close X now uses exactly one native VirtualInputManager mouse press/release on the verified live CloseButton. No getconnections/getupvalues React traversal and no firesignal are used by the Random Fruit Close path.",
+        "Verified: SetGachaPresentationBlock previously reconciled store and drop independently, causing the inventory worker to stop/wake between the two block updates; CloseGachaSpinner then issued an additional WakeInventory. The gacha presentation block is now updated atomically and reconciles the inventory worker once.",
+        "Close session observability records session id, attempt count, state and completion reason only. GUI/button Instance references are cleared on completion so no stale SpinnerWindow references are retained.",
+        "Purchase, result detection, Close readiness checks, StoreFruit transport, Tween 170, Movement/Noclip, FastAttack and unrelated feature behavior remain unchanged."
+      ]
+    },
+    {
+      "version": "2.1.12",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.12",
+      "changes": [
+        "Root cause: CollisionController only set Character BasePart.CanCollide=false once and then relied on property-change callbacks. A same-physics-step Humanoid/game collision restore could therefore win before contact resolution, producing wall collisions even while Movement Noclip state was active.",
+        "CollisionController now maintains one RunService.Stepped enforcement connection only while at least one shared Noclip source is active. It tracks Character BaseParts event-driven, reapplies CanCollide=false before physics contact, and disconnects/restores original states on final release, respawn or shutdown.",
+        "TravelResolver MovementSupport is forward-declared locally before resolver methods are defined. _refreshMovementSupport no longer depends on executor-specific _ENV/getgenv global aliasing to wake/rebind shared Noclip.",
+        "Movement and manual Misc Noclip remain independent reference sources. Releasing one source cannot restore collision while another source is active; Character replacement rebuilds the tracked parts and physics-step lease on the new Character.",
+        "Shared Movement.TweenSpeed and RE4MovementTweenSpeed fallback are both 170. Fast Travel, Bypass TP and direct relocation behavior remain unchanged; their subsequent Tween continuation inherits the shared 170 speed."
+      ]
+    },
+    {
+      "version": "2.1.11",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.11",
+      "changes": [
+        "Root cause: the 2.1.7 targeted React path correctly resolved SingleEventManager._listeners.Activated but invoked listener() without the host instance. ReactRoblox dispatches host events as listener(instance, ...), so CloseButton was missing the first argument expected by the real handler contract.",
+        "Spinner Close now resolves the live CloseButton Activated listener and its owning SingleEventManager, waits while the manager is Suspended/Disabled, then invokes that one listener exactly once as listener(CloseButton).",
+        "If getconnections/getupvalues are unavailable, the known-working 2.1.3 Activated signal path is retained only as a one-shot fallback after result/control readiness. It is not repeated, so the old repeated firesignal loop is not restored.",
+        "Final native-input fallback uses game as the VirtualInputManager root target, matching the 2.1.3 working signature rather than the ineffective LayerCollector target used in 2.1.10.",
+        "Gacha purchase/result/store logic, Tween speed 150, Movement/Noclip lifecycle, FastAttack and unrelated features are unchanged."
+      ]
+    },
+    {
+      "version": "2.1.10",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.10",
+      "changes": [
+        "Shared Movement.TweenSpeed is 150 and RE4MovementTweenSpeed uses the same 150 fallback. RE4TweenRuntime remains the only player Tween constructor, so Farm, Teleport, Items/Progress, Fighting Style, Raid and post-Bypass/Fast-Travel continuation inherit one speed source while Noclip ownership is unchanged from 2.1.9.",
+        "Random Fruit now resolves the scanner-verified SpinnerWindow.AboveSpinner.Navigation.CloseButton first and keeps fallback discovery scoped to SpinnerWindow. The one close attempt is held until the live GuiButton is visible, Active, rendered, Interactable when supported, and the verified winner presentation is populated.",
+        "Spinner Close is one native mouse move/down/up sequence against the live LayerCollector, then the existing bounded lifecycle only observes SpinnerWindow closing. No GUI destroy/disable, firesignal, full-game scan, retained connection or repeated activation is added.",
+        "FastAttack keeps one RunService.Stepped connection and AttackCooldown 0.01. The normal Melee/Sword RegisterAttack/RegisterHit path no longer waits for Character.Busy animation state when not owned by a mastery flow; Stun, Sit, Equipment/Combat ownership, tool validity, target validity and mastery Fruit/Gun/Sword readiness remain hard gates.",
+        "FastAttack adds on-demand BusyBlocks/BusyBypasses counters to the existing metrics only; no profiler/log loop is introduced."
+      ]
+    },
+    {
+      "version": "2.1.9",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.9",
+      "changes": [
+        "Shared Movement ownership is no longer released merely because a combat phase label contains wait/idle/complete while that same owner still has an in-flight route. The running route now reaches terminal state or is replaced by the next same-owner request without a Noclip gap.",
+        "KeepTweenAlive no longer controls the Movement/Noclip lease. Noclip follows actual Movement ownership; explicit MovementLease=false remains the only opt-out at the coordinator layer.",
+        "Normal Character death now preserves valid active managed Movement requests/holds as waiting handoffs, keeps their owner lease through Character replacement, and redispatches once CharacterReady fires. Intentional Bypass/portal respawn continues using the existing live MovementSession rebind path.",
+        "Character-unavailable cleanup now removes orphan Movement leases together with orphan requests, preventing stale Noclip from remaining active after cancellation/death. Feature OFF/Stop still releases only its own owner; other active movement consumers remain unaffected.",
+        "MovementSupport remains derived from shared TravelResolver session plus MovementCoordinator owner leases; CollisionController keeps event-driven CanCollide guards and rebinds them to the new Character without adding a polling loop.",
+        "Shared Movement.TweenSpeed is 180 and the runtime fallback is also 180. Farm, Teleport, Items/Progress, Raid and post-transport final Tween consumers continue through the same RE4TweenRuntime source."
+      ]
+    },
+    {
+      "version": "2.1.8",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.8",
+      "changes": [
+        "Fighting Style dealer jobs now preserve their generation, owner and continuation coroutine across an intentional Bypass/portal Character handoff owned by that exact MovementSession; ordinary deaths still use the existing cancellation/recovery path.",
+        "Acquisition verification now separates exact live ownership from active Tool state. A matching Character/Backpack Tool is ownership evidence, then the exact style Tool is equipped and verified active before current melee success is declared.",
+        "Raid Kill Aura now selects a live current-island mob and drives the existing Attack.Kill -> CombatTargetLock -> CombatPulse -> FastAttack path. Raid-only client Humanoid.Health/BreakJoints mutation is no longer treated as damage; island transition/finalization logic is otherwise unchanged.",
+        "Shared Movement.TweenSpeed is 190 with the same shared runtime fallback, so all existing player Tween consumers use one source.",
+        "FastAttack retains Stepped, AttackCooldown, target, weapon, stun, ownership and remote readiness gates but removes the redundant extra 50 ms future debounce after max combo; no duplicate attack task or extra polling loop is added.",
+        "Random Fruit Close X keeps the proven Activated event but does not restore 2.1.3 full firesignal dispatch. It invokes the identified React SingleEventManager wrapper once; when introspection is unavailable, one native selected-button ButtonA activation is used. No repeated close action is issued; Store/purchase logic is unchanged."
+      ]
+    },
+    {
+      "version": "2.1.7",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.7",
+      "changes": [
+        "Fixed SpinnerWindow auto-close still not activating in 2.1.6. The helper now resolves the actual React Activated callback from getconnections(CloseButton.Activated) -> SingleEventManager wrapper upvalues -> _listeners.Activated, matching the runtime scanner discovery model.",
+        "Only the single resolved React userland callback is invoked. The whole RBXScriptSignal is never fired, avoiding the 2.1.3 firesignal dispatch path that correlated with client termination after Spinner close.",
+        "If the React listener cannot be resolved on an executor, the helper falls back to one VirtualUser click at the rendered CloseButton center. No repeated activation, polling, hardcoded executor branch or Store fallback was added.",
+        "Random Fruit transaction, CloseGachaSpinner lifecycle, StoreFruit transport, Movement, Raid, Combat, Bypass and FastAttack remain unchanged from 2.1.6 outside the close helper. Live Roblox verification remains required for the close action itself."
+      ]
+    },
+    {
+      "version": "2.1.6",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.6",
+      "changes": [
+        "Fixed the 2.1.5 auto-close no-op without restoring the crash-prone React signal dispatch. VirtualInputManager now resolves the CloseButton's actual LayerCollector and targets that UI layer instead of passing the game root.",
+        "The close helper sends one native mouse-move followed by one mouse down/up sequence at the rendered CloseButton center, then CloseGachaSpinner only observes SpinnerWindow disappearance. No repeated activation or firesignal is used.",
+        "Random Fruit purchase/result logic and StoreFruit behavior are unchanged from the 2.1.5 baseline; the 2.1.4 native Store experiment remains excluded.",
+        "This release changes only the Spinner auto-close helper plus release metadata/manifest. Live Roblox verification is still required to confirm the React-managed CloseButton receives the virtual input on the target executor."
+      ]
+    },
+    {
+      "version": "2.1.5",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.5",
+      "changes": [
+        "Scoped the reported client crash to the Random Fruit result-close phase. The 2.1.4 Gacha-specific native Store experiment is not included; Auto Store behavior is restored to the 2.1.3 implementation because Store was confirmed healthy.",
+        "Removed direct firesignal(CloseButton.Activated) from SpinnerWindow close handling. Close is now requested once through VirtualInputManager at the rendered CloseButton position, using a render-frame down/up sequence so the game/React UI owns normal event dispatch and unmount.",
+        "CloseGachaSpinner no longer re-activates the CloseButton repeatedly. After the single native input it only observes SpinnerWindow lifecycle until the presentation disappears, is cancelled, or times out.",
+        "No Gacha Purchase/Get/Check transport, StoreFruit transport, Movement, Raid, Combat, Bypass or FastAttack behavior was changed in this release. Live Roblox verification is still required because the artifact environment cannot reproduce a client process crash."
+      ]
+    },
+    {
+      "version": "2.1.3",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.3",
+      "changes": [
+        "Fixed the verified Random Fruit runtime nil at _callGachaClient: World/Progression now receive the Core RE4RecordRemoteAudit dependency through the runtime context instead of resolving a missing cross-domain local. GachaClient/ZiolesGacha, single PurchaseGachaAsync and the existing StoreFruit transport are unchanged.",
+        "Fixed shared combat cold-start weapon readiness. RE4WeaponSelector now binds Backpack lifecycle even when Backpack replicates after boot, clears stale selections, and shared combat readiness resolves/equips the selected Melee before attack instead of requiring a manual hotbar equip first.",
+        "Completed Fighting Style acquisition by reusing the existing verified style action/equip path and an exact local Tool fallback, then verifying the acquired style is actually active in Character. interaction_sent_unverified remains available for genuine verifier failures and is not suppressed.",
+        "Fixed post-arrival Movement ownership: ordinary arrived/failed/cancelled requests release their Movement lease, while explicit HoldPosition routes retain it. Delayed dispatch now rechecks Movement action ownership, reducing stale BodyClip/Noclip/tween influence and preventing queued background movement from reclaiming protected transitions.",
+        "Hardened Raid transition/finalization without changing island clear detection or reward generation: next/wait/clear phases use existing owned safe holds, and final native completion releases positional Raid control while a non-positional Movement/Combat guard prevents queued Hub Farm/Combat work from pulling the player away before native reward/return flow completes.",
+        "Added a destination-keyed Bypass destructive-failure circuit breaker. A failed intentional respawn cannot immediately re-enter the same destructive destination loop; quarantine clears only after that intended destination is actually reached or the runtime is replaced. No Cursed Ship special-case or timer-based retry was added.",
+        "Restored Skylands routing to FastTravelPreferred -> Bypass -> final Tween. The existing route-failure state naturally falls through from an unavailable/failed Fast Travel candidate to Bypass, then to direct Tween only when no transport candidate is usable; no Skylands-specific CFrame chain was added.",
+        "Expanded on-demand audit state for Weapon, Movement requests/active route and Bypass destructive failures. Targeted source regression passed 61/61 and lexical checks passed before release identity generation; live Roblox verification remains required for server-side Raid reward/return, Bypass spawn behavior and full Gacha/weapon smoke flows."
+      ]
+    },
+    {
+      "version": "2.1.2",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.2",
+      "changes": [
+        "Reclassified native PlayerGui.Main readiness as an optional game-UI replication state instead of a boot warning. Optional Main consumers bind through lifecycle events and session cleanup; no fixed delay, polling or mandatory wait was added.",
+        "Corrected Random Fruit Gacha invocation style resolution per GachaClient method. TryGetGacha may safely calibrate call style when arity metadata is unavailable, while PurchaseGachaAsync is never trial-invoked and remains a single transaction call. The verified GachaClient/ZiolesGacha transport and existing StoreFruit transport are preserved.",
+        "Corrected only Raid inter-island transition arrival semantics: movement and completion now use the same elevated next-island marker target and the shared normal arrival radius instead of accepting completion up to 337.5 studs from the island marker. Raid clear detection, Kill Aura and lifecycle logic are unchanged.",
+        "Corrected Sea 2 Café destination resolution to prefer the live Barista NPC anchor in Café, with a corrected canonical Café fallback. Direct manual Island/Player/NPC travel now uses an explicit high-priority user override so background Farm/Combat movement cannot reclaim the route before the manual request completes; background features themselves are not stopped.",
+        "Enabled an explicit Skylands topology policy that prefers Bypass TP across the Skylands portal boundary and suppresses Fast Travel fallback for Skylands only. Existing Bypass transaction, MovementSession and Noclip lifecycle remain unchanged; after a verified Bypass hop the normal resolver continues to the final destination by Tween when needed.",
+        "Targeted regression checks passed 53/53 and cumulative corrective checks passed 70/70 before release identity generation. Exact Re4Hub 5.2.4 bytes were unavailable, so no historical Raid coordinate was invented; the transition correction is based on the verified current 2.x code path."
+      ]
+    },
+    {
+      "version": "2.1.1",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.1",
+      "changes": [
+        "Removed verified mandatory-path unbounded readiness hazards: initial Character/Data resolution is generation-aware/non-blocking, the dead EasterService remote dependency was removed after no-consumer verification, and optional Silent Aim dependencies fail feature-locally instead of stalling boot.",
+        "Corrected toggle state reconciliation for persisted user intent without globally replaying callbacks on mount. StateGetter/PersistIntent are used only on audited controls so visual state, retained intent and runtime ownership do not silently diverge across hot reload.",
+        "Reworked Fruit inventory retry lifecycle from immediate requeue to condition/event wake. CharacterLifecycle readiness, Equipment ownership changes and Tool identity/ancestry changes wake pending work; pending retry state is cleaned on stop and no polling loop was added.",
+        "Hardened Store/Drop cancellation with generation-scoped cleanup so equipment ownership and previous-tool restore are handled on normal exit, cancellation or shutdown when the same Character/owner is still authoritative. The StoreFruit transport itself is unchanged.",
+        "Correlated Auto Random Fruit observation to the current Gacha transaction generation and a pre-purchase Tool-instance snapshot, preventing an already-owned physical fruit from confirming the current transaction. The GachaClient/ZiolesGacha transport and single PurchaseGachaAsync call path are unchanged.",
+        "Scoped Soul Guitar Living Zombie Bring ownership to the Swamp phase, guarded the legacy moon-orientation CFrame write against foreign Movement ownership, and hardened reversible Prehistoric/WalkWater object lifecycle rebinding without polling.",
+        "Expanded the on-demand audit snapshot with real Movement, Bring, Collision and Fruit pending/generation state. CDK/Dragon cadence, FarmBlaze worker structure, Store wire contract and FastAttack late-replication behavior remain unchanged where runtime evidence is still insufficient.",
+        "Corrective source invariants passed 70/70 before release identity generation; no executor-name branch, blind retry, new scheduler or arbitrary verification delay was introduced."
+      ]
+    },
+    {
+      "version": "2.1.0",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.1.0",
+      "changes": [
+        "Introduced a transactional RuntimeSession for fresh execute, same-build re-execute, cross-version supersede, partial-boot rollback and idempotent shutdown. The old runtime is stopped before mutable runtime globals are replaced, UI Destroy uses the captured session, and running state is published only after the final mandatory initializer succeeds.",
+        "Centralized reversible Roblox property ownership where multiple verified consumers needed it. Zoom, Fullbright/RTX, Day/Night ClockTime and Walk Water size now snapshot and restore the value owned by the current runtime instead of writing fixed OFF defaults.",
+        "Moved Soul Guitar Living Zombie holding onto BringService ownership and removed the unowned Animator destruction path. Prehistoric hazard suppression is now reversible/session-owned and island rebinding is event-driven instead of a dedicated polling worker.",
+        "Fixed Collect Ember existence handling without unbounded WaitForChild predicates, fixed the Morning/Evening runtime enum mismatch, and fixed Disable Chat OFF state checking the wrong flag.",
+        "FeatureRuntime now exposes generation-scoped terminal state to bound controls so an errored/completed direct feature cannot silently leave its UI reporting ON. No UI polling loop was added.",
+        "FastAttack volatile network dependencies are resolved as a feature capability instead of unbounded boot waits; missing dependencies fail FastAttack/Gun locally while the rest of the hub can finish boot. On-demand counters were added without a background profiler.",
+        "Added disabled-by-default semantic remote counters and RE4AuditSnapshot for CDK/Dragon Hunter/runtime ownership diagnostics. CDK/Dragon cadence was intentionally not changed without live request-rate evidence, and FarmBlaze workers were not merged without a verified overlap trace.",
+        "Hardened Random Fruit without changing the Store transport: call style is resolved through the read-only TryGetGacha descriptor, fake SpokeNPC state was removed, game cooldown and retry backoff are separated, Auto Random owns a bounded spinner presentation block, and generic inventory mutation alone no longer confirms a purchase.",
+        "Removed only verified no-consumer/unreachable cleanup candidates and retained behavior whose replacement contract is not proven. No executor-name branch, blind retry, new scheduler or arbitrary verification delay was introduced."
+      ]
+    },
+    {
+      "version": "2.0.48",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.48",
+      "changes": [
+        "Replaced the obsolete Random Fruit CommF_ Cousin / Check / CheckCanBuyType / DLCBoxData path with a runtime-resolved adapter over ReplicatedStorage Controllers.GachaClient, matching the verified Update 30 TryPurchase -> GachaClient flow.",
+        "The adapter validates the live GachaClient method contract and local TryGetGacha descriptor before any purchase, then uses CheckGachaAsync/GetGachaAsync for current server state and PurchaseGachaAsync for the transaction. It fails closed if the current controller/signature is unavailable instead of guessing a RemoteFunction payload.",
+        "Removed the stale Fruit.Gacha query-cache branches and direct Cousin transaction consumer after verifying they had no remaining internal consumers outside RE4FruitService. Shared CommF_ helpers remain unchanged for other features.",
+        "Random result detection now recognizes the newly replicated physical Tool from its runtime evidence (name ending in Fruit + OriginalName + ItemId + WaitForHandle) before EatRemote finishes replicating, while Store/Drop keep their stricter existing action-readiness path so equipped combat fruit tools are not misclassified.",
+        "SpinnerWindow open state is now independent of temporary CloseButton visibility. The verified CloseButton is activated once through Activated, with bounded presentation waiting; the previous duplicate Activated + MouseButton1Click signal path and full-PlayerGui spinner fallback were removed.",
+        "Auto Random Fruit status now reports checking, purchase, received result, cooldown and failure states from the same runtime service state. ON/OFF cleanup still belongs to FeatureRuntime; no new scheduler, background task, listener, polling worker, movement owner or executor-specific branch was added.",
+        "Auto Store Fruit transport is intentionally unchanged because the scanner confirmed Store behavior/success but did not capture a sufficiently complete replacement network contract. Don Swan retains the same RequestGacha service consumer contract."
+      ]
+    },
+    {
+      "version": "2.0.47",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.47",
+      "changes": [
+        "Changed shared routing from one strategic transport per request to bounded transport re-planning after every verified Bypass/Fast Travel hop. The live Character position becomes the next routing origin, enabling Cr4-style multi-hop Bypass chains before the final Tween without feature/island/Sea branches.",
+        "Bypass post-respawn verification now validates the live PlayerSpawn cluster, expected region and actual route gain instead of requiring a small fixed radius around one chosen spawn part. Respawn at the old/wrong cluster remains a destructive failure and cannot silently fall through to another transport.",
+        "Fast Travel now separates semantic island ArrivalPosition from RouteArrivalPosition. Route cost and observed requestEntrance landing use EstimatedArrival/ProtocolPosition as in the stable 5.2.4 flow, while current 2.0.46 island/region/zone data remains authoritative for destination semantics.",
+        "Skylands portal-boundary routing no longer terminates the whole movement request when a portal candidate is unavailable or fails bounded verification. The router marks that candidate failed and falls back to the shared Tween continuation with the same owner/session, eliminating the Upper Skylands standstill path.",
+        "Noclip is now leased by the managed feature/mastery movement owner after its request is actually dispatched, not by individual Tween phases. The lease survives Bypass respawn, Portal/RegionPortal Character handoff, resolver re-plan and final Tween, and is released only by feature stop, valid movement-owner release or release-worthy phase lifecycle.",
+        "MovementSupport no longer cancels Tween when collision support is released and no longer lets resolver cancel-hold override a live feature movement lease. Its safety pass remains event-driven/periodic rather than running active-state collision setup at 20 Hz.",
+        "Kept current 2.0.46 constants/topology/UI/language data unchanged. No new scheduler, task, listener, polling loop, requestEntrance executor or feature-specific movement branch was added."
+      ]
+    },
+    {
+      "version": "2.0.46",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.46",
+      "changes": [
+        "Fixed the shared Bypass root cause found by comparing Re4Hub 2.0.45 with Cr4: runtime PlayerSpawns are again the execution authority. Candidate selection no longer requires a runtime spawn to map confidently to the exact canonical destination island before Bypass may run.",
+        "Bypass now excludes the current checkpoint/runtime spawn cluster, keeps the bounded useful-hop envelope and minimum route gain, and chooses the live PlayerSpawn with the smallest remaining distance to the requested destination. Spawn-group comparison is spatial/data-driven rather than island/Sea hardcode.",
+        "Restored the Cr4-compatible checkpoint transaction order at the shared executor: SetLastSpawnPoint(candidate) -> SetSpawnPoint -> prepare the old Character at that live PlayerSpawn -> one intentional respawn. Pre-respawn setup failures roll back the previous checkpoint and position; no replicated-checkpoint polling gate remains before respawn.",
+        "Post-respawn Bypass verification is observable and bounded: a death/root transition must occur, the new live root must be near the selected runtime spawn, in the expected region and provide the configured route gain. A destructive unverified respawn remains terminal for that request; only the matching route+checkpoint+candidate state is suppressed for a bounded TTL.",
+        "Fixed Skylands Fast Travel at the shared topology layer. The two verified First Sea requestEntrance protocols are World-region remote capabilities for Sky Middle/Lower and Sky Upper, so World->Sky and Sky layer traversal use the same route-cost/arrival verifier instead of SourceZones={World} plus duplicate physical-trigger branches.",
+        "Removed the superseded Skylands physical-trigger routes and their trigger executor/config/callback branches. PortalSchemaVersion is now 4; one requestEntrance executor handles all current remote portal records, including Mansion and special region portal transitions.",
+        "Fixed the Noclip/Character lifecycle root cause globally: Character/root handoffs are preserved only while the active MovementSession and the same request own Bypass/Portal transport. Intentional Bypass respawn and Portal/RegionPortal handoffs rebind the session; an ordinary Humanoid death still cancels normally.",
+        "MovementSupport now remains leased from Movement Request -> transport -> verified arrival -> continuation Tween -> terminal cleanup. Noclip is therefore not released merely because Tween is paused or the Character/root changes during owned Fast Travel.",
+        "No feature-specific movement branch, blind retry, fixed wait workaround, new scheduler, background task or listener was added. UI, combat, BringMob, FastAttack and unrelated feature logic are unchanged."
+      ]
+    },
+    {
+      "version": "2.0.45",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.45",
+      "changes": [
+        "Unified normal-world destination ownership: WorldTopology island targets that have current scanner-backed WorldSpatial.RegionTargets now reference that canonical source directly. Special-region and ExactTarget topology entries keep their dedicated targets.",
+        "Removed stale duplicate topology CFrames for 32 current normal-world destinations, including distinct Skylands Lower/Middle/Upper and current Kingdom of Rose Café/Forgotten Island anchors, so Teleport, Farm, Progression, Bypass and Fast Travel resolve the same semantic destination.",
+        "Bypass runtime spawn selection is now fail-closed: a PlayerSpawn must resolve confidently to the exact canonical destination island. Removed ambiguous physically-near fallback, arbitrary 10k candidate envelope, stale current-spawn-group heuristic and the now-unused nearest-runtime-spawn helper/config.",
+        "Fixed the shared Bypass checkpoint transaction order: move to the selected runtime PlayerSpawn first, SetSpawnPoint there, pin SetLastSpawnPoint(candidate), verify replicated checkpoint evidence, then perform one intentional respawn.",
+        "Pre-respawn failures restore the original CFrame and previous checkpoint. Router fallback is allowed only when that rollback is verified; an uncertain rollback is treated as a mutating failure and terminates the route.",
+        "Post-respawn verification now requires the new live Character to be near the selected runtime spawn, in the expected region, confidently mapped to the exact destination island and to have made the configured route gain before continuation Tween is allowed.",
+        "A destructive/wrong-respawn Bypass failure is terminal for the active movement request and persists as destination+checkpoint route suppression. It cannot be hidden by a subsequent Fast Travel/Tween fallback until the authoritative spawn state changes.",
+        "Skylands keeps PortalSchemaVersion=3 and its existing current remote/physical portal protocols. Canonical Lower/Middle/Upper targets now feed the shared MovementZone/DestinationResolver/portal arrival data, restoring beneficial Fast Travel selection for long-distance Sea 1 routes without a Skylands-specific router branch.",
+        "MovementSession/Noclip ownership, transport atomicity, final arrival cleanup and unrelated UI/combat/feature code remain unchanged; no scheduler, background task, listener, blind retry or fixed movement delay was added."
+      ]
+    },
+    {
+      "version": "2.0.44",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.44",
+      "changes": [
+        "Fixed the shared physical-trigger Fast Travel race: portal-induced root/block separation during PORTAL_APPROACH is now classified as transport-owned relocation instead of an external relocation that prematurely aborts the route.",
+        "Trigger portals now always use the existing bounded arrival-verification contract after activation/relocation; a candidate is marked failed only when observable relocation/declared arrival is still unconfirmed after the configured verify window.",
+        "Follower correction no longer rebases the shared movement block away from a trigger portal while that transport owns PORTAL_APPROACH; ordinary correction behavior is unchanged outside that phase.",
+        "MovementSession remains authoritative from portal approach through verified arrival and final Tween. Noclip/MovementSupport therefore stays leased while Tween is intentionally paused for transport and releases only on terminal arrival/cancel/cleanup.",
+        "In-flight transport is now atomic with respect to ownership: ordinary priority/Interrupt requests queue, and legacy exact CFrame moves do not implicitly cancel transport. Only explicit ForcePreempt=true may tear down an active transport session.",
+        "Kept 2.0.43 current PortalSchemaVersion=3, islands, regions, destinations, Skylands physical trigger geometry, remote protocols, Bypass-first routing and current runtime data unchanged; Re4Hub 5.2.4 was used only as the stable Fast Travel/Noclip lifecycle reference.",
+        "Removed the stale _normalFastTravel cleanup alias; no feature/Sea/Skylands hardcode, blind retry, arbitrary delay, extra scheduler, background task or listener was added."
+      ]
+    },
+    {
+      "version": "2.0.43",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.43",
+      "changes": [
+        "Replaced cost-based Bypass/Portal/Tween competition with one deterministic shared strategic router policy: progression-safe and eligible long-distance Bypass first, then beneficial Fast Travel, then direct Tween; mandatory topology portal stages remain protocol-bound and never force an unsafe respawn.",
+        "Bypass eligibility is revalidated inside the destructive Try transaction even when the planner preselected a runtime spawn, closing the race where a quest/progression item or preservation context can appear between planning and respawn.",
+        "The Bypass spawn-point transaction now restores the previous server checkpoint on pre-respawn cancellation/setup failure after SetLastSpawnPoint/SetSpawnPoint, preventing stale spawn state from leaking into the next movement request.",
+        "The shared respawn-safety guard blocks Bypass for current Re4Hub critical/transient progression tools and explicit progression-preservation context; Hidden Key, Hellfire Torch and Core Brain are covered by the same centralized data table.",
+        "Cr4 is used only as the behavioral reference for Bypass priority, spawn commit, respawn/rebind and movement continuation. Re4Hub remains authoritative for current runtime PlayerSpawns, topology, islands/regions, destinations and Fast Travel protocols.",
+        "MovementSession remains authoritative across Bypass -> respawn -> Character rebind -> continuation Tween -> arrival verification -> cleanup, so the event-driven Noclip lease from 2.0.42 remains active across the complete route instead of belonging to one Tween phase.",
+        "Legacy exact local player CFrame operations now enter RE4RequestMovement through an AtomicLocal router branch, which cancels a conflicting route owner before the one-shot protocol-local move and verifies arrival instead of bypassing movement ownership.",
+        "Removed obsolete Bypass EWMA/cost-selection configuration and telemetry plus the stale _normalFastTravel branch name; no new polling loop, scheduler, delay/retry workaround or feature/island/Sea hardcode was added."
+      ]
+    },
+    {
+      "version": "2.0.42",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.42",
+      "changes": [
+        "Fixed the shared Noclip root cause: RE4CollisionController previously forced CanCollide=false only when a Character/part was first bound, so Roblox could restore CanCollide on existing parts after respawn/state changes while the movement session was still active.",
+        "Active character BaseParts now receive scoped CanCollide property listeners. If runtime physics/game code re-enables collision during a movement lease, the controller immediately reasserts false; listeners and remembered original states are disconnected/restored on descendant removal, character rebind, source release and shutdown.",
+        "MovementSession remains the authoritative Noclip lease across Bypass TP -> intentional respawn -> CharacterReady rebind -> Fast Travel/route replan -> final Tween. A transient cancel-hold can no longer disable Noclip while that movement session is still active.",
+        "Bypass execution, destination/island/region data, current PlayerSpawns, PortalSchemaVersion=3, route-cost selection, Tween speed, BringMob, FastAttack and unrelated feature logic are unchanged.",
+        "No delay/retry workaround, feature/island/Sea hardcode, new scheduler or background loop was added."
+      ]
+    },
+    {
+      "version": "2.0.41",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.41",
+      "changes": [
+        "Bypass spawn selection now follows current-runtime PlayerSpawns: exclude the current spawn group, enforce a bounded runtime candidate envelope, prefer canonical destination matches, and allow only physically-near unresolved fallback candidates; Cr4 flow is used only as execution/selection reference.",
+        "Bypass pre-respawn remote/setup failures remain request-scoped. Cross-request suppression is candidate/state-scoped only after an actual wrong respawn, preventing death loops without permanently hiding valid destinations.",
+        "Restored the Re4Hub-owned post-update First Sea requestEntrance protocol capabilities for World→Sky Middle/Upper. Protocol vectors remain separate from current map arrivals; the new physical Lower↔Upper PortalObject/EntryTrigger/Arrival data remains authoritative for in-Sky traversal.",
+        "Physical Sky trigger approach radius now targets the measured player activation point more precisely; portal selection still uses the shared cost evaluator and request-scoped failure state.",
+        "Satisfied HoldPosition requests now retain MovementSupport/Noclip through a shared active-position-hold lease after the transport route reaches ARRIVED. Queued movement requests still do not acquire Noclip.",
+        "MovementCoordinator prevents a non-hold request from the same owner from overwriting an active combat hold; regular farm player positioning now shares the CombatTargetLock anchor already used by BringMob, eliminating two competing vertical position sources.",
+        "No feature/island-specific farm workaround, periodic restart, extra CFrame loop, scheduler or listener was added."
+      ]
+    },
+    {
+      "version": "2.0.40",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.40",
+      "content": "Movement-session Noclip lifecycle: BodyClip/collision support now follows the full route lease across Bypass/Fast Travel, respawn/rebind, reroute and final Tween; cleanup occurs only at route completion, cancellation or valid ownership handoff."
+    },
+    {
+      "version": "2.0.39",
+      "date": "2026-09-06",
+      "title": "Reference-Grounded Bypass & Fast Travel Flow Rebuild",
+      "changes": [
+        "Replaced the 2.0.38 multi-mode SpawnPoint/LastSpawnPoint prediction state machine with one Cr4-style Bypass preparation transaction while keeping Re4Hub current semantic destination, safety guards, team-aware PlayerSpawns and canonical island validation.",
+        "Bypass now temporarily disables only the old Character LastSpawnPoint writer during preparation, invokes SetLastSpawnPoint(destination) then SetSpawnPoint, pivots the old Character to the selected current-runtime PlayerSpawn, performs one intentional respawn, rebuilds references from the new Character and verifies the canonical destination before resuming Movement.",
+        "Failed Bypass destinations remain guarded by the current destination+server-spawn-state suppression so feature retries cannot recreate an infinite respawn loop.",
+        "Fast Travel retains Re4Hub PortalSchemaVersion=3/current map data and cost-based RoutePlanner, while restoring Re4.zip-style relocation verification: exact arrival OR substantial server relocation with material target gain/arrival proximity.",
+        "Fast Travel continues to pause the active Tween writer before transport, retain movement/noclip ownership, sync the shared movement block after verified arrival, and only then resume the final Tween.",
+        "No legacy island, portal, NPC, spawn or coordinate data was copied from Cr4Hub or Re4.zip; current Re4Hub WorldTopology/WorldSpatial remain authoritative."
+      ]
+    },
+    {
+      "version": "2.0.38",
+      "date": "2026-09-06",
+      "title": "Bypass Spawn-State Machine & Respawn Loop Guard",
+      "changes": [
+        "Removed the pre-Bypass SetSpawnPoint call that could recommit the current checkpoint immediately before respawn and force the player back to the same location.",
+        "Removed the Character.LastSpawnPoint LocalScript disable/restore hack; Bypass no longer mutates the game spawn-tracking LocalScript lifecycle.",
+        "Bypass now selects one server-state mode: TeleportToSpawn when Data.SpawnPoint already matches the selected runtime PlayerSpawn, respawn when Data.LastSpawnPoint matches it, otherwise one SetLastSpawnPoint(destination) attempt followed by one verified respawn.",
+        "Added destination+SpawnPoint+LastSpawnPoint failure-state suppression. If a respawn returns to the wrong checkpoint, subsequent movement requests cannot repeat the same Bypass attempt until authoritative spawn state changes.",
+        "A failed positional Bypass now re-enters the same Route Evaluator with Bypass exhausted/suppressed, allowing a valid Fast Travel or Direct Tween recovery instead of creating a cross-request death loop.",
+        "No new scheduler, background loop, task, listener or remote callsite was added."
+      ]
+    },
+    {
+      "version": "2.0.37",
+      "date": "2026-09-06",
+      "title": "Movement Unfreeze & Observable Bypass Verification",
+      "changes": [
+        "Removed the synchronous LocalPlayer.Data.LastSpawnPoint commit gate that could freeze every long-distance movement request when the value was absent or replicated late.",
+        "Bypass remote/setup failures that happen before Character respawn are now non-positional failures: Bypass is excluded for that request and the same Route Evaluator immediately considers Fast Travel or Direct Tween.",
+        "Bypass success is verified only from observable post-respawn state: a new live Character near the selected runtime PlayerSpawn, in World, mapped to the canonical destination island, with material route gain.",
+        "TravelResolver region preparation now consumes the same shared DestinationResolver descriptor as RoutePlanner/FastTravel/Bypass instead of re-deriving target region from raw CFrame.",
+        "No new scheduler, polling loop, task, listener or remote callsite was added; the obsolete pre-respawn polling loop and SpawnCommitTimeout config were removed."
+      ]
+    },
+    {
+      "version": "2.0.35",
+      "date": "2026-09-06",
+      "title": "Destination Resolver & Transport Route Correction",
+      "changes": [
+        "Added one shared DestinationResolver so RoutePlanner and Bypass consume the same semantic Region/Zone/Island result from topology, spatial hints and fail-closed confident spatial fallback.",
+        "Removed session-global FastTravel unsafe-route cache and arbitrary ServiceRadius eligibility cutoffs; compatible portals now compete only by total Current→Entry + activation + Arrival→Destination cost.",
+        "Removed the LocalDirectDistance early return: every movement request reaches the same evaluator; Tween is selected only after Portal/Bypass candidates are considered.",
+        "Bypass PlayerSpawn mapping now rejects ambiguous nearest-island matches and verifies a confident canonical destination island after the server respawn.",
+        "Skylands runtime EntryTrigger follows the full relative CFrame of the physical PortalObject rather than position-only offset, preserving trigger alignment if the map object rotates or shifts."
+      ]
+    },
+    {
+      "version": "2.0.34",
+      "date": "2026-09-06",
+      "title": "Unified Movement Routing & Skylands Portal Schema",
+      "changes": [
+        "Fast Travel portal data now separates EntryRegion/EntryTrigger/PortalObject/ArrivalRegion/ArrivalPosition/Direction/Sea; Skylands Lower↔Upper uses the new physical runtime trigger geometry.",
+        "RoutePlanner compares valid Bypass, Portal and direct Tween costs in one decision instead of returning the first beneficial Bypass candidate.",
+        "Bypass no longer locally PivotTo-spoofs the selected spawn before respawn; success requires a new server-side character/root in the expected destination island/region.",
+        "Cursed Ship and Underwater region transitions reference canonical portal keys; Cursed Ship exit no longer depends on target ServiceRadius.",
+        "Removed the stale Sea 3 Unlock All Portals polling implementation and duplicate portal coordinate source."
+      ]
+    },
+    {
+      "version": "2.0.33",
+      "title": "Unified World Data Cutover",
+      "changes": [
+        "Quest catalogs in all three Seas use one semantic schema and the shared runtime/WorldSpatial resolver.",
+        "Post-update NPC/mob identities are separated from remote protocol identities; Dragon Crew uses the new quest-giver identity while preserving the verified AmazonQuest protocol.",
+        "Material, Farm Island, Mastery and related mob-staging consumers resolve through one cumulative WorldSpatial/runtime enemy source.",
+        "Removed legacy PosQ/PosM, per-feature Position fallbacks, Sea 3 PosMsList and ordinary-mob waiting CFrames migrated by this cutover.",
+        "Current Sea 3 leveling includes Snow Demon, Tiki post-2550 progression and the current Submerged quest unlock levels; unresolved destinations fail closed."
+      ]
+    },
+    {
+      "version": "2.0.32",
+      "title": "Re4Hub v2.0.32 · Update 30 data synchronization",
+      "content": "Synchronizes First Sea Update 30 data End-to-End from the shared runtime/world sources. WorldTopology now owns updated Sea 1 destinations; Quest, Material and Farm Island records keep semantic NPC/island/mob keys instead of duplicate coordinates and resolve through live NPC/EnemySpawns data. A single enemy-alias registry now covers shared target selection and spawn resolution, including the verified Dangerous Prisoner/Ruthless Prisoner runtime rename and boss internal markers Magma General/Lightning God while preserving canonical Magma Admiral/Thunder God identities. Boss tracking prefers dynamic _WorldOrigin.EnemySpawns anchors, Fast Travel keeps protocol vectors separate from current-world arrival coordinates, Fighting Style NPC naming matches runtime, and stale Bobby/Wysper/Saber-route data was removed. Sea 2/3 datasets remain unchanged except for the shared resolver behavior.",
+      "date": "2026-09-06"
+    },
+    {
+      "version": "2.0.31",
+      "date": "2026-09-06",
+      "title": "Re4Hub v2.0.31",
+      "content": "Fixes the 2.0.30 regression where Auto Farm Level could treat any visible quest-named GUI/header as an active quest and therefore skip StartQuest. The resolver now excludes the Re4Hub UI, accepts a dynamic quest root only when its visible text contains the current quest mob/display name, and keeps hidden PlayerGui.Main.Quest as the inactive fallback. No quest coordinates, delays, scheduler, listener, remote contract, Combat/BringMob/Raid/FastAttack or MovementCoordinator core changes were added."
+    },
+    {
+      "version": "2.0.30",
+      "date": "2026-09-06",
+      "title": "Re4Hub v2.0.30",
+      "content": "Fixes the remaining quest→mob stall after Update 30. Auto Farm Level now prefers a quest GUI root that is effectively visible through its GuiObject/ScreenGui hierarchy and rescans quest-named UI when the legacy PlayerGui.Main.Quest root is hidden. Combat target lookup validates the shared target lock before use; partially constructed/dead enemy models no longer return an owned_transition state that suppresses movement, so farm.level falls through to EnemySpawns/static destination normally. No per-quest coordinates, delays, scheduler, listener, remote contract or Combat/BringMob/Raid/FastAttack core changes were added."
+    },
+    {
+      "version": "2.0.29",
+      "date": "2026-09-06",
+      "title": "Re4Hub v2.0.29",
+      "content": "Fixes Auto Farm Level accepting a quest and then remaining at the NPC. Removes the quest→mob same-tick ReleaseOwner teardown, so MovementCoordinator/TravelResolver retarget the existing feature owner normally. When the requested mob is already live, farm.level requests movement to its HumanoidRootPart before Attack.Kill, preventing equipment/combat setup from suppressing the initial travel. Runtime mob destination now prioritizes _WorldOrigin.EnemySpawns, caches only authoritative spawn CFrames, then falls back to replicated templates/static PosM. No per-mob coordinate hardcode, scheduler, listener, background loop, remote contract, Combat/BringMob/Raid/FastAttack core change was added."
+    },
+    {
+      "version": "2.0.28",
+      "date": "2026-09-06",
+      "title": "Re4Hub v2.0.28",
+      "content": "Fixes the farm.level nil-call at RE4RuntimeQuestPosition introduced in 2.0.27. The shared runtime quest and enemy destination resolvers are now chunk-wide assignments, matching existing shared runtime services such as RE4TravelRoot, and Auto Farm Level/Mastery guard resolver availability with the existing static PosQ/PosM fallback. No Combat, BringMob, Raid, FastAttack, MovementCoordinator, scheduler, listener or remote contract was changed."
+    },
+    {
+      "version": "2.0.27",
+      "date": "2026-09-06",
+      "title": "Re4Hub v2.0.27",
+      "content": "Adds one fail-closed Sea resolver and the newly observed Sea 1 PlaceIds so unknown places no longer split between Sea 1 and Sea 3 consumers. Auto Farm Level and Mastery now prefer live GuideModule quest positions and EnemySpawns/replicated mob anchors, keeping the static quest catalog only as fallback. BossTracker now resolves FortBuilderReplicatedSpawnPositionsFolder before legacy replicated boss templates. Fishing/Crafting/Submerged Net remotes are lazy optional dependencies instead of core boot requirements. The obsolete destructive Remove Death/Respawn effect control and polling are removed. Combat, BringMob, FastAttack, Raid and MovementCoordinator core remain unchanged."
+    },
+    {
+      "version": "2.0.26",
+      "date": "2026-09-06",
+      "title": "Re4Hub v2.0.26",
+      "content": "Removes the dead optional hookfunction Death/Guide integration that still assumed ReplicatedStorage.Effect.Container and cleans its capability/restore state. The legacy Remove Death/Respawn control is now registered only when the supported legacy container actually exists. Auto Farm Level now uses a cached quest-state resolver instead of a mandatory hardcoded title path, treats Visible quest state as authoritative when title presentation is unavailable, validates mismatches only with high-confidence title data, rate-limits StartQuest/AbandonQuest transactions, explicitly releases quest-phase movement ownership on Quest -> Mob transition, and immediately reuses the existing MovementCoordinator/Combat pipeline. Farm Nearest and Farm Material implementations are unchanged."
+    },
+    {
+      "version": "2.0.25",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.25",
+      "content": "Fixes the Fighting Style respawn lifecycle. Respawn now invalidates stale movement/action ownership and generation state, preserves only the enabled feature intent, waits for the central CharacterLifecycle to report the new Humanoid/Root ready, refreshes ownership/progression, clears stale dealer cache, and resumes acquire/equip through the existing scheduler. Travel cancellation now publishes a terminal CANCELLED result before task cancellation, Fighting job owners are generation-scoped so stale coroutines cannot release a newer job, and recent diagnostic/dead duplicate Fighting code was removed without adding a scheduler, poller, raw CharacterAdded listener, or background task."
+    },
+    {
+      "version": "2.0.24",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.24",
+      "content": "Fixes the actual root cause exposed by the Fighting Items diagnostic and confirmed against Re4.zip. RE4BuildBasicStyleMeta was reading FeatureMetadata.GameData.FightingStyleCatalog, but FightingStyleCatalog is stored directly under FeatureMetadata. Dark Step, Electric and Water Kung Fu therefore received nil Style/Remote and empty Seas, so Items removed them before ownership probing or logging. The builder now reads the canonical top-level catalog, validates Style/Display/Remote/Seas, preserves the shared ownership probe and direct-first Equip flow, and keeps dealer resolution deferred until Equip."
+    },
+    {
+      "version": "2.0.23",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.23",
+      "content": "Fixes the remaining root cause behind owned basic Fighting Styles disappearing from Items. Dark Step, Electric and Water Kung Fu previously had OwnershipProbe=nil after 2.0.22, so an unequipped learned style could remain Unknown unless passive inventory/mastery data happened to expose it. The shared basic-style registry builder now declares the verified read-only {true} ownership probe separately from Buy/Equip actions; positive result 1 becomes sticky ownership evidence and non-positive/ambiguous results remain Unknown. The inventory cache is also hardened to preserve dictionary/nested mastery keys and MasteryLevel fields. Items visibility remains Ownership + Sea only; dealer resolution still occurs only on Equip. No new scheduler, poller or listener was added."
+    },
+    {
+      "version": "2.0.22",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.22",
+      "content": "Fixes owned Fighting Styles disappearing from Items when they are not currently equipped. Fighting Style ownership now preserves positive evidence from live tools, inventory/mastery, replicated player/unlockable state and explicitly safe registry ownership probes; verified higher-tier ownership can prove only its data-declared Mastery prerequisites. Basic Buy remotes are no longer reused as guessed ownership queries. Items visibility remains Ownership + Sea only; dealer resolution still occurs only after Equip is requested."
+    },
+    {
+      "version": "2.0.21",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.21",
+      "content": "Fixes the Fighting Style initialization nil-call at Progress/Items mount. Current Sea resolution is now a method on the shared RE4Ownership service exported through RE4RuntimeContext.Core, so both ownership probing and RE4StyleProgress use the same resolver without referencing a core-local helper outside its scope."
+    },
+    {
+      "version": "2.0.20",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.20",
+      "content": "Unifies Progress and Items Fighting Style state around one registry. Removes inferred ownership from upgrade relationships, separates Progress Buy/Learn from Items owned-only Equip/Relearn, verifies direct remote equip against the live equipped style before using the shared dealer fallback, and refreshes both Progress and Items immediately after ownership or equip changes."
+    },
+    {
+      "version": "2.0.19",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.19",
+      "content": "Fixes the missing Items Fighting Style Equip section caused by stale RE4StyleProgress.UseUI state surviving across builds in the same server. Rebuilds Auto Quest Sea 2 around shared progression data and live NPC/door resolution, adding the missing post-Ice-Admiral return to Military Detective and Experienced Captain travel steps with monotonic lifecycle state and no new scheduler/background loop."
+    },
+    {
+      "version": "2.0.18",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.18",
+      "content": "Fixes Fighting Style Equip returning wrong_sea. Core now exports the authoritative current Sea into RE4RuntimeContext.Core, RE4StyleProgress consumes that value instead of relying only on cross-domain World1/World2/World3 globals, and Items mounts only styles available in the current Sea. Use/Equip still requires ownership and uses the shared dealer resolver; Auto Progression behavior is otherwise unchanged."
+    },
+    {
+      "version": "2.0.17",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.17",
+      "content": "Fixes the BOOT 05 crash `attempt to index nil with BisentoV2SessionConfirmed`. Bisento V2 session confirmation/evidence now use a shared runtime state initialized before RE4InitCore, so ResolveBisentoVariant is safe during early UI ownership refresh and progression can finish mounting Fighting Style · Equip. No Movement, Combat, dealer, or Greybeard strategy behavior was otherwise changed."
+    },
+    {
+      "version": "2.0.16",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.16",
+      "content": "Moves Items → Fighting Style · Equip into the shared RE4StyleProgress domain so its controls are mounted independently of the Shop initialization path while preserving StartUse → StartDealerAction → MoveDealer. Auto Bisento V2 now requires confirmed V1 ownership, models the documented ≥10% personal Greybeard damage requirement, does not equip/buy Bisento automatically, captures the server upgrade notification event, and uses bounded post-kill verification instead of remaining Unknown indefinitely."
+    },
+    {
+      "version": "2.0.15",
+      "date": "2026-09-05",
+      "changes": [
+        "Restore visible Items → Fighting Style · Equip section while retaining the shared Fighting Style dealer/equip resolver from 2.0.14."
+      ]
+    },
+    {
+      "version": "2.0.14",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.14",
+      "content": "Unifies Dark Step, Electric and Water Kung Fu data by deriving StyleMeta from the canonical FightingStyleCatalog. Progression and Items Use/Equip both use the same StartDealerAction → MoveDealer pipeline, the shared NPC TeleportDirectory/template registry is consulted for exact dealer positions, and exact positions resolved by either flow are cached per Sea/style. Island anchors remain bootstrap-only and are never cached or reported as the dealer."
+    },
+    {
+      "version": "2.0.13",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.13",
+      "content": "Completes basic Fighting Style progression and Items equip through one shared dealer transaction. Dealer locations are data-driven per Sea and reuse WorldTopology island anchors before resolving the live NPC CFrame. Saber now advances only one uncompleted Camo-state switch at a time, fails closed while puzzle objects are not replicated, derives the Relic interaction point from Jungle.Final.Part, and confirms the final PlaceRelic progression action. Auto Bisento V2 stops with “Chưa sở hữu Bisento V1.” when V1 ownership is authoritatively absent and never calls the Bisento purchase remote."
+    },
+    {
+      "version": "2.0.12",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.12",
+      "content": "Fixes the farm vertical jitter at its lifecycle root cause: ARRIVED no longer destroys movement support while an active CombatTargetLock still owns the hold position. Tween/follower stop after arrival, but BodyClip/Noclip remain leased until target/quest/phase changes. Adds RE4RequestMovement as the single shared destination entry point and routes topology/island destinations through the same Bypass/Fast Travel/Tween evaluator instead of auto-forcing TravelMode=Portal."
+    },
+    {
+      "version": "2.0.11",
+      "date": "$updated_at",
+      "title": "Re4Hub v2.0.11",
+      "content": "Routing cleanup release: removes the legacy feature-flag movement demand blob, centralizes CanUseBypass around protected quest/progression tools, maps Bypass spawn candidates to the destination island by semantic name before spatial fallback, and evaluates Bypass time gain before Fast Travel/Tween. Fast Attack now registers HumanoidRootPart first so the hit target part matches the part BringMob actually owns/moves; no artificial 2-target or 6-target cap is introduced. Items → Abilities & Skills now follows the supplied main.lua ownership contract: CollectionService tags and current player/data/unlockables sources are authoritative, stale unlockable snapshots remain Unknown, and purchase refresh uses one authoritative snapshot transaction."
+    },
+    {
+      "version": "2.0.10",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.10",
+      "content": "Shared movement consumers re-enter routing on strategic destination changes; Bypass destination-island matching, shared multi-target allowed sets, event-driven Berry ESP/collection, and the supplied main.lua Fishing lifecycle were integrated End-to-End."
+    },
+    {
+      "version": "2.0.9",
+      "date": "2026-09-05",
+      "title": "Re4Hub v2.0.9",
+      "content": "Removed DynamicTween and unified player movement around fixed TweenSpeed 200 with route/transport Noclip leases and a single Portal/Bypass/Tween decision layer."
+    }
+  ]
+}

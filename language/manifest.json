@@ -1,0 +1,22 @@
+{
+  "default": "vi",
+  "fallback": "en",
+  "languages": [
+    {
+      "code": "vi",
+      "name": "Tiếng Việt"
+    },
+    {
+      "code": "en",
+      "name": "English"
+    },
+    {
+      "code": "th",
+      "name": "ไทย"
+    },
+    {
+      "code": "id",
+      "name": "Bahasa Indonesia"
+    }
+  ]
+}

@@ -1,0 +1,3518 @@
+{
+  "_meta": {
+    "code": "vi",
+    "name": "Tiếng Việt",
+    "version": "2.3.15",
+    "revision": "language-2.3.15-final-20260912.1"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "farm": "Farm",
+    "progression": "Tiến trình",
+    "progress": "Tiến trình",
+    "world": "Thế giới",
+    "raid": "Raid",
+    "sea": "Biển",
+    "race": "Chủng tộc",
+    "items": "Vật phẩm",
+    "teleport": "Dịch chuyển",
+    "combat": "Chiến đấu",
+    "settings": "Cài đặt",
+    "raids": "Raid",
+    "shop": "Cửa hàng",
+    "events": "Sự kiện",
+    "travel": "Di chuyển",
+    "system": "Hệ thống",
+    "main": "Main"
+  },
+  "group": {
+    "overview": "TỔNG QUAN",
+    "automation": "TỰ ĐỘNG",
+    "progression": "TIẾN TRÌNH",
+    "world": "THẾ GIỚI",
+    "tools": "CÔNG CỤ",
+    "system": "HỆ THỐNG"
+  },
+  "ui": {
+    "search": "Tìm kiếm",
+    "search_hint": "Tìm tính năng...",
+    "more": "Thêm",
+    "connected": "Đã kết nối",
+    "ready": "Sẵn sàng",
+    "select": "Chọn",
+    "general": "Chung",
+    "information": "Thông tin",
+    "external_link": "Liên kết ngoài",
+    "external_disabled": "Liên kết ngoài đã bị tắt trong bản dựng này.",
+    "no_results": "Không tìm thấy tính năng phù hợp",
+    "language": "Ngôn ngữ",
+    "loading": "Đang tải",
+    "unavailable": "Không khả dụng",
+    "none": "Không có",
+    "players": "{count} người chơi",
+    "morning": "Sáng",
+    "evening": "Tối",
+    "unknown": "Không xác định",
+    "language_load_error": "Không thể tải file ngôn ngữ đã chọn. Đang sử dụng bản dịch dự phòng.",
+    "yes": "Có",
+    "no": "Không",
+    "next_night": "Đêm tiếp theo",
+    "full_moon": "Trăng tròn",
+    "last_night": "Đêm cuối",
+    "subtitle": "Blox Fruits · Pro",
+    "online": "Trực tuyến",
+    "overview": "Tổng quan",
+    "ping": "Ping {value}",
+    "fps": "FPS {value}",
+    "game_sea": "Blox Fruits / {sea}",
+    "version": "v{value}",
+    "pin": "GHIM",
+    "pinned": "ĐÃ GHIM",
+    "type_hint": "Nhập...",
+    "feature": "Tính năng",
+    "tab": "Tab",
+    "section": "Mục",
+    "global": "Toàn bộ",
+    "sea_short": "Sea {value}",
+    "level_short": "Lv.{value}"
+  },
+  "action": {
+    "run": "Chạy",
+    "go": "Đến",
+    "buy": "Mua",
+    "start": "Bắt đầu",
+    "copy": "Sao chép",
+    "search": "Tìm",
+    "use": "Dùng",
+    "apply": "Áp dụng",
+    "refresh": "Làm mới",
+    "craft": "Chế tạo",
+    "reset": "Đặt lại",
+    "turn_off": "Tắt"
+  },
+  "status": {
+    "running": "Đang chạy",
+    "owned": "Đã sở hữu",
+    "not_owned": "Chưa sở hữu",
+    "working": "Đang xử lý",
+    "done": "Hoàn tất",
+    "error": "Lỗi",
+    "waiting": "Đang chờ",
+    "available": "Khả dụng",
+    "blocked": "Bị khóa",
+    "active": "Đang dùng",
+    "unknown": "Không xác định",
+    "can_buy": "Có thể mua",
+    "requirements_missing": "Chưa đủ điều kiện",
+    "spawned": "Đã spawn",
+    "not_spawned": "Chưa spawn",
+    "spawning": "Đang spawn",
+    "defeated": "Đã bị hạ",
+    "off": "Tắt",
+    "not_active": "Không hoạt động",
+    "stopped": "Đã dừng",
+    "runtime_error_stopped": "Lỗi runtime · đã dừng",
+    "running_dependencies": "Đang chạy · {dependencies}",
+    "faction_ready": "Phe sẵn sàng · {team}",
+    "faction_switching": "Đang đổi phe · {team}",
+    "faction_waiting": "Đang chờ phe · {reason}",
+    "pvp_waiting": "Đang chờ PvP · {reason}",
+    "pvp_enabling": "Đang bật PvP",
+    "pvp_ready": "PvP sẵn sàng",
+    "pvp_wait_target": "Đang chờ mục tiêu PvP",
+    "pvp_target_disabled": "PvP của mục tiêu đang tắt",
+    "pvp_target_protected": "Mục tiêu đang được bảo vệ",
+    "pvp_target_undamageable": "Không thể gây sát thương mục tiêu",
+    "pvp_local_wait": "Đang chờ PvP của người chơi",
+    "pvp_local_availability": "Đang chờ PvP khả dụng",
+    "pvp_target_respawning": "Đang chờ mục tiêu hồi sinh",
+    "pvp_local_combat_wait": "Đang chờ trạng thái combat",
+    "attacking_target": "Đang tấn công {target} · {distance}m",
+    "farming_target": "Đang farm {target}",
+    "moving_target": "Đang di chuyển tới {target}",
+    "waiting_target": "Đang chờ {target}",
+    "need_pole_v1": "Pole V1 is required",
+    "pole_v2_wait_lightning": "Waiting for lightning condition",
+    "saber_requires_level": "Requires Level {level}",
+    "saber_wait_puzzle": "Waiting for Saber puzzle",
+    "saber_switches": "Saber switches · {current}/{total}",
+    "saber_switch_confirmed": "Switch {index} confirmed",
+    "saber_switches_done": "All Saber switches completed",
+    "saber_wait_switch": "Waiting for next Saber switch",
+    "saber_wait_desert": "Waiting for Desert step",
+    "saber_wait_mob_leader": "Waiting for Mob Leader",
+    "saber_wait_relic": "Waiting for Relic",
+    "saber_wait_expert": "Waiting for Saber Expert",
+    "saber_relic_gate_open": "Relic gate opened",
+    "saber_placing_relic": "Placing Relic at Saber gate",
+    "bisento_v1_required": "Bisento V1 is required",
+    "bisento_v1_unconfirmed": "Bisento V1 ownership is unconfirmed",
+    "bisento_damage_window_closed": "Greybeard damage window is closed",
+    "bisento_greybeard_hp": "Greybeard HP · {hp}%",
+    "bisento_verifying_v2": "Verifying Bisento V2",
+    "bisento_v2_unconfirmed": "Bisento V2 is unconfirmed",
+    "bisento_wait_greybeard": "Waiting for Greybeard",
+    "style_equipping": "Equipping {style}",
+    "style_obtained_equipping": "Obtained {style} · equipping",
+    "style_moving_teacher": "Moving to {style} teacher",
+    "style_direct_unavailable_moving": "Direct action unavailable · moving to {style} teacher",
+    "waiting_reason": "Waiting · {reason}",
+    "need_beli": "Need {amount} Beli",
+    "waiting_beli": "Waiting for Beli state",
+    "combat_remotes_missing": "Combat remotes are unavailable",
+    "location_present": "{name} is present",
+    "location_absent": "{name} is not present",
+    "leviathan_spy": "Leviathan Spy · {value}/5",
+    "leviathan_spy_done": "Leviathan Spy complete · {value}/5",
+    "race_v4_tier": "V4 Tier · {value}",
+    "hop_requested": "Đã yêu cầu chuyển server",
+    "hop_failed": "Chuyển server thất bại · {reason}",
+    "gacha_checking": "Đang kiểm tra Gacha",
+    "gacha_randomizing": "Đang random trái",
+    "gacha_received_closing": "Đã nhận {fruit} · đang đóng kết quả",
+    "gacha_cooldown": "Hồi chiêu · {time}",
+    "gacha_cooldown_close_failed": "Hồi chiêu · {time} · đóng thất bại: {reason}",
+    "gacha_unconfirmed": "Chưa xác nhận kết quả Gacha · {reason}",
+    "gacha_retry": "Thử lại sau {time}",
+    "gacha_insufficient_beli": "Không đủ Beli",
+    "gacha_requires_level": "Yêu cầu cấp {level}",
+    "gacha_unavailable": "Gacha không khả dụng",
+    "fishing_crafting_bait": "Đang chế tạo {bait} · current {count}",
+    "fishing_loading_bait": "Đang nạp {bait} · {count}",
+    "fishing_move_water": "Moving to fishing water",
+    "waiting_character": "Waiting for character",
+    "fishing_prepare_rod": "Đang chuẩn bị fishing rod",
+    "fishing_equip_rod": "Đang trang bị fishing rod",
+    "fishing_prepare_bait": "Đang chuẩn bị bait",
+    "fishing_rod_unequipped": "Câu cá rod is not equipped",
+    "fishing_ready": "Ready to fish",
+    "fishing_biting": "Fish biting",
+    "fishing_wait_bite": "Đang chờ for bite",
+    "fishing_bait_needed": "Bait required",
+    "fishing_cast_retry": "Cast retry · {reason}",
+    "fishing_reeling": "Đang kéo",
+    "fishing_cast_ended": "Cast ended",
+    "fishing_wait_bite_state": "Đang chờ for bite · {state}",
+    "fishing_catch_completed": "Bắt cá hoàn tất",
+    "fishing_reel_ended": "Reel ended",
+    "fishing_next_cast": "Đang chuẩn bị next cast",
+    "fishing_reset": "Câu cá runtime reset",
+    "fishing_runtime_error": "Câu cá error · {reason}",
+    "fishing_stopped": "Câu cá đã dừng",
+    "fishing_preparing_selected_bait": "Đang chuẩn bị {bait} · {count}",
+    "second_sea_requires_level": "Requires Level {level}",
+    "second_sea_return_detective": "Returning to Detective",
+    "second_sea_move_captain": "Moving to Experienced Captain",
+    "second_sea_travel": "Travelling to Second Sea",
+    "second_sea_get_key": "Getting Library Key",
+    "second_sea_open_door": "Opening Ice Admiral door",
+    "second_sea_defeat_admiral": "Defeating Ice Admiral",
+    "second_sea_confirm_admiral": "Confirming Ice Admiral completion",
+    "second_sea_move_admiral": "Moving to Ice Admiral",
+    "second_sea_wait_admiral": "Waiting for Ice Admiral",
+    "raid_chip_paused_mode": "Bật · tạm dừng theo Raid Mode",
+    "raid_chip_ready": "Bật · chip đã sẵn sàng",
+    "raid_chip_level_required": "Yêu cầu cấp {level}+",
+    "raid_chip_buying_beli": "Đang mua chip bằng {amount} Beli",
+    "raid_chip_beli_ready": "Đã xác nhận chip Beli",
+    "raid_chip_insufficient_beli": "Không đủ Beli · cần {amount}",
+    "raid_chip_wait_beli_state": "Đang chờ trạng thái Beli",
+    "raid_chip_beli_cooldown": "Đang hồi giao dịch Beli",
+    "raid_chip_wait_beli": "Đang chờ điều kiện mua bằng Beli",
+    "raid_chip_buying_fragments": "Đang mua chip bằng {amount} Fragments",
+    "raid_chip_fragment_ready": "Đã xác nhận chip Fragment",
+    "raid_chip_insufficient_fragments": "Không đủ Fragments · cần {amount}",
+    "raid_chip_wait_fragment_state": "Đang chờ trạng thái Fragment",
+    "raid_chip_wait_fragments": "Đang chờ điều kiện mua bằng Fragment",
+    "raid_mode_basic": "Raid Cơ bản",
+    "raid_mode_advanced": "Raid Nâng cao",
+    "law_running": "Bật · Law Raid đang chạy",
+    "law_completed": "Bật · Law Raid đã hoàn thành",
+    "law_invalid_death": "Bật · run không hợp lệ sau khi chết · chờ Order kết thúc",
+    "law_wait_normal_raid": "Bật · tạm dừng vì Raid thường đang sở hữu flow",
+    "law_buy_pending": "Bật · đang xác nhận Microchip Law",
+    "law_start_pending": "Bật · đã gửi start một lần · chờ Order",
+    "law_blocked": "Bị khóa · {reason}",
+    "law_completion_unconfirmed": "Bị khóa · chưa xác nhận Law completion",
+    "law_chip_ready": "Bật · Microchip Law sẵn sàng",
+    "law_waiting": "Bật · chờ điều kiện Law Raid",
+    "cdk": {
+      "waiting": "Waiting for CDK progression",
+      "yama_1": "Yama trial · step 1",
+      "yama_2": "Yama trial · step 2",
+      "yama_3": "Yama trial · step 3",
+      "tushita_1": "Tushita trial · step 1",
+      "tushita_2": "Tushita trial · step 2",
+      "done": "Cursed Dual Katana ready"
+    },
+    "soul_guitar": {
+      "quest1": "Soul Guitar quest · step 1",
+      "quest2": "Soul Guitar quest · step 2",
+      "quest3": "Soul Guitar quest · step 3",
+      "quest4": "Soul Guitar quest · step 4",
+      "collect": "Soul Guitar requirements complete",
+      "none": "Waiting for Soul Guitar progression"
+    },
+    "raid": {
+      "waiting": "Waiting for Raid",
+      "active_auto_off": "Raid active · Auto Raid off",
+      "island": "Raid island {island}/5",
+      "state": "Raid · {state}",
+      "finalizing": "Raid finalizing",
+      "blocked": "Raid blocked · {reason}"
+    },
+    "moon": {
+      "next_night": "Moon phase {phase}/8 · next night",
+      "full": "Full Moon · phase {phase}/8",
+      "last_night": "Moon phase {phase}/8 · last night",
+      "phase": "Moon phase {phase}/8"
+    },
+    "v2_unconfirmed": "Chưa xác nhận V2",
+    "on": "BẬT",
+    "starting": "Đang khởi động",
+    "stopping": "Đang dừng",
+    "configured": "Đã cấu hình",
+    "third_sea_requires_level": "Yêu cầu cấp {level}",
+    "third_sea_check_bartilo": "Đang kiểm tra tiến độ Bartilo",
+    "third_sea_bartilo": "Đang hoàn thành nhiệm vụ Bartilo",
+    "third_sea_trevor": "Đang mở khóa Don Swan qua Trevor",
+    "third_sea_wait_fruit": "Đang chờ Trái Ác Quỷ trị giá từ 1.000.000 Beli",
+    "third_sea_don_swan": "Đang xử lý Don Swan",
+    "third_sea_indra": "Đang xử lý King Red Head / rip_indra",
+    "third_sea_travel": "Đang chuyển tới Sea 3",
+    "third_sea_complete": "Đã ở Sea 3",
+    "fruit_tween": "Đang tới {fruit} · {distance} studs",
+    "fruit_waiting": "Đang chờ Fruit xuất hiện",
+    "fruit_collect_precedence": "Đang bật Nhặt Fruit tức thì; Tween tới Fruit tạm chờ.",
+    "race_progress_owned": "Progression tộc đang do {owner} sử dụng",
+    "race_contract_unavailable": "Contract tiến trình Race không khả dụng · {reason}",
+    "race_travel_sea2": "Đang chuyển tới Sea 2 để làm progression tộc",
+    "race_state_unavailable": "Không đọc được trạng thái progression tộc từ server",
+    "race_state_unexpected": "Trạng thái progression tộc không hợp lệ: {state}",
+    "race_need_level": "Yêu cầu cấp {level}",
+    "race_v2_starting": "Đang bắt đầu nhiệm vụ Tộc V2 với Alchemist",
+    "race_v2_collect_flower": "Đang lấy {flower}",
+    "race_v2_wait_flower": "Đang chờ {flower} xuất hiện trong runtime",
+    "race_v2_farm_flower3": "Đang hạ NPC để lấy Flower 3",
+    "race_v2_wait_flower3_mob": "Đang chờ mục tiêu NPC để lấy Flower 3",
+    "race_v2_turnin": "Đang giao Tộc V2 cho Alchemist",
+    "race_v2_complete": "Đã xác nhận hoàn thành Tộc V2",
+    "race_v3_requires_v2": "Tộc V3 yêu cầu V2; đang hoàn thành V2 trước",
+    "race_v3_starting": "Đang bắt đầu nhiệm vụ V3 cho tộc {race}",
+    "race_v3_human_boss": "Đang hạ {boss} cho Human V3",
+    "race_v3_rabbit_chests": "Đang thu thập rương cho Rabbit V3",
+    "race_v3_shark_search": "Đang tìm Sea Beast tự nhiên cho Shark V3",
+    "race_v3_shark_combat": "Đang đánh Sea Beast cho Shark V3",
+    "race_v3_wait_player": "Đang chờ người chơi tộc {race} hợp lệ",
+    "race_v3_cyborg_need_fruit": "Cần một Fruit vật lý cho Cyborg V3",
+    "race_v3_cyborg_load_fruit": "Đang lấy {fruit} từ kho cho Cyborg V3",
+    "race_v3_cyborg_present_fruit": "Đang trình {fruit} cho Cyborg V3",
+    "race_v3_turnin": "Đang xác nhận hoàn thành Tộc V3 cho {race}",
+    "race_v3_unsupported_race": "Auto Tộc V3 chưa hỗ trợ tộc runtime {race}",
+    "race_v3_complete": "Đã xác nhận hoàn thành Tộc V3",
+    "race_ghoul_ectoplasm": "Đang farm Ectoplasm · {current}/{required}",
+    "race_ghoul_torch": "Đang hạ Cursed Captain để lấy Hellfire Torch",
+    "race_ghoul_equip_torch": "Đang trang bị Hellfire Torch để giao cho Experimic",
+    "race_ghoul_purchase": "Đang hoàn thành giao dịch Ghoul với Experimic",
+    "race_ghoul_complete": "Đã xác nhận tộc Ghoul",
+    "race_cyborg_fist": "Đang săn Sea Beast tự nhiên để lấy Fist of Darkness",
+    "race_cyborg_insert_fist": "Đang đưa Fist of Darkness vào Secret Laboratory",
+    "race_cyborg_core_brain": "Đang chạy Order / Law Raid tới khi nhận Core Brain",
+    "race_cyborg_insert_core": "Đang đưa Core Brain vào Secret Laboratory",
+    "race_cyborg_fragments": "Cần {required} Fragments · hiện có {current}",
+    "race_cyborg_purchase": "Đang mua tộc Cyborg",
+    "race_cyborg_lab_unavailable": "Không tìm thấy control runtime của Secret Laboratory",
+    "race_cyborg_complete": "Đã xác nhận tộc Cyborg",
+    "fruit_mirage_stock_ready": "Đã làm mới Mirage Stock từ runtime",
+    "fruit_mirage_stock_unavailable": "Không lấy được Mirage Stock từ runtime · {reason}",
+    "fruit_shop_stock_ready": "Đã cập nhật tồn kho Fruit Shop từ runtime",
+    "fruit_shop_stock_unavailable": "Không thể lấy tồn kho Fruit Shop từ runtime · {reason}",
+    "race_cyborg_fist_seabeast": "Đang săn Sea Beast để lấy Fist of Darkness",
+    "level_secret_progress_required": "Tiến trình quest thường kết thúc ở cấp {regular}. Hãy hoàn thành Island Secrets để tăng từ cấp {level} lên tối đa {cap}.",
+    "level_cap_reached": "Đã đạt cấp tối đa: {level}/{cap}.",
+    "race_cyborg_verify_fist": "Đang xác minh điều kiện Fist của Secret Laboratory từ trạng thái server thực tế",
+    "arrived_target": "Đã tới {target}",
+    "pvp_requires_bounty": "Mục tiêu PvP cần ít nhất {required} Bounty.",
+    "pvp_requires_honor": "Mục tiêu PvP cần ít nhất {required} Honor.",
+    "race_need_beli": "Cần {required} Beli · hiện có {current}",
+    "race_trevor_unavailable": "Không đọc được trạng thái runtime của Trevor",
+    "race_v2_bartilo": "Đang hoàn thành điều kiện Bartilo · {current}/{required}",
+    "race_v3_don_swan": "Đang hạ Don Swan cho điều kiện Tộc V3",
+    "race_v3_prerequisite_don_swan": "Đang hoàn thành điều kiện Trevor / Don Swan cho Tộc V3",
+    "race_v3_trevor_load_fruit": "Đang lấy {fruit} cho Trevor",
+    "race_v3_trevor_need_fruit": "Trevor yêu cầu Fruit vật lý trị giá ít nhất 1.000.000 Beli",
+    "race_v3_unlock_trevor": "Đang mở quyền vào Don Swan thông qua Trevor",
+    "race_v3_wait_don_swan": "Đang chờ Don Swan xuất hiện",
+    "race_ghoul_save_torch": "Đang giao Hellfire Torch cho Experimic để lưu điều kiện Ghoul",
+    "race_v3_wait_server": "Đang chờ server xác nhận mục tiêu Human V3 đã hoàn thành",
+    "race_wait_server": "Đang chờ server xác nhận hành động tiến trình trước đó",
+    "race_travel_sea3": "Đang di chuyển tới Sea 3 cho tiến trình Draco",
+    "race_draco_fire_flower": "Đang thu thập Fire Flower cho Draco V2 · {current}/{required}",
+    "race_draco_v2_begin": "Đang bắt đầu Draco V2 với Dragon Wizard",
+    "race_draco_v2_turnin": "Đang giao Draco V2 cho Dragon Wizard",
+    "race_draco_v3_begin": "Đang bắt đầu Draco V3 với Dragon Wizard",
+    "race_draco_v3_terror_shark": "Đang săn Terrorshark cho Draco V3",
+    "race_draco_v3_turnin": "Đang giao Draco V3 cho Dragon Wizard"
+  },
+  "settings": {
+    "interface": "Giao diện",
+    "language_title": "Ngôn ngữ",
+    "language_desc": "Đổi ngôn ngữ giao diện ngay mà không cần tải lại Hub.",
+    "scale_title": "Tỷ lệ UI",
+    "scale_desc": "Điều chỉnh kích thước UI nhưng vẫn giữ bố cục thích ứng.",
+    "density_title": "Mật độ gọn",
+    "density_desc": "Giảm khoảng cách trên màn hình lớn nhưng vẫn giữ vùng chạm đủ rộng.",
+    "motion_title": "Giảm chuyển động",
+    "motion_desc": "Rút ngắn animation để giao diện phản hồi nhanh hơn.",
+    "search_title": "Tìm trong Hub",
+    "search_desc": "Tìm nhanh mọi tính năng đang khả dụng.",
+    "team_section": "Khởi động & Phe",
+    "auto_team_title": "Tự động chọn phe",
+    "auto_team_desc": "Tự động chọn phe ưu tiên ngay khi vào game, trước khi các tính năng tự động bắt đầu.",
+    "preferred_team_title": "Phe ưu tiên",
+    "preferred_team_desc": "Chọn phe mà HUB sẽ tự động tham gia khi vào game lần tiếp theo.",
+    "apply_team_title": "Áp dụng phe ngay",
+    "apply_team_desc": "Thử chọn phe ngay lập tức bằng remote của game trước, sau đó dùng fallback của executor.",
+    "team_status_title": "Trạng thái phe",
+    "team_status_desc": "Hiển thị phe hiện tại mà game đã gán cho người chơi.",
+    "team_status_value": "Phe hiện tại: {team}",
+    "runtime_safety_section": "An toàn Runtime",
+    "refresh_progress_title": "Làm mới dữ liệu tiến trình",
+    "refresh_progress_desc": "Làm mới cưỡng bức inventory, quyền sở hữu và snapshot tiến trình Fighting Style.",
+    "runtime_safety_status_title": "Trạng thái an toàn Runtime",
+    "runtime_safety_status_desc": "Hiển thị trạng thái khóa hành động và bảo vệ vật phẩm quan trọng.",
+    "team_status_pirates": "Phe hiện tại: Pirates",
+    "team_status_marines": "Phe hiện tại: Marines",
+    "team_status_not_selected": "Phe hiện tại: chưa chọn",
+    "icon_atlas_title": "Hệ thống icon đang dùng",
+    "icon_atlas_desc": "Nguồn icon riêng lẻ đang hoạt động trên giao diện, có fallback tự động và phản ánh trạng thái render thực tế.",
+    "icon_legacy_title": "Chẩn đoán atlas cũ",
+    "icon_legacy_desc": "Kiểm tra riêng asset atlas 126253815695177 để phân biệt lỗi asset cũ với nguồn icon đang render.",
+    "reset_title": "Khôi phục cài đặt gốc",
+    "reset_desc": "Tắt các tính năng đang chạy và đưa cài đặt Re4Hub về trạng thái ban đầu.",
+    "reset_done": "Đã khôi phục cài đặt gốc.",
+    "reset_failed": "Không thể khôi phục cài đặt: {reason}"
+  },
+  "runtime": {
+    "ready": "Sẵn sàng",
+    "running_raid": "Đang chạy · Raid",
+    "running_target": "Đang chạy · {target}",
+    "nearest": "Đang chạy · Quái gần nhất",
+    "dough_king": "Đang chạy · Dough King",
+    "cake_prince": "Đang chạy · Cake Prince",
+    "fast_attack": "Chiến đấu · Fast Attack sẵn sàng"
+  },
+  "sea": {
+    "first": "Sea 1",
+    "second": "Sea 2",
+    "third": "Sea 3",
+    "unknown": "Sea không xác định"
+  },
+  "dynamic": {
+    "status": "Trạng thái: {value}",
+    "elite": "Trạng thái: {status} | Đã hạ: {count}",
+    "bones": "Bạn có {count} Xương",
+    "elite_progress": "Tiến trình Elite: {count}",
+    "killed": "Đã hạ: {count}",
+    "bones_count": "Xương: {count}",
+    "quest_number": "Nhiệm vụ: {value}",
+    "moon": "Trăng: {value}",
+    "boolean_found": "{name}: {value}",
+    "tier_v4": "Bậc V4: {value}",
+    "spy": "Trinh sát Leviathan: {value}",
+    "time_hms": "{hour} giờ {minute} phút {second} giây",
+    "datetime": "{datetime} - {timezone} [{code}]",
+    "boss_select": "Chọn Boss",
+    "boss_alive": "{name} · Đã spawn · HP {hp}",
+    "boss_waiting": "{name} · Chưa spawn",
+    "boss_unavailable": "{name} · Chưa spawn",
+    "boss_defeated": "{name} · Đã bị hạ"
+  },
+  "legacy": {
+    "Rip_Indra": "Rip_Indra",
+    "BodyClip": "BodyClip",
+    "highlight": "highlight",
+    "Interface": "Giao diện",
+    "UI Scale": "UI Scale",
+    "Scale the complete RE4 interface without changing gameplay.": "Scale the complete RE4 interface without changing gameplay.",
+    "Compact Density": "Compact Density",
+    "Reduce desktop row height while keeping touch layout unchanged.": "Reduce desktop row height while keeping touch layout unchanged.",
+    "Reduced Motion": "Reduced Motion",
+    "Use shorter transitions for a faster, calmer interface.": "Use shorter transitions for a faster, calmer interface.",
+    "Search Hub": "Search Hub",
+    "Find any feature without navigating through every section.": "Find any feature without navigating through every section.",
+    "Search": "Search",
+    "Player Overview": "Tổng quan người chơi",
+    "Time Zone": "Múi giờ",
+    "Time": "Thời gian",
+    "Mirage Island": "Đảo Mirage",
+    "Status: ": "Status: ",
+    "Kitsune Island": "Đảo Kitsune",
+    "Prehistoric Island": "Đảo Tiền Sử",
+    "Frozen  Dimension": "Frozen  Dimension",
+    "Dimension Killed": "Dimension Killed",
+    "Rip Indra": "Rip Indra",
+    "Dough King": "Dough King",
+    "Elite Hunter": "Elite Hunter",
+    "Full Moon": "Full Moon",
+    "Legendary Sword": "Legendary Sword",
+    "Bone": "Bone",
+    "Choose Weapon": "Choose Weapon",
+    "Choose Attack Speed": "Choose Attack Speed",
+    "Fast Attack Buddha": "Fast Attack Buddha",
+    "Auto Farm Level": "Tự Động Cày Cấp Độ",
+    "Tự Động Cày Cấp Độ": "Tự Động Cày Cấp Độ",
+    "Auto Farm Nearest": "Tự Động Đánh Quái Ở Gần",
+    "Tự Động Đánh Quái Ở Gần": "Tự Động Đánh Quái Ở Gần",
+    "Auto Factory Raid": "Tự Động Đánh Nhà Máy",
+    "Tự Động Đánh Nhà Máy": "Tự Động Đánh Nhà Máy",
+    "Auto Pirate Raid": "Tự Động Đánh Hải Tặc Đột Kích",
+    "Tự Động Đánh Hải Tặc Đột Kích": "Tự Động Đánh Hải Tặc Đột Kích",
+    "Auto Farm Ectoplasm": "Tự Động Cày Ngoại Chất",
+    "Tự Động Cày Ngoại Chất": "Tự Động Cày Ngoại Chất",
+    "Auto Farm Chest": "Tự Động Nhặt Rương",
+    "Tự Động Nhặt Rương": "Tự Động Nhặt Rương",
+    "Stop Item": "Dừng Khi Có Vật Phẩm",
+    "Dừng Khi Có Vật Phẩm": "Dừng Khi Có Vật Phẩm",
+    "Auto Collect Berry": "Tự Động Nhặt Berry",
+    "Tự Động Nhặt Berry": "Tự Động Nhặt Berry",
+    "Auto Collect Berry + Hop Server": "Tự Động Nhặt Berry + Chuyển Máy Chủ",
+    "Tự Động Nhặt Berry + Chuyển Máy Chủ": "Tự Động Nhặt Berry + Chuyển Máy Chủ",
+    "Elites Process": "Elites Process",
+    "Elite Spam": "Elite Spam",
+    "Auto Farm Elite": "Tự Động Đánh Elite",
+    "Tự Động Đánh Elite": "Tự Động Đánh Elite",
+    "Auto Farm Elite + Hop Server": "Tự Động Đánh Elite + Chuyển Máy Chủ",
+    "Tự Động Đánh Elite + Chuyển Máy Chủ": "Tự Động Đánh Elite + Chuyển Máy Chủ",
+    "Cake Prince:": "Cake Prince:",
+    "Auto Farm Cake Prince": "Tự Động Cày Hoàng Tử Bột",
+    "Tự Động Cày Hoàng Tử Bột": "Tự Động Cày Hoàng Tử Bột",
+    "Auto Summon Cake Prince": "Tự Động Triệu Hồi Hoàng Tử Bột",
+    "Tự Động Triệu Hồi Hoàng Tử Bột": "Tự Động Triệu Hồi Hoàng Tử Bột",
+    "Auto Farm Dough King": "Tự Động Đánh Bột Đế Vương",
+    "Tự Động Đánh Bột Đế Vương": "Tự Động Đánh Bột Đế Vương",
+    "Auto Hop Dough King": "Tự Động Chuyển Máy Bột Đế Vương",
+    "Tự Động Chuyển Máy Bột Đế Vương": "Tự Động Chuyển Máy Bột Đế Vương",
+    "Auto Unlock Dough Dungeon": "Tự Động Mở Khoá Dungeon Bột",
+    "Tự Động Mở Khoá Dungeon Bột": "Tự Động Mở Khoá Dungeon Bột",
+    "Auto Unlock Phoenix Dungeon": "Tự Động Mở Khoá Dungeon Phượng Hoàng",
+    "Tự Động Mở Khoá Dungeon Phượng Hoàng": "Tự Động Mở Khoá Dungeon Phượng Hoàng",
+    " Bone:": " Bone:",
+    "Auto Farm Bone": "Tự Động Cày Xương",
+    "Tự Động Cày Xương": "Tự Động Cày Xương",
+    "Auto Soul Reaper": "Tự Động Đánh Soul Reaper",
+    "Tự Động Đánh Soul Reaper": "Tự Động Đánh Soul Reaper",
+    "Auto Random Bone": "Tự Động Đổi Xương",
+    "Tự Động Đổi Xương": "Tự Động Đổi Xương",
+    "Auto Try Luck Gravestone": "Tự Động Thử Vận May Bia Mộ",
+    "Tự Động Thử Vận May Bia Mộ": "Tự Động Thử Vận May Bia Mộ",
+    "Auto Pray Gravestone": "Tự Động Cầu Nguyện Bia Mộ",
+    "Tự Động Cầu Nguyện Bia Mộ": "Tự Động Cầu Nguyện Bia Mộ",
+    "Boss Spam": "Boss Spam",
+    "Auto Farm Boss": "Tự Động Đánh Boss",
+    "Tự Động Đánh Boss": "Tự Động Đánh Boss",
+    "Auto Summon Boss": "Tự Động Triệu Hồi Boss",
+    "Tự Động Triệu Hồi Boss": "Tự Động Triệu Hồi Boss",
+    "Select Material": "Select Material",
+    "Auto Farm Materials": "Tự Động Cày Nguyên Liệu",
+    "Tự Động Cày Nguyên Liệu": "Tự Động Cày Nguyên Liệu",
+    "Select Boss": "Select Boss",
+    "Choose Location Farm": "Choose Location Farm",
+    "Auto Mastery Fruit": "Tự Động Cày Thông Thạo Trái",
+    "Tự Động Cày Thông Thạo Trái": "Tự Động Cày Thông Thạo Trái",
+    "Auto Mastery Gun": "Tự Động Cày Thông Thạo Súng",
+    "Tự Động Cày Thông Thạo Súng": "Tự Động Cày Thông Thạo Súng",
+    "Auto Mastery Dragon Storm": "Tự Động Cày Thông Thạo Dragon Storm",
+    "Tự Động Cày Thông Thạo Dragon Storm": "Tự Động Cày Thông Thạo Dragon Storm",
+    "Auto Mastery All Sword": "Tự Động Cày Thông Thạo Tất Cả Kiếm",
+    "Tự Động Cày Thông Thạo Tất Cả Kiếm": "Tự Động Cày Thông Thạo Tất Cả Kiếm",
+    "Auto Use Skill Z Buddha": "Tự Động Dùng Chiêu Z Buddha Để Farm",
+    "Tự Động Dùng Chiêu Z Buddha Để Farm": "Tự Động Dùng Chiêu Z Buddha Để Farm",
+    "Fast Attack": "Đánh Nhanh",
+    "Đánh Nhanh": "Đánh Nhanh",
+    "Bring Mob": "Bring Mob",
+    "Gom Quái": "Gom Quái",
+    "Auto Hop [Evevry 30 Minutes]": "Tự Động Chuyển Máy Chủ [Mỗi 30 Phút]",
+    "Tự Động Chuyển Máy Chủ [Mỗi 30 Phút]": "Tự Động Chuyển Máy Chủ [Mỗi 30 Phút]",
+    "Auto Turn On Haki": "Tự Động Bật Haki",
+    "Tự Động Bật Haki": "Tự Động Bật Haki",
+    "Auto Turn On V3": "Tự Động Bật V3",
+    "Tự Động Bật V3": "Tự Động Bật V3",
+    "Auto Turn On V4": "Tự Động Bật V4",
+    "Tự Động Bật V4": "Tự Động Bật V4",
+    "Auto Turn On Spin Position": "Tự Động Bật Spin Position",
+    "Tự Động Bật Spin Position": "Tự Động Bật Spin Position",
+    "Turn On Bypass Teleport": "Bật Dịch Chuyển Bypass",
+    "Bật Dịch Chuyển Bypass": "Bật Dịch Chuyển Bypass",
+    "Panic Mode": "Chế Độ Hoảng Loạn",
+    "Chế Độ Hoảng Loạn": "Chế Độ Hoảng Loạn",
+    "Remove Hit": "Xoá Hiệu Ứng Chém Và Kiếm Để Có Khả Năng Hiển Thị Tốt Hơn",
+    "Xoá Hiệu Ứng Chém Và Kiếm Để Có Khả Năng Hiển Thị Tốt Hơn": "Xoá Hiệu Ứng Chém Và Kiếm Để Có Khả Năng Hiển Thị Tốt Hơn",
+    "Remove Death And Respamed": "Xoá Hiệu Ứng Chết Và Hồi Sinh",
+    "Xoá Hiệu Ứng Chết Và Hồi Sinh": "Xoá Hiệu Ứng Chết Và Hồi Sinh",
+    "Disable Notify": "Tắt Thông Báo",
+    "Tắt Thông Báo": "Tắt Thông Báo",
+    "Anti Kick": "Chống Kick",
+    "Chống Kick": "Chống Kick",
+    "Auto Speed": "Auto Speed",
+    "Auto Jump": "Auto Jump",
+    "Remove Lava": "Xoá Dung Nham",
+    "Xoá Dung Nham": "Xoá Dung Nham",
+    "Esp Player": "Esp Player",
+    "Esp Chest": "Esp Chest",
+    "Esp Fruit": "Esp Fruit",
+    "Esp Island": "Esp Island",
+    "Stats Value": "Stats Value",
+    "Auto Melee": "Tự Động Nâng Cận Chiến",
+    "Tự Động Nâng Cận Chiến": "Tự Động Nâng Cận Chiến",
+    "Auto Swords": "Tự Động Nâng Kiếm",
+    "Tự Động Nâng Kiếm": "Tự Động Nâng Kiếm",
+    "Auto Gun": "Tự Động Nâng Súng",
+    "Tự Động Nâng Súng": "Tự Động Nâng Súng",
+    "Auto Blox Fruit": "Tự Động Nâng Trái",
+    "Tự Động Nâng Trái": "Tự Động Nâng Trái",
+    "Auto Defense": "Tự Động Nâng Phòng Thủ",
+    "Tự Động Nâng Phòng Thủ": "Tự Động Nâng Phòng Thủ",
+    "Choose Bait": "Choose Bait",
+    "Auto Buy Bait": "Tự Động Mua Mồi",
+    "Tự Động Mua Mồi": "Tự Động Mua Mồi",
+    "Auto Fishing": "Tự Động Câu Cá",
+    "Tự Động Câu Cá": "Tự Động Câu Cá",
+    "Auto Quest Fishing": "Tự Động Nhận Nhiệm Vụ Câu Cá",
+    "Tự Động Nhận Nhiệm Vụ Câu Cá": "Tự Động Nhận Nhiệm Vụ Câu Cá",
+    "Auto Complete Quest": "Tự Động Hoàn Thành Nhiệm Vụ",
+    "Tự Động Hoàn Thành Nhiệm Vụ": "Tự Động Hoàn Thành Nhiệm Vụ",
+    "Auto Sell Fish": "Tự Động Bán Cá",
+    "Tự Động Bán Cá": "Tự Động Bán Cá",
+    "Auto Spam Skill Z": "Tự Động Spam Chiêu Z",
+    "Tự Động Spam Chiêu Z": "Tự Động Spam Chiêu Z",
+    "Auto Quest Sea 2": "Tự Động Làm Nhiệm Vụ Sea 2",
+    "Tự Động Làm Nhiệm Vụ Sea 2": "Tự Động Làm Nhiệm Vụ Sea 2",
+    "Auto Quest Sea 3": "Tự Động Làm Nhiệm Vụ Sea 3",
+    "Tự Động Làm Nhiệm Vụ Sea 3": "Tự Động Làm Nhiệm Vụ Sea 3",
+    "Auto Get Tushita": "Tự Động Lấy Tushita",
+    "Tự Động Lấy Tushita": "Tự Động Lấy Tushita",
+    "Auto Get Yama": "Tự Động Lấy Yama",
+    "Tự Động Lấy Yama": "Tự Động Lấy Yama",
+    " Number Cursed Dual Katana Quest ": " Number Cursed Dual Katana Quest ",
+    "Quest Numbers :": "Quest Numbers :",
+    "Auto Get CDK": "Tự Động Lấy Song Kiếm Nguyền Rủa",
+    "Tự Động Lấy Song Kiếm Nguyền Rủa": "Tự Động Lấy Song Kiếm Nguyền Rủa",
+    "Auto Quest Yama [CDK]": "Tự Động Nhiệm Vụ Yama [CDK]",
+    "Tự Động Nhiệm Vụ Yama [CDK]": "Tự Động Nhiệm Vụ Yama [CDK]",
+    "Auto Quest Tushita [CDK]": "Tự Động Nhiệm Vụ Tushita [CDK]",
+    "Tự Động Nhiệm Vụ Tushita [CDK]": "Tự Động Nhiệm Vụ Tushita [CDK]",
+    "Auto Buy Legendary Sword": "Tự Động Mua Kiếm Lagendary",
+    "Tự Động Mua Kiếm Lagendary": "Tự Động Mua Kiếm Lagendary",
+    "Auto Craft True Triple Katana": "Tự Động Chế Tạo True Triple Katana",
+    "Tự Động Chế Tạo True Triple Katana": "Tự Động Chế Tạo True Triple Katana",
+    "Tween To Legendary Sword Seller NPC": "Bay Đến NPC Bán Kiếm Legendary",
+    "Bay Đến NPC Bán Kiếm Legendary": "Bay Đến NPC Bán Kiếm Legendary",
+    "Auto Get Pole V1": "Tự Động Lấy Pole V1",
+    "Tự Động Lấy Pole V1": "Tự Động Lấy Pole V1",
+    "Auto Pole V2": "Tự Động Lấy Pole V2",
+    "Tự Động Lấy Pole V2": "Tự Động Lấy Pole V2",
+    "Auto Get Law Sword": "Tự Động Lấy Kiếm Law",
+    "Tự Động Lấy Kiếm Law": "Tự Động Lấy Kiếm Law",
+    "Auto Get Saw Sword": "Tự Động Lấy Kiếm Saw",
+    "Tự Động Lấy Kiếm Saw": "Tự Động Lấy Kiếm Saw",
+    "Auto Get Saber Sword": "Tự Động Lấy Kiếm Saber",
+    "Tự Động Lấy Kiếm Saber": "Tự Động Lấy Kiếm Saber",
+    "Auto Get Cybrog": "Tự Động Lấy Người Máy",
+    "Tự Động Lấy Người Máy": "Tự Động Lấy Người Máy",
+    "Auto Get Usoap's Hat": "Tự động lấy Mũ Usoap",
+    "Tự Động Lấy Mũ Usoap": "Tự Động Lấy Mũ Usoap",
+    "Auto Bisento V2": "Tự Động Lấy Đại Đao V2",
+    "Tự Động Lấy Đại Đao V2": "Tự Động Lấy Đại Đao V2",
+    "Auto Get Warden Sword": "Tự Động Lấy Kiếm Warden",
+    "Tự Động Lấy Kiếm Warden": "Tự Động Lấy Kiếm Warden",
+    "Auto Get Marine Coat": "Tự Động Lấy Áo Choàng Hải Quân",
+    "Tự Động Lấy Áo Choàng Hải Quân": "Tự Động Lấy Áo Choàng Hải Quân",
+    "Auto Get Swan Coat": "Tự Động Lấy Áo Choàng Swan",
+    "Tự Động Lấy Áo Choàng Swan": "Tự Động Lấy Áo Choàng Swan",
+    "Auto Get Rengoku Sword": "Tự Động Lấy Kiếm Rengoku",
+    "Tự Động Lấy Kiếm Rengoku": "Tự Động Lấy Kiếm Rengoku",
+    "Auto Get Key Rengoku": "Tự Động Lấy Chìa Khoá Rengoku",
+    "Tự Động Lấy Chìa Khoá Rengoku": "Tự Động Lấy Chìa Khoá Rengoku",
+    "Auto Get Dragon Trident": "Tự Động Lấy Dragon Trident",
+    "Tự Động Lấy Dragon Trident": "Tự Động Lấy Dragon Trident",
+    "Auto Get Long Sword": "Tự Động Lấy Kiếm Dài",
+    "Tự Động Lấy Kiếm Dài": "Tự Động Lấy Kiếm Dài",
+    "Auto Get Black Spikey": "Tự Động Lấy Black Spikey",
+    "Tự Động Lấy Black Spikey": "Tự Động Lấy Black Spikey",
+    "Auto Dark Blade V3": "Tự Động Lấy Dark Blade V3",
+    "Tự Động Lấy Dark Blade V3": "Tự Động Lấy Dark Blade V3",
+    "Auto Get Midnight Blade": "Tự Động Lấy Midnight Blade",
+    "Tự Động Lấy Midnight Blade": "Tự Động Lấy Midnight Blade",
+    "Auto Farm Darkbeard": "Tự Động Đánh Râu Đen",
+    "Tự Động Đánh Râu Đen": "Tự Động Đánh Râu Đen",
+    "Auto Unlock DonSwan": "Tự Động Mở Khoá DonSwan",
+    "Tự Động Mở Khoá DonSwan": "Tự Động Mở Khoá DonSwan",
+    "Auto Get Swan Glasses": "Tự Động Lấy Kính Swan",
+    "Tự Động Lấy Kính Swan": "Tự Động Lấy Kính Swan",
+    "Auto Get Buddy Sword": "Tự Động Lấy Kiếm Buddy",
+    "Tự Động Lấy Kiếm Buddy": "Tự Động Lấy Kiếm Buddy",
+    "Auto Get Florentino Sword": "Tự Động Lấy Kiếm Florentino",
+    "Tự Động Lấy Kiếm Florentino": "Tự Động Lấy Kiếm Florentino",
+    "Auto Get Twin Hooks": "Tự Động Lấy Móc Đôi",
+    "Tự Động Lấy Móc Đôi": "Tự Động Lấy Móc Đôi",
+    "Auto Get Serpent Bow": "Tự Động Lấy Serpent Bow",
+    "Tự Động Lấy Serpent Bow": "Tự Động Lấy Serpent Bow",
+    "Auto Get Lei Accessory": "Tự Động Lấy Lai Accessory",
+    "Tự Động Lấy Lai Accessory": "Tự Động Lấy Lai Accessory",
+    "Auto Teleport Barista Cousin": "Tự Động Dịch Chuyển Đến Barista Cousin",
+    "Tự Động Dịch Chuyển Đến Barista Cousin": "Tự Động Dịch Chuyển Đến Barista Cousin",
+    "Buy Color Haki": "Mua Màu Haki",
+    "Mua Màu Haki": "Mua Màu Haki",
+    "Auto Haki Rainbow": "Tự Động Lấy Haki 7 Màu",
+    "Tự Động Lấy Haki 7 Màu": "Tự Động Lấy Haki 7 Màu",
+    "Get Quest Haki Rainbow": "Nhận Nhiệm Vụ Haki 7 Màu",
+    "Nhận Nhiệm Vụ Haki 7 Màu": "Nhận Nhiệm Vụ Haki 7 Màu",
+    "Auto Farm Haki Observation": "Tự Động Cày Điểm Né Haki Quan Sát",
+    "Tự Động Cày Điểm Né Haki Quan Sát": "Tự Động Cày Điểm Né Haki Quan Sát",
+    "Auto Haki Observation V2": "Tự Động Lấy Haki Quan Sát V2",
+    "Tự Động Lấy Haki Quan Sát V2": "Tự Động Lấy Haki Quan Sát V2",
+    "Auto Complete Quest Bartilo": "Tự Động Hoàn Thành Nhiệm Vụ Bartilo",
+    "Tự Động Hoàn Thành Nhiệm Vụ Bartilo": "Tự Động Hoàn Thành Nhiệm Vụ Bartilo",
+    "Auto Complete Quest Citizen": "Tự Động Hoàn Thành Nhiệm Vụ Citizen",
+    "Tự Động Hoàn Thành Nhiệm Vụ Citizen": "Tự Động Hoàn Thành Nhiệm Vụ Citizen",
+    "Auto Farm Training Dummy": "Tự Động Đánh Training Dummy",
+    "Tự Động Đánh Training Dummy": "Tự Động Đánh Training Dummy",
+    "Auto Farm Rip Indra": "Tự Động Đánh Rip Indra",
+    "Tự Động Đánh Rip Indra": "Tự Động Đánh Rip Indra",
+    "Auto Three Color Haki": "Tự Động Giải Mã 3 Màu Haki",
+    "Tự Động Giải Mã 3 Màu Haki": "Tự Động Giải Mã 3 Màu Haki",
+    "Auto Get Superhuman": "Tự Động Lấy Thượng Nhân Quyền",
+    "Tự Động Lấy Thượng Nhân Quyền": "Tự Động Lấy Thượng Nhân Quyền",
+    "Auto Get DeathStep": "Tự Động Lấy Tử Cước",
+    "Tự Động Lấy Tử Cước": "Tự Động Lấy Tử Cước",
+    "Auto Get Sharkman Karate": "Tự Động Lấy Karate Cá Mập",
+    "Tự Động Lấy Karate Cá Mập": "Tự Động Lấy Karate Cá Mập",
+    "Auto Get ElectricClaw": "Tự Động Lấy Lôi Trảo",
+    "Tự Động Lấy Lôi Trảo": "Tự Động Lấy Lôi Trảo",
+    "Auto Get DragonTalon": "Tự Động Lấy Hoả Long Quyền",
+    "Tự Động Lấy Hoả Long Quyền": "Tự Động Lấy Hoả Long Quyền",
+    "Auto Get GodHuman": "Tự Động Lấy Thần Diệt Quyền",
+    "Tự Động Lấy Thần Diệt Quyền": "Tự Động Lấy Thần Diệt Quyền",
+    "Auto Get SanguineArt": "Tự Động Lấy Huyết Quỷ Thuật",
+    "Tự Động Lấy Huyết Quỷ Thuật": "Tự Động Lấy Huyết Quỷ Thuật",
+    " FullMoon Status ": " FullMoon Status ",
+    " Mirage Island Status ": " Mirage Island Status ",
+    "Auto Find Mirage Island": "Tự Động Tìm Đảo Bí Ẩn",
+    "Tự Động Tìm Đảo Bí Ẩn": "Tự Động Tìm Đảo Bí Ẩn",
+    "Tween To Mirage Island": "Bay Đến Đảo Bí Ẩn",
+    "Bay Đến Đảo Bí Ẩn": "Bay Đến Đảo Bí Ẩn",
+    "Auto Collect Gear": "Tự Động Nhặt Bánh Răng",
+    "Tự Động Nhặt Bánh Răng": "Tự Động Nhặt Bánh Răng",
+    "Change Transparency Can See": "Thay Đổi Tính Minh Bạch Có Thể Thấy",
+    "Thay Đổi Tính Minh Bạch Có Thể Thấy": "Thay Đổi Tính Minh Bạch Có Thể Thấy",
+    "Auto Tween To Advanced Fruit Dealer": "Tự Động Bay Đến Đại Lý Bán Trái",
+    "Tự Động Bay Đến Đại Lý Bán Trái": "Tự Động Bay Đến Đại Lý Bán Trái",
+    "Auto Collect Mirage Chest": "Tự Động Nhặt Rương Bí Ẩn",
+    "Tự Động Nhặt Rương Bí Ẩn": "Tự Động Nhặt Rương Bí Ẩn",
+    "Get Quest Soul Guitar": "Get Quest Soul Guitar",
+    "Auto Get Skull Guitar": "Tự Động Lấy Skull Guitar",
+    "Tự Động Lấy Skull Guitar": "Tự Động Lấy Skull Guitar",
+    "Auto Farm Materials Skull Guitar": "Tự Động Cày Nguyên Liệu Lấy Skull Guitar",
+    "Tự Động Cày Nguyên Liệu Lấy Skull Guitar": "Tự Động Cày Nguyên Liệu Lấy Skull Guitar",
+    "Talk With Stone": "Nói Chuyện Với Tảng Đá",
+    "Nói Chuyện Với Tảng Đá": "Nói Chuyện Với Tảng Đá",
+    "Auto Look At Moon": "Tự Động Nhìn Trăng",
+    "Tự Động Nhìn Trăng": "Tự Động Nhìn Trăng",
+    "Auto Upgrade Mink V3": "Tự Động Nâng Tộc Thỏ V3",
+    "Tự Động Nâng Tộc Thỏ V3": "Tự Động Nâng Tộc Thỏ V3",
+    "Auto Upgrade Human V3": "Tự Động Nâng Tộc Người V3",
+    "Tự Động Nâng Tộc Người V3": "Tự Động Nâng Tộc Người V3",
+    "Auto Upgrade Angel V3": "Tự Động Nâng Tộc Thiên Thần V3",
+    "Tự Động Nâng Tộc Thiên Thần V3": "Tự Động Nâng Tộc Thiên Thần V3",
+    "Auto Upgrade Fish V3": "Tự Động Nâng Tộc Cá V3",
+    "Tự Động Nâng Tộc Cá V3": "Tự Động Nâng Tộc Cá V3",
+    "Tier V4": "Tier V4",
+    "Auto Pull Lever": "Tự Động Gạt Cần",
+    "Tự Động Gạt Cần": "Tự Động Gạt Cần",
+    "Auto Train V4": "Tự Động Train V4",
+    "Tự Động Train V4": "Tự Động Train V4",
+    "Teleport To Temple of Time": "Dịch Chuyển Đến Đền Thời Gian",
+    "Dịch Chuyển Đến Đền Thời Gian": "Dịch Chuyển Đến Đền Thời Gian",
+    "Teleport To Ancient One": "Dịch Chuyển Đến Ancient One",
+    "Dịch Chuyển Đến Ancient One": "Dịch Chuyển Đến Ancient One",
+    "Teleport To Ancient Clock": "Dịch Chuyển Đến Ancient Clock",
+    "Dịch Chuyển Đến Ancient Clock": "Dịch Chuyển Đến Ancient Clock",
+    "Auto Teleport To Race Doors": "Dịch Chuyển Đến Race Doors",
+    "Dịch Chuyển Đến Race Doors": "Dịch Chuyển Đến Race Doors",
+    "Auto Complete Trial Race": "Tự Động Hoàn Thành Trial",
+    "Tự Động Hoàn Thành Trial": "Tự Động Hoàn Thành Trial",
+    "Auto Kill Player After Trial": "Tự Động Giết Các Người Chơi Khác Sau Trial",
+    "Tự Động Giết Các Người Chơi Khác Sau Trial": "Tự Động Giết Các Người Chơi Khác Sau Trial",
+    "Auto Dojo Trainer": "Tự Động Lấy Đai",
+    "Tự Động Lấy Đai": "Tự Động Lấy Đai",
+    "Auto Dragon Hunter": "Tự Động Dragon Hunter",
+    "Tự Động Dragon Hunter": "Tự Động Dragon Hunter",
+    "Tween To Upgrade Draco Trial": "Bay Đến Trial Nâng Cấp Draco",
+    "Bay Đến Trial Nâng Cấp Draco": "Bay Đến Trial Nâng Cấp Draco",
+    "Auto Draco V1": "Tự Động Lấy Tộc Draco V1",
+    "Tự Động Lấy Tộc Draco V1": "Tự Động Lấy Tộc Draco V1",
+    "Auto Draco V2": "Tự Động Lấy Tộc Draco V2",
+    "Tự Động Lấy Tộc Draco V2": "Tự Động Lấy Tộc Draco V2",
+    "Auto Draco V3": "Tự Động Lấy Tộc Draco V3",
+    "Tự Động Lấy Tộc Draco V": "Tự Động Lấy Tộc Draco V3",
+    "Auto Relic Draco Trial V4": "Tự Động Thắp Đèn Trial Draco V4",
+    "Tự Động Thắp Đèn Trial Draco V4": "Tự Động Thắp Đèn Trial Draco V4",
+    "Auto Train Draco v4": "Tự Động Train Draco V4",
+    "Tự Động Train Draco V4": "Tự Động Train Draco V4",
+    "Tween To Draco Trial V4": "Bay Đến Nơi Trial Draco V4",
+    "Bay Đến Nơi Trial Draco V4": "Bay Đến Nơi Trial Draco V4",
+    "Swap Draco Race": "Chuyển Đổi Tộc Draco",
+    "Chuyển Đổi Tộc Draco": "Chuyển Đổi Tộc Draco",
+    "Upgrade Dragon Talon V3": "Nâng Cấp Dragon Talon V3",
+    "Nâng Cấp Dragon Talon V3": "Nâng Cấp Dragon Talon V3",
+    "Auto Craft Volcanic Magnet": "Tự Động Chế Tạo Volcanic Magnet",
+    "Tự Động Chế Tạo Volcanic Magnet": "Tự Động Chế Tạo Volcanic Magnet",
+    "Craft Volcanic Magnet": "Chế Tạo Volcanic Magnet",
+    "Chế Tạo Volcanic Magnet": "Chế Tạo Volcanic Magnet",
+    " Prehistoric Island Status": " Prehistoric Island Status",
+    "Auto Find Prehistoric Island": "Tự Động Tìm Đảo Núi Lửa",
+    "Tự Động Tìm Đảo Núi Lửa": "Tự Động Tìm Đảo Núi Lửa",
+    "Auto Start Event": "Tự Động Bắt Đầu Sự Kiện",
+    "Tự Động Bắt Đầu Sự Kiện": "Tự Động Bắt Đầu Sự Kiện",
+    "Kill Aura": "Giết Hào Quang",
+    "Giết Hào Quang": "Giết Hào Quang",
+    "Auto Collect Bones": "Tự Động Nhặt Xương",
+    "Tự Động Nhặt Xương": "Tự Động Nhặt Xương",
+    "Auto Collect Dragon Egg": "Tự Động Nhặt Trứng Rồng",
+    "Tự Động Nhặt Trứng Rồng": "Tự Động Nhặt Trứng Rồng",
+    "Auto Reset When Complete": "Tự Động Đặt Lại Khi Hoàn Thành",
+    "Tự Động Đặt Lại Khi Hoàn Thành": "Tự Động Đặt Lại Khi Hoàn Thành",
+    " Spy Status": " Spy Status",
+    "Buy Spy": "Mua Spy",
+    "Mua Spy": "Mua Spy",
+    " Frozen Dimension status": " Frozen Dimension status",
+    "Auto Teleport Frozen Dimension": "Tự Động Dịch Chuyển Đến Frozen Dimension",
+    "Tự Động Dịch Chuyển Đến Frozen Dimension": "Tự Động Dịch Chuyển Đến Frozen Dimension",
+    "Auto Drive To Hydra Island": "Tự Động Lái Đến Đảo Phụ Nữ",
+    "Tự Động Lái Đến Đảo Phụ Nữ": "Tự Động Lái Đến Đảo Phụ Nữ",
+    "Choose Boat": "Choose Boat",
+    "Buy Boat": "Mua Thuyền",
+    "Mua Thuyền": "Mua Thuyền",
+    "Choose Sea Level": "Choose Sea Level",
+    "Auto Sail [Sit Down And Turn On]": "Tự Động Lái [Ngồi Vào Chỗ Rồi Bật]",
+    "Tự Động Lái [Ngồi Vào Chỗ Rồi Bật]": "Tự Động Lái [Ngồi Vào Chỗ Rồi Bật]",
+    "Auto Kill Shark": "Tự Động Giết Cá Mập",
+    "Tự Động Giết Cá Mập": "Tự Động Giết Cá Mập",
+    "Auto Kill Piranha": "Tự Động Giết Cá Piranha",
+    "Tự Động Giết Cá Piranha": "Tự Động Giết Cá Piranha",
+    "Auto Kill Terror Shark": "Tự Động Giết Cá Mập Tận Thế",
+    "Tự Động Giết Cá Mập Tận Thế": "Tự Động Giết Cá Mập Tận Thế",
+    "Auto Attack Fish Crew Member": "Tự Động Đánh Thành Viên Đội Đánh Cá",
+    "Tự Động Đánh Thành Viên Đội Đánh Cá": "Tự Động Đánh Thành Viên Đội Đánh Cá",
+    "Auto Attack Haunted Crew Member": "Tự Động Đánh Thành Viên Ohi Hành Đoàn Bị Ám",
+    "Tự Động Đánh Thành Viên Ohi Hành Đoàn Bị Ám": "Tự Động Đánh Thành Viên Ohi Hành Đoàn Bị Ám",
+    "Auto Attack Pirate Ship": "Tự Động Đánh Tàu Hải Tặc",
+    "Tự Động Đánh Tàu Hải Tặc": "Tự Động Đánh Tàu Hải Tặc",
+    "Auto Attack Fish Boat": "Tự Động Đánh Tàu Bắt Cá",
+    "Tự Động Đánh Tàu Bắt Cá": "Tự Động Đánh Tàu Bắt Cá",
+    "Auto Attack Sea Beast": "Tự Động Đánh Sea Beast",
+    "Tự Động Đánh Sea Beast": "Tự Động Đánh Sea Beast",
+    "Auto Attack Leviathan": "Tự Động Đánh Leviathan",
+    "Tự Động Đánh Leviathan": "Tự Động Đánh Leviathan",
+    " Kitsune Island Status": " Kitsune Island Status",
+    "Auto Find Kitsune Island": "Tự Động Tìm Đảo Cáo",
+    "Tự Động Tìm Đảo Cáo": "Tự Động Tìm Đảo Cáo",
+    "Auto Shrine Actived": "Tự Động Kích Hoạt",
+    "Tự Động Kích Hoạt": "Tự Động Kích Hoạt",
+    "Auto Collect Azure Ember": "Tự Động Nhặt Azure Ember",
+    "Tự Động Nhặt Azure Ember": "Tự Động Nhặt Azure Ember",
+    "Auto Trade Azure Ember": "Tự Động Đổi Azure Ember",
+    "Tự Động Đổi Azure Ember": "Tự Động Đổi Azure Ember",
+    "Trade Item Azure": "Đổi Vật Phẩm Azure",
+    "Đổi Vật Phẩm Azure": "Đổi Vật Phẩm Azure",
+    "Talk With Kitsune Statue": "Nói Chuyện Với Tượng Cáo",
+    "Nói Chuyện Với Tượng Cáo": "Nói Chuyện Với Tượng Cáo",
+    "Auto Random Fruit": "Tự Động Quay Trái",
+    "Tự Động Quay Trái": "Tự Động Quay Trái",
+    "Auto Drop Fruit": "Tự Động Thả Trái",
+    "Tự Động Thả Trái": "Tự Động Thả Trái",
+    "Auto Store Fruit": "Tự Động Lưu Trữ Trái",
+    "Tự Động Lưu Trữ Trái": "Tự Động Lưu Trữ Trái",
+    "Auto Tween To Fruit": "Tự Động Bay Đến Trái",
+    "Tự Động Bay Đến Trái": "Tự Động Bay Đến Trái",
+    "Auto Collect Fruit": "Tự Động Nhặt Trái",
+    "Tự Động Nhặt Trái": "Tự Động Nhặt Trái",
+    "Raid Progress": "Raid Progress",
+    "Select Chip": "Select Chip",
+    "Auto Choose Dungeon Chip": "Tự Động Chọn Chip Dungeon",
+    "Tự Động Chọn Chip Dungeon": "Tự Động Chọn Chip Dungeon",
+    "Buy Raid Chips [Beli]": "Mua Chip Raid [Bằng Tiền Beli]",
+    "Mua Chip Raid [Bằng Tiền Beli]": "Mua Chip Raid [Bằng Tiền Beli]",
+    "Buy Microchip Law": "Mua Microchip Law",
+    "Mua Microchip Law": "Mua Microchip Law",
+    "Buy Dungeon Chips [Devil Fruit]": "Mua Chip Dungeon [Bằng Trái Ác Quỷ]",
+    "Mua Chip Dungeon [Bằng Trái Ác Quỷ]": "Mua Chip Dungeon [Bằng Trái Ác Quỷ]",
+    "Auto Start Raid": "Tự Động Bắt Đầu Raid",
+    "Tự Động Bắt Đầu Raid": "Tự Động Bắt Đầu Raid",
+    "Auto Raid [Safe]": "Tự Động Raid [An Toàn]",
+    "Tự Động Raid [An Toàn]": "Tự Động Raid [An Toàn]",
+    "Auto Awakening": "Tự Động Thức Tỉnh",
+    "Tự Động Thức Tỉnh": "Tự Động Thức Tỉnh",
+    "Start Law Raid": "Start Law Raid",
+    "Start Order/Law raid in Second Sea": "Start Order/Law raid in Second Sea",
+    "Teleport To Sea 1": "Dịch Chuyển Đến Sea 1",
+    "Dịch Chuyển Đến Sea 1": "Dịch Chuyển Đến Sea 1",
+    "Teleport To Sea 2": "Dịch Chuyển Đến Sea 2",
+    "Dịch Chuyển Đến Sea 2": "Dịch Chuyển Đến Sea 2",
+    "Teleport To Sea 3": "Dịch Chuyển Đến Sea 3",
+    "Dịch Chuyển Đến Sea 3": "Dịch Chuyển Đến Sea 3",
+    "Select Travelling": "Select Travelling",
+    "Auto Travel": "Tự Động Du Lịch Đến",
+    "Tự Động Du Lịch Đến": "Tự Động Du Lịch Đến",
+    "Choose Player": "Choose Player",
+    "Teleport To Player": "Dịch Chuyển Đến Người Chơi",
+    "Dịch Chuyển Đến Người Chơi": "Dịch Chuyển Đến Người Chơi",
+    "Buy Buso": "Mua Haki Tay",
+    "Mua Haki Tay": "Mua Haki Tay",
+    "Buy Geppo": "Mua Air Jump",
+    "Mua Nhảy Liên Tục": "Mua Air Jump",
+    "Buy Soru": "Mua Dịch Chuyển Tức Thời",
+    "Mua Dịch Chuyển Tức Thời": "Mua Dịch Chuyển Tức Thời",
+    "Buy Ken": "Mua Haki Quan Sát",
+    "Mua Haki Quan Sát": "Mua Haki Quan Sát",
+    "Aura_fix_esp": "Aura_fix_esp",
+    "Buy Black Leg": "Mua Hắc Cước",
+    "Mua Hắc Cước": "Mua Hắc Cước",
+    "Buy Electro": "Mua Điện",
+    "Mua Điện": "Mua Điện",
+    "Buy Fishman Karate": "Mua Karate Người Cá",
+    "Mua Karate Người Cá": "Mua Karate Người Cá",
+    "Buy DragonBreath": "Mua Hơi Thở Của Rồng",
+    "Mua Hơi Thở Của Rồng": "Mua Hơi Thở Của Rồng",
+    "Buy Superhuman": "Mua Thượng Nhân Quyền",
+    "Mua Thượng Nhân Quyền": "Mua Thượng Nhân Quyền",
+    "Buy Death Step": "Mua Tử Cước",
+    "Mua Tử Cước": "Mua Tử Cước",
+    "Buy Sharkman Karate": "Mua Karate Cá Mập",
+    "Mua Karate Cá Mập": "Mua Karate Cá Mập",
+    "Buy ElectricClaw": "Mua Lôi Trảo",
+    "Mua Lôi Trảo": "Mua Lôi Trảo",
+    "Buy DragonTalon": "Mua Hoả Long Quyền",
+    "Mua Hoả Long Quyền": "Mua Hoả Long Quyền",
+    "Buy GodHuman": "Mua Thần Diệt Quyền",
+    "Mua Thần Diệt Quyền": "Mua Thần Diệt Quyền",
+    "Buy SanguineArt": "Mua Huyết Quỷ Thuật",
+    "Mua Huyết Quỷ Thuật": "Mua Huyết Quỷ Thuật",
+    "Buy Tomoe Ring": "Mua Tomoe Ring",
+    "Mua Tomoe Ring": "Mua Tomoe Ring",
+    "Buy Black Cape": "Mua Black Cape",
+    "Mua Black Cape": "Mua Black Cape",
+    "Buy Swordsman Hat": "Mua Mũ Swordsman",
+    "Mua Mũ Swordsman": "Mua Mũ Swordsman",
+    "Mua Súng Trường Kỳ Quái": "Mua Bizarre Revolver",
+    "Buy Ghoul Mask": "Mua Mặt Nạ Ma Cà Rồng",
+    "Mua Mặt Nạ Ma Cà Rồng": "Mua Mặt Nạ Ma Cà Rồng",
+    "Craft DragonHeart": "Chế Tạo DragonHeart",
+    "Chế Tạo DragonHeart": "Chế Tạo DragonHeart",
+    "Craft DragonStorm": "Chế Tạo DragonStorm",
+    "Chế Tạo DragonStorm": "Chế Tạo DragonStorm",
+    "Craft Dino Hood": "Chế Tạo Dino Hood",
+    "Chế Tạo Dino Hood": "Chế Tạo Dino Hood",
+    "Chế Tạo Răng Cá Mập": "Chế tạo Shark Tooth Necklace",
+    "Craft Terror Jaw": "Chế Tạo Hàm Terror",
+    "Chế Tạo Hàm Terror": "Chế Tạo Hàm Terror",
+    "Craft Leviathan Crown": "Chế Tạo Vương Miện Leviathan",
+    "Chế Tạo Vương Miện Leviathan": "Chế Tạo Vương Miện Leviathan",
+    "Craft Leviathan Shield": "Chế Tạo Khiêng Leviathan",
+    "Chế Tạo Khiêng Leviathan": "Chế Tạo Khiêng Leviathan",
+    "Chế Tạo Thuyền Leviathan": "Chế tạo Beast Hunter Boat",
+    "Craft LegendaryScroll": "Chế Tạo Cuộn Huyền Thoại",
+    "Chế Tạo Cuộn Huyền Thoại": "Chế Tạo Cuộn Huyền Thoại",
+    "Craft MythicalScroll": "Chế Tạo Cuộn Thần Thoại",
+    "Chế Tạo Cuộn Thần Thoại": "Chế Tạo Cuộn Thần Thoại",
+    "Buy Cutlass": "Mua Đao Hải Tặc",
+    "Mua Đao Hải Tặc": "Mua Đao Hải Tặc",
+    "Buy Katana": "Mua Kiếm Katana",
+    "Mua Kiếm Katana": "Mua Kiếm Katana",
+    "Buy Iron Mace": "Mua Chuỳ Sắt",
+    "Mua Chuỳ Sắt": "Mua Chuỳ Sắt",
+    "Buy Duel Katana": "Mua Song Kiếm Katana",
+    "Mua Song Kiếm Katana": "Mua Song Kiếm Katana",
+    "Buy Triple Katana": "Mua Tam Kiếm Katana",
+    "Mua Tam Kiếm Katana": "Mua Tam Kiếm Katana",
+    "Buy Pipe": "Mua Ống Nước",
+    "Mua Ống Nước": "Mua Ống Nước",
+    "Buy Dual-Headed Blade": "Mua Lưỡi Dao Hai Đầu",
+    "Mua Lưỡi Dao Hai Đầu": "Mua Lưỡi Dao Hai Đầu",
+    "Buy Bisento": "Mua Đại Đao",
+    "Mua Đại Đao": "Mua Đại Đao",
+    "Buy Soul Cane": "Mua Gậy Linh Hồn",
+    "Mua Gậy Linh Hồn": "Mua Gậy Linh Hồn",
+    "Buy SlingShot": "Mua Ná Cao Su",
+    "Mua Ná Cao Su": "Mua Ná Cao Su",
+    "Buy Musket": "Mua Súng Hoả Mai",
+    "Mua Súng Hoả Mai": "Mua Súng Hoả Mai",
+    "Buy Dual Flintlock": "Mua Súng Kíp Đôi",
+    "Mua Súng Kíp Đôi": "Mua Súng Kíp Đôi",
+    "Buy Flintlock": "Mua Súng Kíp",
+    "Mua Súng Kíp": "Mua Súng Kíp",
+    "Buy Cannon": "Mua Đại Bác",
+    "Mua Đại Bác": "Mua Đại Bác",
+    "Buy Kabucha": "Mua Ná Kabucha",
+    "Mua Ná Kabucha": "Mua Ná Kabucha",
+    "Refund Stats": "Hoàn Lại Chỉ Số",
+    "Hoàn Lại Chỉ Số": "Hoàn Lại Chỉ Số",
+    "Reroll Race": "Đổi Tộc",
+    "Đổi Tộc": "Đổi Tộc",
+    "Buy Ghoul Race": "Mua Tộc Quỷ",
+    "Mua Tộc Quỷ": "Mua Tộc Quỷ",
+    "Buy Cyborg Race": "Mua Tộc Người Máy",
+    "Mua Tộc Người Máy": "Mua Tộc Người Máy",
+    "Rejoin Server": "Vào Lại Máy Chủ",
+    "Vào Lại Máy Chủ": "Vào Lại Máy Chủ",
+    "Hop Server": "Hop Server",
+    "Chuyển Máy Chủ": "Hop Server",
+    "Hop Server Lowest Player": "Hop Server · Lowest Players",
+    "Tham Gia Máy Chủ Ít Người": "Hop Server · Lowest Players",
+    "Hop Server Lowest Ping": "Hop Server · Best Available",
+    "Tham Gia Máy Chủ Ping Thấp": "Hop Server · Best Available",
+    "Input Job ID": "Input Job ID",
+    "...": "...",
+    "Teleport [Job ID]": "Dịch Chuyển [Job ID]",
+    "Dịch Chuyển [Job ID]": "Dịch Chuyển [Job ID]",
+    "Copy Job ID": "Sao Chép Job ID Máy Chủ",
+    "Sao Chép Job ID Máy Chủ": "Sao Chép Job ID Máy Chủ",
+    "Open Awakening Expert": "Mở Chuyên Gia Thức Tỉnh",
+    "Mở Chuyên Gia Thức Tỉnh": "Mở Chuyên Gia Thức Tỉnh",
+    "Open Title Select": "Mở Lựa Chọn Danh Hiệu",
+    "Mở Lựa Chọn Danh Hiệu": "Mở Lựa Chọn Danh Hiệu",
+    "Disable Chat": "Tắt Chat",
+    "Tắt Chat": "Tắt Chat",
+    "Disable Leader Board": "Tắt Khung Chat",
+    "Tắt Khung Chat": "Tắt Khung Chat",
+    "Set Pirate Team": "Vào Đội Hải Tặc",
+    "Vào Đội Hải Tặc": "Vào Đội Hải Tặc",
+    "Set Marine Team": "Vào Đội Hải Quân",
+    "Vào Đội Hải Quân": "Vào Đội Hải Quân",
+    "Redeem All Codes": "Đổi Tất Cả Mã",
+    "Đổi Tất Cả Mã": "Đổi Tất Cả Mã",
+    "Redeem Codes": "Redeem Codes",
+    "Select Haki States": "Select Haki States",
+    "ChangeBusoStage": "ChangeBusoStage",
+    "Turn On RTX Mode": "Bật Chế Độ RTX",
+    "Bật Chế Độ RTX": "Bật Chế Độ RTX",
+    "Turn On Fast Mode": "Bật Chế Độ Nhanh",
+    "Bật Chế Độ Nhanh": "Bật Chế Độ Nhanh",
+    "Turn On Low CPU": "Bật CPU Thấp",
+    "Bật CPU Thấp": "Bật CPU Thấp",
+    "Turn On Increase Boat": "Bật Tăng Tốc Thuyền",
+    "Bật Tăng Tốc Thuyền": "Bật Tăng Tốc Thuyền",
+    "Remove Sky Fog": "Xoá Sương Mù",
+    "Xoá Sương Mù": "Xoá Sương Mù",
+    "Devil Fruit Rain Update 2450": "Mưa Trái Ác Quảy Cập Nhật Cấp 2450",
+    "Mưa Trái Ác Quảy Cập Nhật Cấp 2450": "Mưa Trái Ác Quảy Cập Nhật Cấp 2450",
+    "Unlock Zoom Limit": "Unlock Zoom Limit",
+    "Mở Khoá Giới Hạn Thu Phóng": "Mở Khoá Giới Hạn Thu Phóng",
+    "FullBright": "FullBright",
+    "Sáng Màn Hình": "Sáng Màn Hình",
+    "Noclip": "Đi Xuyên Tường",
+    "Đi Xuyên Tường": "Đi Xuyên Tường",
+    "Silent Aim": "Aim chiêu vào người chơi",
+    "Aim chiêu vào người chơi": "Aim chiêu vào người chơi",
+    "Select Time": "Select Time",
+    "Turn On Time": "Bật Thời Gian",
+    "Bật Thời Gian": "Bật Thời Gian",
+    "Turn On Walk On Water": "Bật Đi Trên Nước",
+    "Bật Đi Trên Nước": "Bật Đi Trên Nước",
+    "Turn On Ice Walk": "Bật Đi Trên Băng",
+    "Bật Đi Trên Băng": "Bật Đi Trên Băng",
+    "Home": "Trang chủ",
+    "Farm": "Farm",
+    "Progression": "Tiến trình",
+    "Progress": "Tiến trình",
+    "Race": "Chủng tộc",
+    "Items": "Vật phẩm",
+    "Teleport": "Dịch chuyển",
+    "Combat": "Chiến đấu",
+    "Settings": "Cài đặt",
+    "Dashboard": "Tổng quan",
+    "Status Server": "Trạng thái máy chủ",
+    "Settings / Configure": "Thiết lập / Cấu hình",
+    "Stats Upgrade": "Nâng chỉ số",
+    "Fishing": "Câu cá",
+    "Farming": "Farm chính",
+    "Collect Chest": "Nhặt rương",
+    "Collect Berry": "Nhặt Berry",
+    "Farm Elite Hunter": "Farm Elite Hunter",
+    "Farming Cake": "Farm Cake",
+    "Unlocked Dungeon": "Mở khóa Dungeon",
+    "Farming Bone": "Farm Xương",
+    "Tyrant Of The Skies": "Tyrant Of The Skies",
+    "Farm Material": "Farm nguyên liệu",
+    "Farm Boss": "Farm Boss",
+    "Farming Mastery": "Farm thông thạo",
+    "Tushita And Yama": "Tushita và Yama",
+    "Cursed Dual Katana": "Song Kiếm Nguyền Rủa",
+    "True Triple Katana Sword": "True Triple Katana",
+    "Pole / Lightning God": "Pole / Lightning God",
+    "Items Law / Order Sword": "Law / Order Sword",
+    "East Blue Misc": "Vật phẩm Sea 1",
+    "Rengoku Sword": "Kiếm Rengoku",
+    "Cavender + Twin Hooks + Bigmom": "Cavender + Twin Hooks + Big Mom",
+    "Buso / Aura Colours": "Màu Haki / Aura",
+    "Instinct / Observation": "Haki Quan Sát",
+    "Dark Dragger + Valkyrie": "Dark Dagger + Valkyrie",
+    "Fighting Melee Styles": "Fighting Styles",
+    "Sea Event / Setting Sail": "Sea Event / Ra khơi",
+    "Entity Sea Event": "Mục tiêu Sea Event",
+    "Kitsune Island / Event": "Đảo Kitsune / Sự kiện",
+    "Mystic Island / Full Moon": "Mirage / Trăng tròn",
+    "Skull Guitars / Misc": "Soul Guitar / Khác",
+    "Upgrade Races V3": "Nâng Race V3",
+    "Trials Quest V4": "Trial Race V4",
+    "Dojo Quest & Drago Race": "Dojo Quest & Dragon Race",
+    "Drago Trial": "Dragon Trial",
+    "Volcanic Magnet": "Volcanic Magnet",
+    "Fruits Options": "Tùy chọn trái",
+    "Dungeon Event / Raiding": "Dungeon / Raid",
+    "Raiding Menu": "Điều khiển Raid",
+    "Travel - Worlds": "Di chuyển giữa Sea",
+    "Travel - Island": "Dịch chuyển đảo",
+    "Teleport - Player": "Dịch chuyển người chơi",
+    "Shop Options": "Cửa hàng",
+    "Fighting - Style": "Fighting Style",
+    "Accessory": "Phụ kiện",
+    "Accessory SeaEvent": "Accessory · Sea Event",
+    "Weapon World 1": "Vũ khí Sea 1",
+    "Fragments shop": "Cửa hàng Fragment",
+    "Server - Function": "Máy chủ",
+    "Player Gui / Others": "Người chơi / Khác",
+    "Graphics / Haki Stats": "Đồ họa / Haki",
+    "Configure - God": "Cấu hình nâng cao",
+    "Player": "Người chơi",
+    "Level": "Level",
+    "Sea": "Sea",
+    "Beli": "Beli",
+    "Fragments": "Fragments",
+    "Fruit": "Trái",
+    "Weapon": "Vũ khí",
+    "Combat Core": "Chiến đấu cốt lõi",
+    "Server Navigation": "Điều hướng máy chủ",
+    "Information": "Thông tin",
+    "General": "Chung",
+    "Quest": "Quest",
+    "Fighting Style Progression": "Tiến Trình Fighting Style",
+    "Fighting Style · Use / Equip": "Fighting Style · Equip",
+    "Auto Get Dark Step": "Tự Động Lấy Hắc Cước",
+    "Auto Get Electric": "Tự Động Lấy Điện",
+    "Auto Get Water Kung Fu": "Tự Động Lấy Karate Người Cá",
+    "Auto Get Dragon Breath": "Tự Động Lấy Hơi Thở Của Rồng",
+    "Use Dark Step": "Dùng Hắc Cước",
+    "Use Electric": "Dùng Điện",
+    "Use Water Kung Fu": "Dùng Karate Người Cá",
+    "Use Dragon Breath": "Dùng Hơi Thở Của Rồng",
+    "Use Superhuman": "Dùng Thượng Nhân Quyền",
+    "Use Death Step": "Dùng Tử Cước",
+    "Use Sharkman Karate": "Dùng Karate Cá Mập",
+    "Use Electric Claw": "Dùng Lôi Trảo",
+    "Use Dragon Talon": "Dùng Hỏa Long Quyền",
+    "Use Godhuman": "Dùng Thần Diệt Quyền",
+    "Use Sanguine Art": "Dùng Huyết Quỷ Thuật",
+    "Already Done!!": "Đã hoàn tất!!",
+    "CDK done!!": "CDK đã hoàn tất!!",
+    "Collect!!": "Thu thập!!",
+    "Frozen Dimension": "Chiều Không Gian Băng",
+    "No Quest!!": "Không có nhiệm vụ!!",
+    "Quest1": "Nhiệm vụ 1",
+    "Quest2": "Nhiệm vụ 2",
+    "Quest3": "Nhiệm vụ 3",
+    "Quest4": "Nhiệm vụ 4",
+    "Tushita quest 1": "Nhiệm vụ Tushita 1",
+    "Tushita quest 2": "Nhiệm vụ Tushita 2",
+    "Yama quest 1": "Nhiệm vụ Yama 1",
+    "Yama quest 2": "Nhiệm vụ Yama 2",
+    "Yama quest 3": "Nhiệm vụ Yama 3",
+    "Auto Farm Tyrant of the Skies": "Tự Động Đánh Tyrant of the Skies",
+    "Auto Hop [Every 30 Minutes]": "Tự Động Chuyển Máy Chủ [Mỗi 30 Phút]",
+    "Đang chạy": "Running",
+    "Đã gửi lệnh": "Done",
+    "Trống": "Empty",
+    "Đã tắt": "Off",
+    "Đang thực thi": "Working",
+    "Kitsune Island : False": "Kitsune Island: Not found",
+    "Đã sở hữu": "Owned",
+    "Mirage Island : False": "Mirage Island: Not found",
+    "Sẵn sàng": "Ready",
+    "Mirage Island : True": "Mirage Island: Found",
+    "Callback lỗi": "Callback error",
+    "Chưa sở hữu": "Not owned",
+    "Prehistoric Island : False": "Prehistoric Island: Not found",
+    "Prehistoric Island : True": "Prehistoric Island: Found",
+    "Kitsune Island : True": "Kitsune Island: Found",
+    "Change the interface language without reloading the Hub.": "Change the interface language without reloading the Hub.",
+    "Choose how mastery selects targets.": "Choose how mastery selects targets.",
+    "Complete all requirements and obtain ": "Complete all requirements and obtain ",
+    "Dark Fragment": "Dark Fragment",
+    "Demonic Wisp": "Demonic Wisp",
+    "Dragon Scale": "Dragon Scale",
+    "Find any visible feature quickly.": "Find any visible feature quickly.",
+    "Fire Essence": "Fire Essence",
+    "Fish Tail": "Fish Tail",
+    "Frozen Dimension status": "Frozen Dimension status",
+    "Language": "Language",
+    "Leviathan Heart": "Leviathan Heart",
+    "Library Key": "Library Key",
+    "Magma Ore": "Magma Ore",
+    "Mastery Finisher HP": "Mastery Finisher HP",
+    "Mystic Droplet": "Mystic Droplet",
+    "Reduce spacing on larger screens while preserving touch targets.": "Reduce spacing on larger screens while preserving touch targets.",
+    "Scale the interface while preserving adaptive layout.": "Scale the interface while preserving adaptive layout.",
+    "Server Status": "Server Status",
+    "Shorten transitions for a faster interface.": "Shorten transitions for a faster interface.",
+    "Spy Status": "Spy Status",
+    "System Overview": "System Overview",
+    "Travel to ": "Travel to ",
+    "Use mastery skills when enemy HP falls below this percentage.": "Use mastery skills when enemy HP falls below this percentage.",
+    "Vampire Fang": "Vampire Fang",
+    "Water Key": "Water Key",
+    "Buy Bizarre Revolver": "Mua Súng Lục Kỳ Quái",
+    "Craft Shark Tooth Necklace": "Chế tạo Vòng Cổ Răng Cá Mập",
+    "Craft Beast Hunter Boat": "Chế tạo Thuyền Beast Hunter",
+    "Hop Server · Lowest Players": "Hop Server · Lowest Players",
+    "Hop Server · Best Available": "Hop Server · Best Available",
+    "Fighting Style · Equip": "Fighting Style · Equip",
+    "Teleport - NPC": "Dịch chuyển - NPC",
+    "Select NPC": "Chọn NPC",
+    "NPCs currently loaded in this Sea": "NPC hiện đang được tải trong Sea này",
+    "Teleport To NPC": "Dịch chuyển tới NPC",
+    "Teleport to the selected live NPC using Unified Travel Resolver": "Dịch chuyển tới NPC đã chọn bằng Unified Travel Resolver",
+    "Farm Status": "Trạng thái Farm",
+    "Cake Mobs": "Cake Mobs",
+    "Defeated": "Đã bị hạ",
+    "Selected Boss": "Boss đã chọn",
+    "Elite Progress": "Tiến trình Elite",
+    "Selected NPC is no longer available in this map state.": "NPC đã chọn không còn khả dụng ở trạng thái map hiện tại.",
+    "Geppo": "Air Jump",
+    "Air Jump": "Air Jump",
+    "AirJump": "Air Jump",
+    "Skyjump": "Air Jump",
+    "Sky Jump": "Air Jump",
+    "Buy Air Jump": "Mua Air Jump",
+    "Mua Air Jump": "Mua Air Jump",
+    "Auto Get Shark Saw": "Tự động lấy Shark Saw",
+    "Auto Get Saber": "Tự động lấy Saber",
+    "Auto Get Cool Shades": "Tự động lấy Cool Shades",
+    "Auto Get Marine Cap": "Tự động lấy Mũ Hải Quân",
+    "Auto Get Wardens Sword": "Tự động lấy Wardens Sword",
+    "Auto Get Coat": "Tự động lấy Coat",
+    "Auto Get Magma Blaster": "Tự động lấy Magma Blaster",
+    "Auto Get Trident": "Tự động lấy Trident",
+    "Auto Get Bazooka": "Tự động lấy Bazooka",
+    "Buy Refined Slingshot": "Mua Refined Slingshot",
+    "First Sea Obtainables": "Vật phẩm có thể lấy tại Sea 1",
+    "Tự Động Lấy Tộc Draco V3": "Tự Động Lấy Tộc Draco V3",
+    "Auto Train Draco V4": "Tự Động Train Draco V4"
+  },
+  "home": {
+    "system_overview": "Thông tin hệ thống",
+    "fps": "FPS",
+    "ping": "Ping",
+    "memory": "Bộ nhớ",
+    "cpu": "CPU",
+    "date": "Ngày",
+    "time": "Giờ",
+    "place": "Place",
+    "job_id": "Job ID",
+    "uptime": "Thời gian máy chủ",
+    "players": "Người chơi",
+    "updates_title": "Thông tin HUB",
+    "discord": "Discord",
+    "discord_value": "Cộng đồng RE4 HUB",
+    "discord_invite": "Lời mời Discord",
+    "discord_unconfigured": "Chưa cấu hình trong source hiện tại",
+    "version": "Phiên bản",
+    "changelog": "Lịch sử cập nhật",
+    "changelog_512": "Bố cục Items · Farm Status một nguồn · dọn leak runtime",
+    "notice": "Thông báo",
+    "tween_notice": "Giữ nguyên lõi Tween ổn định",
+    "community_title": "Cộng đồng & Phiên bản",
+    "latest_updates": "Lịch sử cập nhật mới nhất",
+    "announcement": "Thông báo",
+    "copy_discord": "Sao chép Discord",
+    "copy_discord_desc": "Sao chép lời mời Discord chính thức được tải từ GitHub Raw.",
+    "discord_copied": "Đã sao chép lời mời Discord.",
+    "link_unconfigured": "Liên kết chưa được cấu hình.",
+    "clipboard_unavailable": "Executor này không hỗ trợ clipboard.",
+    "current_version": "Phiên bản hiện tại",
+    "player_overview": "Tổng quan người chơi",
+    "player": "Người chơi",
+    "level": "Cấp",
+    "sea": "Biển",
+    "race": "Tộc",
+    "beli": "Beli",
+    "fragments": "Fragments",
+    "fruit": "Fruit",
+    "weapon": "Vũ khí",
+    "active_features": "Tính năng đang hoạt động",
+    "current_activity": "Hoạt động hiện tại",
+    "active_count": "Số tính năng đang bật",
+    "activity": "Trạng thái",
+    "activity_running": "Đang có tính năng hoạt động",
+    "activity_idle": "Không có tính năng đang hoạt động"
+  },
+  "server_status": {
+    "title": "Trạng thái máy chủ",
+    "sea": "Sea",
+    "moon": "Trăng",
+    "greybeard": "Greybeard",
+    "saw": "The Saw",
+    "factory": "Lõi Nhà Máy",
+    "cursed_captain": "Cursed Captain",
+    "darkbeard": "Darkbeard",
+    "elite": "Elite Hunter",
+    "elite_killed": "Elite đã hạ",
+    "rip_indra": "rip_indra",
+    "dough_king": "Dough King",
+    "mirage": "Mirage Island",
+    "kitsune": "Kitsune Island",
+    "prehistoric": "Đảo Tiền Sử",
+    "frozen": "Frozen Dimension",
+    "present": "Đang xuất hiện",
+    "absent": "Không xuất hiện",
+    "active": "Hoạt động",
+    "inactive": "Không hoạt động",
+    "unknown": "Không xác định"
+  },
+  "notify": {
+    "loaded": "HUB đã tải thành công.",
+    "feature_enabled": "Đã bật {feature}.",
+    "feature_disabled": "Đã tắt {feature}.",
+    "job_required": "Vui lòng nhập Job ID trước khi dịch chuyển.",
+    "job_invalid": "Job ID không hợp lệ.",
+    "teleport_failed": "Dịch chuyển thất bại: {reason}",
+    "teleport_started": "Đang dịch chuyển tới máy chủ đã chọn...",
+    "item_not_owned": "Bạn chưa sở hữu vật phẩm yêu cầu.",
+    "feature_sea": "Tính năng không khả dụng ở Sea hiện tại.",
+    "target_not_found": "Không tìm thấy mục tiêu.",
+    "quest_unavailable": "Nhiệm vụ hiện không khả dụng.",
+    "redeem_start": "Đang thử nhập các code khả dụng...",
+    "redeem_done": "Đã hoàn tất nhập code.",
+    "leviathan_complete": "Đã nhận Trái Tim Leviathan.",
+    "sea_beast_soon": "Sea Beast có thể sắp xuất hiện.",
+    "raid_button_missing": "Nút triệu hồi Raid hiện không khả dụng trên bản đồ.",
+    "team_selected": "Đã chọn {team} thành công bằng {method}.",
+    "team_select_failed": "Không thể chọn phe: {reason}",
+    "action_failed": "Thao tác thất bại · {reason}",
+    "npc_unavailable": "NPC unavailable · {reason}",
+    "purchase_failed": "Purchase failed · {reason}",
+    "server_hop_failed": "Server hop failed · {reason}",
+    "style_action_failed": "Không thể {action} {style} · {reason}",
+    "style_equip_failed": "Unable to equip {style} · {reason}",
+    "raid_chip_beli_ready": "Auto Buy Beli đã xác nhận Special Microchip.",
+    "raid_chip_fragment_ready": "Auto Buy Fragment đã xác nhận Advanced Raid Microchip.",
+    "raid_chip_insufficient_fragments": "Advanced Raid cần {amount} Fragments; chưa gửi giao dịch.",
+    "raid_chip_waiting": "Auto Buy Chip đang chờ · {reason}",
+    "raid_chip_blocked": "Auto Buy Chip bị khóa an toàn · {reason}",
+    "raid_mode_changed": "Raid Mode: {mode} · phương thức Auto Buy: {payment}.",
+    "fruit_action_success": "Đã hoàn thành thao tác Fruit: {fruit}",
+    "fruit_action_failure": "Chưa thể xác nhận thao tác Fruit: {reason}",
+    "fruit_mirage_refresh_failed": "Không thể làm mới Mirage Stock: {reason}",
+    "raid_chip_state": "Trạng thái chip Raid: {state}"
+  },
+  "mastery": {
+    "location_title": "Khu vực Mastery",
+    "location_desc": "Chọn Quest, farm quái theo level không nhận Quest, hoặc khu vực Mastery phù hợp với Sea hiện tại.",
+    "quest": "Quest",
+    "cake": "Cake",
+    "bone": "Bone",
+    "threshold_title": "Ngưỡng kết liễu Mastery",
+    "threshold_desc": "Dùng skill Mastery khi máu quái giảm xuống dưới tỷ lệ này.",
+    "no_quest": "Theo level (không Quest)"
+  },
+  "common": {
+    "unavailable": "Không khả dụng",
+    "not_available": "N/A"
+  },
+  "fighting_style": {
+    "sea": "Sea",
+    "cost": "Chi phí",
+    "ownership": "Sở hữu",
+    "requirement": "Điều kiện",
+    "current_mastery": "Mastery hiện tại",
+    "status": "Trạng thái",
+    "library_key": "Library Key",
+    "quest": "Nhiệm vụ",
+    "water_key": "Water Key",
+    "fire_essence": "Fire Essence",
+    "free": "Không có",
+    "req": {
+      "none": "Không có",
+      "access_second_sea": "Truy cập Sea 2",
+      "dark_step_300": "Dark Step Mastery >= 300",
+      "electric_300": "Electric Mastery >= 300",
+      "water_kung_fu_300": "Water Kung Fu Mastery >= 300",
+      "dragon_breath_300": "Dragon Breath Mastery >= 300",
+      "dark_step_400": "Dark Step Mastery >= 400",
+      "library_key": "Library Key",
+      "library_key_drop": "Rơi từ Awakened Ice Admiral",
+      "library_open": "Mở cửa Library tại Ice Castle",
+      "electric_400": "Electric Mastery >= 400",
+      "previous_hero": "Hoàn thành nhiệm vụ của Previous Hero",
+      "previous_hero_route": "Đi từ Previous Hero tới Mansion trong <= 30 giây",
+      "water_kung_fu_400": "Water Kung Fu Mastery >= 400",
+      "water_key": "Water Key",
+      "water_key_drop": "Rơi từ Tide Keeper",
+      "water_key_give": "Đưa Water Key cho Sharkman Teacher",
+      "dragon_breath_400": "Dragon Breath Mastery >= 400",
+      "fire_essence": "Fire Essence",
+      "fire_essence_source": "Nhận ngẫu nhiên từ Death King bằng Bones",
+      "fire_essence_give": "Đưa Fire Essence cho Uzoth",
+      "superhuman_400": "Superhuman Mastery >= 400",
+      "death_step_400": "Death Step Mastery >= 400",
+      "electric_claw_400": "Electric Claw Mastery >= 400",
+      "sharkman_400": "Sharkman Karate Mastery >= 400",
+      "dragon_talon_400": "Dragon Talon Mastery >= 400",
+      "dragon_scales_10": "10 Dragon Scales",
+      "fish_tails_20": "20 Fish Tails",
+      "mystic_droplets_10": "10 Mystic Droplets",
+      "magma_ore_20": "20 Magma Ore",
+      "leviathan_heart": "Leviathan Heart",
+      "dark_fragments_2": "2 Dark Fragments",
+      "demonic_wisps_20": "20 Demonic Wisps",
+      "vampire_fangs_20": "20 Vampire Fangs"
+    },
+    "auto_get_desc": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ.",
+    "use_desc": "Trang bị Fighting Style đã sở hữu.",
+    "cost_beli_fragments": "{beli} Beli + {fragments} Fragments",
+    "cost_beli": "{amount} Beli",
+    "cost_fragments": "{amount} Fragments",
+    "material_progress": "{current}/{target}",
+    "material_progress_unknown": "?/{target}",
+    "mastery_progress": "Mastery {current}/{target}",
+    "mastery_progress_unknown": "Mastery ?/{target}",
+    "required": "Bắt buộc"
+  },
+  "team": {
+    "pirates": "Hải tặc",
+    "marines": "Hải quân",
+    "not_selected": "Chưa chọn"
+  },
+  "progress_core": {
+    "title": "Lõi tiến trình",
+    "inventory": "Kho đồ",
+    "styles_owned": "Melee đã sở hữu",
+    "styles_ready": "Có thể lấy ngay",
+    "materials": "Nguyên liệu đang theo dõi",
+    "action_locks": "Khóa hành động",
+    "critical_item": "Vật phẩm quan trọng",
+    "inventory_synced": "Đã đồng bộ · {count} mục",
+    "unavailable": "Không khả dụng",
+    "none": "Không có"
+  },
+  "runtime_safety": {
+    "protected": "Đang bảo vệ · {item}",
+    "coordinating": "Đang điều phối · {count} khóa",
+    "ready": "Sẵn sàng"
+  },
+  "progress_tracker": {
+    "section_progress": "Tổng quan tiến trình",
+    "account": "Tiến trình tài khoản",
+    "major": "Tiến trình quan trọng",
+    "section_inventory": "Kho đồ & Bộ sưu tập",
+    "inventory_summary": "Tổng quan kho đồ",
+    "sword_collection": "Bộ sưu tập kiếm",
+    "gun_collection": "Bộ sưu tập súng",
+    "accessory_collection": "Bộ sưu tập phụ kiện",
+    "level": "Level",
+    "sea": "Sea",
+    "race": "Chủng tộc",
+    "inventory": "Kho đồ",
+    "total_items": "Vật phẩm đã đồng bộ",
+    "swords": "Kiếm",
+    "guns": "Súng",
+    "accessories": "Phụ kiện",
+    "owned_mastery": "Đã sở hữu · M{mastery}"
+  },
+  "items_summary": {
+    "sword": "Kiếm",
+    "gun": "Súng",
+    "owned": "Vật phẩm đã sở hữu",
+    "not_owned": "Vật phẩm chưa sở hữu",
+    "data": "Kho vật phẩm",
+    "waiting": "Đang chờ dữ liệu vũ khí",
+    "items": "Vật phẩm"
+  },
+  "page": {
+    "home": "Tổng quan, máy chủ & phiên bản",
+    "farm": "Tự động farm & mục tiêu",
+    "progress": "Tiến trình, nhiệm vụ & chủng tộc",
+    "items": "Trang bị, võ phái & trạng thái sở hữu",
+    "world": "Nội dung biển, sự kiện & khám phá",
+    "raid": "Thiết lập Raid & tự động hóa",
+    "teleport": "Thế giới, NPC, người chơi & máy chủ",
+    "combat": "Tấn công, mục tiêu & hỗ trợ chiến đấu",
+    "settings": "Giao diện, tiện ích & runtime",
+    "more": "Chiến đấu, di chuyển, giao diện & tiện ích",
+    "raids": "Thiết lập Raid, Raid thường & Law",
+    "progress_new": "Vật phẩm, nhiệm vụ, Haki & tiến trình",
+    "race": "Race V3, V4, trial & Draco",
+    "items_new": "Trái, võ phái đang dùng & sở hữu",
+    "shop": "Kỹ năng, vũ khí, phụ kiện & chế tạo",
+    "events": "Câu cá, sự kiện thế giới, Mirage & biển",
+    "travel": "Sea, đảo, di chuyển & máy chủ",
+    "system": "Giao diện, hình ảnh, an toàn & phiên chạy",
+    "main": "Tổng quan, Sea hiện tại và thông tin phiên cần thiết"
+  },
+  "controls": {
+    "button.auto.buy.legendary.sword": {
+      "title": "Tự Động Mua Kiếm Lagendary",
+      "description": "Tự Động Mua Kiếm Lagendary"
+    },
+    "button.auto.craft.true.triple.katana": {
+      "title": "Tự Động Chế Tạo True Triple Katana",
+      "description": "Tự Động Chế Tạo True Triple Katana"
+    },
+    "button.buy.boat": {
+      "title": "Mua Thuyền",
+      "description": "Mua Thuyền"
+    },
+    "button.buy.color.haki": {
+      "title": "Mua Màu Haki",
+      "description": "Mua Màu Haki"
+    },
+    "button.buy.cyborg.race": {
+      "title": "Bắt đầu Auto Cyborg",
+      "description": "Khởi chạy flow Cyborg dùng chung thay vì gửi remote mua một lần."
+    },
+    "button.buy.dungeon.chips.devil.fruit": {
+      "title": "Mua Chip Dungeon [Bằng Trái Ác Quỷ]",
+      "description": "Mua Chip Dungeon [Bằng Trái Ác Quỷ]"
+    },
+    "button.buy.ghoul.race": {
+      "title": "Bắt đầu Auto Ghoul",
+      "description": "Khởi chạy flow Ghoul dùng chung thay vì gửi remote mua một lần."
+    },
+    "button.buy.kabucha": {
+      "title": "Mua Ná Kabucha",
+      "description": "Mua Ná Kabucha"
+    },
+    "button.buy.spy": {
+      "title": "Mua Spy",
+      "description": "Mua Spy"
+    },
+    "button.changebusostage": {
+      "title": "ChangeBusoStage",
+      "description": ""
+    },
+    "button.copy.job.id": {
+      "title": "Sao Chép Job ID Máy Chủ",
+      "description": "Sao Chép Job ID Máy Chủ"
+    },
+    "button.craft.volcanic.magnet": {
+      "title": "Chế Tạo Volcanic Magnet",
+      "description": "Chế Tạo Volcanic Magnet"
+    },
+    "button.devil.fruit.rain.update.2450": {
+      "title": "Mưa Trái Ác Quảy Cập Nhật Cấp 2450",
+      "description": "Mưa Trái Ác Quảy Cập Nhật Cấp 2450"
+    },
+    "button.open.awakening.expert": {
+      "title": "Mở Chuyên Gia Thức Tỉnh",
+      "description": "Mở Chuyên Gia Thức Tỉnh"
+    },
+    "button.open.title.select": {
+      "title": "Mở Lựa Chọn Danh Hiệu",
+      "description": "Mở Lựa Chọn Danh Hiệu"
+    },
+    "button.refund.stats": {
+      "title": "Hoàn Lại Chỉ Số",
+      "description": "Hoàn Lại Chỉ Số"
+    },
+    "button.rejoin.server": {
+      "title": "Vào Lại Máy Chủ",
+      "description": "Vào Lại Máy Chủ"
+    },
+    "button.remove.sky.fog": {
+      "title": "Xoá Sương Mù",
+      "description": "Xoá Sương Mù"
+    },
+    "button.reroll.race": {
+      "title": "Đổi Tộc",
+      "description": "Đổi Tộc"
+    },
+    "button.set.marine.team": {
+      "title": "Vào Đội Hải Quân",
+      "description": "Vào Đội Hải Quân"
+    },
+    "button.set.pirate.team": {
+      "title": "Vào Đội Hải Tặc",
+      "description": "Vào Đội Hải Tặc"
+    },
+    "button.talk.with.kitsune.statue": {
+      "title": "Nói Chuyện Với Tượng Cáo",
+      "description": "Nói Chuyện Với Tượng Cáo"
+    },
+    "button.talk.with.stone": {
+      "title": "Nói Chuyện Với Tảng Đá",
+      "description": "Race V4 Progress"
+    },
+    "button.teleport.job.id": {
+      "title": "Dịch Chuyển [Job ID]",
+      "description": "Dịch Chuyển [Job ID]"
+    },
+    "button.teleport.to.ancient.clock": {
+      "title": "Dịch Chuyển Đến Ancient Clock",
+      "description": "Travel to Ancient Clock"
+    },
+    "button.teleport.to.ancient.one": {
+      "title": "Dịch Chuyển Đến Ancient One",
+      "description": "Travel to Ancient One"
+    },
+    "button.teleport.to.sea.1": {
+      "title": "Dịch Chuyển Đến Sea 1",
+      "description": "Dịch Chuyển Đến Sea 1"
+    },
+    "button.teleport.to.sea.2": {
+      "title": "Dịch Chuyển Đến Sea 2",
+      "description": "Dịch Chuyển Đến Sea 2"
+    },
+    "button.teleport.to.sea.3": {
+      "title": "Dịch Chuyển Đến Sea 3",
+      "description": "Dịch Chuyển Đến Sea 3"
+    },
+    "button.teleport.to.temple.of.time": {
+      "title": "Dịch Chuyển Đến Đền Thời Gian",
+      "description": "Enter through Mysterious Force at Great Tree"
+    },
+    "button.trade.item.azure": {
+      "title": "Đổi Vật Phẩm Azure",
+      "description": "Đổi Vật Phẩm Azure"
+    },
+    "button.turn.on.fast.mode": {
+      "title": "Bật Chế Độ Nhanh",
+      "description": "Bật Chế Độ Nhanh"
+    },
+    "button.turn.on.increase.boat": {
+      "title": "Bật Tăng Tốc Thuyền",
+      "description": "Bật Tăng Tốc Thuyền"
+    },
+    "button.turn.on.low.cpu": {
+      "title": "Bật CPU Thấp",
+      "description": "Bật CPU Thấp"
+    },
+    "toggle.anti.kick": {
+      "title": "Chống Kick",
+      "description": "Chống Kick"
+    },
+    "toggle.auto.get.law.sword": {
+      "title": "Tự Động Lấy Kiếm Law",
+      "description": "Tự Động Lấy Kiếm Law"
+    },
+    "toggle.auto.get.pole.v1": {
+      "title": "Tự Động Lấy Pole V1",
+      "description": "Tự Động Lấy Pole V1"
+    },
+    "toggle.auto.look.at.moon": {
+      "title": "Tự Động Nhìn Trăng",
+      "description": "Tự Động Nhìn Trăng"
+    },
+    "toggle.auto.pole.v2": {
+      "title": "Tự Động Lấy Pole V2",
+      "description": "Equip Pole V1 and wait for the current Rough Sea lightning upgrade condition."
+    },
+    "toggle.auto.quest.sea.2": {
+      "title": "Tự Động Làm Nhiệm Vụ Sea 2",
+      "description": "Tự Động Làm Nhiệm Vụ Sea 2"
+    },
+    "toggle.auto.start.raid": {
+      "title": "Tự Động Bắt Đầu Raid",
+      "description": "Tự Động Bắt Đầu Raid"
+    },
+    "toggle.auto.teleport.barista.cousin": {
+      "title": "Tự Động Dịch Chuyển Đến Barista Cousin",
+      "description": "Tự Động Dịch Chuyển Đến Barista Cousin"
+    },
+    "toggle.auto.turn.on.haki": {
+      "title": "Tự Động Bật Haki",
+      "description": "Tự Động Bật Haki"
+    },
+    "toggle.auto.turn.on.spin.position": {
+      "title": "Tự Động Bật Spin Position",
+      "description": "Tự Động Bật Spin Position"
+    },
+    "toggle.auto.use.skill.z.buddha": {
+      "title": "Tự Động Dùng Chiêu Z Buddha Để Farm",
+      "description": "Tự Động Dùng Chiêu Z Buddha Để Farm"
+    },
+    "toggle.disable.chat": {
+      "title": "Tắt Chat",
+      "description": "Tắt Chat"
+    },
+    "toggle.disable.leader.board": {
+      "title": "Tắt Khung Chat",
+      "description": "Tắt Khung Chat"
+    },
+    "toggle.disable.notify": {
+      "title": "Tắt Thông Báo",
+      "description": "Tắt Thông Báo"
+    },
+    "toggle.fast.attack": {
+      "title": "Đánh Nhanh",
+      "description": "Đánh Nhanh"
+    },
+    "toggle.fullbright": {
+      "title": "FullBright",
+      "description": "Sáng Màn Hình"
+    },
+    "toggle.noclip": {
+      "title": "Đi Xuyên Tường",
+      "description": "Đi Xuyên Tường"
+    },
+    "toggle.remove.hit": {
+      "title": "Xoá Hiệu Ứng Chém Và Kiếm Để Có Khả Năng Hiển Thị Tốt Hơn",
+      "description": "Xoá Hiệu Ứng Chém Và Kiếm Để Có Khả Năng Hiển Thị Tốt Hơn"
+    },
+    "toggle.remove.lava": {
+      "title": "Xoá Dung Nham",
+      "description": "Xoá Dung Nham"
+    },
+    "toggle.silent.aim": {
+      "title": "Aim chiêu vào người chơi",
+      "description": "Aim chiêu vào người chơi"
+    },
+    "toggle.stop.item": {
+      "title": "Dừng Khi Có Vật Phẩm",
+      "description": "Dừng Khi Có Vật Phẩm"
+    },
+    "toggle.turn.on.walk.on.water": {
+      "title": "Bật Đi Trên Nước",
+      "description": "Bật Đi Trên Nước"
+    },
+    "toggle.auto.train.v4": {
+      "title": "Tự Động Train V4",
+      "description": "Tự Động Train V4"
+    },
+    "toggle.auto.tween.to.advanced.fruit.dealer": {
+      "title": "Tự Động Bay Đến Đại Lý Bán Trái",
+      "description": "Tự Động Bay Đến Đại Lý Bán Trái"
+    },
+    "toggle.auto.get.buddy.sword": {
+      "title": "Tự Động Lấy Kiếm Buddy",
+      "description": "Tự Động Lấy Kiếm Buddy"
+    },
+    "toggle.auto.get.midnight.blade": {
+      "title": "Tự Động Lấy Midnight Blade",
+      "description": "Tự Động Lấy Midnight Blade"
+    },
+    "toggle.auto.draco.v2": {
+      "title": "Tự Động Lấy Tộc Draco V2",
+      "description": "Tự Động Lấy Tộc Draco V2"
+    },
+    "toggle.auto.hop.every.30.minutes": {
+      "title": "Tự Động Chuyển Máy Chủ [Mỗi 30 Phút]",
+      "description": "Tự Động Chuyển Máy Chủ [Mỗi 30 Phút]"
+    },
+    "toggle.auto.haki.observation.v2": {
+      "title": "Tự Động Lấy Haki Quan Sát V2",
+      "description": "Tự Động Lấy Haki Quan Sát V2"
+    },
+    "toggle.auto.get.lei.accessory": {
+      "title": "Tự Động Lấy Lai Accessory",
+      "description": "Tự Động Lấy Lai Accessory"
+    },
+    "toggle.auto.farm.materials.skull.guitar": {
+      "title": "Tự Động Cày Nguyên Liệu Lấy Skull Guitar",
+      "description": "Tự Động Cày Nguyên Liệu Lấy Skull Guitar"
+    },
+    "toggle.auto.farm.rip.indra": {
+      "title": "Tự Động Đánh Rip Indra",
+      "description": "Tự Động Đánh Rip Indra"
+    },
+    "toggle.auto.get.serpent.bow": {
+      "title": "Tự Động Lấy Serpent Bow",
+      "description": "Tự Động Lấy Serpent Bow"
+    },
+    "toggle.auto.get.dragon.trident": {
+      "title": "Tự Động Lấy Dragon Trident",
+      "description": "Tự Động Lấy Dragon Trident"
+    },
+    "toggle.auto.three.color.haki": {
+      "title": "Tự Động Giải Mã 3 Màu Haki",
+      "description": "Tự Động Giải Mã 3 Màu Haki"
+    },
+    "toggle.auto.quest.sea.3": {
+      "title": "Tự Động Làm Nhiệm Vụ Sea 3",
+      "description": "Tự Động Làm Nhiệm Vụ Sea 3"
+    },
+    "toggle.auto.get.florentino.sword": {
+      "title": "Tự Động Lấy Kiếm Florentino",
+      "description": "Tự Động Lấy Kiếm Florentino"
+    },
+    "toggle.auto.farm.darkbeard": {
+      "title": "Tự Động Đánh Râu Đen",
+      "description": "Tự Động Đánh Râu Đen"
+    },
+    "toggle.auto.unlock.donswan": {
+      "title": "Tự Động Mở Khoá DonSwan",
+      "description": "Tự Động Mở Khoá DonSwan"
+    },
+    "toggle.auto.haki.rainbow": {
+      "title": "Tự Động Lấy Haki 7 Màu",
+      "description": "Tự Động Lấy Haki 7 Màu"
+    },
+    "toggle.auto.get.skull.guitar": {
+      "title": "Tự Động Lấy Skull Guitar",
+      "description": "Tự Động Lấy Skull Guitar"
+    },
+    "toggle.auto.get.swan.glasses": {
+      "title": "Tự Động Lấy Kính Swan",
+      "description": "Tự Động Lấy Kính Swan"
+    },
+    "toggle.auto.get.tushita": {
+      "title": "Tự Động Lấy Tushita",
+      "description": "Tự Động Lấy Tushita"
+    },
+    "toggle.auto.get.yama": {
+      "title": "Tự Động Lấy Yama",
+      "description": "Tự Động Lấy Yama"
+    },
+    "toggle.auto.find.kitsune.island": {
+      "title": "Tự Động Tìm Đảo Cáo",
+      "description": "Tự Động Tìm Đảo Cáo"
+    },
+    "toggle.auto.complete.quest.bartilo": {
+      "title": "Tự Động Hoàn Thành Nhiệm Vụ Bartilo",
+      "description": "Tự Động Hoàn Thành Nhiệm Vụ Bartilo"
+    },
+    "toggle.auto.get.black.spikey": {
+      "title": "Tự Động Lấy Black Spikey",
+      "description": "Tự Động Lấy Black Spikey"
+    },
+    "toggle.swap.draco.race": {
+      "title": "Chuyển Đổi Tộc Draco",
+      "description": "Chuyển Đổi Tộc Draco"
+    },
+    "toggle.turn.on.bypass.teleport": {
+      "title": "Bypass TP",
+      "description": "Bật Dịch Chuyển Bypass"
+    },
+    "toggle.turn.on.fast.travel": {
+      "title": "Fast Travel",
+      "description": "Bật dịch chuyển nhanh qua portal/native travel khi phù hợp"
+    },
+    "toggle.auto.get.cdk": {
+      "title": "Tự Động Lấy Song Kiếm Nguyền Rủa",
+      "description": "Tự Động Lấy Song Kiếm Nguyền Rủa"
+    },
+    "toggle.auto.quest.tushita.cdk": {
+      "title": "Tự Động Nhiệm Vụ Tushita [CDK]",
+      "description": "Tự Động Nhiệm Vụ Tushita [CDK]"
+    },
+    "toggle.auto.quest.yama.cdk": {
+      "title": "Tự Động Nhiệm Vụ Yama [CDK]",
+      "description": "Tự Động Nhiệm Vụ Yama [CDK]"
+    },
+    "toggle.auto.complete.quest.citizen": {
+      "title": "Tự Động Hoàn Thành Nhiệm Vụ Citizen",
+      "description": "Tự Động Hoàn Thành Nhiệm Vụ Citizen"
+    },
+    "toggle.auto.collect.azure.ember": {
+      "title": "Tự Động Nhặt Azure Ember",
+      "description": "Tự Động Nhặt Azure Ember"
+    },
+    "toggle.auto.complete.trial.race": {
+      "title": "Tự Động Hoàn Thành Trial",
+      "description": "Tự Động Hoàn Thành Trial"
+    },
+    "toggle.auto.craft.volcanic.magnet": {
+      "title": "Tự Động Chế Tạo Volcanic Magnet",
+      "description": "Tự Động Chế Tạo Volcanic Magnet"
+    },
+    "toggle.upgrade.dragon.talon.v3": {
+      "title": "Nâng Cấp Dragon Talon V3",
+      "description": "Nâng Cấp Dragon Talon V3"
+    },
+    "toggle.auto.dark.blade.v3": {
+      "title": "Tự Động Lấy Dark Blade V3",
+      "description": "Tự Động Lấy Dark Blade V3"
+    },
+    "toggle.auto.kill.player.after.trial": {
+      "title": "Tự Động Giết Các Người Chơi Khác Sau Trial",
+      "description": "Tự Động Giết Các Người Chơi Khác Sau Trial"
+    },
+    "toggle.auto.dojo.trainer": {
+      "title": "Tự Động Lấy Đai",
+      "description": "Tự Động Lấy Đai"
+    },
+    "toggle.auto.draco.v1": {
+      "title": "Tự Động Lấy Tộc Draco V1",
+      "description": "Tự Động Lấy Tộc Draco V1"
+    },
+    "toggle.auto.draco.v3": {
+      "title": "Tự Động Lấy Tộc Draco V3",
+      "description": "Tự Động Lấy Tộc Draco V3"
+    },
+    "toggle.auto.farm.training.dummy": {
+      "title": "Tự Động Đánh Training Dummy",
+      "description": "Tự Động Đánh Training Dummy"
+    },
+    "toggle.auto.dragon.hunter": {
+      "title": "Tự Động Dragon Hunter",
+      "description": "Tự Động Dragon Hunter"
+    },
+    "toggle.auto.collect.mirage.chest": {
+      "title": "Tự Động Nhặt Rương Bí Ẩn",
+      "description": "Tự Động Nhặt Rương Bí Ẩn"
+    },
+    "toggle.auto.find.mirage.island": {
+      "title": "Tự Động Tìm Đảo Bí Ẩn",
+      "description": "Tự Động Tìm Đảo Bí Ẩn"
+    },
+    "toggle.auto.teleport.frozen.dimension": {
+      "title": "Tự Động Dịch Chuyển Đến Frozen Dimension",
+      "description": "Tự Động Dịch Chuyển Đến Frozen Dimension"
+    },
+    "toggle.get.quest.haki.rainbow": {
+      "title": "Nhận Nhiệm Vụ Haki 7 Màu",
+      "description": "Nhận Nhiệm Vụ Haki 7 Màu"
+    },
+    "toggle.tween.to.mirage.island": {
+      "title": "Bay Đến Đảo Bí Ẩn",
+      "description": "Bay Đến Đảo Bí Ẩn"
+    },
+    "toggle.auto.get.rengoku.sword": {
+      "title": "Tự Động Lấy Kiếm Rengoku",
+      "description": "Tự Động Lấy Kiếm Rengoku"
+    },
+    "toggle.auto.get.key.rengoku": {
+      "title": "Tự Động Lấy Chìa Khoá Rengoku",
+      "description": "Tự Động Lấy Chìa Khoá Rengoku"
+    },
+    "toggle.auto.attack.leviathan": {
+      "title": "Tự Động Đánh Leviathan",
+      "description": "Tự Động Đánh Leviathan"
+    },
+    "toggle.auto.get.long.sword": {
+      "title": "Tự Động Lấy Kiếm Dài",
+      "description": "Tự Động Lấy Kiếm Dài"
+    },
+    "toggle.auto.pull.lever": {
+      "title": "Tự Động Gạt Cần",
+      "description": "Tự Động Gạt Cần"
+    },
+    "toggle.auto.collect.bones": {
+      "title": "Tự Động Nhặt Xương",
+      "description": "Tự Động Nhặt Xương"
+    },
+    "toggle.auto.turn.on.v3": {
+      "title": "Tự Động Bật V3",
+      "description": "Tự Động Bật V3"
+    },
+    "toggle.auto.turn.on.v4": {
+      "title": "Tự Động Bật V4",
+      "description": "Tự Động Bật V4"
+    },
+    "toggle.auto.relic.draco.trial.v4": {
+      "title": "Tự Động Thắp Đèn Trial Draco V4",
+      "description": "Tự Động Thắp Đèn Trial Draco V4"
+    },
+    "toggle.auto.reset.when.complete": {
+      "title": "Tự Động Đặt Lại Khi Hoàn Thành",
+      "description": "Tự Động Đặt Lại Khi Hoàn Thành"
+    },
+    "toggle.panic.mode": {
+      "title": "Chế Độ Hoảng Loạn",
+      "description": "Chế Độ Hoảng Loạn"
+    },
+    "toggle.auto.drive.to.hydra.island": {
+      "title": "Tự Động Lái Đến Đảo Phụ Nữ",
+      "description": "Tự Động Lái Đến Đảo Phụ Nữ"
+    },
+    "toggle.auto.teleport.to.race.doors": {
+      "title": "Dịch Chuyển Đến Race Doors",
+      "description": "Dịch Chuyển Đến Race Doors"
+    },
+    "toggle.auto.collect.gear": {
+      "title": "Tự Động Nhặt Bánh Răng",
+      "description": "Tự Động Nhặt Bánh Răng"
+    },
+    "toggle.tween.to.draco.trial.v4": {
+      "title": "Bay Đến Nơi Trial Draco V4",
+      "description": "Bay Đến Nơi Trial Draco V4"
+    },
+    "toggle.tween.to.legendary.sword.seller.npc": {
+      "title": "Bay Đến NPC Bán Kiếm Legendary",
+      "description": "Bay Đến NPC Bán Kiếm Legendary"
+    },
+    "toggle.auto.trade.azure.ember": {
+      "title": "Tự Động Đổi Azure Ember",
+      "description": "Tự Động Đổi Azure Ember"
+    },
+    "toggle.auto.train.draco.v4": {
+      "title": "Tự Động Train Draco V4",
+      "description": "Tự Động Train Draco V4"
+    },
+    "toggle.auto.get.twin.hooks": {
+      "title": "Tự Động Lấy Móc Đôi",
+      "description": "Tự Động Lấy Móc Đôi"
+    },
+    "toggle.tween.to.upgrade.draco.trial": {
+      "title": "Bay Đến Trial Nâng Cấp Draco",
+      "description": "Bay Đến Trial Nâng Cấp Draco"
+    },
+    "toggle.turn.on.ice.walk": {
+      "title": "Bật Đi Trên Băng",
+      "description": "Bật Đi Trên Băng"
+    },
+    "toggle.change.transparency.can.see": {
+      "title": "Thay Đổi Tính Minh Bạch Có Thể Thấy",
+      "description": "Thay Đổi Tính Minh Bạch Có Thể Thấy"
+    },
+    "toggle.turn.on.time": {
+      "title": "Bật Thời Gian",
+      "description": "Bật Thời Gian"
+    },
+    "toggle.auto.farm.haki.observation": {
+      "title": "Tự Động Cày Điểm Né Haki Quan Sát",
+      "description": "Tự Động Cày Điểm Né Haki Quan Sát"
+    },
+    "toggle.auto.shrine.actived": {
+      "title": "Tự Động Kích Hoạt",
+      "description": "Tự Động Kích Hoạt"
+    },
+    "toggle.auto.awakening": {
+      "title": "Tự Động Thức Tỉnh",
+      "description": "Tự Động Thức Tỉnh"
+    },
+    "toggle.auto.attack.fish.boat": {
+      "title": "Tự Động Đánh Tàu Bắt Cá",
+      "description": "Tự Động Đánh Tàu Bắt Cá"
+    },
+    "toggle.auto.attack.haunted.crew.member": {
+      "title": "Tự Động Đánh Thành Viên Ohi Hành Đoàn Bị Ám",
+      "description": "Tự Động Đánh Thành Viên Ohi Hành Đoàn Bị Ám"
+    },
+    "toggle.kill.aura": {
+      "title": "Giết Hào Quang",
+      "description": "Giết Hào Quang"
+    },
+    "toggle.auto.attack.fish.crew.member": {
+      "title": "Tự Động Đánh Thành Viên Đội Đánh Cá",
+      "description": "Tự Động Đánh Thành Viên Đội Đánh Cá"
+    },
+    "toggle.auto.attack.pirate.ship": {
+      "title": "Tự Động Đánh Tàu Hải Tặc",
+      "description": "Tự Động Đánh Tàu Hải Tặc"
+    },
+    "toggle.auto.kill.piranha": {
+      "title": "Tự Động Giết Cá Piranha",
+      "description": "Tự Động Giết Cá Piranha"
+    },
+    "toggle.auto.collect.dragon.egg": {
+      "title": "Tự Động Nhặt Trứng Rồng",
+      "description": "Tự Động Nhặt Trứng Rồng"
+    },
+    "toggle.auto.find.prehistoric.island": {
+      "title": "Tự Động Tìm Đảo Núi Lửa",
+      "description": "Tự Động Tìm Đảo Núi Lửa"
+    },
+    "toggle.auto.start.event": {
+      "title": "Tự Động Bắt Đầu Sự Kiện",
+      "description": "Tự Động Bắt Đầu Sự Kiện"
+    },
+    "toggle.auto.raid.safe": {
+      "title": "Tự Động Raid [An Toàn]",
+      "description": "Tự Động Raid [An Toàn]"
+    },
+    "toggle.auto.sail.sit.down.and.turn.on": {
+      "title": "Tự Động Lái [Ngồi Vào Chỗ Rồi Bật]",
+      "description": "Tự Động Lái [Ngồi Vào Chỗ Rồi Bật]"
+    },
+    "toggle.auto.attack.sea.beast": {
+      "title": "Tự Động Đánh Sea Beast",
+      "description": "Tự Động Đánh Sea Beast"
+    },
+    "toggle.auto.kill.shark": {
+      "title": "Tự Động Giết Cá Mập",
+      "description": "Tự Động Giết Cá Mập"
+    },
+    "toggle.auto.kill.terror.shark": {
+      "title": "Tự Động Giết Cá Mập Tận Thế",
+      "description": "Tự Động Giết Cá Mập Tận Thế"
+    },
+    "toggle.esp.player": {
+      "title": "ESP Player",
+      "description": ""
+    },
+    "toggle.esp.chest": {
+      "title": "ESP Chest",
+      "description": ""
+    },
+    "toggle.esp.fruit": {
+      "title": "ESP Fruit",
+      "description": ""
+    },
+    "toggle.esp.island": {
+      "title": "ESP Island",
+      "description": ""
+    },
+    "option": {
+      "choose": {
+        "weapon": {
+          "title": "Choose Weapon"
+        },
+        "location": {
+          "farm": {
+            "title": "Choose Location Farm"
+          }
+        },
+        "rod": {
+          "title": "Choose Rod"
+        },
+        "bait": {
+          "title": "Choose Bait"
+        },
+        "boat": {
+          "title": "Choose Boat"
+        },
+        "sea": {
+          "level": {
+            "title": "Choose Sea Level"
+          }
+        },
+        "player": {
+          "title": "Choose Player"
+        }
+      },
+      "select": {
+        "farm": {
+          "island": {
+            "title": "Select Farm Island"
+          }
+        },
+        "material": {
+          "title": "Select Material"
+        },
+        "boss": {
+          "title": "Select Boss"
+        },
+        "raid": {
+          "title": "Select Raid"
+        },
+        "island": {
+          "title": "Select Island"
+        },
+        "npc": {
+          "title": "Chọn NPC"
+        },
+        "haki": {
+          "states": {
+            "title": "Select Haki States"
+          }
+        },
+        "time": {
+          "title": "Select Time"
+        }
+      },
+      "mastery": {
+        "finisher": {
+          "hp": {
+            "title": "Mastery Finisher HP"
+          }
+        }
+      },
+      "auto": {
+        "speed": {
+          "title": "Auto Speed"
+        },
+        "jump": {
+          "title": "Auto Jump"
+        }
+      },
+      "stats": {
+        "value": {
+          "title": "Stats Value"
+        }
+      },
+      "raid": {
+        "type": {
+          "title": "Raid Type"
+        }
+      },
+      "input": {
+        "job": {
+          "id": {
+            "title": "Input Job ID"
+          }
+        }
+      }
+    },
+    "toggle": {
+      "fast": {
+        "attack": {
+          "buddha": {
+            "title": "Fast Attack Buddha"
+          }
+        }
+      },
+      "auto": {
+        "farm": {
+          "level": {
+            "title": "Tự Động Cày Cấp Độ"
+          },
+          "nearest": {
+            "title": "Tự Động Đánh Quái Ở Gần"
+          },
+          "island": {
+            "title": "Auto Farm Island"
+          },
+          "ectoplasm": {
+            "title": "Tự Động Cày Ngoại Chất"
+          },
+          "chest": {
+            "title": "Tự Động Nhặt Rương"
+          },
+          "elite": {
+            "title": "Tự Động Đánh Elite",
+            "hop": {
+              "server": {
+                "title": "Tự Động Đánh Elite + Chuyển Máy Chủ"
+              }
+            }
+          },
+          "cake": {
+            "prince": {
+              "title": "Tự Động Cày Hoàng Tử Bột"
+            }
+          },
+          "dough": {
+            "king": {
+              "title": "Tự Động Đánh Bột Đế Vương"
+            }
+          },
+          "bone": {
+            "title": "Tự Động Cày Xương"
+          },
+          "tyrant": {
+            "of": {
+              "the": {
+                "skies": {
+                  "title": "Tự Động Đánh Tyrant of the Skies"
+                }
+              }
+            }
+          },
+          "materials": {
+            "title": "Tự Động Cày Nguyên Liệu"
+          },
+          "boss": {
+            "title": "Tự Động Đánh Boss"
+          }
+        },
+        "factory": {
+          "raid": {
+            "title": "Tự Động Đánh Nhà Máy"
+          }
+        },
+        "pirate": {
+          "raid": {
+            "title": "Tự Động Đánh Hải Tặc Đột Kích"
+          }
+        },
+        "collect": {
+          "berry": {
+            "title": "Tự Động Nhặt Berry",
+            "hop": {
+              "server": {
+                "title": "Tự Động Nhặt Berry + Chuyển Máy Chủ"
+              }
+            }
+          },
+          "fruit": {
+            "title": "Tự Động Nhặt Trái"
+          }
+        },
+        "summon": {
+          "cake": {
+            "prince": {
+              "title": "Tự Động Triệu Hồi Hoàng Tử Bột"
+            }
+          },
+          "boss": {
+            "title": "Tự Động Triệu Hồi Boss"
+          }
+        },
+        "hop": {
+          "dough": {
+            "king": {
+              "title": "Tự Động Chuyển Máy Bột Đế Vương"
+            }
+          }
+        },
+        "unlock": {
+          "dough": {
+            "dungeon": {
+              "title": "Tự Động Mở Khoá Dungeon Bột"
+            }
+          },
+          "phoenix": {
+            "dungeon": {
+              "title": "Tự Động Mở Khoá Dungeon Phượng Hoàng"
+            }
+          }
+        },
+        "soul": {
+          "reaper": {
+            "title": "Tự Động Đánh Soul Reaper"
+          }
+        },
+        "random": {
+          "bone": {
+            "title": "Tự Động Đổi Xương"
+          },
+          "fruit": {
+            "title": "Tự Động Quay Trái"
+          }
+        },
+        "try": {
+          "luck": {
+            "gravestone": {
+              "title": "Tự Động Thử Vận May Bia Mộ"
+            }
+          }
+        },
+        "pray": {
+          "gravestone": {
+            "title": "Tự Động Cầu Nguyện Bia Mộ"
+          }
+        },
+        "mastery": {
+          "fruit": {
+            "title": "Tự Động Cày Thông Thạo Trái"
+          },
+          "gun": {
+            "title": "Tự Động Cày Thông Thạo Súng"
+          },
+          "all": {
+            "sword": {
+              "title": "Tự Động Cày Thông Thạo Tất Cả Kiếm"
+            }
+          },
+          "dragon": {
+            "storm": {
+              "title": "Tự Động Cày Thông Thạo Dragon Storm"
+            }
+          }
+        },
+        "buy": {
+          "bait": {
+            "title": "Tự Động Mua Mồi"
+          },
+          "raid": {
+            "chip": {
+              "beli": {
+                "title": "Auto Buy Raid Chip [Beli]"
+              },
+              "fragment": {
+                "title": "Auto Buy Raid Chip [Fragment]"
+              }
+            }
+          },
+          "chip": {
+            "law": {
+              "title": "Auto Buy Chip Law"
+            }
+          }
+        },
+        "fishing": {
+          "title": "Tự Động Câu Cá"
+        },
+        "quest": {
+          "fishing": {
+            "title": "Tự Động Nhận Nhiệm Vụ Câu Cá"
+          }
+        },
+        "complete": {
+          "quest": {
+            "title": "Tự Động Hoàn Thành Nhiệm Vụ"
+          }
+        },
+        "sell": {
+          "fish": {
+            "title": "Tự Động Bán Cá"
+          }
+        },
+        "spam": {
+          "skill": {
+            "z": {
+              "title": "Tự Động Spam Chiêu Z"
+            }
+          }
+        },
+        "get": {
+          "saber": {
+            "title": "Tự động lấy Saber"
+          },
+          "usoap": {
+            "s": {
+              "hat": {
+                "title": "Tự động lấy Mũ Usoap"
+              }
+            }
+          },
+          "marine": {
+            "cap": {
+              "title": "Tự động lấy Mũ Hải Quân"
+            }
+          }
+        },
+        "bisento": {
+          "v2": {
+            "title": "Tự Động Lấy Đại Đao V2"
+          }
+        },
+        "drop": {
+          "fruit": {
+            "title": "Tự Động Thả Trái"
+          }
+        },
+        "store": {
+          "fruit": {
+            "title": "Tự Động Lưu Trữ Trái"
+          }
+        },
+        "start": {
+          "law": {
+            "title": "Auto Start Law"
+          }
+        },
+        "raid": {
+          "law": {
+            "title": "Auto Raid Law"
+          }
+        },
+        "travel": {
+          "title": "Tự Động Du Lịch Đến"
+        }
+      },
+      "esp": {
+        "berry": {
+          "title": "ESP Berry"
+        }
+      },
+      "bring": {
+        "mob": {
+          "title": "Bring Mob"
+        }
+      },
+      "teleport": {
+        "to": {
+          "player": {
+            "title": "Dịch Chuyển Đến Người Chơi"
+          },
+          "npc": {
+            "title": "Dịch chuyển tới NPC"
+          }
+        }
+      },
+      "turn": {
+        "on": {
+          "rtx": {
+            "mode": {
+              "title": "Bật Chế Độ RTX"
+            }
+          }
+        }
+      },
+      "unlock": {
+        "zoom": {
+          "limit": {
+            "title": "Unlock Zoom Limit"
+          }
+        }
+      }
+    },
+    "view": {
+      "farm": {
+        "status": {
+          "title": "Trạng thái Farm"
+        }
+      }
+    },
+    "button": {
+      "buy": {
+        "microchip": {
+          "law": {
+            "title": "Mua Microchip Law"
+          }
+        }
+      },
+      "start": {
+        "law": {
+          "raid": {
+            "title": "Start Law Raid"
+          }
+        }
+      },
+      "hop": {
+        "server": {
+          "title": "Hop Server",
+          "lowest": {
+            "players": {
+              "title": "Hop Server · Lowest Players"
+            }
+          },
+          "best": {
+            "available": {
+              "title": "Hop Server · Best Available"
+            }
+          }
+        }
+      },
+      "redeem": {
+        "all": {
+          "codes": {
+            "title": "Đổi Tất Cả Mã"
+          }
+        }
+      }
+    },
+    "option.choose.weapon": {
+      "description": "",
+      "title": "Vũ khí"
+    },
+    "toggle.fast.attack.buddha": {
+      "description": ""
+    },
+    "toggle.auto.farm.level": {
+      "description": "Tự Động Cày Cấp Độ"
+    },
+    "toggle.auto.farm.nearest": {
+      "description": "Tự Động Đánh Quái Ở Gần"
+    },
+    "option.select.farm.island": {
+      "description": "Choose an island mob group."
+    },
+    "toggle.auto.farm.island": {
+      "description": "Farm mobs belonging to the selected island using the shared Re4 engine."
+    },
+    "toggle.auto.factory.raid": {
+      "description": "Tự Động Đánh Nhà Máy"
+    },
+    "toggle.auto.pirate.raid": {
+      "description": "Tự Động Đánh Hải Tặc Đột Kích"
+    },
+    "toggle.auto.farm.ectoplasm": {
+      "description": "Tự Động Cày Ngoại Chất"
+    },
+    "toggle.auto.farm.chest": {
+      "description": "Tự Động Nhặt Rương"
+    },
+    "toggle.auto.collect.berry": {
+      "description": "Tự Động Nhặt Berry"
+    },
+    "toggle.auto.collect.berry.hop.server": {
+      "description": "Tự Động Nhặt Berry + Chuyển Máy Chủ"
+    },
+    "toggle.esp.berry": {
+      "description": "Hiển thị Berry từ cùng cache dùng bởi Auto Collect."
+    },
+    "view.farm.status": {
+      "description": ""
+    },
+    "toggle.auto.farm.elite": {
+      "description": "Tự Động Đánh Elite"
+    },
+    "toggle.auto.farm.elite.hop.server": {
+      "description": "Tự Động Đánh Elite + Chuyển Máy Chủ"
+    },
+    "toggle.auto.farm.cake.prince": {
+      "description": "Tự Động Cày Hoàng Tử Bột"
+    },
+    "toggle.auto.summon.cake.prince": {
+      "description": "Tự Động Triệu Hồi Hoàng Tử Bột"
+    },
+    "toggle.auto.farm.dough.king": {
+      "description": "Tự Động Đánh Bột Đế Vương"
+    },
+    "toggle.auto.hop.dough.king": {
+      "description": "Tự Động Chuyển Máy Bột Đế Vương"
+    },
+    "toggle.auto.unlock.dough.dungeon": {
+      "description": "Tự Động Mở Khoá Dungeon Bột"
+    },
+    "toggle.auto.unlock.phoenix.dungeon": {
+      "description": "Tự Động Mở Khoá Dungeon Phượng Hoàng"
+    },
+    "toggle.auto.farm.bone": {
+      "description": "Tự Động Cày Xương"
+    },
+    "toggle.auto.soul.reaper": {
+      "description": "Tự Động Đánh Soul Reaper"
+    },
+    "toggle.auto.random.bone": {
+      "description": "Tự Động Đổi Xương"
+    },
+    "toggle.auto.try.luck.gravestone": {
+      "description": "Tự Động Thử Vận May Bia Mộ"
+    },
+    "toggle.auto.pray.gravestone": {
+      "description": "Tự Động Cầu Nguyện Bia Mộ"
+    },
+    "toggle.auto.farm.tyrant.of.the.skies": {
+      "description": "Tự Động Đánh Boss"
+    },
+    "toggle.auto.summon.boss": {
+      "description": "Tự Động Triệu Hồi Boss"
+    },
+    "option.select.material": {
+      "description": ""
+    },
+    "toggle.auto.farm.materials": {
+      "description": "Tự Động Cày Nguyên Liệu"
+    },
+    "option.select.boss": {
+      "description": ""
+    },
+    "toggle.auto.farm.boss": {
+      "description": "Tự Động Đánh Boss"
+    },
+    "option.choose.location.farm": {
+      "description": "Choose how mastery selects targets."
+    },
+    "option.mastery.finisher.hp": {
+      "description": "Use mastery skills when enemy HP falls below this percentage."
+    },
+    "toggle.auto.mastery.fruit": {
+      "description": "Tự Động Cày Thông Thạo Trái"
+    },
+    "toggle.auto.mastery.gun": {
+      "description": "Tự Động Cày Thông Thạo Súng"
+    },
+    "toggle.auto.mastery.all.sword": {
+      "description": "Tự Động Cày Thông Thạo Tất Cả Kiếm"
+    },
+    "toggle.auto.mastery.dragon.storm": {
+      "description": "Tự Động Cày Thông Thạo Dragon Storm"
+    },
+    "toggle.bring.mob": {
+      "description": "Gom Quái",
+      "title": "Gom quái"
+    },
+    "option.auto.speed": {
+      "description": "",
+      "title": "Tốc độ di chuyển"
+    },
+    "option.auto.jump": {
+      "description": ""
+    },
+    "option.stats.value": {
+      "description": ""
+    },
+    "option.choose.rod": {
+      "description": "Fishing rod used by Auto Fishing."
+    },
+    "option.choose.bait": {
+      "description": ""
+    },
+    "toggle.auto.buy.bait": {
+      "description": "Tự động kiểm tra stock → craft đúng batch cần thiết → equip mồi đã chọn."
+    },
+    "toggle.auto.fishing": {
+      "description": "End-to-End: rod → equip → bait → cast → bite/reel → quest lifecycle."
+    },
+    "toggle.auto.quest.fishing": {
+      "description": "Nhận Angler quest khi Fishing Lv.20+ và cooldown cho phép."
+    },
+    "toggle.auto.complete.quest": {
+      "description": "Turn-in Fishing Quest khi trạng thái cho phép."
+    },
+    "toggle.auto.sell.fish": {
+      "description": "Tự động bán cá theo cùng fishing lifecycle."
+    },
+    "toggle.auto.spam.skill.z": {
+      "description": "Dùng Fishing Rod skill Z; Auto Fishing cũng tự dùng khi quest yêu cầu."
+    },
+    "toggle.auto.get.saber": {
+      "description": "Complete the First Sea Saber Puzzle and defeat Saber Expert."
+    },
+    "toggle.auto.get.usoap.s.hat": {
+      "description": "Pirates only: requires 250,000+ Bounty and 3 game-eligible near-level PvP defeats."
+    },
+    "toggle.auto.get.marine.cap": {
+      "description": "Marines only: requires 250,000+ Honor and an eligible Pirate defeat."
+    },
+    "toggle.auto.bisento.v2": {
+      "description": "Requires Bisento V1. Deal at least 10% of Greybeard's max HP before he is defeated; Bisento does not need to be equipped."
+    },
+    "option.choose.boat": {
+      "description": ""
+    },
+    "option.choose.sea.level": {
+      "description": ""
+    },
+    "toggle.auto.random.fruit": {
+      "description": "Tự Động Quay Trái"
+    },
+    "toggle.auto.drop.fruit": {
+      "description": "Tự Động Thả Trái"
+    },
+    "toggle.auto.store.fruit": {
+      "description": "Tự Động Lưu Trữ Trái"
+    },
+    "toggle.auto.collect.fruit": {
+      "description": "Kéo Fruit đang rơi về player để game tự pickup; không chiếm Movement/Tween."
+    },
+    "option.raid.type": {
+      "description": "Basic dùng Beli hoặc nút Fruit nguyên bản; Advanced dùng Fragment"
+    },
+    "option.select.raid": {
+      "description": "Raid được dùng cho mua chip và Auto Raid"
+    },
+    "toggle.auto.buy.raid.chip.beli": {
+      "description": "Basic Raid · 100,000 Beli"
+    },
+    "toggle.auto.buy.raid.chip.fragment": {
+      "description": "Advanced Raid · 1,000 Fragments"
+    },
+    "button.buy.microchip.law": {
+      "description": "Mua Microchip Law một lần"
+    },
+    "button.start.law.raid": {
+      "description": "Start Order/Law raid một lần"
+    },
+    "toggle.auto.buy.chip.law": {
+      "description": "Một controller Law duy nhất · mua và xác nhận Microchip"
+    },
+    "toggle.auto.start.law": {
+      "description": "Start một lần cho mỗi Microchip · chờ Order xác nhận"
+    },
+    "toggle.auto.raid.law": {
+      "description": "Buy → Start → Order combat → completion · death-safe"
+    },
+    "option.select.island": {
+      "description": ""
+    },
+    "toggle.auto.travel": {
+      "description": "Travel to the selected island"
+    },
+    "option.choose.player": {
+      "description": ""
+    },
+    "toggle.teleport.to.player": {
+      "description": "Dịch Chuyển Đến Người Chơi"
+    },
+    "option.select.npc": {
+      "description": "Full NPC directory for the current Sea (template registry + live resolver)"
+    },
+    "toggle.teleport.to.npc": {
+      "description": "Move to the selected NPC; toggle OFF stops only this travel owner."
+    },
+    "button.hop.server": {
+      "description": "Join another available server"
+    },
+    "button.hop.server.lowest.players": {
+      "description": "Join the lowest-population available server"
+    },
+    "button.hop.server.best.available": {
+      "description": "Uses reliable public server data; remote server ping is not exposed before joining"
+    },
+    "option.input.job.id": {
+      "description": ""
+    },
+    "button.redeem.all.codes": {
+      "description": "Đổi Tất Cả Mã"
+    },
+    "option.select.haki.states": {
+      "description": ""
+    },
+    "toggle.turn.on.rtx.mode": {
+      "description": "Bật Chế Độ RTX"
+    },
+    "toggle.unlock.zoom.limit": {
+      "description": "Mở Khoá Giới Hạn Thu Phóng"
+    },
+    "option.select.time": {
+      "description": ""
+    },
+    "toggle.fighting.style.auto.darkstep": {
+      "title": "Auto Dark Step",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.darkstep": {
+      "title": "Dark Step",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.electric": {
+      "title": "Auto Electric",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.electric": {
+      "title": "Electric",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.waterkungfu": {
+      "title": "Auto Water Kung Fu",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.waterkungfu": {
+      "title": "Water Kung Fu",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.dragonbreath": {
+      "title": "Auto Dragon Breath",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.dragonbreath": {
+      "title": "Dragon Breath",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.superhuman": {
+      "title": "Auto Superhuman",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.superhuman": {
+      "title": "Superhuman",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.deathstep": {
+      "title": "Auto Death Step",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.deathstep": {
+      "title": "Death Step",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.electricclaw": {
+      "title": "Auto Electric Claw",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.electricclaw": {
+      "title": "Electric Claw",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.sharkman": {
+      "title": "Auto Sharkman Karate",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.sharkman": {
+      "title": "Sharkman Karate",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.dragontalon": {
+      "title": "Auto Dragon Talon",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.dragontalon": {
+      "title": "Dragon Talon",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.godhuman": {
+      "title": "Auto Godhuman",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.godhuman": {
+      "title": "Godhuman",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.fighting.style.auto.sanguine": {
+      "title": "Auto Sanguine Art",
+      "description": "Tự động thử lấy Fighting Style khi các điều kiện đã xác định và tiền/tài nguyên đã đủ."
+    },
+    "toggle.fighting.style.use.sanguine": {
+      "title": "Sanguine Art",
+      "description": "Trang bị Fighting Style đã sở hữu."
+    },
+    "toggle.stats.auto_melee": {
+      "title": "Tự động Cận chiến",
+      "description": "Tự động cộng điểm chỉ số vào Cận chiến."
+    },
+    "toggle.stats.auto_sword": {
+      "title": "Tự động Kiếm",
+      "description": "Tự động cộng điểm chỉ số vào Kiếm."
+    },
+    "toggle.stats.auto_gun": {
+      "title": "Tự động Súng",
+      "description": "Tự động cộng điểm chỉ số vào Súng."
+    },
+    "toggle.stats.auto_blox_fruit": {
+      "title": "Tự động Blox Fruit",
+      "description": "Tự động cộng điểm chỉ số vào Blox Fruit."
+    },
+    "toggle.stats.auto_defense": {
+      "title": "Tự động Phòng thủ",
+      "description": "Tự động cộng điểm chỉ số vào Phòng thủ."
+    },
+    "button.shop.buy.buso": {
+      "title": "Mua Haki Tay",
+      "description": "Mua Haki Tay"
+    },
+    "button.shop.buy.geppo": {
+      "title": "Mua Air Jump",
+      "description": "Mua Air Jump"
+    },
+    "button.shop.buy.soru": {
+      "title": "Mua Dịch Chuyển Tức Thời",
+      "description": "Mua Dịch Chuyển Tức Thời"
+    },
+    "button.shop.buy.ken": {
+      "title": "Mua Haki Quan Sát",
+      "description": "Mua Haki Quan Sát"
+    },
+    "button.shop.buy.tomoe.ring": {
+      "title": "Mua Tomoe Ring",
+      "description": "Mua Tomoe Ring"
+    },
+    "button.shop.buy.black.cape": {
+      "title": "Mua Black Cape",
+      "description": "Mua Black Cape"
+    },
+    "button.shop.buy.swordsman.hat": {
+      "title": "Mua Mũ Swordsman",
+      "description": "Mua Mũ Swordsman"
+    },
+    "button.shop.buy.bizarre.revolver": {
+      "title": "Mua Súng Lục Kỳ Quái",
+      "description": "Mua Bizarre Revolver"
+    },
+    "button.shop.buy.ghoul.mask": {
+      "title": "Mua Mặt Nạ Ma Cà Rồng",
+      "description": "Mua Mặt Nạ Ma Cà Rồng"
+    },
+    "button.shop.craft.dragonheart": {
+      "title": "Chế Tạo DragonHeart",
+      "description": "Chế Tạo DragonHeart"
+    },
+    "button.shop.craft.dragonstorm": {
+      "title": "Chế Tạo DragonStorm",
+      "description": "Chế Tạo DragonStorm"
+    },
+    "button.shop.craft.dino.hood": {
+      "title": "Chế Tạo Dino Hood",
+      "description": "Chế Tạo Dino Hood"
+    },
+    "button.shop.craft.shark.tooth.necklace": {
+      "title": "Chế tạo Vòng Cổ Răng Cá Mập",
+      "description": "Chế tạo Shark Tooth Necklace"
+    },
+    "button.shop.craft.terror.jaw": {
+      "title": "Chế Tạo Hàm Terror",
+      "description": "Chế Tạo Hàm Terror"
+    },
+    "button.shop.craft.leviathan.crown": {
+      "title": "Chế Tạo Vương Miện Leviathan",
+      "description": "Chế Tạo Vương Miện Leviathan"
+    },
+    "button.shop.craft.leviathan.shield": {
+      "title": "Chế Tạo Khiêng Leviathan",
+      "description": "Chế Tạo Khiêng Leviathan"
+    },
+    "button.shop.craft.beast.hunter.boat": {
+      "title": "Chế tạo Thuyền Beast Hunter",
+      "description": "Chế tạo Beast Hunter Boat"
+    },
+    "button.shop.craft.legendary.scroll": {
+      "title": "Chế Tạo Cuộn Huyền Thoại",
+      "description": "Chế Tạo Cuộn Huyền Thoại"
+    },
+    "button.shop.craft.mythical.scroll": {
+      "title": "Chế Tạo Cuộn Thần Thoại",
+      "description": "Chế Tạo Cuộn Thần Thoại"
+    },
+    "button.shop.buy.cutlass": {
+      "title": "Mua Đao Hải Tặc",
+      "description": "Mua Đao Hải Tặc"
+    },
+    "button.shop.buy.katana": {
+      "title": "Mua Kiếm Katana",
+      "description": "Mua Kiếm Katana"
+    },
+    "button.shop.buy.iron.mace": {
+      "title": "Mua Chuỳ Sắt",
+      "description": "Mua Chuỳ Sắt"
+    },
+    "button.shop.buy.duel.katana": {
+      "title": "Mua Song Kiếm Katana",
+      "description": "Mua Song Kiếm Katana"
+    },
+    "button.shop.buy.triple.katana": {
+      "title": "Mua Tam Kiếm Katana",
+      "description": "Mua Tam Kiếm Katana"
+    },
+    "button.shop.buy.pipe": {
+      "title": "Mua Ống Nước",
+      "description": "Mua Ống Nước"
+    },
+    "button.shop.buy.dual.headed.blade": {
+      "title": "Mua Lưỡi Dao Hai Đầu",
+      "description": "Mua Lưỡi Dao Hai Đầu"
+    },
+    "button.shop.buy.bisento": {
+      "title": "Mua Đại Đao",
+      "description": "Mua Đại Đao"
+    },
+    "button.shop.buy.soul.cane": {
+      "title": "Mua Gậy Linh Hồn",
+      "description": "Mua Gậy Linh Hồn"
+    },
+    "button.shop.buy.slingshot": {
+      "title": "Mua Ná Cao Su",
+      "description": "Mua Ná Cao Su"
+    },
+    "button.shop.buy.musket": {
+      "title": "Mua Súng Hoả Mai",
+      "description": "Mua Súng Hoả Mai"
+    },
+    "button.shop.buy.refined.slingshot": {
+      "title": "Mua Refined Slingshot",
+      "description": "Mua Refined Slingshot"
+    },
+    "button.shop.buy.dual.flintlock": {
+      "title": "Mua Súng Kíp Đôi",
+      "description": "Mua Súng Kíp Đôi"
+    },
+    "button.shop.buy.flintlock": {
+      "title": "Mua Súng Kíp",
+      "description": "Mua Súng Kíp"
+    },
+    "button.shop.buy.cannon": {
+      "title": "Mua Đại Bác",
+      "description": "Mua Đại Bác"
+    },
+    "toggle.auto.get.shark.saw": {
+      "title": "Tự động lấy Shark Saw",
+      "description": "Đánh bại The Saw cho đến khi sở hữu Shark Saw."
+    },
+    "toggle.auto.get.wardens.sword": {
+      "title": "Tự động lấy Wardens Sword",
+      "description": "Đánh bại Warden cho đến khi sở hữu Wardens Sword."
+    },
+    "toggle.auto.get.coat": {
+      "title": "Tự động lấy Coat",
+      "description": "Đánh bại Vice Admiral cho đến khi sở hữu Coat."
+    },
+    "toggle.auto.get.magma.blaster": {
+      "title": "Tự động lấy Magma Blaster",
+      "description": "Đánh bại Magma General cho đến khi sở hữu Magma Blaster."
+    },
+    "toggle.auto.get.trident": {
+      "title": "Tự động lấy Trident",
+      "description": "Đánh bại cả hai giai đoạn của Fishman Lord cho đến khi sở hữu Trident."
+    },
+    "toggle.auto.get.bazooka": {
+      "title": "Tự động lấy Bazooka",
+      "description": "Đánh bại Sky Warlord cho đến khi sở hữu Bazooka."
+    },
+    "toggle.auto.get.cool.shades": {
+      "title": "Tự động lấy Cool Shades",
+      "description": "Đánh bại Cyborg cho đến khi sở hữu Cool Shades."
+    },
+    "toggle.mastery.fruit.skill.z": {
+      "title": "Kỹ năng Thông thạo Trái Z",
+      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng Z khi sẵn sàng."
+    },
+    "toggle.mastery.fruit.skill.x": {
+      "title": "Kỹ năng Thông thạo Trái X",
+      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng X khi sẵn sàng."
+    },
+    "toggle.mastery.fruit.skill.c": {
+      "title": "Kỹ năng Thông thạo Trái C",
+      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng C khi sẵn sàng."
+    },
+    "toggle.mastery.fruit.skill.v": {
+      "title": "Kỹ năng Thông thạo Trái V",
+      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng V khi sẵn sàng."
+    },
+    "toggle.mastery.fruit.skill.f": {
+      "title": "Kỹ năng Thông thạo Trái F",
+      "description": "Cho phép Thông thạo Trái tự động dùng kỹ năng F khi sẵn sàng."
+    },
+    "toggle.mastery.gun.skill.z": {
+      "title": "Kỹ năng Thông thạo Súng Z",
+      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng Z khi sẵn sàng."
+    },
+    "toggle.mastery.gun.skill.x": {
+      "title": "Kỹ năng Thông thạo Súng X",
+      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng X khi sẵn sàng."
+    },
+    "toggle.mastery.gun.skill.c": {
+      "title": "Kỹ năng Thông thạo Súng C",
+      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng C khi sẵn sàng."
+    },
+    "toggle.mastery.gun.skill.v": {
+      "title": "Kỹ năng Thông thạo Súng V",
+      "description": "Cho phép Thông thạo Súng tự động dùng kỹ năng V khi sẵn sàng."
+    },
+    "option.farm.nearest.max.distance": {
+      "title": "Khoảng cách Farm Nearest",
+      "description": "Giới hạn khoảng cách chọn quái gần nhất. Quái thuộc đảo khác đã xác định sẽ bị bỏ qua."
+    },
+    "toggle.auto.tween.to.fruit": {
+      "title": "Tween tới Fruit",
+      "description": "Di chuyển tới Fruit xuất hiện trong world bằng Movement dùng chung; mục tiêu Fruit tạm thời sẽ không dùng Bypass TP có respawn."
+    },
+    "option.select.fruit.shop": {
+      "title": "Chọn Fruit trong Shop",
+      "description": "Danh sách Fruit lấy trực tiếp từ catalog runtime của server hiện tại."
+    },
+    "option.select.permanent.fruit": {
+      "title": "Chọn Fruit vĩnh viễn",
+      "description": "Chọn Fruit cho thao tác đổi Fruit vĩnh viễn."
+    },
+    "button.refresh.fruit.shop": {
+      "title": "Làm mới Fruit Shop",
+      "description": "Làm mới catalog Fruit, trạng thái đang bán và inventory từ runtime."
+    },
+    "button.buy.selected.fruit": {
+      "title": "Mua Fruit đã chọn",
+      "description": "Chỉ mua Fruit đã chọn khi catalog runtime xác nhận đang được bán."
+    },
+    "button.switch.permanent.fruit": {
+      "title": "Đổi Fruit vĩnh viễn",
+      "description": "Yêu cầu đổi sang Fruit vĩnh viễn đã chọn; chỉ báo thành công sau khi runtime xác nhận."
+    },
+    "toggle.auto.race.v2": {
+      "title": "Tự động Tộc V2",
+      "description": "Tự nhận diện tiến độ hiện tại và hoàn thành Tộc V2 bằng progression, Movement và Combat dùng chung."
+    },
+    "toggle.auto.race.v3": {
+      "title": "Tự động Tộc V3",
+      "description": "Tự nhận diện tộc và trạng thái server, hoàn tất V2 còn thiếu rồi thực hiện đúng nhiệm vụ V3 và xác nhận hoàn thành."
+    },
+    "toggle.auto.get.ghoul.race": {
+      "title": "Tự động lấy tộc Ghoul",
+      "description": "Hoàn thành Ghoul End-to-End: Ectoplasm, Hellfire Torch, Experimic và xác nhận tộc từ server."
+    },
+    "toggle.auto.get.cyborg.race": {
+      "title": "Tự động lấy tộc Cyborg",
+      "description": "Hoàn thành Cyborg End-to-End qua Secret Laboratory, Fist of Darkness, Order/Core Brain và xác nhận mua từ server."
+    },
+    "button.refresh.fruit.mirage.shop": {
+      "title": "Làm mới Mirage Stock",
+      "description": "Làm mới trực tiếp danh sách Advanced Fruit Dealer / Mirage từ runtime server hiện tại."
+    }
+  },
+  "overlay": {
+    "player": "{name} | {distance}m\\nHP: {hp}%",
+    "chest": "Rương\\n{distance}m",
+    "fruit": "{name}\\n{distance}m",
+    "island": "{name}\\n{distance}m"
+  },
+  "sections": {
+    "farm": {
+      "status": {
+        "title": "Trạng thái Farm"
+      }
+    },
+    "progress": {
+      "first_sea_obtainables": {
+        "title": "Vật phẩm có thể lấy tại Sea 1"
+      }
+    },
+    "items": {
+      "fighting_style": {
+        "title": "Fighting Style · Equip"
+      },
+      "accessory_sea1": {
+        "title": "Accessory Sea 1"
+      },
+      "ectoplasm_shop": {
+        "title": "Ectoplasm Shop"
+      },
+      "accessory_sea_event": {
+        "title": "Accessory · Sea Event"
+      },
+      "fragments_shop": {
+        "title": "Cửa hàng Fragment"
+      }
+    },
+    "farming": {
+      "title": "Farm chính"
+    },
+    "farm.island": {
+      "title": "Farm Island"
+    },
+    "collect.chest": {
+      "title": "Nhặt rương"
+    },
+    "collect.berry": {
+      "title": "Nhặt Berry"
+    },
+    "farm.elite.hunter": {
+      "title": "Farm Elite Hunter"
+    },
+    "farming.cake": {
+      "title": "Farm Cake"
+    },
+    "unlocked.dungeon": {
+      "title": "Mở khóa Dungeon"
+    },
+    "farming.bone": {
+      "title": "Farm Xương"
+    },
+    "tyrant.of.the.skies": {
+      "title": "Tyrant Of The Skies"
+    },
+    "farm.material": {
+      "title": "Farm nguyên liệu"
+    },
+    "farm.boss": {
+      "title": "Farm Boss"
+    },
+    "farming.mastery": {
+      "title": "Farm thông thạo"
+    },
+    "settings.configure": {
+      "title": "Thiết lập / Cấu hình"
+    },
+    "stats.upgrade": {
+      "title": "Nâng chỉ số"
+    },
+    "fishing": {
+      "title": "Câu cá"
+    },
+    "tushita.and.yama": {
+      "title": "Tushita và Yama"
+    },
+    "cursed.dual.katana": {
+      "title": "Song Kiếm Nguyền Rủa"
+    },
+    "true.triple.katana.sword": {
+      "title": "True Triple Katana"
+    },
+    "pole.thunder.god": {
+      "title": "Pole / Lightning God"
+    },
+    "items.law.order.sword": {
+      "title": "Law / Order Sword"
+    },
+    "rengoku.sword": {
+      "title": "Kiếm Rengoku"
+    },
+    "cavender.twin.hooks.bigmom": {
+      "title": "Cavender + Twin Hooks + Big Mom"
+    },
+    "buso.aura.colours": {
+      "title": "Màu Haki / Aura"
+    },
+    "instinct.observation": {
+      "title": "Haki Quan Sát"
+    },
+    "dark.dragger.valkyrie": {
+      "title": "Dark Dagger + Valkyrie"
+    },
+    "mystic.island.full.moon": {
+      "title": "Mirage / Trăng tròn"
+    },
+    "skull.guitars.misc": {
+      "title": "Soul Guitar / Khác"
+    },
+    "upgrade.races.v3": {
+      "title": "Nâng Race V3"
+    },
+    "trials.quest.v4": {
+      "title": "Trial Race V4"
+    },
+    "dojo.quest.drago.race": {
+      "title": "Dojo Quest & Dragon Race"
+    },
+    "drago.trial": {
+      "title": "Dragon Trial"
+    },
+    "volcanic.magnet": {
+      "title": "Volcanic Magnet"
+    },
+    "prehistoric.island": {
+      "title": "Đảo Tiền Sử"
+    },
+    "sea.event.setting.sail": {
+      "title": "Sea Event / Ra khơi"
+    },
+    "entity.sea.event": {
+      "title": "Mục tiêu Sea Event"
+    },
+    "kitsune.island.event": {
+      "title": "Đảo Kitsune / Sự kiện"
+    },
+    "fruits.options": {
+      "title": "Tùy chọn trái"
+    },
+    "dungeon.event.raiding": {
+      "title": "Dungeon / Raid"
+    },
+    "raiding.menu": {
+      "title": "Điều khiển Raid"
+    },
+    "law.raid": {
+      "title": "Law Raid"
+    },
+    "travel.worlds": {
+      "title": "Di chuyển giữa Sea"
+    },
+    "travel.island": {
+      "title": "Dịch chuyển đảo"
+    },
+    "teleport.player": {
+      "title": "Dịch chuyển người chơi"
+    },
+    "teleport.npc": {
+      "title": "Dịch chuyển - NPC"
+    },
+    "shop.options": {
+      "title": "Cửa hàng"
+    },
+    "weapon.world.1": {
+      "title": "Vũ khí Sea 1"
+    },
+    "server.function": {
+      "title": "Máy chủ"
+    },
+    "player.gui.others": {
+      "title": "Người chơi / Khác"
+    },
+    "graphics.haki.stats": {
+      "title": "Đồ họa / Haki"
+    },
+    "configure.god": {
+      "title": "Cấu hình nâng cao"
+    },
+    "fighting_style": {
+      "title": "Fighting Style"
+    },
+    "items.weapons_guns": {
+      "title": "Vũ khí · Súng"
+    },
+    "items.weapons_swords": {
+      "title": "Vũ khí · Kiếm"
+    },
+    "items.crafting_sea": {
+      "title": "Chế tạo biển"
+    },
+    "items.crafting_rare": {
+      "title": "Chế tạo hiếm"
+    },
+    "combat.attack_targeting": {
+      "title": "Tấn công & Mục tiêu"
+    },
+    "combat.assist": {
+      "title": "Hỗ trợ chiến đấu"
+    },
+    "travel.automation": {
+      "title": "Tự động di chuyển"
+    }
+  },
+  "status_view": {
+    "cdk_title": "Cursed Dual Katana",
+    "soul_guitar_title": "Soul Guitar",
+    "race_v4_title": "Race V4",
+    "prehistoric_title": "Prehistoric Island",
+    "leviathan_spy_title": "Leviathan Spy",
+    "frozen_dimension_title": "Frozen Dimension",
+    "kitsune_title": "Kitsune Island",
+    "raid_progress_title": "Raid Progress",
+    "mirage_title": "Mirage Island",
+    "moon_title": "Moon Phase"
+  },
+  "item_type": {
+    "sword": "Kiếm",
+    "gun": "Súng",
+    "accessory": "Phụ kiện"
+  },
+  "farm_state": {
+    "active_farm": "Farm đang hoạt động",
+    "selected_boss": "Boss đã chọn",
+    "boss_state": "Trạng thái Boss",
+    "selected_material": "Nguyên liệu đã chọn",
+    "mastery": "Thông thạo",
+    "factory": "Factory",
+    "cake_mobs": "Cake Mobs",
+    "cake_prince": "Cake Prince",
+    "dough_king": "Dough King",
+    "elite": "Elite",
+    "elite_progress": "Tiến độ Elite",
+    "tyrant": "Tyrant",
+    "boss_spawned": "Đã xuất hiện",
+    "boss_spawned_hp": "Đã xuất hiện · {hp}% HP",
+    "boss_not_spawned": "Chưa xuất hiện",
+    "ectoplasm": "Ngoại chất",
+    "bones": "Xương"
+  },
+  "raid_chip_reason": {
+    "raid_active": "Waiting for current Raid to end",
+    "raid_lifecycle_active": "Waiting for Raid cleanup",
+    "raid_start_pending": "Chip used · waiting for Raid start",
+    "finalizing_native": "Waiting for server reward/return finalization",
+    "level_required": "Level 1100+ required",
+    "insufficient_beli": "Not enough 100,000 Beli",
+    "beli_state_unavailable": "Beli state unavailable",
+    "insufficient_fragments": "Not enough 1,000 Fragments",
+    "fragment_state_unavailable": "Fragment state unavailable",
+    "beli_transport_ambiguous": "Beli transaction unconfirmed",
+    "fragment_transport_ambiguous": "Fragment transaction unconfirmed",
+    "purchase_pending_confirmation": "Transaction sent · waiting for chip confirmation",
+    "purchase_effect_observed_waiting_chip": "Balance changed · waiting for chip confirmation",
+    "raid_not_selected": "Raid not selected",
+    "raid_kind_unknown": "Raid type could not be verified",
+    "mode_mismatch": "Raid Mode does not match selected Raid",
+    "mode_changed": "Raid Mode changed",
+    "policy_changed": "Purchase policy changed during transaction",
+    "cancelled": "Cancelled",
+    "unknown": "Unknown Raid Chip state"
+  },
+  "purchase": {
+    "busy": "Một giao dịch Sea 1 khác vẫn đang được xử lý.",
+    "already_owned": "Đã sở hữu.",
+    "beli_unavailable": "Không đọc được trạng thái Beli.",
+    "need_beli": "Cần {amount} Beli.",
+    "requires_level": "Yêu cầu Level {level}+.",
+    "requires_stat": "{item} yêu cầu {amount}+ điểm chỉ số {stat}.",
+    "requires_item": "{item} yêu cầu {required}.",
+    "requires_abilities": "{item} yêu cầu Aura, Air Jump và Flash Step.",
+    "runtime_failed": "Mua thất bại: {reason}"
+  },
+  "section_layout": {
+    "player_overview": "Tổng quan người chơi",
+    "auto_farm": "Tự động farm",
+    "collection": "Thu thập",
+    "special_farm": "Farm đặc biệt",
+    "boss_elite": "Boss & Elite",
+    "mastery": "Mastery",
+    "abilities_skills": "Kỹ năng & năng lực",
+    "accessories": "Phụ kiện",
+    "fragments_race": "Mảnh & Tộc",
+    "ownership_status": "Trạng thái sở hữu",
+    "quick_setup": "Thiết lập nhanh",
+    "current_target": "Mục tiêu hiện tại"
+  },
+  "option_labels": {
+    "weapon": {
+      "melee": "Cận chiến",
+      "sword": "Kiếm",
+      "blox_fruit": "Blox Fruit",
+      "gun": "Súng"
+    },
+    "fishing_rod": {
+      "basic": "Cần câu",
+      "gold": "Cần Vàng",
+      "shark": "Cần Cá Mập",
+      "shell": "Cần Vỏ Sò",
+      "treasure": "Cần Kho Báu"
+    },
+    "raid_mode": {
+      "basic": "Cơ bản",
+      "advanced": "Nâng cao"
+    },
+    "time": {
+      "morning": "Buổi sáng",
+      "evening": "Buổi tối"
+    },
+    "boat": {
+      "guardian": "Guardian",
+      "pirategrandbrigade": "PirateGrandBrigade",
+      "marinegrandbrigade": "MarineGrandBrigade",
+      "piratebrigade": "PirateBrigade",
+      "marinebrigade": "MarineBrigade",
+      "piratesloop": "PirateSloop",
+      "marinesloop": "MarineSloop",
+      "beast_hunter": "Beast Hunter"
+    },
+    "sea_zone": {
+      "lv_1": "Cấp 1",
+      "lv_2": "Cấp 2",
+      "lv_3": "Cấp 3",
+      "lv_4": "Cấp 4",
+      "lv_5": "Cấp 5",
+      "lv_6": "Cấp 6",
+      "lv_infinite": "Cấp Vô hạn"
+    },
+    "haki_state": {
+      "state_0": "Trạng thái 0",
+      "state_1": "Trạng thái 1",
+      "state_2": "Trạng thái 2",
+      "state_3": "Trạng thái 3",
+      "state_4": "Trạng thái 4",
+      "state_5": "Trạng thái 5"
+    }
+  },
+  "server": {
+    "job_id_placeholder": "Nhập Job ID…"
+  },
+  "presentation": {
+    "sections": {
+      "farm_level": "Farm cấp",
+      "farm_island": "Farm theo đảo",
+      "farm_collection": "Thu thập",
+      "farm_materials": "Nguyên liệu",
+      "farm_boss": "Boss & Elite",
+      "farm_special": "Farm đặc biệt",
+      "farm_mastery": "Mastery",
+      "farm_target": "Mục tiêu hiện tại",
+      "combat_weapon": "Thiết lập vũ khí",
+      "combat_attack": "Tấn công",
+      "combat_targeting": "Mục tiêu & vị trí",
+      "combat_abilities": "Kỹ năng & Haki",
+      "raids_setup": "Thiết lập Raid",
+      "raids_normal": "Raid thường",
+      "raids_unlocks": "Mở khóa Raid",
+      "raids_law": "Law Raid",
+      "progress_first_sea": "Tiến trình Sea 1",
+      "progress_swords": "Tiến trình kiếm",
+      "progress_styles": "Tiến trình võ phái",
+      "progress_haki": "Haki & Quan sát",
+      "progress_stats": "Chỉ số",
+      "race_v3": "Tiến trình Tộc",
+      "race_v4": "Race V4 & Trial",
+      "race_draco": "Draco & Dojo",
+      "items_fruits": "Quản lý trái",
+      "items_styles": "Võ phái",
+      "items_ownership": "Trạng thái sở hữu",
+      "shop_abilities": "Kỹ năng",
+      "shop_weapons": "Vũ khí",
+      "shop_accessories": "Phụ kiện & chế tạo",
+      "shop_fragments": "Fragment & Race Shop",
+      "events_fishing": "Câu cá",
+      "events_world": "Sự kiện thế giới",
+      "events_entities": "Thực thể biển",
+      "events_mirage": "Mirage & Mặt trăng",
+      "events_sailing": "Thiết lập đi biển",
+      "events_kitsune": "Sự kiện Kitsune",
+      "events_prehistoric": "Sự kiện Prehistoric",
+      "travel_worlds": "Di chuyển giữa Sea",
+      "travel_islands": "Di chuyển đảo",
+      "travel_npc": "Di chuyển NPC",
+      "travel_movement": "Movement & Routing",
+      "travel_player": "Di chuyển người chơi",
+      "travel_servers": "Điều hướng máy chủ",
+      "system_overview": "Tổng quan",
+      "system_interface": "Giao diện",
+      "system_visuals": "Hình ảnh & hiệu năng",
+      "system_esp": "ESP",
+      "system_session": "Trạng thái phiên",
+      "system_team": "Đội",
+      "system_runtime": "Cấu hình runtime",
+      "system_safety": "An toàn runtime",
+      "system_game_ui": "Giao diện game",
+      "system_utilities": "Tiện ích",
+      "system_release": "Cộng đồng & bản phát hành",
+      "main_overview": "Tổng quan",
+      "main_server": "Phiên hiện tại",
+      "main_updates": "Cập nhật",
+      "main_active": "Tính năng đang hoạt động",
+      "items_fruit_shop": "Fruit Shop"
+    }
+  },
+  "fruit": {
+    "shop": {
+      "stock": "Fruit đang bán",
+      "none": "Runtime hiện chưa xác nhận Fruit nào đang được bán.",
+      "on_sale": "Đang bán",
+      "unavailable": "Không thể lấy tồn kho Fruit Shop từ runtime."
+    },
+    "inventory": {
+      "title": "Fruit trong kho",
+      "empty": "Runtime hiện chưa xác nhận Fruit nào trong kho."
+    },
+    "mirage": {
+      "stock": "Fruit tại Mirage / Advanced Dealer",
+      "none": "Runtime hiện không báo Fruit nào trong Mirage Stock.",
+      "on_sale": "Đang bán",
+      "unavailable": "Không lấy được Mirage Stock từ runtime."
+    }
+  }
+}
