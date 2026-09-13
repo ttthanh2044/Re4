@@ -2,8 +2,8 @@
   "_meta": {
     "code": "en",
     "name": "English",
-    "version": "2.3.15",
-    "revision": "language-2.3.15-final-20260912.1"
+    "version": "2.4.0",
+    "revision": "language-2.4.0-final-20260913.1"
   },
   "nav": {
     "home": "Home",
@@ -111,7 +111,7 @@
     "off": "Off",
     "not_active": "Not active",
     "stopped": "Stopped",
-    "runtime_error_stopped": "Runtime error · stopped",
+    "runtime_error_stopped": "Feature stopped because of an error",
     "running_dependencies": "Running · {dependencies}",
     "faction_ready": "Faction ready · {team}",
     "faction_switching": "Switching faction · {team}",
@@ -159,7 +159,7 @@
     "waiting_reason": "Waiting · {reason}",
     "need_beli": "Need {amount} Beli",
     "waiting_beli": "Waiting for Beli state",
-    "combat_remotes_missing": "Combat remotes are unavailable",
+    "combat_remotes_missing": "Combat controls are unavailable",
     "location_present": "{name} is present",
     "location_absent": "{name} is not present",
     "leviathan_spy": "Leviathan Spy · {value}/5",
@@ -196,7 +196,7 @@
     "fishing_catch_completed": "Catch completed",
     "fishing_reel_ended": "Reel ended",
     "fishing_next_cast": "Preparing next cast",
-    "fishing_reset": "Fishing runtime reset",
+    "fishing_reset": "Fishing progress reset",
     "fishing_runtime_error": "Fishing error · {reason}",
     "fishing_stopped": "Fishing stopped",
     "fishing_preparing_selected_bait": "Preparing {bait} · {count}",
@@ -284,7 +284,7 @@
     "fruit_tween": "Moving to {fruit} · {distance} studs",
     "fruit_waiting": "Waiting for a spawned Fruit",
     "fruit_collect_precedence": "Instant Collect Fruit is active; Tween to Fruit is waiting.",
-    "race_progress_owned": "Race progression is currently owned by {owner}",
+    "race_progress_owned": "Another progression task is currently using this feature.",
     "race_contract_unavailable": "Race progression contract unavailable · {reason}",
     "race_travel_sea2": "Travelling to Sea 2 for race progression",
     "race_state_unavailable": "Race progression state is unavailable from the server",
@@ -292,7 +292,7 @@
     "race_need_level": "Requires Level {level}",
     "race_v2_starting": "Starting the Alchemist Race V2 quest",
     "race_v2_collect_flower": "Collecting {flower}",
-    "race_v2_wait_flower": "Waiting for runtime flower {flower}",
+    "race_v2_wait_flower": "Waiting for {flower} to appear",
     "race_v2_farm_flower3": "Farming NPCs for Flower 3",
     "race_v2_wait_flower3_mob": "Waiting for an NPC target for Flower 3",
     "race_v2_turnin": "Turning in Race V2 to the Alchemist",
@@ -308,7 +308,7 @@
     "race_v3_cyborg_load_fruit": "Loading {fruit} from inventory for Cyborg V3",
     "race_v3_cyborg_present_fruit": "Presenting {fruit} for Cyborg V3",
     "race_v3_turnin": "Confirming Race V3 completion for {race}",
-    "race_v3_unsupported_race": "Race V3 automation does not support runtime race {race}",
+    "race_v3_unsupported_race": "Race V3 automation does not support {race}",
     "race_v3_complete": "Race V3 confirmed complete",
     "race_ghoul_ectoplasm": "Farming Ectoplasm · {current}/{required}",
     "race_ghoul_torch": "Defeating Cursed Captain for Hellfire Torch",
@@ -321,12 +321,12 @@
     "race_cyborg_insert_core": "Inserting Core Brain into the Secret Laboratory",
     "race_cyborg_fragments": "Requires {required} Fragments · current {current}",
     "race_cyborg_purchase": "Purchasing Cyborg race",
-    "race_cyborg_lab_unavailable": "Secret Laboratory runtime controls are unavailable",
+    "race_cyborg_lab_unavailable": "Secret Laboratory is not available right now",
     "race_cyborg_complete": "Cyborg race confirmed",
-    "fruit_mirage_stock_ready": "Mirage stock refreshed from runtime",
-    "fruit_mirage_stock_unavailable": "Mirage stock is unavailable from runtime · {reason}",
-    "fruit_shop_stock_ready": "Fruit Shop stock refreshed from runtime",
-    "fruit_shop_stock_unavailable": "Fruit Shop stock is unavailable from runtime · {reason}",
+    "fruit_mirage_stock_ready": "Mirage stock refreshed",
+    "fruit_mirage_stock_unavailable": "Mirage stock is unavailable · {reason}",
+    "fruit_shop_stock_ready": "Fruit Shop stock refreshed",
+    "fruit_shop_stock_unavailable": "Fruit Shop stock is unavailable · {reason}",
     "race_cyborg_fist_seabeast": "Hunting Sea Beasts for Fist of Darkness",
     "level_secret_progress_required": "Regular quest progression ends at level {regular}. Complete Island Secrets to progress from {level} toward level {cap}.",
     "level_cap_reached": "Level cap reached: {level}/{cap}.",
@@ -335,7 +335,7 @@
     "pvp_requires_bounty": "PvP target requires at least {required} Bounty.",
     "pvp_requires_honor": "PvP target requires at least {required} Honor.",
     "race_need_beli": "Requires {required} Beli · current {current}",
-    "race_trevor_unavailable": "Trevor runtime state is unavailable",
+    "race_trevor_unavailable": "Trevor state is currently unavailable",
     "race_v2_bartilo": "Completing Bartilo prerequisite · {current}/{required}",
     "race_v3_don_swan": "Defeating Don Swan for the Race V3 prerequisite",
     "race_v3_prerequisite_don_swan": "Completing Trevor / Don Swan prerequisite for Race V3",
@@ -372,22 +372,18 @@
     "preferred_team_title": "Preferred Team",
     "preferred_team_desc": "Choose which side Auto Select Team should use on the next join.",
     "apply_team_title": "Apply Team Now",
-    "apply_team_desc": "Try to select the preferred team immediately using the game remote first, then the executor fallback.",
+    "apply_team_desc": "Try to select the preferred team immediately using the best method available in the current session.",
     "team_status_title": "Team Status",
     "team_status_desc": "Shows the team currently assigned by the game.",
     "team_status_value": "Current team: {team}",
-    "runtime_safety_section": "Runtime Safety",
+    "runtime_safety_section": "Progress Protection",
     "refresh_progress_title": "Refresh Progress Data",
-    "refresh_progress_desc": "Force-refresh inventory, ownership and fighting-style progression snapshot.",
-    "runtime_safety_status_title": "Runtime Safety Status",
-    "runtime_safety_status_desc": "Shows action-lock and critical-item protection state.",
+    "refresh_progress_desc": "Refresh item ownership and Fighting Style progress now.",
+    "runtime_safety_status_title": "Progress Protection Status",
+    "runtime_safety_status_desc": "Shows when an important item or task is being protected from conflicting actions.",
     "team_status_pirates": "Current team: Pirates",
     "team_status_marines": "Current team: Marines",
     "team_status_not_selected": "Current team: not selected",
-    "icon_atlas_title": "Active icon system",
-    "icon_atlas_desc": "The individual icon source currently driving the UI, with automatic fallback and runtime render status.",
-    "icon_legacy_title": "Legacy atlas diagnostic",
-    "icon_legacy_desc": "Independent probe of atlas asset 126253815695177 so legacy fetch issues are separated from the icons actually rendering.",
     "reset_title": "Restore defaults",
     "reset_desc": "Turn off active features and restore Re4Hub settings to their original defaults.",
     "reset_done": "Settings restored to defaults.",
@@ -1026,7 +1022,7 @@
     "Chưa sở hữu": "Not owned",
     "Đang thực thi": "Working",
     "Đã gửi lệnh": "Done",
-    "Callback lỗi": "Callback error",
+    "Callback lỗi": "Action failed",
     "Trống": "Empty",
     "Mirage Island : True": "Mirage Island: Found",
     "Mirage Island : False": "Mirage Island: Not found",
@@ -1228,7 +1224,7 @@
     "discord_unconfigured": "Not configured in this source build",
     "version": "Version",
     "changelog": "Changelog",
-    "changelog_512": "Items layout · Farm Status single-source · runtime leak cleanup",
+    "changelog_512": "Items layout · consistent Farm status · stability improvements",
     "notice": "Notice",
     "tween_notice": "Stable Tween core preserved",
     "community_title": "Community & Release",
@@ -1238,7 +1234,7 @@
     "copy_discord_desc": "Copy the official Discord invite loaded from GitHub Raw.",
     "discord_copied": "Discord invite copied.",
     "link_unconfigured": "Link is not configured.",
-    "clipboard_unavailable": "Clipboard is unavailable in this executor.",
+    "clipboard_unavailable": "Automatic copy is not supported on this device.",
     "current_version": "Current Version",
     "player_overview": "Player Overview",
     "player": "Player",
@@ -1447,7 +1443,7 @@
     "raid": "Raid setup & automation",
     "teleport": "World, NPC, player & server travel",
     "combat": "Attack, targeting & combat support",
-    "settings": "Interface, utilities & runtime",
+    "settings": "Interface & utilities",
     "more": "Combat, travel, interface & utilities",
     "raids": "Raid setup, normal raids & Law",
     "progress_new": "Items, quests, Haki & progression",
@@ -1478,7 +1474,7 @@
     },
     "button.buy.cyborg.race": {
       "title": "Start Auto Cyborg",
-      "description": "Start the shared Cyborg progression workflow instead of sending a one-shot purchase remote."
+      "description": "Start the full Cyborg unlock progression and confirm completion only after the game records it."
     },
     "button.buy.dungeon.chips.devil.fruit": {
       "title": "Buy Dungeon Chips [Devil Fruit]",
@@ -1486,7 +1482,7 @@
     },
     "button.buy.ghoul.race": {
       "title": "Start Auto Ghoul",
-      "description": "Start the shared Ghoul progression workflow instead of sending a one-shot purchase remote."
+      "description": "Start the full Ghoul unlock progression and confirm completion only after the game records it."
     },
     "button.buy.kabucha": {
       "title": "Buy Kabucha",
@@ -2702,7 +2698,7 @@
       "description": "Full NPC directory for the current Sea (template registry + live resolver)"
     },
     "toggle.teleport.to.npc": {
-      "description": "Move to the selected NPC; toggle OFF stops only this travel owner."
+      "description": "Move automatically to the selected NPC; turning it off stops only this trip."
     },
     "button.hop.server": {
       "description": "Join another available server"
@@ -2711,7 +2707,7 @@
       "description": "Join the lowest-population available server"
     },
     "button.hop.server.best.available": {
-      "description": "Uses reliable public server data; remote server ping is not exposed before joining"
+      "description": "Find a suitable public server using the available server data."
     },
     "option.input.job.id": {
       "description": ""
@@ -3049,7 +3045,7 @@
     },
     "option.select.fruit.shop": {
       "title": "Select Fruit from Shop",
-      "description": "Runtime list from the current server Fruit catalog."
+      "description": "Fruit list reported by the current server shop."
     },
     "option.select.permanent.fruit": {
       "title": "Select Permanent Fruit",
@@ -3057,15 +3053,15 @@
     },
     "button.refresh.fruit.shop": {
       "title": "Refresh Fruit Shop",
-      "description": "Refresh server Fruit catalog, stock state and inventory."
+      "description": "Refresh Fruit listings, sale status, and Fruit inventory."
     },
     "button.buy.selected.fruit": {
       "title": "Buy Selected Fruit",
-      "description": "Buy the selected Fruit only when the runtime catalog reports it on sale."
+      "description": "Buy the selected Fruit only when the shop confirms it is on sale."
     },
     "button.switch.permanent.fruit": {
       "title": "Switch Permanent Fruit",
-      "description": "Request switching to the selected permanently owned Fruit; success must be confirmed by runtime state."
+      "description": "Switch to the selected permanent Fruit and report success only after the game confirms it."
     },
     "toggle.auto.race.v2": {
       "title": "Auto Race V2",
@@ -3085,7 +3081,7 @@
     },
     "button.refresh.fruit.mirage.shop": {
       "title": "Refresh Mirage Stock",
-      "description": "Refresh the Advanced Fruit Dealer / Mirage stock directly from the current server runtime."
+      "description": "Refresh the Advanced Fruit Dealer / Mirage Fruit list directly."
     }
   },
   "overlay": {
@@ -3485,8 +3481,8 @@
       "system_esp": "ESP",
       "system_session": "Session Status",
       "system_team": "Team",
-      "system_runtime": "Runtime Configuration",
-      "system_safety": "Runtime Safety",
+      "system_runtime": "Operation Settings",
+      "system_safety": "Progress Protection",
       "system_game_ui": "Game Interface",
       "system_utilities": "Utilities",
       "system_release": "Community & Release",
@@ -3502,7 +3498,7 @@
       "stock": "Fruit Shop stock",
       "none": "No Fruit is currently reported on sale.",
       "on_sale": "On sale",
-      "unavailable": "Fruit Shop stock is unavailable from runtime."
+      "unavailable": "Fruit Shop stock is currently unavailable."
     },
     "inventory": {
       "title": "Fruit inventory",
@@ -3512,7 +3508,20 @@
       "stock": "Mirage / Advanced Fruit Dealer stock",
       "none": "No Fruit is currently reported in Mirage stock.",
       "on_sale": "On sale",
-      "unavailable": "Mirage stock is unavailable from runtime."
+      "unavailable": "Mirage stock is currently unavailable."
     }
+  },
+  "reason_labels": {
+    "generic": "The action could not be completed",
+    "busy": "Another task is currently in progress",
+    "unavailable": "Required content is not ready yet",
+    "cooldown": "Waiting for the current cooldown",
+    "requirements": "Required conditions are not met yet",
+    "unconfirmed": "The result could not be confirmed",
+    "connection": "The connection or server transfer is not ready",
+    "unsupported": "This case is not supported yet",
+    "state_changed": "The state changed and the action was stopped",
+    "clipboard": "Automatic copy is not supported on this device",
+    "other_feature": "another feature"
   }
 }

@@ -2,8 +2,8 @@
   "_meta": {
     "code": "vi",
     "name": "Tiếng Việt",
-    "version": "2.3.15",
-    "revision": "language-2.3.15-final-20260912.1"
+    "version": "2.4.0",
+    "revision": "language-2.4.0-final-20260913.1"
   },
   "nav": {
     "home": "Trang chủ",
@@ -111,7 +111,7 @@
     "off": "Tắt",
     "not_active": "Không hoạt động",
     "stopped": "Đã dừng",
-    "runtime_error_stopped": "Lỗi runtime · đã dừng",
+    "runtime_error_stopped": "Tính năng đã dừng do lỗi",
     "running_dependencies": "Đang chạy · {dependencies}",
     "faction_ready": "Phe sẵn sàng · {team}",
     "faction_switching": "Đang đổi phe · {team}",
@@ -159,7 +159,7 @@
     "waiting_reason": "Waiting · {reason}",
     "need_beli": "Need {amount} Beli",
     "waiting_beli": "Waiting for Beli state",
-    "combat_remotes_missing": "Combat remotes are unavailable",
+    "combat_remotes_missing": "Điều khiển chiến đấu hiện không khả dụng",
     "location_present": "{name} is present",
     "location_absent": "{name} is not present",
     "leviathan_spy": "Leviathan Spy · {value}/5",
@@ -196,7 +196,7 @@
     "fishing_catch_completed": "Bắt cá hoàn tất",
     "fishing_reel_ended": "Reel ended",
     "fishing_next_cast": "Đang chuẩn bị next cast",
-    "fishing_reset": "Câu cá runtime reset",
+    "fishing_reset": "Đã đặt lại tiến trình câu cá",
     "fishing_runtime_error": "Câu cá error · {reason}",
     "fishing_stopped": "Câu cá đã dừng",
     "fishing_preparing_selected_bait": "Đang chuẩn bị {bait} · {count}",
@@ -284,7 +284,7 @@
     "fruit_tween": "Đang tới {fruit} · {distance} studs",
     "fruit_waiting": "Đang chờ Fruit xuất hiện",
     "fruit_collect_precedence": "Đang bật Nhặt Fruit tức thì; Tween tới Fruit tạm chờ.",
-    "race_progress_owned": "Progression tộc đang do {owner} sử dụng",
+    "race_progress_owned": "Một tiến trình khác đang sử dụng tính năng này.",
     "race_contract_unavailable": "Contract tiến trình Race không khả dụng · {reason}",
     "race_travel_sea2": "Đang chuyển tới Sea 2 để làm progression tộc",
     "race_state_unavailable": "Không đọc được trạng thái progression tộc từ server",
@@ -292,7 +292,7 @@
     "race_need_level": "Yêu cầu cấp {level}",
     "race_v2_starting": "Đang bắt đầu nhiệm vụ Tộc V2 với Alchemist",
     "race_v2_collect_flower": "Đang lấy {flower}",
-    "race_v2_wait_flower": "Đang chờ {flower} xuất hiện trong runtime",
+    "race_v2_wait_flower": "Đang chờ {flower} xuất hiện",
     "race_v2_farm_flower3": "Đang hạ NPC để lấy Flower 3",
     "race_v2_wait_flower3_mob": "Đang chờ mục tiêu NPC để lấy Flower 3",
     "race_v2_turnin": "Đang giao Tộc V2 cho Alchemist",
@@ -308,7 +308,7 @@
     "race_v3_cyborg_load_fruit": "Đang lấy {fruit} từ kho cho Cyborg V3",
     "race_v3_cyborg_present_fruit": "Đang trình {fruit} cho Cyborg V3",
     "race_v3_turnin": "Đang xác nhận hoàn thành Tộc V3 cho {race}",
-    "race_v3_unsupported_race": "Auto Tộc V3 chưa hỗ trợ tộc runtime {race}",
+    "race_v3_unsupported_race": "Auto Tộc V3 chưa hỗ trợ tộc {race}",
     "race_v3_complete": "Đã xác nhận hoàn thành Tộc V3",
     "race_ghoul_ectoplasm": "Đang farm Ectoplasm · {current}/{required}",
     "race_ghoul_torch": "Đang hạ Cursed Captain để lấy Hellfire Torch",
@@ -321,12 +321,12 @@
     "race_cyborg_insert_core": "Đang đưa Core Brain vào Secret Laboratory",
     "race_cyborg_fragments": "Cần {required} Fragments · hiện có {current}",
     "race_cyborg_purchase": "Đang mua tộc Cyborg",
-    "race_cyborg_lab_unavailable": "Không tìm thấy control runtime của Secret Laboratory",
+    "race_cyborg_lab_unavailable": "Chưa thể sử dụng Secret Laboratory lúc này",
     "race_cyborg_complete": "Đã xác nhận tộc Cyborg",
-    "fruit_mirage_stock_ready": "Đã làm mới Mirage Stock từ runtime",
-    "fruit_mirage_stock_unavailable": "Không lấy được Mirage Stock từ runtime · {reason}",
-    "fruit_shop_stock_ready": "Đã cập nhật tồn kho Fruit Shop từ runtime",
-    "fruit_shop_stock_unavailable": "Không thể lấy tồn kho Fruit Shop từ runtime · {reason}",
+    "fruit_mirage_stock_ready": "Đã làm mới Mirage Stock",
+    "fruit_mirage_stock_unavailable": "Chưa thể lấy Mirage Stock · {reason}",
+    "fruit_shop_stock_ready": "Đã cập nhật tồn kho Fruit Shop",
+    "fruit_shop_stock_unavailable": "Chưa thể lấy tồn kho Fruit Shop · {reason}",
     "race_cyborg_fist_seabeast": "Đang săn Sea Beast để lấy Fist of Darkness",
     "level_secret_progress_required": "Tiến trình quest thường kết thúc ở cấp {regular}. Hãy hoàn thành Island Secrets để tăng từ cấp {level} lên tối đa {cap}.",
     "level_cap_reached": "Đã đạt cấp tối đa: {level}/{cap}.",
@@ -335,7 +335,7 @@
     "pvp_requires_bounty": "Mục tiêu PvP cần ít nhất {required} Bounty.",
     "pvp_requires_honor": "Mục tiêu PvP cần ít nhất {required} Honor.",
     "race_need_beli": "Cần {required} Beli · hiện có {current}",
-    "race_trevor_unavailable": "Không đọc được trạng thái runtime của Trevor",
+    "race_trevor_unavailable": "Chưa thể đọc trạng thái Trevor",
     "race_v2_bartilo": "Đang hoàn thành điều kiện Bartilo · {current}/{required}",
     "race_v3_don_swan": "Đang hạ Don Swan cho điều kiện Tộc V3",
     "race_v3_prerequisite_don_swan": "Đang hoàn thành điều kiện Trevor / Don Swan cho Tộc V3",
@@ -372,22 +372,18 @@
     "preferred_team_title": "Phe ưu tiên",
     "preferred_team_desc": "Chọn phe mà HUB sẽ tự động tham gia khi vào game lần tiếp theo.",
     "apply_team_title": "Áp dụng phe ngay",
-    "apply_team_desc": "Thử chọn phe ngay lập tức bằng remote của game trước, sau đó dùng fallback của executor.",
+    "apply_team_desc": "Thử chọn phe đã đặt ngay lập tức bằng phương thức phù hợp với phiên chơi hiện tại.",
     "team_status_title": "Trạng thái phe",
     "team_status_desc": "Hiển thị phe hiện tại mà game đã gán cho người chơi.",
     "team_status_value": "Phe hiện tại: {team}",
-    "runtime_safety_section": "An toàn Runtime",
+    "runtime_safety_section": "Bảo vệ tiến trình",
     "refresh_progress_title": "Làm mới dữ liệu tiến trình",
-    "refresh_progress_desc": "Làm mới cưỡng bức inventory, quyền sở hữu và snapshot tiến trình Fighting Style.",
-    "runtime_safety_status_title": "Trạng thái an toàn Runtime",
-    "runtime_safety_status_desc": "Hiển thị trạng thái khóa hành động và bảo vệ vật phẩm quan trọng.",
+    "refresh_progress_desc": "Làm mới trạng thái sở hữu vật phẩm và tiến trình Fighting Style.",
+    "runtime_safety_status_title": "Trạng thái bảo vệ tiến trình",
+    "runtime_safety_status_desc": "Cho biết khi một vật phẩm hoặc tác vụ quan trọng đang được bảo vệ khỏi thao tác xung đột.",
     "team_status_pirates": "Phe hiện tại: Pirates",
     "team_status_marines": "Phe hiện tại: Marines",
     "team_status_not_selected": "Phe hiện tại: chưa chọn",
-    "icon_atlas_title": "Hệ thống icon đang dùng",
-    "icon_atlas_desc": "Nguồn icon riêng lẻ đang hoạt động trên giao diện, có fallback tự động và phản ánh trạng thái render thực tế.",
-    "icon_legacy_title": "Chẩn đoán atlas cũ",
-    "icon_legacy_desc": "Kiểm tra riêng asset atlas 126253815695177 để phân biệt lỗi asset cũ với nguồn icon đang render.",
     "reset_title": "Khôi phục cài đặt gốc",
     "reset_desc": "Tắt các tính năng đang chạy và đưa cài đặt Re4Hub về trạng thái ban đầu.",
     "reset_done": "Đã khôi phục cài đặt gốc.",
@@ -1140,7 +1136,7 @@
     "Mirage Island : False": "Mirage Island: Not found",
     "Sẵn sàng": "Ready",
     "Mirage Island : True": "Mirage Island: Found",
-    "Callback lỗi": "Callback error",
+    "Callback lỗi": "Thao tác thất bại",
     "Chưa sở hữu": "Not owned",
     "Prehistoric Island : False": "Prehistoric Island: Not found",
     "Prehistoric Island : True": "Prehistoric Island: Found",
@@ -1228,7 +1224,7 @@
     "discord_unconfigured": "Chưa cấu hình trong source hiện tại",
     "version": "Phiên bản",
     "changelog": "Lịch sử cập nhật",
-    "changelog_512": "Bố cục Items · Farm Status một nguồn · dọn leak runtime",
+    "changelog_512": "Sắp xếp lại mục Vật phẩm · trạng thái Farm nhất quán · cải thiện độ ổn định",
     "notice": "Thông báo",
     "tween_notice": "Giữ nguyên lõi Tween ổn định",
     "community_title": "Cộng đồng & Phiên bản",
@@ -1238,7 +1234,7 @@
     "copy_discord_desc": "Sao chép lời mời Discord chính thức được tải từ GitHub Raw.",
     "discord_copied": "Đã sao chép lời mời Discord.",
     "link_unconfigured": "Liên kết chưa được cấu hình.",
-    "clipboard_unavailable": "Executor này không hỗ trợ clipboard.",
+    "clipboard_unavailable": "Thiết bị này không hỗ trợ sao chép tự động.",
     "current_version": "Phiên bản hiện tại",
     "player_overview": "Tổng quan người chơi",
     "player": "Người chơi",
@@ -1447,7 +1443,7 @@
     "raid": "Thiết lập Raid & tự động hóa",
     "teleport": "Thế giới, NPC, người chơi & máy chủ",
     "combat": "Tấn công, mục tiêu & hỗ trợ chiến đấu",
-    "settings": "Giao diện, tiện ích & runtime",
+    "settings": "Giao diện & tiện ích",
     "more": "Chiến đấu, di chuyển, giao diện & tiện ích",
     "raids": "Thiết lập Raid, Raid thường & Law",
     "progress_new": "Vật phẩm, nhiệm vụ, Haki & tiến trình",
@@ -1478,7 +1474,7 @@
     },
     "button.buy.cyborg.race": {
       "title": "Bắt đầu Auto Cyborg",
-      "description": "Khởi chạy flow Cyborg dùng chung thay vì gửi remote mua một lần."
+      "description": "Bắt đầu toàn bộ tiến trình mở khóa Cyborg và chỉ xác nhận khi trò chơi ghi nhận hoàn tất."
     },
     "button.buy.dungeon.chips.devil.fruit": {
       "title": "Mua Chip Dungeon [Bằng Trái Ác Quỷ]",
@@ -1486,7 +1482,7 @@
     },
     "button.buy.ghoul.race": {
       "title": "Bắt đầu Auto Ghoul",
-      "description": "Khởi chạy flow Ghoul dùng chung thay vì gửi remote mua một lần."
+      "description": "Bắt đầu toàn bộ tiến trình mở khóa Ghoul và chỉ xác nhận khi trò chơi ghi nhận hoàn tất."
     },
     "button.buy.kabucha": {
       "title": "Mua Ná Kabucha",
@@ -2702,7 +2698,7 @@
       "description": "Full NPC directory for the current Sea (template registry + live resolver)"
     },
     "toggle.teleport.to.npc": {
-      "description": "Move to the selected NPC; toggle OFF stops only this travel owner."
+      "description": "Tự di chuyển tới NPC đã chọn; tắt tính năng sẽ dừng riêng hành trình này."
     },
     "button.hop.server": {
       "description": "Join another available server"
@@ -2711,7 +2707,7 @@
       "description": "Join the lowest-population available server"
     },
     "button.hop.server.best.available": {
-      "description": "Uses reliable public server data; remote server ping is not exposed before joining"
+      "description": "Tìm server công khai phù hợp dựa trên dữ liệu server hiện có."
     },
     "option.input.job.id": {
       "description": ""
@@ -3049,7 +3045,7 @@
     },
     "option.select.fruit.shop": {
       "title": "Chọn Fruit trong Shop",
-      "description": "Danh sách Fruit lấy trực tiếp từ catalog runtime của server hiện tại."
+      "description": "Danh sách Fruit đang được server hiện tại cung cấp."
     },
     "option.select.permanent.fruit": {
       "title": "Chọn Fruit vĩnh viễn",
@@ -3057,15 +3053,15 @@
     },
     "button.refresh.fruit.shop": {
       "title": "Làm mới Fruit Shop",
-      "description": "Làm mới catalog Fruit, trạng thái đang bán và inventory từ runtime."
+      "description": "Làm mới danh sách Fruit, trạng thái đang bán và kho Fruit."
     },
     "button.buy.selected.fruit": {
       "title": "Mua Fruit đã chọn",
-      "description": "Chỉ mua Fruit đã chọn khi catalog runtime xác nhận đang được bán."
+      "description": "Chỉ mua Fruit đã chọn khi trạng thái cửa hàng xác nhận Fruit đang được bán."
     },
     "button.switch.permanent.fruit": {
       "title": "Đổi Fruit vĩnh viễn",
-      "description": "Yêu cầu đổi sang Fruit vĩnh viễn đã chọn; chỉ báo thành công sau khi runtime xác nhận."
+      "description": "Đổi sang Fruit vĩnh viễn đã chọn và chỉ báo thành công sau khi trò chơi xác nhận."
     },
     "toggle.auto.race.v2": {
       "title": "Tự động Tộc V2",
@@ -3085,7 +3081,7 @@
     },
     "button.refresh.fruit.mirage.shop": {
       "title": "Làm mới Mirage Stock",
-      "description": "Làm mới trực tiếp danh sách Advanced Fruit Dealer / Mirage từ runtime server hiện tại."
+      "description": "Làm mới trực tiếp danh sách Fruit của Advanced Fruit Dealer / Mirage."
     }
   },
   "overlay": {
@@ -3485,8 +3481,8 @@
       "system_esp": "ESP",
       "system_session": "Trạng thái phiên",
       "system_team": "Đội",
-      "system_runtime": "Cấu hình runtime",
-      "system_safety": "An toàn runtime",
+      "system_runtime": "Thiết lập vận hành",
+      "system_safety": "Bảo vệ tiến trình",
       "system_game_ui": "Giao diện game",
       "system_utilities": "Tiện ích",
       "system_release": "Cộng đồng & bản phát hành",
@@ -3500,19 +3496,32 @@
   "fruit": {
     "shop": {
       "stock": "Fruit đang bán",
-      "none": "Runtime hiện chưa xác nhận Fruit nào đang được bán.",
+      "none": "Hiện chưa xác nhận Fruit nào đang được bán.",
       "on_sale": "Đang bán",
-      "unavailable": "Không thể lấy tồn kho Fruit Shop từ runtime."
+      "unavailable": "Chưa thể lấy tồn kho Fruit Shop."
     },
     "inventory": {
       "title": "Fruit trong kho",
-      "empty": "Runtime hiện chưa xác nhận Fruit nào trong kho."
+      "empty": "Hiện chưa xác nhận Fruit nào trong kho."
     },
     "mirage": {
       "stock": "Fruit tại Mirage / Advanced Dealer",
-      "none": "Runtime hiện không báo Fruit nào trong Mirage Stock.",
+      "none": "Hiện chưa xác nhận Fruit nào trong Mirage Stock.",
       "on_sale": "Đang bán",
-      "unavailable": "Không lấy được Mirage Stock từ runtime."
+      "unavailable": "Chưa thể lấy Mirage Stock."
     }
+  },
+  "reason_labels": {
+    "generic": "Chưa thể hoàn tất thao tác",
+    "busy": "Một tác vụ khác đang được xử lý",
+    "unavailable": "Nội dung cần thiết hiện chưa sẵn sàng",
+    "cooldown": "Đang trong thời gian chờ",
+    "requirements": "Chưa đáp ứng đủ điều kiện",
+    "unconfirmed": "Chưa thể xác nhận kết quả",
+    "connection": "Kết nối hoặc chuyển server chưa sẵn sàng",
+    "unsupported": "Trường hợp này hiện chưa được hỗ trợ",
+    "state_changed": "Trạng thái đã thay đổi, thao tác đã dừng",
+    "clipboard": "Thiết bị không hỗ trợ sao chép tự động",
+    "other_feature": "một tính năng khác"
   }
 }

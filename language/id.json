@@ -2,8 +2,8 @@
   "_meta": {
     "code": "id",
     "name": "Bahasa Indonesia",
-    "version": "2.3.15",
-    "revision": "language-2.3.15-final-20260912.1"
+    "version": "2.4.0",
+    "revision": "language-2.4.0-final-20260913.1"
   },
   "nav": {
     "home": "Beranda",
@@ -111,7 +111,7 @@
     "off": "Mati",
     "not_active": "Not active",
     "stopped": "Dihentikan",
-    "runtime_error_stopped": "Runtime error · stopped",
+    "runtime_error_stopped": "Fitur dihentikan karena terjadi kesalahan",
     "running_dependencies": "Running · {dependencies}",
     "faction_ready": "Faction ready · {team}",
     "faction_switching": "Switching faction · {team}",
@@ -159,7 +159,7 @@
     "waiting_reason": "Menunggu · {reason}",
     "need_beli": "Need {amount} Beli",
     "waiting_beli": "Waiting for Beli state",
-    "combat_remotes_missing": "Combat remotes are unavailable",
+    "combat_remotes_missing": "Kontrol pertarungan tidak tersedia",
     "location_present": "{name} is present",
     "location_absent": "{name} is not present",
     "leviathan_spy": "Leviathan Spy · {value}/5",
@@ -196,7 +196,7 @@
     "fishing_catch_completed": "Catch completed",
     "fishing_reel_ended": "Reel ended",
     "fishing_next_cast": "Preparing next cast",
-    "fishing_reset": "Fishing runtime reset",
+    "fishing_reset": "Progres memancing telah diatur ulang",
     "fishing_runtime_error": "Fishing error · {reason}",
     "fishing_stopped": "Fishing stopped",
     "fishing_preparing_selected_bait": "Preparing {bait} · {count}",
@@ -284,7 +284,7 @@
     "fruit_tween": "Menuju {fruit} · {distance} stud",
     "fruit_waiting": "Menunggu Fruit muncul",
     "fruit_collect_precedence": "Koleksi Fruit instan sedang aktif; Tween ke Fruit menunggu.",
-    "race_progress_owned": "Progression race sedang dimiliki {owner}",
+    "race_progress_owned": "Proses progres lain sedang menggunakan fitur ini.",
     "race_contract_unavailable": "Kontrak progres Race tidak tersedia · {reason}",
     "race_travel_sea2": "Berpindah ke Sea 2 untuk progression race",
     "race_state_unavailable": "State progression race tidak tersedia dari server",
@@ -292,7 +292,7 @@
     "race_need_level": "Memerlukan Level {level}",
     "race_v2_starting": "Memulai quest Race V2 dari Alchemist",
     "race_v2_collect_flower": "Mengambil {flower}",
-    "race_v2_wait_flower": "Menunggu {flower} muncul di runtime",
+    "race_v2_wait_flower": "Menunggu {flower} muncul",
     "race_v2_farm_flower3": "Mengalahkan NPC untuk Flower 3",
     "race_v2_wait_flower3_mob": "Menunggu target NPC untuk Flower 3",
     "race_v2_turnin": "Menyerahkan Race V2 ke Alchemist",
@@ -308,7 +308,7 @@
     "race_v3_cyborg_load_fruit": "Memuat {fruit} dari inventory untuk Cyborg V3",
     "race_v3_cyborg_present_fruit": "Menyerahkan {fruit} untuk Cyborg V3",
     "race_v3_turnin": "Mengonfirmasi Race V3 untuk {race}",
-    "race_v3_unsupported_race": "Auto Race V3 belum mendukung race runtime {race}",
+    "race_v3_unsupported_race": "Auto Race V3 belum mendukung ras {race}",
     "race_v3_complete": "Race V3 terkonfirmasi selesai",
     "race_ghoul_ectoplasm": "Farming Ectoplasm · {current}/{required}",
     "race_ghoul_torch": "Mengalahkan Cursed Captain untuk Hellfire Torch",
@@ -321,12 +321,12 @@
     "race_cyborg_insert_core": "Memasukkan Core Brain ke Secret Laboratory",
     "race_cyborg_fragments": "Memerlukan {required} Fragments · saat ini {current}",
     "race_cyborg_purchase": "Membeli race Cyborg",
-    "race_cyborg_lab_unavailable": "Kontrol runtime Secret Laboratory tidak tersedia",
+    "race_cyborg_lab_unavailable": "Secret Laboratory belum tersedia saat ini",
     "race_cyborg_complete": "Race Cyborg terkonfirmasi",
-    "fruit_mirage_stock_ready": "Mirage Stock diperbarui dari runtime",
-    "fruit_mirage_stock_unavailable": "Mirage Stock tidak tersedia dari runtime · {reason}",
-    "fruit_shop_stock_ready": "Stok Fruit Shop diperbarui dari runtime",
-    "fruit_shop_stock_unavailable": "Stok Fruit Shop tidak tersedia dari runtime · {reason}",
+    "fruit_mirage_stock_ready": "Mirage Stock diperbarui",
+    "fruit_mirage_stock_unavailable": "Mirage Stock belum tersedia · {reason}",
+    "fruit_shop_stock_ready": "Stok Fruit Shop diperbarui",
+    "fruit_shop_stock_unavailable": "Stok Fruit Shop belum tersedia · {reason}",
     "race_cyborg_fist_seabeast": "Memburu Sea Beast untuk mendapatkan Fist of Darkness",
     "level_secret_progress_required": "Progres quest biasa berakhir di level {regular}. Selesaikan Island Secrets untuk naik dari level {level} menuju level {cap}.",
     "level_cap_reached": "Level maksimum tercapai: {level}/{cap}.",
@@ -335,7 +335,7 @@
     "pvp_requires_bounty": "Target PvP memerlukan setidaknya {required} Bounty.",
     "pvp_requires_honor": "Target PvP memerlukan setidaknya {required} Honor.",
     "race_need_beli": "Memerlukan {required} Beli · saat ini {current}",
-    "race_trevor_unavailable": "Status runtime Trevor tidak tersedia",
+    "race_trevor_unavailable": "Status Trevor belum tersedia",
     "race_v2_bartilo": "Menyelesaikan prasyarat Bartilo · {current}/{required}",
     "race_v3_don_swan": "Mengalahkan Don Swan untuk prasyarat Race V3",
     "race_v3_prerequisite_don_swan": "Menyelesaikan prasyarat Trevor / Don Swan untuk Race V3",
@@ -372,22 +372,18 @@
     "preferred_team_title": "Tim Pilihan",
     "preferred_team_desc": "Pilih pihak yang akan digunakan Auto Select Team saat masuk berikutnya.",
     "apply_team_title": "Terapkan Tim Sekarang",
-    "apply_team_desc": "Coba pilih tim sekarang memakai remote game terlebih dahulu, lalu fallback executor.",
+    "apply_team_desc": "Coba pilih tim yang diinginkan menggunakan metode terbaik yang tersedia pada sesi saat ini.",
     "team_status_title": "Status Tim",
     "team_status_desc": "Menampilkan tim yang saat ini diberikan oleh game.",
     "team_status_value": "Tim saat ini: {team}",
-    "runtime_safety_section": "Keamanan Runtime",
+    "runtime_safety_section": "Perlindungan Progres",
     "refresh_progress_title": "Segarkan Data Progres",
-    "refresh_progress_desc": "Paksa segarkan inventory, kepemilikan, dan snapshot progres Fighting Style.",
-    "runtime_safety_status_title": "Status Keamanan Runtime",
-    "runtime_safety_status_desc": "Menampilkan status kunci aksi dan perlindungan item penting.",
+    "refresh_progress_desc": "Segarkan status kepemilikan item dan progres Fighting Style sekarang.",
+    "runtime_safety_status_title": "Status Perlindungan Progres",
+    "runtime_safety_status_desc": "Menunjukkan saat item atau tugas penting dilindungi dari tindakan yang saling bertentangan.",
     "team_status_pirates": "Tim saat ini: Pirates",
     "team_status_marines": "Tim saat ini: Marines",
     "team_status_not_selected": "Tim saat ini: belum dipilih",
-    "icon_atlas_title": "Sistem ikon aktif",
-    "icon_atlas_desc": "Sumber ikon individual yang saat ini dipakai UI, dengan fallback otomatis dan status render runtime yang nyata.",
-    "icon_legacy_title": "Diagnostik atlas lama",
-    "icon_legacy_desc": "Pemeriksaan terpisah untuk atlas 126253815695177 agar kegagalan fetch aset lama terpisah dari ikon yang benar-benar dirender.",
     "reset_title": "Pulihkan pengaturan awal",
     "reset_desc": "Matikan fitur aktif dan kembalikan pengaturan Re4Hub ke kondisi awal.",
     "reset_done": "Pengaturan awal telah dipulihkan.",
@@ -969,7 +965,7 @@
     "Mua Hơi Thở Của Rồng": "Buy DragonBreath",
     "Auto Farm Cake Prince": "Auto Farm Cake Prince",
     "Auto Collect Berry + Hop Server": "Auto Collect Berry + Hop Server",
-    "Callback lỗi": "Callback error",
+    "Callback lỗi": "Tindakan gagal",
     "Fighting Melee Styles": "Fighting Styles",
     "Chế Tạo DragonHeart": "Craft DragonHeart",
     "Fruit": "Trái",
@@ -1228,7 +1224,7 @@
     "discord_unconfigured": "Belum dikonfigurasi pada source build ini",
     "version": "Versi",
     "changelog": "Riwayat pembaruan",
-    "changelog_512": "Layout Items · Farm Status satu sumber · pembersihan runtime leak",
+    "changelog_512": "Tata letak Item · status Farm konsisten · peningkatan stabilitas",
     "notice": "Pemberitahuan",
     "tween_notice": "Core Tween stabil dipertahankan",
     "community_title": "Komunitas & Versi",
@@ -1238,7 +1234,7 @@
     "copy_discord_desc": "Salin undangan Discord resmi yang dimuat dari GitHub Raw.",
     "discord_copied": "Undangan Discord disalin.",
     "link_unconfigured": "Tautan belum dikonfigurasi.",
-    "clipboard_unavailable": "Clipboard tidak tersedia di executor ini.",
+    "clipboard_unavailable": "Perangkat ini tidak mendukung salin otomatis.",
     "current_version": "Versi Saat Ini",
     "player_overview": "Ringkasan Pemain",
     "player": "Pemain",
@@ -1447,7 +1443,7 @@
     "raid": "Pengaturan Raid & otomatisasi",
     "teleport": "Dunia, NPC, pemain & server",
     "combat": "Serangan, target & dukungan pertarungan",
-    "settings": "Antarmuka, utilitas & runtime",
+    "settings": "Antarmuka & utilitas",
     "more": "Pertarungan, perjalanan, antarmuka & utilitas",
     "raids": "Setup raid, raid normal & Law",
     "progress_new": "Item, quest, Haki & progres",
@@ -1478,7 +1474,7 @@
     },
     "button.buy.cyborg.race": {
       "title": "Mulai Auto Cyborg",
-      "description": "Mulai workflow Cyborg bersama, bukan remote pembelian sekali jalan."
+      "description": "Mulai seluruh progres membuka Cyborg dan hanya konfirmasi setelah game mencatat penyelesaian."
     },
     "button.buy.dungeon.chips.devil.fruit": {
       "title": "Buy Dungeon Chips [Devil Fruit]",
@@ -1486,7 +1482,7 @@
     },
     "button.buy.ghoul.race": {
       "title": "Mulai Auto Ghoul",
-      "description": "Mulai workflow Ghoul bersama, bukan remote pembelian sekali jalan."
+      "description": "Mulai seluruh progres membuka Ghoul dan hanya konfirmasi setelah game mencatat penyelesaian."
     },
     "button.buy.kabucha": {
       "title": "Buy Kabucha",
@@ -2702,7 +2698,7 @@
       "description": "Full NPC directory for the current Sea (template registry + live resolver)"
     },
     "toggle.teleport.to.npc": {
-      "description": "Move to the selected NPC; toggle OFF stops only this travel owner."
+      "description": "Bergerak otomatis ke NPC yang dipilih; mematikannya hanya menghentikan perjalanan ini."
     },
     "button.hop.server": {
       "description": "Join another available server"
@@ -2711,7 +2707,7 @@
       "description": "Join the lowest-population available server"
     },
     "button.hop.server.best.available": {
-      "description": "Uses reliable public server data; remote server ping is not exposed before joining"
+      "description": "Cari server publik yang sesuai menggunakan data server yang tersedia."
     },
     "option.input.job.id": {
       "description": ""
@@ -3049,7 +3045,7 @@
     },
     "option.select.fruit.shop": {
       "title": "Pilih Fruit di Shop",
-      "description": "Daftar Fruit dari katalog runtime server saat ini."
+      "description": "Daftar Fruit yang dilaporkan toko pada server saat ini."
     },
     "option.select.permanent.fruit": {
       "title": "Pilih Fruit Permanen",
@@ -3057,15 +3053,15 @@
     },
     "button.refresh.fruit.shop": {
       "title": "Segarkan Fruit Shop",
-      "description": "Segarkan katalog Fruit, status penjualan, dan inventaris dari runtime."
+      "description": "Segarkan daftar Fruit, status penjualan, dan inventaris Fruit."
     },
     "button.buy.selected.fruit": {
       "title": "Beli Fruit Terpilih",
-      "description": "Beli hanya jika katalog runtime menyatakan Fruit sedang dijual."
+      "description": "Beli Fruit terpilih hanya saat toko mengonfirmasi Fruit sedang dijual."
     },
     "button.switch.permanent.fruit": {
       "title": "Ganti Fruit Permanen",
-      "description": "Minta pergantian ke Fruit permanen terpilih dan konfirmasi dari state runtime."
+      "description": "Ganti ke Fruit permanen terpilih dan laporkan berhasil hanya setelah game mengonfirmasi."
     },
     "toggle.auto.race.v2": {
       "title": "Auto Race V2",
@@ -3085,7 +3081,7 @@
     },
     "button.refresh.fruit.mirage.shop": {
       "title": "Segarkan Mirage Stock",
-      "description": "Segarkan stok Advanced Fruit Dealer / Mirage langsung dari runtime server saat ini."
+      "description": "Segarkan langsung daftar Fruit Advanced Fruit Dealer / Mirage."
     }
   },
   "overlay": {
@@ -3485,8 +3481,8 @@
       "system_esp": "ESP",
       "system_session": "Status Sesi",
       "system_team": "Tim",
-      "system_runtime": "Konfigurasi Runtime",
-      "system_safety": "Keamanan Runtime",
+      "system_runtime": "Pengaturan Operasi",
+      "system_safety": "Perlindungan Progres",
       "system_game_ui": "Antarmuka Game",
       "system_utilities": "Utilitas",
       "system_release": "Komunitas & Rilis",
@@ -3502,7 +3498,7 @@
       "stock": "Stok Fruit Shop",
       "none": "Belum ada Fruit yang dikonfirmasi sedang dijual.",
       "on_sale": "Dijual",
-      "unavailable": "Stok Fruit Shop tidak tersedia dari runtime."
+      "unavailable": "Stok Fruit Shop belum tersedia."
     },
     "inventory": {
       "title": "Inventaris Fruit",
@@ -3510,9 +3506,22 @@
     },
     "mirage": {
       "stock": "Stok Mirage / Advanced Fruit Dealer",
-      "none": "Runtime tidak melaporkan Fruit di Mirage Stock.",
+      "none": "Belum ada Fruit yang dikonfirmasi di Mirage Stock.",
       "on_sale": "Dijual",
-      "unavailable": "Mirage Stock tidak tersedia dari runtime."
+      "unavailable": "Mirage Stock belum tersedia."
     }
+  },
+  "reason_labels": {
+    "generic": "Tindakan belum dapat diselesaikan",
+    "busy": "Tugas lain sedang diproses",
+    "unavailable": "Konten yang diperlukan belum siap",
+    "cooldown": "Masih dalam waktu tunggu",
+    "requirements": "Persyaratan belum terpenuhi",
+    "unconfirmed": "Hasil belum dapat dikonfirmasi",
+    "connection": "Koneksi atau perpindahan server belum siap",
+    "unsupported": "Kasus ini belum didukung",
+    "state_changed": "Status berubah dan tindakan dihentikan",
+    "clipboard": "Salin otomatis tidak didukung pada perangkat ini",
+    "other_feature": "fitur lain"
   }
 }

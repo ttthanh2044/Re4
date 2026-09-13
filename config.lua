@@ -3,19 +3,19 @@
 RE4 HUB · CENTRAL CONFIG REGISTRY
 Single source of truth for release identity, source artifact revisions and all
 runtime-tunable parameters. This file is passive and has no Core/UI dependency.
-Changing Config/Data/UI/Language artifacts does not require rebuilding main.lua.
+Changing Config/Data/UI/Language artifacts does not require rebuilding main.lua; Core itself also has an explicit artifact identity for session replacement and release integrity.
 ]]
 local Config = {
     Schema = 2,
     App = {
         Product = "Re4Hub",
         HubName = "RE4 HUB",
-        Version = "2.3.15",
-        Revision = "release-2.3.15-final-20260912.1",
-        BuildName = "2.3.15-final",
-        DisplayVersion = "2.3.15 Final",
+        Version = "2.4.0",
+        Revision = "release-2.4.0-final-20260913.1",
+        BuildName = "2.4.0-final",
+        DisplayVersion = "2.4.0 Final",
         Channel = "stable",
-        UpdatedAt = "2026-09-12",
+        UpdatedAt = "2026-09-13",
     },
     Source = {
         Paths = {
@@ -24,12 +24,14 @@ local Config = {
             LanguageBase = "language/", LanguageManifest = "language/manifest.json",
         },
         Artifacts = {
-            Config = "config-2.3.15-final-20260912.1",
-            Data = "game-data-2.3.15-final-20260912.1",
-            UI = "ui-2.3.15-final-20260912.1",
-            Language = "language-2.3.15-final-20260912.1",
+            Core = "core-2.4.0-final-20260913.1",
+            Config = "config-2.4.0-final-20260913.1",
+            Data = "game-data-2.4.0-final-20260913.1",
+            UI = "ui-2.4.0-final-20260913.1",
+            HubInfo = "hub-info-2.4.0-final-20260913.1",
+            Language = "language-2.4.0-final-20260913.1",
         },
-        Cache = { Prefix = "RE4Hub_2_3_15_Final_20260912_1_", Schema = 6 },
+        Cache = { Prefix = "RE4Hub_2_4_0_Final_20260913_1_", Schema = 8 },
     },
     Runtime = {
         LegacyStep = 0.10,
@@ -762,6 +764,10 @@ local Config = {
             ["toggle.auto.bisento.v2"] = false,
             ["toggle.auto.buy.bait"] = false,
             ["toggle.auto.buy.chip.law"] = false,
+            ["toggle.auto.buy.raid.chip.beli"] = false,
+            ["toggle.auto.buy.raid.chip.fragment"] = false,
+            ["toggle.auto.collect.berry"] = false,
+            ["toggle.auto.collect.berry.hop.server"] = false,
             ["toggle.auto.collect.fruit"] = false,
             ["toggle.auto.tween.to.fruit"] = false,
             ["toggle.auto.complete.quest"] = false,
@@ -776,6 +782,7 @@ local Config = {
             ["toggle.auto.farm.elite"] = false,
             ["toggle.auto.farm.elite.hop.server"] = false,
             ["toggle.auto.farm.island"] = false,
+            ["toggle.auto.farm.level"] = false,
             ["toggle.auto.farm.materials"] = false,
             ["toggle.auto.farm.nearest"] = false,
             ["toggle.auto.farm.tyrant.of.the.skies"] = false,
@@ -791,6 +798,10 @@ local Config = {
             ["toggle.auto.get.usoap.s.hat"] = false,
             ["toggle.auto.get.wardens.sword"] = false,
             ["toggle.auto.hop.dough.king"] = false,
+            ["toggle.auto.mastery.all.sword"] = false,
+            ["toggle.auto.mastery.dragon.storm"] = false,
+            ["toggle.auto.mastery.fruit"] = false,
+            ["toggle.auto.mastery.gun"] = false,
             ["toggle.auto.pirate.raid"] = false,
             ["toggle.auto.pray.gravestone"] = false,
             ["toggle.auto.quest.fishing"] = false,
@@ -810,6 +821,10 @@ local Config = {
             ["toggle.auto.unlock.phoenix.dungeon"] = false,
             ["toggle.bring.mob"] = true,
             ["toggle.esp.berry"] = false,
+            ["toggle.esp.player"] = false,
+            ["toggle.esp.chest"] = false,
+            ["toggle.esp.fruit"] = false,
+            ["toggle.esp.island"] = false,
             ["toggle.fast.attack.buddha"] = false,
             ["toggle.fighting.style.auto.darkstep"] = false,
             ["toggle.fighting.style.auto.deathstep"] = false,
@@ -1111,7 +1126,7 @@ local Config = {
 
     Release = {
         HubInfoSchema = 1,
-        HubInfo = { CopyDepthLimit = 6, DefaultTextLimit = 300, UrlLimit = 260, MaxChangelogEntries = 50, HomeChangelogEntries = 8 },
+        HubInfo = { CopyDepthLimit = 6, DefaultTextLimit = 300, UrlLimit = 260, AnnouncementTextLimit = 420, ChangelogTextLimit = 520, ChangeTextLimit = 180, MaxChangesPerEntry = 8, MaxChangelogEntries = 50, HomeChangelogEntries = 1 },
     },
 }
 

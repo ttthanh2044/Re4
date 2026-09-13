@@ -25,12 +25,17 @@ local Config=env.RE4_CONFIG
 if type(Config)~="table" or tonumber(Config.Schema)~=2 or type(Config.App)~="table" then
     error("[RE4 HUB/UI] config.lua schema 2 is required")
 end
+local RE4_UI_ARTIFACT_REVISION = "ui-2.4.0-final-20260913.1"
+local expectedUIRevision=tostring(Config.Source and Config.Source.Artifacts and Config.Source.Artifacts.UI or "")
+if expectedUIRevision=="" or expectedUIRevision~=RE4_UI_ARTIFACT_REVISION then
+    error("[RE4 HUB/UI] artifact revision mismatch")
+end
 local RE4UI = {}
 RE4UI.__index = RE4UI
 RE4UI.Schema = 2
 RE4UI.ApiVersion = 1
 RE4UI.Version = tostring(Config.App.Version or "")
-RE4UI.ReleaseStamp = tostring(Config.Source and Config.Source.Artifacts and Config.Source.Artifacts.UI or "ui")
+RE4UI.ReleaseStamp = RE4_UI_ARTIFACT_REVISION
 RE4UI.LanguageRevision = tostring(Config.Source and Config.Source.Artifacts and Config.Source.Artifacts.Language or RE4UI.ReleaseStamp)
 RE4UI.DisplayVersion = tostring(Config.App.DisplayVersion or RE4UI.Version)
 RE4UI.HubName = tostring(Config.App.HubName or Config.App.Product or "RE4 HUB")
@@ -42,7 +47,6 @@ local Workspace = game:GetService("Workspace")
 local TextService = game:GetService("TextService")
 local HttpService = game:GetService("HttpService")
 local ContentProvider = game:GetService("ContentProvider")
-local MarketplaceService = game:GetService("MarketplaceService")
 
 local LocalPlayer = Players.LocalPlayer
 
@@ -50,7 +54,6 @@ RE4UI.Config = {
     Assets = {
         Logo = "rbxassetid://129347191626169",
         Header = "rbxassetid://77866589839728",
-        LegacyIconSheet = "rbxassetid://126253815695177",
     },
     IconLibrary = {
         -- Primary icons are individual Lucide image assets. They do not depend on
@@ -75,7 +78,6 @@ RE4UI.Config = {
             boss="Special", factory="Special", material="Backpack", sword="Weapon", sea="World", world="World", weapon="Weapon", player="Player",
             info="Info", warning="Warning", lock="Lock", home="Home", search="Search", target="CurrentTarget", shield="Shield",
         },
-        Legacy = {Id=126253815695177, Uri="rbxassetid://126253815695177"},
     },
     PresentationSchema = {
         Tabs = {
@@ -156,10 +158,10 @@ local M = C.Metrics
 local TX = C.Typography
 
 -- Centralized icon service ----------------------------------------------------
--- The legacy 126253815695177 atlas is diagnostic-only and is never part of
--- the active rendering path. Active UI icons use centralized individual sources;
--- legacy fetch state is reported separately so it cannot become a false UI-health signal.
-local IconService={State="idle",Reason=nil,Source="primary",RenderingPath="individual",FetchStatus=nil,LegacyStatus=nil,LegacyInfo=nil,LegacyUsable=nil,LegacyDiagnosticStarted=false,LegacyDiagnosticCompleted=false,PrimaryFailures={},FallbackFailures={},PrimaryDiagnostics={},FallbackDiagnostics={},Tracked=setmetatable({}, {__mode="k"}),Listeners={}}
+-- Active UI icons use individual sources. A bounded individual-icon fallback is
+-- retained only for genuine primary fetch failure; the retired legacy atlas has
+-- no runtime probe, UI surface, or background request.
+local IconService={State="idle",Reason=nil,Source="primary",RenderingPath="individual",FetchStatus=nil,PrimaryFailures={},FallbackFailures={},PrimaryDiagnostics={},FallbackDiagnostics={},Tracked=setmetatable({}, {__mode="k"}),Listeners={},Active=true,Generation=0,Thread=nil}
 function IconService:_emit()
     for i=#self.Listeners,1,-1 do
         local listener=self.Listeners[i]
@@ -300,59 +302,6 @@ local function preloadSource(source)
     for _,probe in ipairs(probes) do pcall(function() probe:Destroy() end) end
     return ok and not next(failures),failures,diagnostics,err
 end
-function IconService:DiagnoseLegacy()
-    if self.LegacyDiagnosticStarted then return false end
-    local legacy=C.IconLibrary.Legacy
-    if type(legacy)~="table" or not legacy.Uri then return false end
-    self.LegacyDiagnosticStarted=true
-    task.spawn(function()
-        local infoOk,info=pcall(function() return MarketplaceService:GetProductInfo(tonumber(legacy.Id),Enum.InfoType.Asset) end)
-        if infoOk and type(info)=="table" then
-            local creator=type(info.Creator)=="table" and (info.Creator.Name or info.Creator.Id) or nil
-            self.LegacyInfo={Name=info.Name,AssetTypeId=info.AssetTypeId,Creator=creator,IsForSale=info.IsForSale}
-        else
-            self.LegacyInfo={Error=tostring(info)}
-        end
-        local probe=Instance.new("ImageLabel"); probe.BackgroundTransparency=1; probe.Image=legacy.Uri
-        local callbackStatus=nil
-        local preloadOk,preloadErr=pcall(function() ContentProvider:PreloadAsync({probe},function(_,status) callbackStatus=tostring(status) end) end)
-        local providerFetch=readFetchStatus(legacy.Uri)
-        local fetch=providerFetch or callbackStatus or (preloadOk and "unavailable" or tostring(preloadErr))
-        local isLoaded,sizeText=probeRenderEvidence(probe)
-        if not isLoaded and (isFetchFailure(providerFetch) or isFetchFailure(callbackStatus)) then
-            local deadline=os.clock()+0.45
-            repeat
-                task.wait(0.05)
-                isLoaded,sizeText=probeRenderEvidence(probe)
-            until isLoaded or os.clock()>=deadline
-        end
-        local usable=isLoaded or (preloadOk and not isFetchFailure(providerFetch) and not isFetchFailure(callbackStatus))
-        self.LegacyStatus=fetch
-        self.LegacyUsable=usable
-        self.LegacyDiagnosticCompleted=true
-        self:_emit()
-        pcall(function() probe:Destroy() end)
-        local details=self.LegacyInfo or {}
-        local assetTypeName="unknown"
-        if tonumber(details.AssetTypeId) then
-            local okTypes,items=pcall(function() return Enum.AssetType:GetEnumItems() end)
-            if okTypes then for _,item in ipairs(items) do if item.Value==tonumber(details.AssetTypeId) then assetTypeName=item.Name; break end end end
-        end
-        local renderPath=tostring(self.RenderingPath or "individual")
-        local activeSource=tostring(self.Source or "primary")
-        local activeState=tostring(self.State or "idle")
-        local prefix="[RE4 HUB/UI/IconLegacy] id="..tostring(legacy.Id).." uri="..tostring(legacy.Uri).." fetch="..tostring(fetch).." assetTypeId="..tostring(details.AssetTypeId or "unknown").." assetType="..tostring(assetTypeName).." name="..tostring(details.Name or "unknown").." creator="..tostring(details.Creator or "unknown").." isForSale="..tostring(details.IsForSale).." productInfoError="..tostring(details.Error or "none")
-        local suffix=" usable="..tostring(usable).." providerFetch="..tostring(providerFetch or "unknown").." preloadCallback="..tostring(callbackStatus or "unknown").." preloadOk="..tostring(preloadOk).." renderPath="..renderPath.." activeSource="..activeSource.." activeState="..activeState.." contentSize="..sizeText.." phase=post_mount"
-        if usable then
-            print(prefix..suffix)
-        elseif renderPath=="legacy" then
-            warn(prefix..suffix.." severity=error")
-        else
-            print(prefix..suffix.." severity=diagnostic")
-        end
-    end)
-    return true
-end
 function IconService:GetStatusText()
     if self.State=="ready" then return "ready · primary individual icons" end
     if self.State=="fallback" then return "ready · fallback individual icons" end
@@ -365,37 +314,28 @@ function IconService:GetStatusTone()
     if self.State=="failed" then return "error" end
     return "waiting"
 end
-function IconService:GetLegacyStatusText()
-    if self.LegacyStatus==nil then return "legacy diagnostic pending" end
-    local fetch=tostring(self.LegacyStatus)
-    if self.LegacyUsable==true then
-        return "legacy atlas reachable · not in render path"
-    end
-    if isFetchFailure(fetch) then
-        return "legacy atlas fetch failed · active icons unaffected"
-    end
-    return "legacy atlas unresolved · active icons unaffected"
-end
-function IconService:GetLegacyTone()
-    if self.LegacyStatus==nil then return "waiting" end
-    if self.LegacyUsable==true then return "info" end
-    if tostring(self.RenderingPath or "individual")~="legacy" then return "info" end
-    return "error"
-end
 function IconService:Preload()
+    if self.Active~=true then return "shutdown" end
     if self.State~="idle" then return self.State end
+    self.Generation=(tonumber(self.Generation) or 0)+1
+    local generation=self.Generation
     self:_setState("loading","Loading",nil)
-    task.spawn(function()
+    local worker
+    worker=task.spawn(function()
+        local function current() return self.Active==true and self.Generation==generation end
         local primaryOk,primaryFailures,primaryDiagnostics,primaryErr=preloadSource(C.IconLibrary.Primary)
+        if not current() then return end
         self.PrimaryFailures=primaryFailures or {}; self.PrimaryDiagnostics=primaryDiagnostics or {}
         if primaryOk then
             self.Source="primary"; self:_setState("ready","Success",nil)
             print("[RE4 HUB/UI/Icons] primary individual icon set ready")
+            if self.Thread==worker then self.Thread=nil end
             return
         end
         warn("[RE4 HUB/UI/Icons] primary source incomplete; switching to bounded fallback; reason="..tostring(primaryErr or next(primaryFailures or {}) or "asset_fetch_failure"))
         self:_switchAll(true)
         local fallbackOk,fallbackFailures,fallbackDiagnostics,fallbackErr=preloadSource(C.IconLibrary.Fallback)
+        if not current() then return end
         self.FallbackFailures=fallbackFailures or {}; self.FallbackDiagnostics=fallbackDiagnostics or {}
         if fallbackOk then
             self:_setState("fallback","FallbackSuccess",nil)
@@ -405,8 +345,19 @@ function IconService:Preload()
             self:_setState("failed","Failure",reason)
             warn("[RE4 HUB/UI/Icons] primary and fallback sources failed; reason="..tostring(self.Reason))
         end
+        if self.Thread==worker then self.Thread=nil end
     end)
+    self.Thread=worker
     return self.State
+end
+function IconService:Shutdown()
+    if self.Active~=true and self.Thread==nil then return true end
+    self.Active=false
+    self.Generation=(tonumber(self.Generation) or 0)+1
+    local worker=self.Thread; self.Thread=nil
+    if worker and worker~=coroutine.running() and type(task.cancel)=="function" then pcall(task.cancel,worker) end
+    table.clear(self.Listeners)
+    return true
 end
 RE4UI.IconService=IconService
 local function iconImageProps(name,props)
@@ -634,7 +585,8 @@ local function languageCacheFile(name)
     local stamp=tostring(RE4UI.LanguageRevision or RE4UI.ReleaseStamp or RE4UI.Version or "release"):gsub("[^%w_%-]","_")
     local clean=tostring(name or "data"):gsub("[^%w_%-%.]","_")
     local prefix=tostring(Config.Source and Config.Source.Cache and Config.Source.Cache.Prefix or "RE4Hub_AssetCache_")
-    return prefix.."Lang_"..stamp.."_"..clean
+    local schema=math.max(1,math.floor(tonumber(Config.Source and Config.Source.Cache and Config.Source.Cache.Schema) or 1))
+    return prefix.."S"..tostring(schema).."_Lang_"..stamp.."_"..clean
 end
 
 local function readLanguageCache(name)
@@ -692,6 +644,35 @@ local function nestedGet(root,key)
     return node
 end
 
+local function presentationReasonKey(value)
+    local raw=tostring(value or ""):lower()
+    if raw:find("clipboard",1,true) then return "clipboard" end
+    if raw:find("cooldown",1,true) or raw:find("too_soon",1,true) then return "cooldown" end
+    if raw:find("inactive",1,true) or raw:find("not_active",1,true) or raw:find("disabled",1,true) then return "state_changed" end
+    if raw:find("busy",1,true) or raw:find("owned",1,true) or raw:find("in_use",1,true) or raw=="active" or raw:find("already_active",1,true) then return "busy" end
+    if raw:find("require",1,true) or raw:find("prereq",1,true) or raw:find("protected",1,true) or raw:find("blocked",1,true) or raw:find("missing_item",1,true) or raw:find("insufficient",1,true) then return "requirements" end
+    if raw:find("timeout",1,true) or raw:find("unconfirmed",1,true) or raw:find("verification",1,true) or raw:find("ambiguous",1,true) then return "unconfirmed" end
+    if raw:find("teleport",1,true) or raw:find("server",1,true) or raw:find("http",1,true) or raw:find("network",1,true) or raw:find("connection",1,true) then return "connection" end
+    if raw:find("unsupported",1,true) or raw:find("not_supported",1,true) then return "unsupported" end
+    if raw:find("cancel",1,true) or raw:find("stale",1,true) or raw:find("stopped",1,true) or raw:find("superseded",1,true) then return "state_changed" end
+    if raw:find("unavailable",1,true) or raw:find("not_found",1,true) or raw:find("missing",1,true) or raw:find("nil",1,true) then return "unavailable" end
+    return "generic"
+end
+local function presentationText(manager,key,fallback)
+    local value=nestedGet(manager and manager.CurrentData,key)
+    if value==nil then value=nestedGet(manager and manager.FallbackData,key) end
+    if value==nil then value=nestedGet(EmergencyEnglish,key) end
+    return type(value)=="string" and value or tostring(fallback or "")
+end
+local function presentationParams(manager,params)
+    if type(params)~="table" then return params end
+    local out={}; for key,value in pairs(params) do out[key]=value end
+    if out.reason~=nil then
+        out.reason=presentationText(manager,"reason_labels."..presentationReasonKey(out.reason),presentationText(manager,"reason_labels.generic","Action could not be completed"))
+    end
+    if out.owner~=nil then out.owner=presentationText(manager,"reason_labels.other_feature","another feature") end
+    return out
+end
 local function interpolate(text, params)
     text=tostring(text or "")
     if type(params)~="table" then return text end
@@ -726,8 +707,11 @@ function LanguageManager:LoadManifest()
         local decoded=loadLanguageJson(fileName,url)
         if type(decoded)~="table" then error("language manifest must decode to a table") end
         if type(decoded.languages)~="table" then error("language manifest is missing languages[]") end
-        if decoded.version and tostring(decoded.version)~=tostring(RE4UI.Version) then
-            warn("[RE4 HUB/Lang/Manifest] version mismatch: "..tostring(decoded.version).." != "..tostring(RE4UI.Version))
+        if tostring(decoded.version or "")~=tostring(RE4UI.Version) then
+            error("language manifest version mismatch")
+        end
+        if tostring(decoded.revision or "")~=tostring(RE4UI.LanguageRevision) then
+            error("language manifest revision mismatch")
         end
         local languages={}
         for _,entry in ipairs(decoded.languages) do
@@ -775,9 +759,9 @@ function LanguageManager:Load(code)
         if decoded._meta and decoded._meta.code and tostring(decoded._meta.code)~=code then
             warn("[RE4 HUB/Lang] language metadata code mismatch: "..tostring(decoded._meta.code).." != "..code)
         end
-        if decoded._meta and decoded._meta.version and tostring(decoded._meta.version)~=tostring(RE4UI.Version) then
-            warn("[RE4 HUB/Lang]["..code.."] version mismatch: "..tostring(decoded._meta.version).." != "..tostring(RE4UI.Version))
-        end
+        if type(decoded._meta)~="table" then error("language metadata is required") end
+        if tostring(decoded._meta.version or "")~=tostring(RE4UI.Version) then error("language version mismatch") end
+        if tostring(decoded._meta.revision or "")~=tostring(RE4UI.LanguageRevision) then error("language revision mismatch") end
         return decoded
     end,Traceback)
     if (tonumber(self.Generation) or 0)==generation then self.Loading[code]=nil end
@@ -796,7 +780,7 @@ function LanguageManager:Get(key, params, fallback)
     if value==nil then value=nestedGet(EmergencyEnglish,key) end
     if value==nil then value=fallback or key end
     if type(value)~="string" and type(value)~="number" then value=fallback or key end
-    return interpolate(value,params)
+    return interpolate(value,presentationParams(self,params))
 end
 
 function LanguageManager:Legacy(source, params)
@@ -804,7 +788,7 @@ function LanguageManager:Legacy(source, params)
     local value=nil
     if type(self.CurrentData)=="table" and type(self.CurrentData.legacy)=="table" then value=self.CurrentData.legacy[source] end
     if value==nil and type(self.FallbackData)=="table" and type(self.FallbackData.legacy)=="table" then value=self.FallbackData.legacy[source] end
-    return interpolate(value==nil and source or value,params)
+    return interpolate(value==nil and source or value,presentationParams(self,params))
 end
 
 function LanguageManager:Resolve(key, source, params)
@@ -1643,6 +1627,7 @@ function RE4UI:Shutdown(reason)
     end
     self._Windows={}
     self.LastWindow=nil
+    if IconService and type(IconService.Shutdown)=="function" then IconService:Shutdown() end
     if LanguageManager.Active==true then LanguageManager:Shutdown() end
     self._FetchText=nil
     self._Attachment=nil

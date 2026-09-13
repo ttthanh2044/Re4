@@ -8,7 +8,7 @@ This module has no dependency on Core, UI, Config or executor state.
 
 local RE4Data = {
     Schema = 1,
-    Revision = "game-data-2.3.15-final-20260912.1",
+    Revision = "game-data-2.4.0-final-20260913.1",
 
     Teams = {
         Pirates = "Pirates",

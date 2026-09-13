@@ -2,8 +2,8 @@
   "_meta": {
     "code": "th",
     "name": "ไทย",
-    "version": "2.3.15",
-    "revision": "language-2.3.15-final-20260912.1"
+    "version": "2.4.0",
+    "revision": "language-2.4.0-final-20260913.1"
   },
   "nav": {
     "home": "หน้าหลัก",
@@ -111,7 +111,7 @@
     "off": "ปิด",
     "not_active": "Not active",
     "stopped": "หยุดแล้ว",
-    "runtime_error_stopped": "Runtime error · stopped",
+    "runtime_error_stopped": "ฟีเจอร์หยุดทำงานเนื่องจากเกิดข้อผิดพลาด",
     "running_dependencies": "Running · {dependencies}",
     "faction_ready": "Faction ready · {team}",
     "faction_switching": "Switching faction · {team}",
@@ -159,7 +159,7 @@
     "waiting_reason": "กำลังรอ · {reason}",
     "need_beli": "Need {amount} Beli",
     "waiting_beli": "Waiting for Beli state",
-    "combat_remotes_missing": "Combat remotes are unavailable",
+    "combat_remotes_missing": "การควบคุมการต่อสู้ไม่พร้อมใช้งาน",
     "location_present": "{name} is present",
     "location_absent": "{name} is not present",
     "leviathan_spy": "Leviathan Spy · {value}/5",
@@ -196,7 +196,7 @@
     "fishing_catch_completed": "Catch completed",
     "fishing_reel_ended": "Reel ended",
     "fishing_next_cast": "Preparing next cast",
-    "fishing_reset": "Fishing runtime reset",
+    "fishing_reset": "รีเซ็ตความคืบหน้าการตกปลาแล้ว",
     "fishing_runtime_error": "Fishing error · {reason}",
     "fishing_stopped": "Fishing stopped",
     "fishing_preparing_selected_bait": "Preparing {bait} · {count}",
@@ -284,7 +284,7 @@
     "fruit_tween": "กำลังไปหา {fruit} · {distance} studs",
     "fruit_waiting": "กำลังรอ Fruit เกิด",
     "fruit_collect_precedence": "การเก็บ Fruit ทันทีกำลังทำงาน; Tween ไปหา Fruit กำลังรอ",
-    "race_progress_owned": "Progression เผ่ากำลังถูกใช้งานโดย {owner}",
+    "race_progress_owned": "งานความคืบหน้าอื่นกำลังใช้งานฟีเจอร์นี้อยู่",
     "race_contract_unavailable": "สัญญาการทำงาน Race progression ไม่พร้อมใช้งาน · {reason}",
     "race_travel_sea2": "กำลังเดินทางไป Sea 2 เพื่อทำ progression เผ่า",
     "race_state_unavailable": "ไม่สามารถอ่านสถานะ progression เผ่าจากเซิร์ฟเวอร์",
@@ -292,7 +292,7 @@
     "race_need_level": "ต้องมีเลเวล {level}",
     "race_v2_starting": "กำลังเริ่มเควสต์ Race V2 กับ Alchemist",
     "race_v2_collect_flower": "กำลังเก็บ {flower}",
-    "race_v2_wait_flower": "กำลังรอ {flower} ใน runtime",
+    "race_v2_wait_flower": "กำลังรอ {flower} ปรากฏ",
     "race_v2_farm_flower3": "กำลังกำจัด NPC เพื่อหา Flower 3",
     "race_v2_wait_flower3_mob": "กำลังรอเป้าหมาย NPC เพื่อหา Flower 3",
     "race_v2_turnin": "กำลังส่ง Race V2 ให้ Alchemist",
@@ -308,7 +308,7 @@
     "race_v3_cyborg_load_fruit": "กำลังโหลด {fruit} จาก inventory สำหรับ Cyborg V3",
     "race_v3_cyborg_present_fruit": "กำลังมอบ {fruit} สำหรับ Cyborg V3",
     "race_v3_turnin": "กำลังยืนยัน Race V3 สำหรับ {race}",
-    "race_v3_unsupported_race": "Auto Race V3 ยังไม่รองรับเผ่า runtime {race}",
+    "race_v3_unsupported_race": "Auto Race V3 ยังไม่รองรับเผ่า {race}",
     "race_v3_complete": "ยืนยัน Race V3 สำเร็จ",
     "race_ghoul_ectoplasm": "กำลังฟาร์ม Ectoplasm · {current}/{required}",
     "race_ghoul_torch": "กำลังกำจัด Cursed Captain เพื่อ Hellfire Torch",
@@ -321,12 +321,12 @@
     "race_cyborg_insert_core": "กำลังใส่ Core Brain ใน Secret Laboratory",
     "race_cyborg_fragments": "ต้องใช้ {required} Fragments · ปัจจุบัน {current}",
     "race_cyborg_purchase": "กำลังซื้อเผ่า Cyborg",
-    "race_cyborg_lab_unavailable": "ไม่พบ control runtime ของ Secret Laboratory",
+    "race_cyborg_lab_unavailable": "Secret Laboratory ยังไม่พร้อมใช้งานในขณะนี้",
     "race_cyborg_complete": "ยืนยันเผ่า Cyborg แล้ว",
-    "fruit_mirage_stock_ready": "รีเฟรช Mirage Stock จาก runtime แล้ว",
-    "fruit_mirage_stock_unavailable": "Mirage Stock ไม่พร้อมใช้งานจาก runtime · {reason}",
-    "fruit_shop_stock_ready": "อัปเดตสต็อก Fruit Shop จาก runtime แล้ว",
-    "fruit_shop_stock_unavailable": "ไม่สามารถอ่านสต็อก Fruit Shop จาก runtime ได้ · {reason}",
+    "fruit_mirage_stock_ready": "รีเฟรช Mirage Stock แล้ว",
+    "fruit_mirage_stock_unavailable": "Mirage Stock ยังไม่พร้อมใช้งาน · {reason}",
+    "fruit_shop_stock_ready": "อัปเดตสต็อก Fruit Shop แล้ว",
+    "fruit_shop_stock_unavailable": "สต็อก Fruit Shop ยังไม่พร้อมใช้งาน · {reason}",
     "race_cyborg_fist_seabeast": "กำลังล่า Sea Beast เพื่อหา Fist of Darkness",
     "level_secret_progress_required": "เควสต์ปกติเพิ่มเลเวลได้ถึง {regular} เท่านั้น ทำ Island Secrets เพื่อเพิ่มจากเลเวล {level} ไปจนถึง {cap}",
     "level_cap_reached": "ถึงเลเวลสูงสุดแล้ว: {level}/{cap}",
@@ -335,7 +335,7 @@
     "pvp_requires_bounty": "เป้าหมาย PvP ต้องมี Bounty อย่างน้อย {required}",
     "pvp_requires_honor": "เป้าหมาย PvP ต้องมี Honor อย่างน้อย {required}",
     "race_need_beli": "ต้องใช้ {required} Beli · ปัจจุบัน {current}",
-    "race_trevor_unavailable": "ไม่สามารถอ่านสถานะ runtime ของ Trevor ได้",
+    "race_trevor_unavailable": "สถานะ Trevor ยังไม่พร้อมใช้งาน",
     "race_v2_bartilo": "กำลังทำเงื่อนไข Bartilo · {current}/{required}",
     "race_v3_don_swan": "กำลังกำจัด Don Swan สำหรับเงื่อนไข Race V3",
     "race_v3_prerequisite_don_swan": "กำลังทำเงื่อนไข Trevor / Don Swan สำหรับ Race V3",
@@ -372,22 +372,18 @@
     "preferred_team_title": "ทีมที่ต้องการ",
     "preferred_team_desc": "เลือกฝ่ายที่ Auto Select Team จะใช้เมื่อเข้าเกมครั้งถัดไป",
     "apply_team_title": "ใช้ทีมตอนนี้",
-    "apply_team_desc": "ลองเลือกทีมทันทีด้วยรีโมตของเกมก่อน แล้วจึงใช้ fallback ของ executor",
+    "apply_team_desc": "ลองเลือกทีมที่ต้องการทันทีด้วยวิธีที่เหมาะสมที่สุดสำหรับเซสชันปัจจุบัน",
     "team_status_title": "สถานะทีม",
     "team_status_desc": "แสดงทีมที่เกมกำหนดให้ผู้เล่นในขณะนี้",
     "team_status_value": "ทีมปัจจุบัน: {team}",
-    "runtime_safety_section": "ความปลอดภัย Runtime",
+    "runtime_safety_section": "การป้องกันความคืบหน้า",
     "refresh_progress_title": "รีเฟรชข้อมูลความคืบหน้า",
-    "refresh_progress_desc": "รีเฟรช inventory การเป็นเจ้าของ และ snapshot ความคืบหน้า Fighting Style แบบบังคับ",
-    "runtime_safety_status_title": "สถานะความปลอดภัย Runtime",
-    "runtime_safety_status_desc": "แสดงสถานะล็อกการทำงานและการป้องกันไอเทมสำคัญ",
+    "refresh_progress_desc": "รีเฟรชสถานะการครอบครองไอเท็มและความคืบหน้า Fighting Style ตอนนี้",
+    "runtime_safety_status_title": "สถานะการป้องกันความคืบหน้า",
+    "runtime_safety_status_desc": "แสดงเมื่อไอเทมหรืองานสำคัญกำลังถูกป้องกันจากการทำงานที่ขัดแย้งกัน",
     "team_status_pirates": "ทีมปัจจุบัน: Pirates",
     "team_status_marines": "ทีมปัจจุบัน: Marines",
     "team_status_not_selected": "ทีมปัจจุบัน: ยังไม่ได้เลือก",
-    "icon_atlas_title": "ระบบไอคอนที่ใช้งานอยู่",
-    "icon_atlas_desc": "แหล่งไอคอนแบบแยกที่กำลังใช้บน UI พร้อม fallback อัตโนมัติและสถานะการเรนเดอร์จริงขณะรัน.",
-    "icon_legacy_title": "การวินิจฉัยแอตลาสเก่า",
-    "icon_legacy_desc": "ตรวจสอบ asset atlas 126253815695177 แยกต่างหาก เพื่อแยกปัญหา fetch ของ atlas เก่าออกจากไอคอนที่กำลังเรนเดอร์จริง.",
     "reset_title": "คืนค่าเริ่มต้น",
     "reset_desc": "ปิดฟีเจอร์ที่ทำงานอยู่และคืนค่าการตั้งค่า Re4Hub เป็นค่าเริ่มต้น",
     "reset_done": "คืนค่าการตั้งค่าเริ่มต้นแล้ว",
@@ -969,7 +965,7 @@
     "Mua Hơi Thở Của Rồng": "Buy DragonBreath",
     "Auto Farm Cake Prince": "Auto Farm Cake Prince",
     "Auto Collect Berry + Hop Server": "Auto Collect Berry + Hop Server",
-    "Callback lỗi": "Callback error",
+    "Callback lỗi": "ดำเนินการไม่สำเร็จ",
     "Fighting Melee Styles": "Fighting Styles",
     "Chế Tạo DragonHeart": "Craft DragonHeart",
     "Fruit": "Trái",
@@ -1228,7 +1224,7 @@
     "discord_unconfigured": "ยังไม่ได้กำหนดค่าในซอร์สรุ่นนี้",
     "version": "เวอร์ชัน",
     "changelog": "ประวัติอัปเดต",
-    "changelog_512": "จัดเลย์เอาต์ Items · Farm Status แหล่งเดียว · ล้าง runtime leak",
+    "changelog_512": "จัดเลย์เอาต์ไอเท็ม · สถานะฟาร์มสอดคล้องกัน · ปรับปรุงความเสถียร",
     "notice": "ประกาศ",
     "tween_notice": "คงแกน Tween ที่เสถียรเดิม",
     "community_title": "ชุมชนและเวอร์ชัน",
@@ -1238,7 +1234,7 @@
     "copy_discord_desc": "คัดลอกลิงก์เชิญ Discord ทางการที่โหลดจาก GitHub Raw",
     "discord_copied": "คัดลอกลิงก์ Discord แล้ว",
     "link_unconfigured": "ยังไม่ได้ตั้งค่าลิงก์",
-    "clipboard_unavailable": "Executor นี้ไม่รองรับคลิปบอร์ด",
+    "clipboard_unavailable": "อุปกรณ์นี้ไม่รองรับการคัดลอกอัตโนมัติ",
     "current_version": "เวอร์ชันปัจจุบัน",
     "player_overview": "ภาพรวมผู้เล่น",
     "player": "ผู้เล่น",
@@ -1447,7 +1443,7 @@
     "raid": "ตั้งค่า Raid และระบบอัตโนมัติ",
     "teleport": "โลก NPC ผู้เล่น และเซิร์ฟเวอร์",
     "combat": "โจมตี เป้าหมาย และตัวช่วยต่อสู้",
-    "settings": "อินเทอร์เฟซ ยูทิลิตี และ runtime",
+    "settings": "อินเทอร์เฟซและยูทิลิตี",
     "more": "การต่อสู้ การเดินทาง อินเทอร์เฟซ และเครื่องมือ",
     "raids": "ตั้งค่าเรด เรดปกติ และ Law",
     "progress_new": "ไอเทม เควสต์ Haki และความคืบหน้า",
@@ -1478,7 +1474,7 @@
     },
     "button.buy.cyborg.race": {
       "title": "เริ่ม Auto Cyborg",
-      "description": "เริ่ม workflow Cyborg กลางแทนการส่ง remote ซื้อครั้งเดียว"
+      "description": "เริ่มขั้นตอนปลดล็อก Cyborg ทั้งหมดและยืนยันสำเร็จเมื่อเกมบันทึกผลแล้วเท่านั้น"
     },
     "button.buy.dungeon.chips.devil.fruit": {
       "title": "Buy Dungeon Chips [Devil Fruit]",
@@ -1486,7 +1482,7 @@
     },
     "button.buy.ghoul.race": {
       "title": "เริ่ม Auto Ghoul",
-      "description": "เริ่ม workflow Ghoul กลางแทนการส่ง remote ซื้อครั้งเดียว"
+      "description": "เริ่มขั้นตอนปลดล็อก Ghoul ทั้งหมดและยืนยันสำเร็จเมื่อเกมบันทึกผลแล้วเท่านั้น"
     },
     "button.buy.kabucha": {
       "title": "Buy Kabucha",
@@ -2702,7 +2698,7 @@
       "description": "Full NPC directory for the current Sea (template registry + live resolver)"
     },
     "toggle.teleport.to.npc": {
-      "description": "Move to the selected NPC; toggle OFF stops only this travel owner."
+      "description": "เคลื่อนที่ไปยัง NPC ที่เลือกโดยอัตโนมัติ; ปิดฟีเจอร์จะหยุดเฉพาะการเดินทางนี้"
     },
     "button.hop.server": {
       "description": "Join another available server"
@@ -2711,7 +2707,7 @@
       "description": "Join the lowest-population available server"
     },
     "button.hop.server.best.available": {
-      "description": "Uses reliable public server data; remote server ping is not exposed before joining"
+      "description": "ค้นหาเซิร์ฟเวอร์สาธารณะที่เหมาะสมจากข้อมูลเซิร์ฟเวอร์ที่มีอยู่"
     },
     "option.input.job.id": {
       "description": ""
@@ -3049,7 +3045,7 @@
     },
     "option.select.fruit.shop": {
       "title": "เลือก Fruit ใน Shop",
-      "description": "รายชื่อ Fruit จากแคตตาล็อก runtime ของเซิร์ฟเวอร์ปัจจุบัน"
+      "description": "รายการ Fruit ที่ร้านค้าบนเซิร์ฟเวอร์ปัจจุบันรายงาน"
     },
     "option.select.permanent.fruit": {
       "title": "เลือก Fruit ถาวร",
@@ -3057,15 +3053,15 @@
     },
     "button.refresh.fruit.shop": {
       "title": "รีเฟรช Fruit Shop",
-      "description": "รีเฟรชแคตตาล็อก สถานะขาย และ inventory จาก runtime"
+      "description": "รีเฟรชรายการ Fruit สถานะการขาย และคลัง Fruit"
     },
     "button.buy.selected.fruit": {
       "title": "ซื้อ Fruit ที่เลือก",
-      "description": "ซื้อเฉพาะเมื่อแคตตาล็อก runtime ยืนยันว่ากำลังขาย"
+      "description": "ซื้อ Fruit ที่เลือกเฉพาะเมื่อร้านค้ายืนยันว่ากำลังขาย"
     },
     "button.switch.permanent.fruit": {
       "title": "สลับ Fruit ถาวร",
-      "description": "ขอสลับไป Fruit ถาวรที่เลือกและยืนยันผลจาก runtime"
+      "description": "สลับไปยัง Fruit ถาวรที่เลือกและแจ้งสำเร็จเมื่อเกมยืนยันแล้วเท่านั้น"
     },
     "toggle.auto.race.v2": {
       "title": "Auto Race V2",
@@ -3085,7 +3081,7 @@
     },
     "button.refresh.fruit.mirage.shop": {
       "title": "รีเฟรช Mirage Stock",
-      "description": "รีเฟรชสต็อก Advanced Fruit Dealer / Mirage โดยตรงจาก runtime ของเซิร์ฟเวอร์ปัจจุบัน"
+      "description": "รีเฟรชรายการ Fruit ของ Advanced Fruit Dealer / Mirage โดยตรง"
     }
   },
   "overlay": {
@@ -3485,8 +3481,8 @@
       "system_esp": "ESP",
       "system_session": "สถานะเซสชัน",
       "system_team": "ทีม",
-      "system_runtime": "ตั้งค่า runtime",
-      "system_safety": "ความปลอดภัย runtime",
+      "system_runtime": "การตั้งค่าการทำงาน",
+      "system_safety": "การป้องกันความคืบหน้า",
       "system_game_ui": "อินเทอร์เฟซเกม",
       "system_utilities": "ยูทิลิตี",
       "system_release": "ชุมชนและรีลีส",
@@ -3500,19 +3496,32 @@
   "fruit": {
     "shop": {
       "stock": "Fruit ที่กำลังขาย",
-      "none": "runtime ยังไม่ยืนยันว่ามี Fruit ใดกำลังขาย",
+      "none": "ยังไม่มี Fruit ที่ยืนยันว่ากำลังขายอยู่",
       "on_sale": "กำลังขาย",
-      "unavailable": "ไม่สามารถอ่านสต็อก Fruit Shop จาก runtime ได้"
+      "unavailable": "สต็อก Fruit Shop ยังไม่พร้อมใช้งาน"
     },
     "inventory": {
       "title": "Fruit ในคลัง",
-      "empty": "runtime ยังไม่ยืนยัน Fruit ในคลัง"
+      "empty": "ยังไม่มี Fruit ที่ยืนยันในคลัง"
     },
     "mirage": {
       "stock": "สต็อก Mirage / Advanced Fruit Dealer",
-      "none": "runtime ไม่รายงาน Fruit ใน Mirage Stock",
+      "none": "ยังไม่มี Fruit ที่ยืนยันใน Mirage Stock",
       "on_sale": "กำลังขาย",
-      "unavailable": "Mirage Stock ไม่พร้อมใช้งานจาก runtime"
+      "unavailable": "Mirage Stock ยังไม่พร้อมใช้งาน"
     }
+  },
+  "reason_labels": {
+    "generic": "ยังไม่สามารถดำเนินการให้เสร็จได้",
+    "busy": "มีงานอื่นกำลังทำงานอยู่",
+    "unavailable": "ข้อมูลที่จำเป็นยังไม่พร้อม",
+    "cooldown": "กำลังรอคูลดาวน์",
+    "requirements": "ยังไม่ครบเงื่อนไขที่จำเป็น",
+    "unconfirmed": "ยังไม่สามารถยืนยันผลได้",
+    "connection": "การเชื่อมต่อหรือการย้ายเซิร์ฟเวอร์ยังไม่พร้อม",
+    "unsupported": "กรณีนี้ยังไม่รองรับ",
+    "state_changed": "สถานะเปลี่ยนและหยุดการทำงานแล้ว",
+    "clipboard": "อุปกรณ์นี้ไม่รองรับการคัดลอกอัตโนมัติ",
+    "other_feature": "ฟีเจอร์อื่น"
   }
 }
