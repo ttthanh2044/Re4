@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "artifact_revision": "hub-info-2.4.2-final-20260913.1",
-  "hub_version": "2.4.2",
-  "updated_at": "2026-09-13",
+  "artifact_revision": "hub-info-2.4.3-final-20260914.1",
+  "hub_version": "2.4.3",
+  "updated_at": "2026-09-14",
   "discord": {
     "enabled": false,
     "invite": "",
@@ -12,9 +12,21 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Re4Hub 2.4.2 Final tập trung ổn định Bring Mob, đồng bộ tập mục tiêu với Fast Attack và giữ Auto Farm hoạt động sau mốc level 2800."
+    "content": "Re4Hub 2.4.3 Final khôi phục Bring Mob và Fast Attack theo baseline 2.4.0 đã ổn định, đồng thời giữ các cải tiến độc lập của 2.4.1/2.4.2."
   },
   "changelog": [
+    {
+      "version": "2.4.3",
+      "date": "$updated_at",
+      "title": "Re4Hub 2.4.3 Final",
+      "changes": [
+        "Khôi phục toàn bộ CombatTargetLock, BringService/BringEnemy và Fast Attack transport về đúng baseline 2.4.0 sau khi đối chiếu trực tiếp từng block source.",
+        "Sửa regression làm mất damage: bridge SendHitsToServer trở lại contract primary + hit list của 2.4.0, không còn ép signature batch một tham số từ nguồn ngoài.",
+        "Loại bỏ confirmed-follower/AlignPosition/batch-cursor experiment của 2.4.2 khỏi combat path; Fast Attack và Bring Mob lại dùng cùng target group/remote contract đã ổn định ở 2.4.0.",
+        "Khôi phục Bring cadence, follower leash và target-lock cadence của 2.4.0 để tránh thay đổi physics/ownership không được runtime xác nhận.",
+        "Giữ nguyên các sửa không liên quan combat của 2.4.1/2.4.2, bao gồm UI/Sea persistence, mastery và Auto Farm Level tiếp tục hoạt động từ level 2800."
+      ]
+    },
     {
       "version": "2.4.2",
       "date": "$updated_at",
