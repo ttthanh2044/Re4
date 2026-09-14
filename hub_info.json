@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "artifact_revision": "hub-info-2.4.4-final-20260914.1",
-  "hub_version": "2.4.4",
+  "artifact_revision": "hub-info-2.4.5-final-20260914.1",
+  "hub_version": "2.4.5",
   "updated_at": "2026-09-14",
   "discord": {
     "enabled": false,
@@ -12,9 +12,24 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Re4Hub 2.4.4 Final sửa Auto Farm Level bị treo im lặng và khôi phục chuyển mục tiêu/di chuyển đúng sang mob kế tiếp, đồng thời giữ nguyên Bring/Fast Attack baseline ổn định của 2.4.0."
+    "content": "Re4Hub 2.4.5 Final bổ sung Auto Melee Progression thống nhất cho Fighting Style: tự xác định dependency, mastery, material, boss drop, Beli/Fragment, di chuyển và xác nhận sở hữu; các mechanic Update 30 chưa đủ bằng chứng runtime tiếp tục fail-closed thay vì báo thành công giả."
   },
   "changelog": [
+    {
+      "version": "2.4.5",
+      "date": "$updated_at",
+      "title": "Re4Hub 2.4.5 Final",
+      "changes": [
+        "Bổ sung Auto Melee Progression dùng một worker FeatureRuntime duy nhất cho toàn bộ Fighting Style, đồng thời các toggle riêng dùng chung cùng progression graph và objective resolver.",
+        "Chuẩn hóa dependency graph 11 Fighting Style và tách dữ liệu prerequisite khỏi runtime logic; mastery, material, boss drop, currency, Sea travel và teacher interaction đều được resolve từ state thực tế.",
+        "Tích hợp Melee mastery vào MasteryController hiện có; progression yêu cầu đúng Fighting Style, dùng shared target/combat/movement và tự release khi đạt mastery hoặc toggle dừng.",
+        "Tích hợp material/boss objective với MaterialCatalog, BossTracker, Attack và Movement dùng chung; Dragon Talon dùng Bones/Death King flow, Death Step dùng Library Key gate, Electric Claw dùng Previous Hero timed route.",
+        "Fragment requirement dùng source lease của RaidChipService, RaidStartService và Raiding thay vì thay đổi toggle Raid của người dùng; Beli requirement dùng Level coordinator hiện có.",
+        "Progression có thể resume sau CharacterAdded/Sea transition bằng cách đọc lại ownership, mastery, inventory và requirement state; cleanup hủy movement/combat/objective lease, raid source và level request.",
+        "UI Progression được nhóm theo Sea, có toggle Auto Melee Progression tổng và trạng thái dễ hiểu; style đã sở hữu tiếp tục được loại khỏi Progression và chỉ còn Equip trong Items.",
+        "Electric/Water Kung Fu Update 30 hiển thị đúng Lightning Bolt/Scattered Light nhưng các tương tác world mechanic chưa có runtime contract đủ tin cậy vẫn fail-closed, không gọi remote cũ hoặc giả hoàn thành."
+      ]
+    },
     {
       "version": "2.4.4",
       "date": "$updated_at",

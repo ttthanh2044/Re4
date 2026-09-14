@@ -2,8 +2,8 @@
   "_meta": {
     "code": "id",
     "name": "Bahasa Indonesia",
-    "version": "2.4.4",
-    "revision": "language-2.4.4-final-20260914.1"
+    "version": "2.4.5",
+    "revision": "language-2.4.5-final-20260914.1"
   },
   "nav": {
     "home": "Beranda",
@@ -358,7 +358,20 @@
     "farm_level_getting_quest": "Mengambil quest untuk {quest}.",
     "farm_level_waiting_live_npc": "Sudah di area quest · menunggu NPC {quest}.",
     "farm_level_waiting_quest_ui": "Menunggu antarmuka quest siap.",
-    "farm_level_quest_data_waiting": "Memperbarui data quest dan target."
+    "farm_level_quest_data_waiting": "Memperbarui data quest dan target.",
+    "melee_farming_mastery": "Melatih mastery {style} · {current}/{target}",
+    "melee_farming_material": "Mengumpulkan {material} untuk {style} · {current}/{target}",
+    "melee_farming_beli": "Farming Beli untuk {style} · {current}/{target}",
+    "melee_farming_fragments": "Farming Fragment untuk {style} · {current}/{target}",
+    "melee_changing_sea": "Berpindah ke Sea {sea} untuk {style}",
+    "melee_fighting_boss": "Mengalahkan {boss} untuk {style}",
+    "melee_rolling_fire_essence": "Menggunakan Bones untuk mendapatkan Fire Essence bagi {style}",
+    "melee_timed_route": "Menyelesaikan rute Previous Hero untuk {style}",
+    "melee_interacting": "Menyelesaikan interaksi guru yang diperlukan untuk {style}",
+    "melee_purchasing": "Membuka dan memakai {style}",
+    "melee_complete": "{style} selesai",
+    "melee_all_complete": "Semua progres Fighting Style yang tersedia telah selesai",
+    "melee_blocked": "{style} menunggu syarat: {requirement}"
   },
   "settings": {
     "interface": "Antarmuka",
@@ -3061,6 +3074,10 @@
     "option.movement.boat.speed": {
       "title": "Kecepatan Perahu",
       "description": "Atur peningkatan kecepatan perahu milikmu. Maksimum 200 studs/s."
+    },
+    "toggle.auto.melee.progression": {
+      "title": "Progres Melee Otomatis",
+      "description": "Memajukan Fighting Style otomatis dengan syarat terverifikasi serta sistem farm, mastery, movement, raid, dan ownership bersama."
     }
   },
   "overlay": {
@@ -3270,6 +3287,15 @@
     },
     "travel.automation": {
       "title": "Otomatisasi Perjalanan"
+    },
+    "fighting_style.sea1": {
+      "title": "Melee · Sea 1"
+    },
+    "fighting_style.sea2": {
+      "title": "Melee · Sea 2"
+    },
+    "fighting_style.sea3": {
+      "title": "Melee · Sea 3"
     }
   },
   "status_view": {

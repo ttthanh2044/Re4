@@ -2,8 +2,8 @@
   "_meta": {
     "code": "th",
     "name": "ไทย",
-    "version": "2.4.4",
-    "revision": "language-2.4.4-final-20260914.1"
+    "version": "2.4.5",
+    "revision": "language-2.4.5-final-20260914.1"
   },
   "nav": {
     "home": "หน้าหลัก",
@@ -358,7 +358,20 @@
     "farm_level_getting_quest": "กำลังรับเควสต์สำหรับ {quest}",
     "farm_level_waiting_live_npc": "ถึงพื้นที่เควสต์แล้ว · กำลังรอ NPC ของ {quest}",
     "farm_level_waiting_quest_ui": "กำลังรอหน้าต่างเควสต์พร้อมใช้งาน",
-    "farm_level_quest_data_waiting": "กำลังรีเฟรชข้อมูลเควสต์และเป้าหมาย"
+    "farm_level_quest_data_waiting": "กำลังรีเฟรชข้อมูลเควสต์และเป้าหมาย",
+    "melee_farming_mastery": "กำลังฝึกมาสเตอรี {style} · {current}/{target}",
+    "melee_farming_material": "กำลังเก็บ {material} สำหรับ {style} · {current}/{target}",
+    "melee_farming_beli": "กำลังฟาร์ม Beli สำหรับ {style} · {current}/{target}",
+    "melee_farming_fragments": "กำลังฟาร์ม Fragment สำหรับ {style} · {current}/{target}",
+    "melee_changing_sea": "กำลังไป Sea {sea} สำหรับ {style}",
+    "melee_fighting_boss": "กำลังกำจัด {boss} เพื่อ {style}",
+    "melee_rolling_fire_essence": "กำลังใช้ Bones เพื่อหา Fire Essence สำหรับ {style}",
+    "melee_timed_route": "กำลังทำเส้นทาง Previous Hero สำหรับ {style}",
+    "melee_interacting": "กำลังทำปฏิสัมพันธ์ที่จำเป็นสำหรับ {style}",
+    "melee_purchasing": "กำลังปลดล็อกและสวมใส่ {style}",
+    "melee_complete": "{style} เสร็จสมบูรณ์",
+    "melee_all_complete": "ความคืบหน้า Fighting Style ที่ทำได้เสร็จทั้งหมดแล้ว",
+    "melee_blocked": "{style} กำลังรอเงื่อนไข: {requirement}"
   },
   "settings": {
     "interface": "อินเทอร์เฟซ",
@@ -3061,6 +3074,10 @@
     "option.movement.boat.speed": {
       "title": "ความเร็วเรือ",
       "description": "ปรับความเร็วเสริมของเรือที่คุณเป็นเจ้าของ สูงสุด 200 studs/s"
+    },
+    "toggle.auto.melee.progression": {
+      "title": "พัฒนา Melee อัตโนมัติ",
+      "description": "พัฒนา Fighting Style อัตโนมัติด้วยเงื่อนไขที่ตรวจสอบแล้ว โดยใช้ระบบฟาร์ม มาสเตอรี การเคลื่อนที่ เรด และการตรวจสอบการครอบครองร่วมกัน"
     }
   },
   "overlay": {
@@ -3270,6 +3287,15 @@
     },
     "travel.automation": {
       "title": "การเดินทางอัตโนมัติ"
+    },
+    "fighting_style.sea1": {
+      "title": "Melee · Sea 1"
+    },
+    "fighting_style.sea2": {
+      "title": "Melee · Sea 2"
+    },
+    "fighting_style.sea3": {
+      "title": "Melee · Sea 3"
     }
   },
   "status_view": {

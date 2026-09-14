@@ -2,8 +2,8 @@
   "_meta": {
     "code": "en",
     "name": "English",
-    "version": "2.4.4",
-    "revision": "language-2.4.4-final-20260914.1"
+    "version": "2.4.5",
+    "revision": "language-2.4.5-final-20260914.1"
   },
   "nav": {
     "home": "Home",
@@ -358,7 +358,20 @@
     "farm_level_getting_quest": "Getting quest for {quest}.",
     "farm_level_waiting_live_npc": "At the quest area · waiting for {quest} NPC.",
     "farm_level_waiting_quest_ui": "Waiting for the quest interface to become ready.",
-    "farm_level_quest_data_waiting": "Refreshing current quest and target data."
+    "farm_level_quest_data_waiting": "Refreshing current quest and target data.",
+    "melee_farming_mastery": "Training {style} mastery · {current}/{target}",
+    "melee_farming_material": "Collecting {material} for {style} · {current}/{target}",
+    "melee_farming_beli": "Farming Beli for {style} · {current}/{target}",
+    "melee_farming_fragments": "Farming Fragments for {style} · {current}/{target}",
+    "melee_changing_sea": "Changing to Sea {sea} for {style}",
+    "melee_fighting_boss": "Defeating {boss} for {style}",
+    "melee_rolling_fire_essence": "Using Bones to obtain Fire Essence for {style}",
+    "melee_timed_route": "Completing the Previous Hero route for {style}",
+    "melee_interacting": "Completing the required teacher interaction for {style}",
+    "melee_purchasing": "Unlocking and equipping {style}",
+    "melee_complete": "{style} completed",
+    "melee_all_complete": "All available Fighting Style progression is complete",
+    "melee_blocked": "{style} is waiting for: {requirement}"
   },
   "settings": {
     "interface": "Interface",
@@ -3061,6 +3074,10 @@
     "option.movement.boat.speed": {
       "title": "Boat Speed",
       "description": "Set the speed boost for your owned boat. Maximum 200 studs/s."
+    },
+    "toggle.auto.melee.progression": {
+      "title": "Auto Melee Progression",
+      "description": "Automatically advances Fighting Styles using verified requirements, shared farming, mastery, movement, raids and ownership checks."
     }
   },
   "overlay": {
@@ -3270,6 +3287,15 @@
     },
     "travel.automation": {
       "title": "Travel Automation"
+    },
+    "fighting_style.sea1": {
+      "title": "Melee · Sea 1"
+    },
+    "fighting_style.sea2": {
+      "title": "Melee · Sea 2"
+    },
+    "fighting_style.sea3": {
+      "title": "Melee · Sea 3"
     }
   },
   "status_view": {

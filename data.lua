@@ -8,7 +8,7 @@ This module has no dependency on Core, UI, Config or executor state.
 
 local RE4Data = {
     Schema = 1,
-    Revision = "game-data-2.4.4-final-20260914.1",
+    Revision = "game-data-2.4.5-final-20260914.1",
 
     Teams = {
         Pirates = "Pirates",
@@ -521,8 +521,8 @@ RE4Data.FeatureMetadata = {
 
 	FightingStyleCatalog = {
 		DarkStep={Id="dark_step",Name="Dark Step",Internal="Black Leg",FirstObtainableSea=1,Seas={1,2,3},Price=150000,Currency="Beli",NPC="Dark Step Teacher",Locations={"Pirate Village","Hot and Cold","Castle on the Sea"},Remote="BuyBlackLeg"},
-		Electric={Id="electric",Name="Electric",Internal="Electro",FirstObtainableSea=1,Seas={1,2,3},Price=500000,Currency="Beli",NPC="Mad Scientist",Locations={"Skylands · Lower","Hot and Cold","Castle on the Sea"},Remote="BuyElectro",AutoAcquireVerified=false,Update30Quest={Sea=1,Material="Lightning Bolt",Location="Skylands · Lower"}},
-		WaterKungFu={Id="water_kung_fu",Name="Water Kung Fu",Internal="Fishman Karate",FirstObtainableSea=1,Seas={1,2,3},Price=750000,Currency="Beli",NPC="Water Kung-fu Teacher",Locations={"Underwater City","Hot and Cold","Castle on the Sea"},Remote="BuyFishmanKarate",AutoAcquireVerified=false,Update30Quest={Sea=1,Secret="Scattered Light",Location="Underwater City"}},
+		Electric={Id="electric",Name="Electric",Internal="Electro",FirstObtainableSea=1,Seas={1,2,3},Price=500000,Currency="Beli",NPC="Mad Scientist",Locations={"Skylands · Lower","Hot and Cold","Castle on the Sea"},Remote="BuyElectro",AutoAcquireVerified=true,Update30Quest={Sea=1,Material="Lightning Bolt",Location="Skylands · Lower",VerifiedAutomation=false},Requirements={{Kind="Item",Name="Lightning Bolt",Source={Kind="Update30WorldMechanic",Mechanic="ChargedCloud",Sea=1,Island="Skylands · Lower",VerifiedAutomation=false}}}},
+		WaterKungFu={Id="water_kung_fu",Name="Water Kung Fu",Internal="Fishman Karate",FirstObtainableSea=1,Seas={1,2,3},Price=750000,Currency="Beli",NPC="Water Kung-fu Teacher",Locations={"Underwater City","Hot and Cold","Castle on the Sea"},Remote="BuyFishmanKarate",AutoAcquireVerified=true,Update30Quest={Sea=1,Secret="Scattered Light",Location="Underwater City",VerifiedAutomation=false},Requirements={{Kind="IslandSecret",Name="Scattered Light",Source={Kind="Update30WorldMechanic",Mechanic="ScatteredLight",Sea=1,Island="Underwater City",VerifiedAutomation=false}}}},
 	},
 
 	-- Runtime/internal enemy names observed after the game update. This is the
@@ -1019,7 +1019,7 @@ local function RE4BuildBasicStyleMeta(key)
     error("[RE4 HUB/Data] invalid FightingStyleCatalog entry: "..tostring(key),0)
   end
   return {
-    CatalogKey=key,Style=style,Display=display,Seas=seas,
+    CatalogKey=key,Style=style,Display=display,Seas=seas,FirstObtainableSea=tonumber(source.FirstObtainableSea) or seas[1],
     CostBeli=source.Currency=="Beli" and source.Price or nil,CostFragments=source.Currency=="Fragments" and source.Price or nil,
     Remote=remote,ActionArgs={},OwnershipProbe={Remote=remote,Args={true},PositiveOnly=true},EquipDirect=true,DealerFallback=true,AcquireMode="dealer",
     NPC=source.NPC and {source.NPC} or {},DealerLocations=RE4DealerLocations(source.Locations),Requirements=source.Requirements or {},
@@ -1056,7 +1056,11 @@ RE4Data.FightingStyleRegistry = {
     CatalogKey="DeathStep",Style="Death Step",Display="Death Step",Seas={2,3},CostBeli=2500000,CostFragments=5000,
     Remote="BuyDeathStep",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
     NPC={"Phoeyu, the Reformed","Phoeyu"},DealerLocations={[2]="Ice Castle",[3]="Castle on the Sea"},
-    Requirements={{Kind="Mastery",Style="DarkStep",Target=400},{Kind="Item",Name="Library Key"},{Kind="Library"}},
+    Requirements={
+      {Kind="Mastery",Style="DarkStep",Target=400},
+      {Kind="Item",Name="Library Key",Source={Kind="BossDrop",Boss="Awakened Ice Admiral",Sea=2,Island="Ice Castle"}},
+      {Kind="Library",Source={Kind="TeacherGate",Teacher="Phoeyu, the Reformed",Sea=2,Island="Ice Castle",InteractionPosition=CFrame.new(6371.2001953125,296.63433837890625,-6841.18115234375)}},
+    },
     DisplayRequirements={
       {Key="fighting_style.req.dark_step_400"},
       {Key="fighting_style.req.library_key"},
@@ -1068,7 +1072,10 @@ RE4Data.FightingStyleRegistry = {
     CatalogKey="ElectricClaw",Style="Electric Claw",Display="Electric Claw",Seas={3},CostBeli=3000000,CostFragments=5000,
     Remote="BuyElectricClaw",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
     NPC={"Previous Hero"},DealerLocations={[3]="Floating Turtle"},
-    Requirements={{Kind="Mastery",Style="Electric",Target=400},{Kind="Quest"}},
+    Requirements={
+      {Kind="Mastery",Style="Electric",Target=400},
+      {Kind="Quest",Name="Previous Hero Timed Quest",Source={Kind="TimedRoute",Sea=3,StartRemote="BuyElectricClaw",StartArgs={"Start"},DestinationIsland="Mansion",ReturnTeacher=true}},
+    },
     DisplayRequirements={
       {Key="fighting_style.req.electric_400"},
       {Key="fighting_style.req.previous_hero"},
@@ -1079,7 +1086,11 @@ RE4Data.FightingStyleRegistry = {
     CatalogKey="Sharkman",Style="Sharkman Karate",Display="Sharkman Karate",Seas={2,3},CostBeli=2500000,CostFragments=5000,
     Remote="BuySharkmanKarate",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
     NPC={"Sharkman Teacher","Daigrock, the Sharkman","Daigrock"},DealerLocations={[2]="Forgotten Island",[3]="Castle on the Sea"},
-    Requirements={{Kind="Mastery",Style="WaterKungFu",Target=400},{Kind="Item",Name="Water Key"},{Kind="Dealer"}},
+    Requirements={
+      {Kind="Mastery",Style="WaterKungFu",Target=400},
+      {Kind="Item",Name="Water Key",Source={Kind="BossDrop",Boss="Tide Keeper",Sea=2,Island="Forgotten Island"}},
+      {Kind="Dealer",Source={Kind="TeacherGate",Teacher="Sharkman Teacher",Sea=2,Island="Forgotten Island"}},
+    },
     DisplayRequirements={
       {Key="fighting_style.req.water_kung_fu_400"},
       {Key="fighting_style.req.water_key"},
@@ -1091,7 +1102,11 @@ RE4Data.FightingStyleRegistry = {
     CatalogKey="DragonTalon",Style="Dragon Talon",Display="Dragon Talon",Seas={3},CostBeli=3000000,CostFragments=5000,
     Remote="BuyDragonTalon",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
     NPC={"Uzoth"},DealerLocations={[3]="Hydra Island"},
-    Requirements={{Kind="Mastery",Style="DragonBreath",Target=400},{Kind="Item",Name="Fire Essence"},{Kind="Dealer"}},
+    Requirements={
+      {Kind="Mastery",Style="DragonBreath",Target=400},
+      {Kind="Item",Name="Fire Essence",Source={Kind="DeathKingRoll",Sea=3,Island="Haunted Castle",Currency="Bones",Cost=50}},
+      {Kind="Dealer",Source={Kind="TeacherGate",Teacher="Uzoth",Sea=3,Island="Hydra Island"}},
+    },
     DisplayRequirements={
       {Key="fighting_style.req.dragon_breath_400"},
       {Key="fighting_style.req.fire_essence"},
@@ -1103,7 +1118,10 @@ RE4Data.FightingStyleRegistry = {
     CatalogKey="Godhuman",Style="Godhuman",Display="Godhuman",Seas={3},CostBeli=5000000,CostFragments=5000,
     Remote="BuyGodhuman",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
     NPC={"Ancient Monk"},DealerLocations={[3]="Floating Turtle"},
-    Requirements={{Kind="Mastery",Style="Superhuman",Target=400},{Kind="Mastery",Style="DeathStep",Target=400},{Kind="Mastery",Style="ElectricClaw",Target=400},{Kind="Mastery",Style="Sharkman",Target=400},{Kind="Mastery",Style="DragonTalon",Target=400},{Kind="Material",Name="Dragon Scale",Target=10},{Kind="Material",Name="Fish Tail",Target=20},{Kind="Material",Name="Mystic Droplet",Target=10},{Kind="Material",Name="Magma Ore",Target=20}},
+    Requirements={{Kind="Mastery",Style="Superhuman",Target=400},{Kind="Mastery",Style="DeathStep",Target=400},{Kind="Mastery",Style="ElectricClaw",Target=400},{Kind="Mastery",Style="Sharkman",Target=400},{Kind="Mastery",Style="DragonTalon",Target=400},{Kind="Material",Name="Dragon Scale",Target=10,Source={Kind="MobMaterial",Sea=3,Island="Hydra Island"}},
+     {Kind="Material",Name="Fish Tail",Target=20,Source={Kind="MobMaterial",Sea=3,Island="Floating Turtle"}},
+     {Kind="Material",Name="Mystic Droplet",Target=10,Source={Kind="MobMaterial",Sea=2,Island="Forgotten Island"}},
+     {Kind="Material",Name="Magma Ore",Target=20,Source={Kind="MobMaterial",Sea=2,Island="Hot and Cold"}}},
     DisplayRequirements={
       {Key="fighting_style.req.superhuman_400"},
       {Key="fighting_style.req.death_step_400"},
@@ -1120,7 +1138,12 @@ RE4Data.FightingStyleRegistry = {
     CatalogKey="Sanguine",Style="Sanguine Art",Display="Sanguine Art",Seas={3},CostBeli=5000000,CostFragments=5000,
     Remote="BuySanguineArt",OwnershipProbe={Args={true},PositiveOnly=true},ActionArgs={},EquipDirect=true,DealerFallback=true,AcquireMode="direct",
     NPC={"Shafi"},DealerLocations={[3]="Tiki Outpost"},
-    Requirements={{Kind="Item",Name="Leviathan Heart"},{Kind="Material",Name="Dark Fragment",Target=2},{Kind="Material",Name="Demonic Wisp",Target=20},{Kind="Material",Name="Vampire Fang",Target=20}},
+    Requirements={
+      {Kind="Item",Name="Leviathan Heart",Source={Kind="SeaEvent",Sea=3,Event="Leviathan",VerifiedAutomation=false}},
+      {Kind="Material",Name="Dark Fragment",Target=2,Source={Kind="BossDrop",Boss="Darkbeard",Sea=2,Island="Dark Arena"}},
+      {Kind="Material",Name="Demonic Wisp",Target=20,Source={Kind="MobMaterial",Sea=3,Island="Haunted Castle"}},
+      {Kind="Material",Name="Vampire Fang",Target=20,Source={Kind="MobMaterial",Sea=2,Island="Graveyard"}},
+    },
     DisplayRequirements={
       {Key="fighting_style.req.leviathan_heart"},
       {Key="fighting_style.req.dark_fragments_2"},
@@ -1129,6 +1152,27 @@ RE4Data.FightingStyleRegistry = {
     },
   },
 }
+
+-- Canonical Fighting Style dependency graph. Runtime resolves every edge from live
+-- ownership/mastery/material evidence; graph nodes never store transient progression state.
+RE4Data.MeleeProgressionGraph = {
+  Revision="update30-20260914.2",
+  Order={"DarkStep","Electric","WaterKungFu","DragonBreath","Superhuman","DeathStep","ElectricClaw","Sharkman","DragonTalon","Godhuman","Sanguine"},
+  Nodes={
+    DarkStep={Style="DarkStep",AcquireSea=1},
+    Electric={Style="Electric",AcquireSea=1},
+    WaterKungFu={Style="WaterKungFu",AcquireSea=1},
+    DragonBreath={Style="DragonBreath",AcquireSea=2},
+    Superhuman={Style="Superhuman",AcquireSea=2,DependsOn={"DarkStep","Electric","WaterKungFu","DragonBreath"}},
+    DeathStep={Style="DeathStep",AcquireSea=2,DependsOn={"DarkStep"}},
+    ElectricClaw={Style="ElectricClaw",AcquireSea=3,DependsOn={"Electric"}},
+    Sharkman={Style="Sharkman",AcquireSea=2,DependsOn={"WaterKungFu"}},
+    DragonTalon={Style="DragonTalon",AcquireSea=3,DependsOn={"DragonBreath"}},
+    Godhuman={Style="Godhuman",AcquireSea=3,DependsOn={"Superhuman","DeathStep","ElectricClaw","Sharkman","DragonTalon"}},
+    Sanguine={Style="Sanguine",AcquireSea=3},
+  },
+}
+
 RE4Data.BossAliases = {
     ["Cake Prince"]={"Cake Prince"}, ["Dough King"]={"Dough King"},
     ["Tyrant of the Skies"]={"Tyrant of the Skies"},

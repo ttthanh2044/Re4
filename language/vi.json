@@ -2,8 +2,8 @@
   "_meta": {
     "code": "vi",
     "name": "Tiếng Việt",
-    "version": "2.4.4",
-    "revision": "language-2.4.4-final-20260914.1"
+    "version": "2.4.5",
+    "revision": "language-2.4.5-final-20260914.1"
   },
   "nav": {
     "home": "Trang chủ",
@@ -358,7 +358,20 @@
     "farm_level_getting_quest": "Đang nhận nhiệm vụ cho {quest}.",
     "farm_level_waiting_live_npc": "Đã tới khu vực nhiệm vụ · đang chờ NPC của {quest}.",
     "farm_level_waiting_quest_ui": "Đang chờ giao diện nhiệm vụ sẵn sàng.",
-    "farm_level_quest_data_waiting": "Đang làm mới dữ liệu nhiệm vụ và mục tiêu."
+    "farm_level_quest_data_waiting": "Đang làm mới dữ liệu nhiệm vụ và mục tiêu.",
+    "melee_farming_mastery": "Đang luyện mastery {style} · {current}/{target}",
+    "melee_farming_material": "Đang lấy {material} cho {style} · {current}/{target}",
+    "melee_farming_beli": "Đang farm Beli cho {style} · {current}/{target}",
+    "melee_farming_fragments": "Đang farm Fragment cho {style} · {current}/{target}",
+    "melee_changing_sea": "Đang chuyển tới Sea {sea} cho {style}",
+    "melee_fighting_boss": "Đang đánh {boss} để lấy điều kiện cho {style}",
+    "melee_rolling_fire_essence": "Đang dùng Bones để tìm Fire Essence cho {style}",
+    "melee_timed_route": "Đang hoàn thành lộ trình Previous Hero cho {style}",
+    "melee_interacting": "Đang hoàn thành tương tác bắt buộc cho {style}",
+    "melee_purchasing": "Đang mở khóa và trang bị {style}",
+    "melee_complete": "Đã hoàn thành {style}",
+    "melee_all_complete": "Đã hoàn thành toàn bộ tiến trình Fighting Style khả dụng",
+    "melee_blocked": "{style} đang chờ điều kiện: {requirement}"
   },
   "settings": {
     "interface": "Giao diện",
@@ -3061,6 +3074,10 @@
     "option.movement.boat.speed": {
       "title": "Tốc độ thuyền",
       "description": "Điều chỉnh tốc độ tăng cường cho thuyền của bạn. Tối đa 200 studs/s."
+    },
+    "toggle.auto.melee.progression": {
+      "title": "Tự động tiến trình Melee",
+      "description": "Tự động phát triển Fighting Style bằng điều kiện đã xác minh, dùng chung farm, mastery, di chuyển, raid và kiểm tra sở hữu."
     }
   },
   "overlay": {
@@ -3270,6 +3287,15 @@
     },
     "travel.automation": {
       "title": "Tự động di chuyển"
+    },
+    "fighting_style.sea1": {
+      "title": "Melee · Sea 1"
+    },
+    "fighting_style.sea2": {
+      "title": "Melee · Sea 2"
+    },
+    "fighting_style.sea3": {
+      "title": "Melee · Sea 3"
     }
   },
   "status_view": {

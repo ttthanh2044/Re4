@@ -1,6 +1,6 @@
 {
-  "version": "2.4.4",
-  "revision": "language-2.4.4-final-20260914.1",
+  "version": "2.4.5",
+  "revision": "language-2.4.5-final-20260914.1",
   "default": "vi",
   "fallback": "en",
   "languages": [

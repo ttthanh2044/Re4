@@ -25,7 +25,7 @@ local Config=env.RE4_CONFIG
 if type(Config)~="table" or tonumber(Config.Schema)~=2 or type(Config.App)~="table" then
     error("[RE4 HUB/UI] config.lua schema 2 is required")
 end
-local RE4_UI_ARTIFACT_REVISION = "ui-2.4.4-final-20260914.1"
+local RE4_UI_ARTIFACT_REVISION = "ui-2.4.5-final-20260914.1"
 local expectedUIRevision=tostring(Config.Source and Config.Source.Artifacts and Config.Source.Artifacts.UI or "")
 if expectedUIRevision=="" or expectedUIRevision~=RE4_UI_ARTIFACT_REVISION then
     error("[RE4 HUB/UI] artifact revision mismatch")
