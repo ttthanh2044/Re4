@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "artifact_revision": "hub-info-2.4.1-final-20260913.1",
-  "hub_version": "2.4.1",
+  "artifact_revision": "hub-info-2.4.2-final-20260913.1",
+  "hub_version": "2.4.2",
   "updated_at": "2026-09-13",
   "discord": {
     "enabled": false,
@@ -12,9 +12,23 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Re4Hub 2.4.1 Final tập trung sửa Farm, Bring Mob, Mastery, tiến trình theo Sea và dữ liệu hiển thị. Các mục đã sở hữu được trình bày gọn hơn, tốc độ di chuyển có thể tùy chỉnh và giao diện được cân chỉnh để dễ theo dõi hơn."
+    "content": "Re4Hub 2.4.2 Final tập trung ổn định Bring Mob, đồng bộ tập mục tiêu với Fast Attack và giữ Auto Farm hoạt động sau mốc level 2800."
   },
   "changelog": [
+    {
+      "version": "2.4.2",
+      "date": "$updated_at",
+      "title": "Re4Hub 2.4.2 Final",
+      "changes": [
+        "Thiết kế lại Bring Mob theo một owner duy nhất cho mỗi mob; follower dùng constraint có xác nhận quyền điều khiển thay vì bị snap CFrame liên tục, giảm tình trạng rung/giật do client và server kéo ngược nhau.",
+        "Tách rõ nhóm mob được yêu cầu và nhóm follower đã Bring ổn định; Fast Attack chỉ đưa primary cùng follower đã xác nhận vào danh sách hit để tránh đánh vào cụm hiển thị sai trạng thái server.",
+        "Bổ sung phát hiện server correction, mất network ownership và follower không hội tụ; mob không an toàn được loại khỏi cụm hiện tại thay vì bị kéo lại liên tục.",
+        "Fast Attack hỗ trợ cap hit runtime khi có thể xác minh và dùng vòng xoay target công bằng khi cap không được expose, tránh một vài mob đầu tiên nhận toàn bộ lượt đánh.",
+        "Batch state của Fast Attack được cleanup khi combat owner thay đổi, feature dừng hoặc hub shutdown để không mang stale target ordering sang phiên farm tiếp theo.",
+        "Auto Farm Level tại và sau mốc 2800 tiếp tục farm mob bằng shared movement/combat pipeline; hệ thống chỉ ngừng thao tác quest tăng level chứ không khóa Auto Farm.",
+        "Rà soát TargetLock, Bring, Farm, Mastery, Raid/Boss consumers và cleanup owner để target chết, đổi quest, respawn hoặc feature OFF không giữ Bring/attack state cũ."
+      ]
+    },
     {
       "version": "2.4.1",
       "date": "$updated_at",

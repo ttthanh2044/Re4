@@ -2,8 +2,8 @@
   "_meta": {
     "code": "id",
     "name": "Bahasa Indonesia",
-    "version": "2.4.1",
-    "revision": "language-2.4.1-final-20260913.1"
+    "version": "2.4.2",
+    "revision": "language-2.4.2-final-20260913.1"
   },
   "nav": {
     "home": "Beranda",
@@ -330,6 +330,7 @@
     "race_cyborg_fist_seabeast": "Memburu Sea Beast untuk mendapatkan Fist of Darkness",
     "level_secret_progress_required": "Progres quest biasa berakhir di level {regular}. Selesaikan Island Secrets untuk naik dari level {level} menuju level {cap}.",
     "level_cap_reached": "Level maksimum tercapai: {level}/{cap}.",
+    "level_cap_farming": "Progres quest reguler berakhir di level {regular}; Auto Farm tetap melanjutkan farm mob level tertinggi yang tersedia ({level}/{cap}).",
     "race_cyborg_verify_fist": "Memverifikasi prasyarat Fist Secret Laboratory dari status server langsung",
     "arrived_target": "Tiba di {target}",
     "pvp_requires_bounty": "Target PvP memerlukan setidaknya {required} Bounty.",

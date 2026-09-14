@@ -2,8 +2,8 @@
   "_meta": {
     "code": "th",
     "name": "ไทย",
-    "version": "2.4.1",
-    "revision": "language-2.4.1-final-20260913.1"
+    "version": "2.4.2",
+    "revision": "language-2.4.2-final-20260913.1"
   },
   "nav": {
     "home": "หน้าหลัก",
@@ -330,6 +330,7 @@
     "race_cyborg_fist_seabeast": "กำลังล่า Sea Beast เพื่อหา Fist of Darkness",
     "level_secret_progress_required": "เควสต์ปกติเพิ่มเลเวลได้ถึง {regular} เท่านั้น ทำ Island Secrets เพื่อเพิ่มจากเลเวล {level} ไปจนถึง {cap}",
     "level_cap_reached": "ถึงเลเวลสูงสุดแล้ว: {level}/{cap}",
+    "level_cap_farming": "เควสต์เก็บเลเวลปกติสิ้นสุดที่เลเวล {regular}; Auto Farm จะฟาร์มมอนสเตอร์ระดับสูงสุดที่มีต่อไป ({level}/{cap})",
     "race_cyborg_verify_fist": "กำลังตรวจสอบเงื่อนไข Fist ของ Secret Laboratory จากสถานะเซิร์ฟเวอร์จริง",
     "arrived_target": "ถึง {target} แล้ว",
     "pvp_requires_bounty": "เป้าหมาย PvP ต้องมี Bounty อย่างน้อย {required}",

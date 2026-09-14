@@ -2,8 +2,8 @@
   "_meta": {
     "code": "vi",
     "name": "Tiếng Việt",
-    "version": "2.4.1",
-    "revision": "language-2.4.1-final-20260913.1"
+    "version": "2.4.2",
+    "revision": "language-2.4.2-final-20260913.1"
   },
   "nav": {
     "home": "Trang chủ",
@@ -330,6 +330,7 @@
     "race_cyborg_fist_seabeast": "Đang săn Sea Beast để lấy Fist of Darkness",
     "level_secret_progress_required": "Tiến trình quest thường kết thúc ở cấp {regular}. Hãy hoàn thành Island Secrets để tăng từ cấp {level} lên tối đa {cap}.",
     "level_cap_reached": "Đã đạt cấp tối đa: {level}/{cap}.",
+    "level_cap_farming": "Tiến trình quest thường kết thúc ở cấp {regular}; Auto Farm vẫn tiếp tục farm nhóm mob cấp cao nhất ({level}/{cap}).",
     "race_cyborg_verify_fist": "Đang xác minh điều kiện Fist của Secret Laboratory từ trạng thái server thực tế",
     "arrived_target": "Đã tới {target}",
     "pvp_requires_bounty": "Mục tiêu PvP cần ít nhất {required} Bounty.",

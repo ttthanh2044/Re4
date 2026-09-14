@@ -10,10 +10,10 @@ local Config = {
     App = {
         Product = "Re4Hub",
         HubName = "RE4 HUB",
-        Version = "2.4.1",
-        Revision = "release-2.4.1-final-20260913.1",
-        BuildName = "2.4.1-final",
-        DisplayVersion = "2.4.1 Final",
+        Version = "2.4.2",
+        Revision = "release-2.4.2-final-20260913.1",
+        BuildName = "2.4.2-final",
+        DisplayVersion = "2.4.2 Final",
         Channel = "stable",
         UpdatedAt = "2026-09-13",
     },
@@ -24,14 +24,14 @@ local Config = {
             LanguageBase = "language/", LanguageManifest = "language/manifest.json",
         },
         Artifacts = {
-            Core = "core-2.4.1-final-20260913.1",
-            Config = "config-2.4.1-final-20260913.1",
-            Data = "game-data-2.4.1-final-20260913.1",
-            UI = "ui-2.4.1-final-20260913.1",
-            HubInfo = "hub-info-2.4.1-final-20260913.1",
-            Language = "language-2.4.1-final-20260913.1",
+            Core = "core-2.4.2-final-20260913.1",
+            Config = "config-2.4.2-final-20260913.1",
+            Data = "game-data-2.4.2-final-20260913.1",
+            UI = "ui-2.4.2-final-20260913.1",
+            HubInfo = "hub-info-2.4.2-final-20260913.1",
+            Language = "language-2.4.2-final-20260913.1",
         },
-        Cache = { Prefix = "RE4Hub_2_4_1_Final_20260913_1_", Schema = 9 },
+        Cache = { Prefix = "RE4Hub_2_4_2_Final_20260913_1_", Schema = 10 },
     },
     Runtime = {
         LegacyStep = 0.10,
@@ -421,17 +421,33 @@ local Config = {
             MaxReplansPerRequest = 2,
         },
         Bring = {
-            ScanInterval = 0.22, SweepInterval = 0.75,
-            -- Conservative Bring envelope limits cross-floor/cross-room followers on compact vertical maps.
-            -- Cadence, MaxMob and movement mechanics remain unchanged.
+            ScanInterval = 0.22, SweepInterval = 0.20,
+            -- Shared Bring envelope. Followers are selected and physically held
+            -- inside the same radius so TargetLock, Bring and FastAttack cannot
+            -- disagree about which mobs belong to the current combat cluster.
             Range = 350,
             Speed = 300,
             MinRange = 20,
             CorrectionFloor = 3,
-            -- Shared per-mob origin leash. A mob is never deliberately moved
-            -- farther than this from its first observed runtime position.
             FollowerDistance = 350,
-            MaxMob = 6, SimulationRadiusInterval = 1.0,
+            MaxMob = 6,
+            SimulationRadiusInterval = 1.0,
+            -- Bring is constraint-driven instead of repeated CFrame snapping.
+            -- A follower is only exposed to FastAttack after it has settled near
+            -- the canonical anchor for a short confirmation window.
+            HoldTolerance = 3,
+            StableConfirmTime = 0.10,
+            HoldProgressEpsilon = 0.75,
+            HoldNoProgressTimeout = 0.55,
+            ServerCorrectionDistance = 12,
+            ServerCorrectionRejectTTL = 1.25,
+            TargetChangeEpsilon = 3,
+            AlignMaxForce = 1000000000,
+            AlignResponsiveness = 200,
+            -- ReceiveAge is only a provisional ownership signal when an executor
+            -- does not expose isnetworkowner; server-corrected followers are
+            -- rejected instead of being snapped back every frame.
+            ReceiveAgeOwnershipThreshold = 0.05,
         },
         Controller = {
             ExternalRelocationMinGap = 50, MinArrivalRadius = 3, CombatOwnerPriority = 100, DefaultIslandBypassRadius = 1800, MinIslandBypassRadius = 250,
@@ -538,6 +554,11 @@ local Config = {
             ConfigRefreshInterval = 0.20,
             ConnectionSyncInterval = 0.10,
             FallbackToolCooldown = 0.30, MinToolCooldown = 0.05, BridgeRefreshInterval = 1.0,
+            -- Current combat clients cap hit packets through a runtime GetMaxHits
+            -- helper. Never invent a fallback cap: when that helper is not exported,
+            -- FastAttack sends the complete set but rotates ordering every cycle so
+            -- a hidden prefix cap cannot starve the same followers indefinitely.
+            MaxHitBatchProbe = 50,
         },
         PvP = {
             EnableRetryInterval = 1.25,
