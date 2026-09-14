@@ -2,8 +2,8 @@
   "_meta": {
     "code": "en",
     "name": "English",
-    "version": "2.4.3",
-    "revision": "language-2.4.3-final-20260914.1"
+    "version": "2.4.4",
+    "revision": "language-2.4.4-final-20260914.1"
   },
   "nav": {
     "home": "Home",
@@ -353,7 +353,12 @@
     "race_draco_v2_turnin": "Turning in Draco V2 to the Dragon Wizard",
     "race_draco_v3_begin": "Starting Draco V3 with the Dragon Wizard",
     "race_draco_v3_terror_shark": "Hunting Terrorshark for Draco V3",
-    "race_draco_v3_turnin": "Turning in Draco V3 to the Dragon Wizard"
+    "race_draco_v3_turnin": "Turning in Draco V3 to the Dragon Wizard",
+    "farm_level_route_unavailable": "Waiting for the farm route to become available.",
+    "farm_level_getting_quest": "Getting quest for {quest}.",
+    "farm_level_waiting_live_npc": "At the quest area · waiting for {quest} NPC.",
+    "farm_level_waiting_quest_ui": "Waiting for the quest interface to become ready.",
+    "farm_level_quest_data_waiting": "Refreshing current quest and target data."
   },
   "settings": {
     "interface": "Interface",

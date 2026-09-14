@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "artifact_revision": "hub-info-2.4.3-final-20260914.1",
-  "hub_version": "2.4.3",
+  "artifact_revision": "hub-info-2.4.4-final-20260914.1",
+  "hub_version": "2.4.4",
   "updated_at": "2026-09-14",
   "discord": {
     "enabled": false,
@@ -12,9 +12,22 @@
   "announcement": {
     "enabled": true,
     "title": "$display_version",
-    "content": "Re4Hub 2.4.3 Final khôi phục Bring Mob và Fast Attack theo baseline 2.4.0 đã ổn định, đồng thời giữ các cải tiến độc lập của 2.4.1/2.4.2."
+    "content": "Re4Hub 2.4.4 Final sửa Auto Farm Level bị treo im lặng và khôi phục chuyển mục tiêu/di chuyển đúng sang mob kế tiếp, đồng thời giữ nguyên Bring/Fast Attack baseline ổn định của 2.4.0."
   },
   "changelog": [
+    {
+      "version": "2.4.4",
+      "date": "$updated_at",
+      "title": "Re4Hub 2.4.4 Final",
+      "changes": [
+        "Sửa Auto Farm Level có thể trở thành toggle ảo khi quest UI biến mất hoặc khi NPC/mob ở vùng level mới chưa stream: quest identity không còn bị phụ thuộc vào việc cả hai vị trí phải resolve cùng lúc.",
+        "Tách quest metadata khỏi routing evidence; static data chỉ được dùng làm gợi ý di chuyển tới khu vực, còn StartQuest vẫn chỉ được gửi khi vị trí NPC live được xác nhận.",
+        "Sửa CombatTargetLock giữ anchor của mob cũ sau khi target chết; target thay thế giờ nhận anchor mới và cụm Bring cũ được release/rebuild đúng owner.",
+        "Sửa trường hợp mob live bị server correction/giữ ở vị trí khác anchor: nếu lệch ngoài vùng tương tác chiến đấu, player theo root live thay vì tiếp tục đứng tại điểm cũ.",
+        "Bổ sung trạng thái Auto Farm trực quan cho chờ quest UI, chờ NPC live, làm mới dữ liệu quest và route chưa sẵn sàng; không còn nhánh idle im lặng.",
+        "Giữ nguyên BringService và Fast Attack transport theo baseline 2.4.0/2.4.3 để không tái đưa regression damage của 2.4.2."
+      ]
+    },
     {
       "version": "2.4.3",
       "date": "$updated_at",

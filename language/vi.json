@@ -2,8 +2,8 @@
   "_meta": {
     "code": "vi",
     "name": "Tiếng Việt",
-    "version": "2.4.3",
-    "revision": "language-2.4.3-final-20260914.1"
+    "version": "2.4.4",
+    "revision": "language-2.4.4-final-20260914.1"
   },
   "nav": {
     "home": "Trang chủ",
@@ -353,7 +353,12 @@
     "race_draco_v2_turnin": "Đang giao Draco V2 cho Dragon Wizard",
     "race_draco_v3_begin": "Đang bắt đầu Draco V3 với Dragon Wizard",
     "race_draco_v3_terror_shark": "Đang săn Terrorshark cho Draco V3",
-    "race_draco_v3_turnin": "Đang giao Draco V3 cho Dragon Wizard"
+    "race_draco_v3_turnin": "Đang giao Draco V3 cho Dragon Wizard",
+    "farm_level_route_unavailable": "Đang chờ xác định tuyến đường farm.",
+    "farm_level_getting_quest": "Đang nhận nhiệm vụ cho {quest}.",
+    "farm_level_waiting_live_npc": "Đã tới khu vực nhiệm vụ · đang chờ NPC của {quest}.",
+    "farm_level_waiting_quest_ui": "Đang chờ giao diện nhiệm vụ sẵn sàng.",
+    "farm_level_quest_data_waiting": "Đang làm mới dữ liệu nhiệm vụ và mục tiêu."
   },
   "settings": {
     "interface": "Giao diện",

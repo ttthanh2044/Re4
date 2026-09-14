@@ -2,8 +2,8 @@
   "_meta": {
     "code": "id",
     "name": "Bahasa Indonesia",
-    "version": "2.4.3",
-    "revision": "language-2.4.3-final-20260914.1"
+    "version": "2.4.4",
+    "revision": "language-2.4.4-final-20260914.1"
   },
   "nav": {
     "home": "Beranda",
@@ -353,7 +353,12 @@
     "race_draco_v2_turnin": "Menyerahkan Draco V2 ke Dragon Wizard",
     "race_draco_v3_begin": "Memulai Draco V3 dengan Dragon Wizard",
     "race_draco_v3_terror_shark": "Memburu Terrorshark untuk Draco V3",
-    "race_draco_v3_turnin": "Menyerahkan Draco V3 ke Dragon Wizard"
+    "race_draco_v3_turnin": "Menyerahkan Draco V3 ke Dragon Wizard",
+    "farm_level_route_unavailable": "Menunggu rute farm tersedia.",
+    "farm_level_getting_quest": "Mengambil quest untuk {quest}.",
+    "farm_level_waiting_live_npc": "Sudah di area quest · menunggu NPC {quest}.",
+    "farm_level_waiting_quest_ui": "Menunggu antarmuka quest siap.",
+    "farm_level_quest_data_waiting": "Memperbarui data quest dan target."
   },
   "settings": {
     "interface": "Antarmuka",

@@ -2,8 +2,8 @@
   "_meta": {
     "code": "th",
     "name": "ไทย",
-    "version": "2.4.3",
-    "revision": "language-2.4.3-final-20260914.1"
+    "version": "2.4.4",
+    "revision": "language-2.4.4-final-20260914.1"
   },
   "nav": {
     "home": "หน้าหลัก",
@@ -353,7 +353,12 @@
     "race_draco_v2_turnin": "กำลังส่ง Draco V2 ให้ Dragon Wizard",
     "race_draco_v3_begin": "กำลังเริ่ม Draco V3 กับ Dragon Wizard",
     "race_draco_v3_terror_shark": "กำลังล่า Terrorshark สำหรับ Draco V3",
-    "race_draco_v3_turnin": "กำลังส่ง Draco V3 ให้ Dragon Wizard"
+    "race_draco_v3_turnin": "กำลังส่ง Draco V3 ให้ Dragon Wizard",
+    "farm_level_route_unavailable": "กำลังรอเส้นทางฟาร์มพร้อมใช้งาน",
+    "farm_level_getting_quest": "กำลังรับเควสต์สำหรับ {quest}",
+    "farm_level_waiting_live_npc": "ถึงพื้นที่เควสต์แล้ว · กำลังรอ NPC ของ {quest}",
+    "farm_level_waiting_quest_ui": "กำลังรอหน้าต่างเควสต์พร้อมใช้งาน",
+    "farm_level_quest_data_waiting": "กำลังรีเฟรชข้อมูลเควสต์และเป้าหมาย"
   },
   "settings": {
     "interface": "อินเทอร์เฟซ",
